@@ -19,4 +19,6 @@
     <string name="btn_test_green_dao">GreenDao</string>
     <string name="test">测试</string>
     <string name="title_green_dao">GreenDao</string>
+    <string name="btn_test_room">ROOM</string>
+    <string name="title_room">Room</string>
 </resources>

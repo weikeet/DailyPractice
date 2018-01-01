@@ -14,6 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.weicools.daily.practice.greenDao.GreenDaoActivity;
+import io.weicools.daily.practice.room.RoomActivity;
 
 
 /**
@@ -28,6 +29,8 @@ public class Card1Fragment extends Fragment implements View.OnClickListener {
     @BindView(R.id.btn_test_green_dao)
     Button mBtnTestGreenDao;
     Unbinder unbinder;
+    @BindView(R.id.btn_test_room)
+    Button mBtnTestRoom;
 
     private String mParam1;
     private String mParam2;
@@ -76,6 +79,7 @@ public class Card1Fragment extends Fragment implements View.OnClickListener {
         super.onActivityCreated(savedInstanceState);
 
         mBtnTestGreenDao.setOnClickListener(this);
+        mBtnTestRoom.setOnClickListener(this);
     }
 
     @Override
@@ -83,9 +87,12 @@ public class Card1Fragment extends Fragment implements View.OnClickListener {
         Intent intent = new Intent();
         switch (view.getId()) {
             case R.id.btn_test_green_dao:
-                 intent.setClass(getContext(), GreenDaoActivity.class);
-                 startActivity(intent);
+                intent.setClass(getContext(), GreenDaoActivity.class);
+                startActivity(intent);
                 break;
+            case R.id.btn_test_room:
+                intent.setClass(getContext(), RoomActivity.class);
+                startActivity(intent);
             default:
                 break;
         }

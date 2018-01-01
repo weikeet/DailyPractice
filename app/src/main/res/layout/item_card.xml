@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="19dp"
+        android:scaleType="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_launcher_round"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="16dp"
+        android:singleLine="true"
+        android:textColor="#333333"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/iv_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="conversationItem name" />
+
+    <TextView
+        android:id="@+id/tv_last_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:textColor="#999999"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="last time" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="2dp"
+        android:ellipsize="end"
+        android:lineSpacingMultiplier="1.2"
+        android:maxLines="2"
+        android:textColor="#88000000"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        tools:text="last sms msg" />
+
+</android.support.constraint.ConstraintLayout>

@@ -25,7 +25,9 @@
         <activity
             android:name=".greenDao.GreenDaoActivity"
             android:label="@string/title_green_dao" />
-        <activity android:name=".room.RoomActivity"></activity>
+        <activity
+            android:name=".room.RoomActivity"
+            android:label="@string/title_room" />
     </application>
 
 </manifest>

@@ -25,13 +25,13 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/btn_dialog_02"
+            android:id="@+id/btn_test_room"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/btn_margin"
             android:backgroundTint="#E91E63"
             android:padding="@dimen/btn_padding"
-            android:text="@string/test"
+            android:text="@string/btn_test_room"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
