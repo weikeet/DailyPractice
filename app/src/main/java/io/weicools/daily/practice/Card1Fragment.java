@@ -1,11 +1,19 @@
 package io.weicools.daily.practice;
 
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+import io.weicools.daily.practice.greenDao.GreenDaoActivity;
 
 
 /**
@@ -13,9 +21,13 @@ import android.view.ViewGroup;
  * Use the {@link Card1Fragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class Card1Fragment extends Fragment {
+public class Card1Fragment extends Fragment implements View.OnClickListener {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    @BindView(R.id.btn_test_green_dao)
+    Button mBtnTestGreenDao;
+    Unbinder unbinder;
 
     private String mParam1;
     private String mParam2;
@@ -53,6 +65,35 @@ public class Card1Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_card1, container, false);
+        View view = inflater.inflate(R.layout.fragment_card1, container, false);
+        unbinder = ButterKnife.bind(this, view);
+
+        return view;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+        mBtnTestGreenDao.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent = new Intent();
+        switch (view.getId()) {
+            case R.id.btn_test_green_dao:
+                 intent.setClass(getContext(), GreenDaoActivity.class);
+                 startActivity(intent);
+                break;
+            default:
+                break;
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
     }
 }
