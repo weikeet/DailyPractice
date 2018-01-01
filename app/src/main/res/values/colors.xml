@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#577D8A</color>
+    <color name="colorPrimaryDark">#3F5A63</color>
+    <color name="colorAccent">#FFC548</color>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="gray">#999999</color>
+    <color name="gray_light">#CCCCCC</color>
+    <color name="gray_very_light">#E0E0E0</color>
+    <color name="gray_deep">#666666</color>
+    <color name="black_overlay">#66000000</color>
+    <color name="activity_background">#EEEEEE</color>
+    <color name="transparent">#00000000</color>
+    <color name="main_background">#EEEEEE</color>
+    <color name="google_assistant_background">#F5F5F5</color>
+
+    <!-- CoolApk Color -->
+    <color name="酷安绿_chateau_green">#44AF57</color>
+    <color name="姨妈红_valencia">#DE443A</color>
+    <color name="哔哩粉_light_crimson">#FE7198</color>
+    <color name="颐堤蓝_violet_blue">#3E4FB2</color>
+    <color name="水鸭青_gossamer">#009688</color>
+    <color name="伊藤橙_zest">#DB821D</color>
+    <color name="基佬紫_purple_heart">#6837B3</color>
+    <color name="知乎蓝_dodger_blue">#0F94EF</color>
+    <color name="古铜棕_roman_coffee">#7A5549</color>
+    <color name="低调灰_hoki">#5F7D8A</color>
+    <color name="今夜白_alto">#D9D9D9</color>
+    <color name="高端黑_black">#212121</color>
+    <color name="A屏黑_mine_shaft">#333333</color>
+
+    <!-- Material Design Color - Color palette -->
+    <color name="red_primary">#F44336</color>
+    <color name="red_primary_dark">#D32F2F</color>
+    <color name="pink_primary">#E91E63</color>
+    <color name="pink_primary_dark">#C2185B</color>
+    <color name="purple_primary">#9C27B0</color>
+    <color name="purple_primary_dark">#7B1FA2</color>
+    <color name="deep_purple_primary">#673AB7</color>
+    <color name="deep_purple_primary_dark">#512DA8</color>
+    <color name="indigo_primary">#3F51B5</color>
+    <color name="indigo_primary_dark">#303F9F</color>
+    <color name="blue_primary">#2196F3</color>
+    <color name="blue_primary_dark">#1976D2</color>
+    <color name="light_blue_primary">#03A9F4</color>
+    <color name="light_blue_primary_dark">#0288D1</color>
+    <color name="cyan_primary">#00BCD4</color>
+    <color name="cyan_primary_dark">#0097A7</color>
+    <color name="teal_primary">#009688</color>
+    <color name="teal_primary_dark">#00796B</color>
+    <color name="green_primary">#4CAF50</color>
+    <color name="green_primary_dark">#388E3C</color>
+    <color name="light_green_primary">#8BC34A</color>
+    <color name="light_green_primary_dark">#689F38</color>
+    <color name="lime_primary">#CDDC39</color>
+    <color name="lime_primary_dark">#AFB42B</color>
+    <color name="yellow_primary">#FFEB3B</color>
+    <color name="yellow_primary_dark">#FBC02D</color>
+    <color name="amber_primary">#FFC107</color>
+    <color name="amber_primary_dark">#FFA000</color>
+    <color name="orange_primary">#FF9800</color>
+    <color name="orange_primary_dark">#F57C00</color>
+    <color name="deep_orange_primary">#FF5722</color>
+    <color name="deep_orange_primary_dark">#E64A19</color>
+    <color name="brown_primary">#795548</color>
+    <color name="brown_primary_dark">#5D4037</color>
+    <color name="grey_primary">#9E9E9E</color>
+    <color name="grey_primary_dark">#616161</color>
+    <color name="blue_grey_primary">#607D8B</color>
+    <color name="blue_grey_primary_dark">#455A64</color>
+
+    <!-- Google Logo Color -->
+    <color name="google_blue">#4285F4</color>
+    <color name="google_green">#34A853</color>
+    <color name="google_yellow">#FBBC05</color>
+    <color name="google_red">#EA4335</color>
+
+    <!-- Google Apps Color -->
+    <color name="app_blue">#4285F4</color>
+    <color name="app_blue_dark">#3367D6</color>
+    <color name="app_green">#0F9D58</color>
+    <color name="app_green_dark">#0B8043</color>
+    <color name="app_yellow">#F4B400</color>
+    <color name="app_yellow_dark">#F09300</color>
+    <color name="app_red">#DB4437</color>
+
+    <color name="colorPrimary11">#1869E5</color>
+    <color name="colorPrimaryDark11">#0048C9</color>
+    <color name="colorAccent11">#F3BFBF</color>
+    <color name="colorAccentDark11">#C92B2E</color>
+
+    <color name="colorPrimary12">#212121</color>
+    <color name="colorPrimaryDark12">#000000</color>
+    <color name="colorAccent12">#D5D5D5</color>
+    <color name="colorAccentDark12">#737373</color>
+
+    <color name="colorPrimary13">#008BE1</color>
+    <color name="colorPrimaryDark13">#0077CD</color>
+    <color name="colorAccent13">#FFEEC2</color>
+    <color name="colorAccentDark13">#FFC548</color>
+
+    <color name="colorPrimary14">#577D8A</color>
+    <color name="colorPrimaryDark14">#3F5A63</color>
+    <color name="colorAccent14">#DBE3E6</color>
+    <color name="colorAccentDark14">#88A1AA</color>
+
+    <color name="colorPrimary15">#7F544A</color>
+    <color name="colorPrimaryDark15">#624038</color>
+    <color name="colorAccent15">#E5DBD8</color>
+    <color name="colorAccentDark15">#A3857D</color>
+
+    <color name="colorPrimary16">#705C50</color>
+    <color name="colorPrimaryDark16">#534640</color>
+    <color name="colorAccent16">#FACCCB</color>
+    <color name="colorAccentDark16">#E55352</color>
+
+    <color name="colorPrimary17">#6D3BB2</color>
+    <color name="colorPrimaryDark17">#552FA3</color>
+    <color name="colorAccent17">#FFD3E0</color>
+    <color name="colorAccentDark17">#FF6E96</color>
+
+    <color name="colorPrimary18">#9E9E9E</color>
+    <color name="colorPrimaryDar18k">#616161</color>
+    <color name="colorAccent18">#C1E9E6</color>
+    <color name="colorAccentDark18">#00B2A9</color>
+
+    <color name="colorPrimary19">#3852B0</color>
+    <color name="colorPrimaryDark19">#2A409A</color>
+    <color name="colorAccent19">#FFD3E0</color>
+    <color name="colorAccentDark19">#FF6E96</color>
+
+    <color name="colorPrimary20">#FF9633</color>
+    <color name="colorPrimaryDark20">#FF7A2C</color>
+    <color name="colorAccent20">#FFE8CC</color>
+    <color name="colorAccentDark20">#FFB25B</color>
+
+    <color name="colorPrimary21">#FF7099</color>
+    <color name="colorPrimaryDark21">#E75F82</color>
+    <color name="colorAccent21">#FFB8CC</color>
+    <color name="colorAccentDark21">#FFC3D4</color>
+
+    <color name="colorPrimary22">#FF3B82</color>
+    <color name="colorPrimaryDark22">#D40F5B</color>
+    <color name="colorAccent22">#FFEEC2</color>
+    <color name="colorAccentDark22">#FFC549</color>
+
+    <color name="colorPrimary23">#EE403F</color>
+    <color name="colorPrimaryDark23">#D63532</color>
+    <color name="colorAccent23">#FFEEC2</color>
+    <color name="colorAccentDark23">#FFC549</color>
+
+    <color name="colorPrimary24">#009688</color>
+    <color name="colorPrimaryDark24">#00796B</color>
+    <color name="colorAccent24">#FFEBC4</color>
+    <color name="colorAccentDark24">#FFBB49</color>
+
+    <color name="colorPrimary25">#2C2C2C</color>
+    <color name="colorPrimaryDark25">#2C2C2C</color>
+    <color name="colorAccent25">#636363</color>
+    <color name="colorAccentDark25">#D2D2D2</color>
+</resources>
