@@ -67,7 +67,8 @@ public class RoomActivity extends AppCompatActivity {
         dataEntityList.add(dataEntity1);
         dataEntityList.add(dataEntity2);
 
-        mDisposable.add(mViewModel.insertAllCards(dataEntityList).subscribeOn(Schedulers.io())
+        mDisposable.add(mViewModel.insertAllCards(dataEntityList)
+                .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Action() {
                     @Override
@@ -79,7 +80,9 @@ public class RoomActivity extends AppCompatActivity {
 
     @OnClick(R.id.btn_room_query)
     public void queryData() {
-        mDisposable.add(mViewModel.getAllCards().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        mDisposable.add(mViewModel.getAllCards()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<List<CardDataEntity>>() {
                     @Override
                     public void accept(List<CardDataEntity> cardDataEntities) throws Exception {
