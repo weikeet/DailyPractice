@@ -1,4 +1,4 @@
-package io.weicools.daily.practice.room.databse;
+package io.weicools.daily.practice.room.data;
 
 import android.arch.persistence.room.TypeConverter;
 

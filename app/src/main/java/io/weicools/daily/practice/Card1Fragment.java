@@ -14,7 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.weicools.daily.practice.greenDao.GreenDaoActivity;
-import io.weicools.daily.practice.room.RoomActivity;
+import io.weicools.daily.practice.room.ui.RoomActivity;
 
 
 /**

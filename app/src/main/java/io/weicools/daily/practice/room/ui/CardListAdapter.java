@@ -1,7 +1,7 @@
-package io.weicools.daily.practice.room;
+package io.weicools.daily.practice.room.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +11,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import io.weicools.daily.practice.R;
@@ -26,10 +29,15 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
     private LayoutInflater mLayoutInflater;
     private List<CardDataEntity> mDataEntityList;
 
-    public CardListAdapter(Context context, @NonNull List<CardDataEntity> dataList) {
+    public CardListAdapter(Context context) {
         mContext = context;
-        mDataEntityList = dataList;
+        mDataEntityList = new ArrayList<>();
         mLayoutInflater = LayoutInflater.from(context);
+    }
+
+    public void setDataList(List<CardDataEntity> dataList) {
+        mDataEntityList = dataList;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -41,9 +49,13 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
     public void onBindViewHolder(CardViewHolder holder, int position) {
         CardDataEntity dataEntity = mDataEntityList.get(position);
 
+        @SuppressLint("SimpleDateFormat")
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
+        String timeText = sdf.format(new Date(dataEntity.getReceiveTime()));
+
         Glide.with(mContext).load(dataEntity.getLogoAvatar()).fitCenter().into(holder.ivLogo);
         holder.tvTitle.setText(dataEntity.getPhoneNum());
-        //holder.tvLastTime.setText(dataEntity.getReceiveTime());
+        holder.tvLastTime.setText(timeText);
         holder.tvContent.setText(dataEntity.getContent());
     }
 

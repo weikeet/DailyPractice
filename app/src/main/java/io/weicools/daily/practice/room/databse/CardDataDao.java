@@ -21,46 +21,23 @@ import io.weicools.daily.practice.room.data.CardDataEntity;
 @Dao
 public interface CardDataDao {
     @Query("SELECT * FROM card_data")
-    List<CardDataEntity> queryAllData();
+    Flowable<List<CardDataEntity>> getAllCards();
 
-//    @Query("SELECT * FROM card_data WHERE timestamp BETWEEN (:timestamp - 24*60*60*1000 + 1) AND :timestamp ORDER BY timestamp ASC")
-//    List<CardDataEntity> queryAllByDate(long timestamp);
-
-    @Query("SELECT * FROM card_data WHERE id = :id")
-    CardDataEntity queryItemById(int id);
-
-//    @Query("SELECT * FROM card_data WHERE favorite = 1")
-//    List<CardDataEntity> queryAllFavorites();
+    @Query("SELECT * FROM card_data WHERE phone_num = :num")
+    Flowable<CardDataEntity> getCardByNum(String num);
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    void insertAll(List<CardDataEntity> items);
+    void insertAllCards(List<CardDataEntity> items);
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    void insertCard(CardDataEntity item);
 
     @Update
-    void update(CardDataEntity item);
+    void updateCard(CardDataEntity item);
 
     @Delete
-    void delete(CardDataEntity item);
+    void deleteCard(CardDataEntity item);
 
-    /**
-     * Get the user from the table. Since for simplicity we only have one user in the database,
-     * this query gets all users from the table, but limits the result to just the 1st user.
-     *
-     * @return the user from the table
-     */
-    @Query("SELECT * FROM card_data")
-    Flowable<CardDataEntity> getCardData();
-
-    /**
-     * Insert a user in the database. If the user already exists, replace it.
-     *
-     * @param user the user to be inserted.
-     */
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertCard(CardDataEntity user);
-
-    /**
-     * Delete all users.
-     */
-    @Query("DELETE FROM Users")
-    void deleteAllCard();
+    @Query("DELETE FROM card_data")
+    void deleteAllCards();
 }
