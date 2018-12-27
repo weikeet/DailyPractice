@@ -1,1 +1,1 @@
-include ':app', ':SPAnalyze'
+include ':app', ':SPAnalyze', ':TextViews'
