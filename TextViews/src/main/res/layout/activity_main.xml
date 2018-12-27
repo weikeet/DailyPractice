@@ -5,30 +5,65 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:orientation="vertical">
+  android:orientation="vertical"
+  tools:ignore="HardcodedText">
   
   <TextView
     android:id="@+id/title1"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
     android:gravity="center"
-    android:text="Hello World!123"
+    android:text="字体：Hello World! 123"
     android:textSize="16sp" />
   <!--android:fontFamily="@font/nasalization_rg"-->
   
   <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
     android:fontFamily="@font/dincond_medium"
     android:gravity="center"
-    android:text="Hello World!234"
+    android:text="字体：Hello World! 234"
     android:textSize="16sp" />
   
   <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
     android:fontFamily="@font/century_gothic"
     android:gravity="center"
-    android:text="Hello World!345"
+    android:text="字体：Hello World! 345"
+    android:textSize="16sp" />
+  
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="32dp"
+    android:layout_marginTop="8dp"
+    android:gravity="center"
+    android:text="AutosSze：Hello World! 345"
+    android:textSize="16sp"
+    app:autoSizeTextType="uniform" />
+  
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="32dp"
+    android:layout_marginTop="8dp"
+    android:gravity="center"
+    android:text="AutosSze：Hello World! 345"
+    android:textSize="16sp"
+    app:autoSizeMaxTextSize="18sp"
+    app:autoSizeMinTextSize="10sp"
+    app:autoSizeStepGranularity="2sp"
+    app:autoSizeTextType="uniform" />
+  
+  <TextView
+    android:layout_width="match_parent"
+    android:layout_height="64dp"
+    android:layout_marginTop="8dp"
+    android:gravity="center"
+    app:autoSizeTextType="uniform"
+    app:autoSizePresetSizes="@array/auto_size_text_sizes"
+    android:text="AutosSze：Hello World! 345"
     android:textSize="16sp" />
 </LinearLayout>
