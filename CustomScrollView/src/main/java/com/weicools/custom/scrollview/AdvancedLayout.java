@@ -44,13 +44,9 @@ public class AdvancedLayout extends LinearLayout {
   }
 
   @Override
-  protected void onLayout (boolean changed, int l, int t, int r, int b) {
-    super.onLayout(changed, l, t, r, b);
-  }
-
-  @Override
   public boolean onTouchEvent (MotionEvent event) {
     int y = (int) event.getY();
+    int top = getTop();
     switch (event.getAction()) {
       case MotionEvent.ACTION_DOWN:
         lastY = y;
@@ -59,8 +55,9 @@ public class AdvancedLayout extends LinearLayout {
         break;
       case MotionEvent.ACTION_MOVE:
         int offsetY = y - lastY;
-        Log.e(TAG, "onTouchEvent: offset--" + offsetY);
-        layout(getLeft(), getTop() + offsetY, getRight(), getBottom() + offsetY);
+        if ((top < range && top > 0) || (top <= 0 && offsetY > 0) || (top >= range && offsetY < y)) {
+          layout(getLeft(), getTop() + offsetY, getRight(), getBottom() + offsetY);
+        }
         //offsetTopAndBottom(offsetY);
         break;
       case MotionEvent.ACTION_UP:
@@ -76,7 +73,7 @@ public class AdvancedLayout extends LinearLayout {
             expended(range - offset, currLeft, currTop, currRight, currBottom);
           }
         } else {
-          if (offset < range/2) {
+          if (offset < range / 2) {
             expended(offset, currLeft, currTop, currRight, currBottom);
           } else {
             collapsed(range - offset, currLeft, currTop, currRight, currBottom);
