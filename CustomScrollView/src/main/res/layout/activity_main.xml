@@ -6,14 +6,14 @@
   android:layout_height="match_parent"
   tools:context=".MainActivity">
   <Button
-    android:id="@+id/btn"
+    android:id="@+id/btn_scroll"
     android:layout_width="100dp"
     android:layout_height="60dp"
     android:layout_gravity="center"
     android:text="Scroll" />
   
-  <com.weicools.custom.scrollview.AdvancedLayout
-    android:id="@+id/ll"
+  <com.weicools.custom.scrollview.AdvancedPageLayout
+    android:id="@+id/advanced_page_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorAccent"
