@@ -6,6 +6,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.Resources;
 import android.support.annotation.Nullable;
+import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -134,7 +135,7 @@ public class AdvancedPageLayout extends LinearLayout {
         mListener.onPanelCollapsed();
       }
     });
-    animator.setDuration(500);
+    animator.setDuration(500).setInterpolator(new FastOutSlowInInterpolator());
     animator.start();
   }
 
@@ -142,7 +143,7 @@ public class AdvancedPageLayout extends LinearLayout {
     Log.e(TAG, "expended: start--" + d);
     if (d == 0) {
       mListener.onPanelSliding(1);
-      mListener.onPanelCollapsed();
+      mListener.onPanelExpanded();
       return;
     }
     isStartAnim = true;
@@ -164,7 +165,7 @@ public class AdvancedPageLayout extends LinearLayout {
         mListener.onPanelExpanded();
       }
     });
-    animator.setDuration(500);
+    animator.setDuration(500).setInterpolator(new FastOutSlowInInterpolator());
     animator.start();
   }
 
