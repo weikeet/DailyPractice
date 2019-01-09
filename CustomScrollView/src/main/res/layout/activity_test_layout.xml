@@ -1,18 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<com.weicools.custom.scrollview.widget.LLayout
+  android:id="@+id/ll"
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:orientation="vertical"
   tools:context=".TestLayoutActivity">
   
-  <LinearLayout
-    android:id="@+id/ll_test"
+  <com.weicools.custom.scrollview.widget.TView1
+    android:id="@+id/tv1"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="XXX"
+    android:textSize="32sp" />
+  <com.weicools.custom.scrollview.widget.TView2
+    android:id="@+id/tv2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="YYY"
+    android:textSize="32sp" />
+  <Button
+    android:id="@+id/btn"
+    android:text="change color"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorAccent"
-    android:orientation="vertical">
-  
-  </LinearLayout>
+    android:layout_height="wrap_content" />
 
-</FrameLayout>
+</com.weicools.custom.scrollview.widget.LLayout>

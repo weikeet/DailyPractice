@@ -1,26 +1,33 @@
 package com.weicools.custom.scrollview;
 
-import android.content.res.Resources;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.view.View;
+import com.weicools.custom.scrollview.widget.LLayout;
+import com.weicools.custom.scrollview.widget.TView1;
+import com.weicools.custom.scrollview.widget.TView2;
 
 public class TestLayoutActivity extends AppCompatActivity {
+  private LLayout ll;
+  private TView1 tv1;
+  private TView2 tv2;
 
   @Override
   protected void onCreate (Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_test_layout);
 
-    LinearLayout ll = findViewById(R.id.ll_test);
-    FrameLayout.LayoutParams lp = new FrameLayout.LayoutParams(ll.getLayoutParams());
-    //lp.
-    int mPanelCollapsedHeight = getResources().getDimensionPixelSize(R.dimen.advanced_page_top_layout_height);
-    int mPanelExpendedHeight = Resources.getSystem().getDisplayMetrics().heightPixels;
-    int range = mPanelExpendedHeight - mPanelCollapsedHeight;
+    ll = findViewById(R.id.ll);
+    tv1 = findViewById(R.id.tv1);
+    tv2 = findViewById(R.id.tv2);
 
-    ll.layout(ll.getLeft(), range, ll.getRight(), range + mPanelExpendedHeight);
+    findViewById(R.id.btn).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick (View v) {
+        tv1.setTextColor(ContextCompat.getColor(TestLayoutActivity.this, R.color.colorAccent));
+        tv2.setTextColor(ContextCompat.getColor(TestLayoutActivity.this, R.color.colorPrimary));
+      }
+    });
   }
 }
