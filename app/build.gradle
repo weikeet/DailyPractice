@@ -28,30 +28,30 @@ android {
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-  implementation rootProject.ext.dependencies["design"]
-  implementation rootProject.ext.dependencies["support-v4"]
-  implementation rootProject.ext.dependencies["cardview-v7"]
-  implementation rootProject.ext.dependencies["appcompat-v7"]
-  implementation rootProject.ext.dependencies["constraint-layout"]
+  implementation rootProject.ext.deps["Design"]
+  implementation rootProject.ext.deps["SupportV4"]
+  implementation rootProject.ext.deps["CardViewV7"]
+  implementation rootProject.ext.deps["AppcompatV7"]
+  implementation rootProject.ext.deps["ConstraintLayout"]
 
-  implementation rootProject.ext.dependencies["rxjava2"]
-  implementation rootProject.ext.dependencies["rxandroid2"]
+  implementation rootProject.ext.deps["RxJava2"]
+  implementation rootProject.ext.deps["RxAndroid2"]
 
-  implementation rootProject.ext.dependencies["retrofit-converter-gson"]
-  implementation rootProject.ext.dependencies["retrofit-adapter-rxjava2"]
+  implementation rootProject.ext.deps["RetrofitConverterGson"]
+  implementation rootProject.ext.deps["RetrofitAdapterRxJava2"]
 
-  implementation rootProject.ext.dependencies["gson"]
+  implementation rootProject.ext.deps["Gson"]
 
-  implementation rootProject.ext.dependencies["butterknife"]
-  annotationProcessor rootProject.ext.dependencies["butterknife-compiler"]
+  implementation rootProject.ext.deps["ButterKnife"]
+  annotationProcessor rootProject.ext.deps["ButterKnifeCompiler"]
 
-  implementation rootProject.ext.dependencies["glide"]
-  annotationProcessor rootProject.ext.dependencies["glide-compiler"]
+  implementation rootProject.ext.deps["Glide"]
+  annotationProcessor rootProject.ext.deps["GlideCompiler"]
 
-  implementation rootProject.ext.dependencies["room-runtime"]
-  implementation rootProject.ext.dependencies["room-rxjava2"]
-  annotationProcessor rootProject.ext.dependencies["room-compiler"]
-  implementation rootProject.ext.dependencies["lifecycle-runtime"]
-  implementation rootProject.ext.dependencies["lifecycle-extensions"]
-  annotationProcessor rootProject.ext.dependencies["lifecycle-compiler"]
+  implementation rootProject.ext.deps["RoomRuntime"]
+  implementation rootProject.ext.deps["RoomRxJava2"]
+  annotationProcessor rootProject.ext.deps["RoomCompiler"]
+  implementation rootProject.ext.deps["LifecycleRuntime"]
+  implementation rootProject.ext.deps["LifecycleExtensions"]
+  annotationProcessor rootProject.ext.deps["LifecycleCompiler"]
 }
