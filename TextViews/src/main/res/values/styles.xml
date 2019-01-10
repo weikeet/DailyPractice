@@ -7,5 +7,9 @@
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
   </style>
-
+  
+  <style name="ClickToast" parent="@android:style/Animation.Toast">
+    <item name="android:windowEnterAnimation">@anim/anim_clicktoast_in</item>
+    <item name="android:windowExitAnimation">@anim/anim_clicktoast_out</item>
+  </style>
 </resources>
