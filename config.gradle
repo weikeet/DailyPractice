@@ -10,7 +10,7 @@ ext {
              retrofitVersion    : "2.4.0",
              dagger2Version     : "2.19",
              glideVersion       : "4.8.0",
-             butterknifeVersion : "8.8.1",
+             butterknifeVersion : "10.0.0",
              rxlifecycleVersion : "1.0",
              rxlifecycle2Version: "2.2.2",
              espressoVersion    : "3.0.1",
@@ -24,9 +24,18 @@ ext {
           "Design"                 : "com.android.support:design:${version["supportVersion"]}",
           "SupportV4"              : "com.android.support:support-v4:${version["supportVersion"]}",
           "CardViewV7"             : "com.android.support:cardview-v7:${version["supportVersion"]}",
+          "CustomTabs"             : "com.android.support:customtabs:${version["supportVersion"]}",
           "Annotations"            : "com.android.support:support-annotations:${version["supportVersion"]}",
           "RecyclerViewV7"         : "com.android.support:recyclerview-v7:${version["supportVersion"]}",
           "ConstraintLayout"       : "com.android.support.constraint:constraint-layout:1.1.3",
+
+          //AndroidXSupport
+          "XMaterialDesign"        : "com.google.android.material:material:${version["supportXVersion"]}",
+          "XAppcompat"             : "androidx.appcompat:appcompat:${version["supportXVersion"]}",
+          "XSupportV4"             : "androidx.legacy:legacy-support-v4:${version["supportXVersion"]}",
+          "XCardView"              : "androidx.cardview:cardview:${version["supportXVersion"]}",
+          "XCustomTabs"            : "androidx.browser:browser:${version["supportXVersion"]}",
+          "xConstraintLayout"      : 'androidx.constraintlayout:constraintlayout:1.1.2',
 
           //JetPack
           "LifecycleRuntime"       : "android.arch.lifecycle:runtime:${version["jetpackVersion"]}",
@@ -54,6 +63,7 @@ ext {
           "RxCache2"               : "com.github.VictorAlbertos.RxCache:runtime:1.8.3-2.x",
           "RxPermissions2"         : "com.github.tbruyelle:rxpermissions:0.10.2",
           "RxErrorHandler2"        : "me.jessyan:rxerrorhandler:2.1.1",
+          "RxDownload"             : "zlc.season:rxdownload3:1.2.7",
 
           //ImageLoader
           "Glide"                  : "com.github.bumptech.glide:glide:${version["glideVersion"]}",
@@ -62,19 +72,27 @@ ext {
           "Picasso"                : "com.squareup.picasso:picasso:2.5.2",
           "Fresco"                 : "com.facebook.fresco:fresco:1.10.0",
 
-          //View
+          //ScreenAdaptation
           "AutoSize"               : "me.jessyan:autosize:1.1.1",
           "AutoLayout"             : "com.zhy:autolayout:1.4.5",
-          "ButterKnife"            : "com.jakewharton:butterknife:${version["butterknifeVersion"]}",
-          "ButterKnifeCompiler"    : "com.jakewharton:butterknife-compiler:${version["butterknifeVersion"]}",
-          "AndroidPickerView"      : "com.contrarywind:Android-PickerView:3.2.5",
+
+          //CustomView
           "PhotoView"              : "com.github.chrisbanes.photoview:library:1.2.3",
+          "CircularImageView"      : "com.mikhaellopez:circularimageview:3.2.0",
+          "AndroidPickerView"      : "com.contrarywind:Android-PickerView:3.2.5",
           "NumberProgressbar"      : "com.daimajia.numberprogressbar:library:1.2@aar",
+          "Nachos"                 : "com.hootsuite.android:nachos:1.1.1",
           "VLayout"                : "com.alibaba.android:vlayout:1.1.0@aar",
+          "FlowLayout"             : "com.nex3z:flow-layout:1.2.4",
           "MPAndroidChart"         : "com.github.PhilJay:MPAndroidChart:v3.0.3",
+          "AhBottomNavigation"     : "com.aurelhubert:ahbottomnavigation:2.3.4",
+          "MaterialChipsInput"     : "com.github.pchmn:MaterialChipsInput:1.0.8",
           "MaterialAboutLibrary"   : "com.github.daniel-stoneuk:material-about-library:2.3.0",
+          "MaterialDateTimePicker" : "com.wdullaer:materialdatetimepicker:4.1.0",
 
           //Tools
+          "ButterKnife"            : "com.jakewharton:butterknife:${version["butterknifeVersion"]}",
+          "ButterKnifeCompiler"    : "com.jakewharton:butterknife-compiler:${version["butterknifeVersion"]}",
           "Dagger2"                : "com.google.dagger:dagger:${version["dagger2Version"]}",
           "Dagger2Android"         : "com.google.dagger:dagger-android:${version["dagger2Version"]}",
           "Dagger2Compiler"        : "com.google.dagger:dagger-compiler:${version["dagger2Version"]}",
@@ -103,8 +121,8 @@ ext {
 
           //Test
           "JUnit"                  : "junit:junit:4.12",
-          "AndroidJUnitRunner"     : "android.support.test.runner.AndroidJUnitRunner",
           "Runner"                 : "com.android.support.test:runner:1.0.1",
+          "AndroidJUnitRunner"     : "android.support.test.runner.AndroidJUnitRunner",
           "EspressoCore"           : "com.android.support.test.espresso:espresso-core:${version["espressoVersion"]}",
           "EspressoContrib"        : "com.android.support.test.espresso:espresso-contrib:${version["espressoVersion"]}",
           "EspressoIntents"        : "com.android.support.test.espresso:espresso-intents:${version["espressoVersion"]}",

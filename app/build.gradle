@@ -41,6 +41,7 @@ dependencies {
   implementation rootProject.ext.deps["RetrofitAdapterRxJava2"]
 
   implementation rootProject.ext.deps["Gson"]
+  implementation rootProject.ext.deps["GreenDao"]
 
   implementation rootProject.ext.deps["ButterKnife"]
   annotationProcessor rootProject.ext.deps["ButterKnifeCompiler"]
@@ -54,4 +55,7 @@ dependencies {
   implementation rootProject.ext.deps["LifecycleRuntime"]
   implementation rootProject.ext.deps["LifecycleExtensions"]
   annotationProcessor rootProject.ext.deps["LifecycleCompiler"]
+
+  debugImplementation 'me.ele:uetool:1.0.15'
+  releaseImplementation 'me.ele:uetool-no-op:1.0.15'
 }

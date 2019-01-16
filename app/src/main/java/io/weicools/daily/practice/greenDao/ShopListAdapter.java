@@ -45,7 +45,7 @@ public class ShopListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (holder instanceof ShopViewHolder) {
             ShopViewHolder shopViewHolder = (ShopViewHolder) holder;
             Shop shop = mShopList.get(position);
-            Glide.with(mContext).load(shop.getImage_url()).fitCenter().into(shopViewHolder.iv_shop);
+            Glide.with(mContext).load(shop.getImage_url()).into(shopViewHolder.iv_shop);
             shopViewHolder.tv_name.setText(shop.getName());
             shopViewHolder.tv_price.setText(shop.getPrice() + "");
             shopViewHolder.tv_price_discount.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);

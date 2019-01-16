@@ -53,7 +53,7 @@ public class CardListAdapter extends RecyclerView.Adapter<CardListAdapter.CardVi
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy年MM月dd日 HH:mm:ss");
         String timeText = sdf.format(new Date(dataEntity.getReceiveTime()));
 
-        Glide.with(mContext).load(dataEntity.getLogoAvatar()).fitCenter().into(holder.ivLogo);
+        Glide.with(mContext).load(dataEntity.getLogoAvatar()).into(holder.ivLogo);
         holder.tvTitle.setText(dataEntity.getPhoneNum());
         holder.tvLastTime.setText(timeText);
         holder.tvContent.setText(dataEntity.getContent());
