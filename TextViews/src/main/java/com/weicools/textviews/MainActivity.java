@@ -1,10 +1,9 @@
 package com.weicools.textviews;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,16 +22,15 @@ public class MainActivity extends AppCompatActivity {
     TextView textView = findViewById(R.id.title1);
     textView.setTypeface(ResourcesCompat.getFont(this, R.font.nasalization_rg));
 
-    textView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick (View v) {
-        //"android.settings.USAGE_ACCESS_SETTINGS"
-        Intent intent = new Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS);
-        startActivityForResult(intent, CODE_X);
+    textView.setOnClickListener(this::handle);
 
-        showToast(Toast.LENGTH_LONG);
-      }
-    });
+    Log.e("StringFormat", getString(R.string.height1, 180f));
+    Log.e("StringFormat", "onCreate: " + getString(R.string.height2, 180));
+    Log.e("StringFormat", "onCreate: " + getString(R.string.height3, 180f));
+    Log.e("StringFormat", "onCreate: " + getString(R.string.height4, 180));
+  }
+
+  private void handle(View v) {
   }
 
   public void showToast (int duration) {
