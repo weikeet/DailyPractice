@@ -10299,18 +10299,6 @@
 											}
 										},
 										{
-											"_type": "UMLNoteView",
-											"_id": "AAAAAAFocC24EGCsbmg=",
-											"_parent": {
-												"$ref": "AAAAAAFocB3o7FyD/+0="
-											},
-											"font": "Arial;13;0",
-											"left": 864,
-											"top": 280,
-											"width": 70,
-											"height": 40
-										},
-										{
 											"_type": "UMLSeqMessageView",
 											"_id": "AAAAAAFocMpKJGCxZVo=",
 											"_parent": {
@@ -12388,7 +12376,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 331,
-											"top": 776,
+											"top": 736,
 											"width": 273.3349609375,
 											"height": 66,
 											"text": "awaitCommit.run();\n                        QueuedWork.removeFinisher(awaitCommit)"
@@ -12738,22 +12726,6 @@
 											"width": 228,
 											"height": 55,
 											"text": "备份\n写入磁盘，清理备份，记录时间\n处理失败情况"
-										},
-										{
-											"_type": "UMLNoteLinkView",
-											"_id": "AAAAAAFofpgLvayGn6A=",
-											"_parent": {
-												"$ref": "AAAAAAFocMqr4WDIU1o="
-											},
-											"font": "Arial;13;0",
-											"head": {
-												"$ref": "AAAAAAFofoQvpqwwybY="
-											},
-											"tail": {
-												"$ref": "AAAAAAFofoJ+x6wb39A="
-											},
-											"lineStyle": 1,
-											"points": "423:682;455:775"
 										},
 										{
 											"_type": "UMLNoteLinkView",
