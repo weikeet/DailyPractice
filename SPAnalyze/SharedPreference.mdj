@@ -11622,6 +11622,8 @@
 													"model": {
 														"$ref": "AAAAAAFofndCbqtftQ8="
 													},
+													"fillColor": "#a00000",
+													"fontColor": "#ff0000",
 													"font": "Arial;13;0",
 													"left": 653,
 													"top": 224,
@@ -11844,6 +11846,7 @@
 													"model": {
 														"$ref": "AAAAAAFofn0F3quPLe8="
 													},
+													"fontColor": "#ff2b2b",
 													"font": "Arial;13;0",
 													"left": 943,
 													"top": 326,
@@ -11955,6 +11958,7 @@
 													"model": {
 														"$ref": "AAAAAAFofn1FCaumKag="
 													},
+													"fontColor": "#ff5656",
 													"font": "Arial;13;0",
 													"left": 874,
 													"top": 371,
@@ -12523,6 +12527,7 @@
 													"model": {
 														"$ref": "AAAAAAFofofJSKw1Nro="
 													},
+													"fontColor": "#ff5656",
 													"font": "Arial;13;0",
 													"left": 933,
 													"top": 621,
@@ -12594,6 +12599,8 @@
 													"height": 83
 												}
 											],
+											"fillColor": "#ff5656",
+											"fontColor": "#ff5656",
 											"font": "Arial;13;0",
 											"head": {
 												"$ref": "AAAAAAFocMvJ1WFEMUE="
@@ -12634,6 +12641,7 @@
 													"model": {
 														"$ref": "AAAAAAFofop3Y6xNufk="
 													},
+													"fontColor": "#ff5656",
 													"font": "Arial;13;0",
 													"left": 871,
 													"top": 651,
