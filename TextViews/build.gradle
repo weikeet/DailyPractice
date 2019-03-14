@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 28
+  compileSdkVersion Versions.compileSdk
   defaultConfig {
     applicationId "com.weicools.textviews"
-    minSdkVersion 16
-    targetSdkVersion 28
-    versionCode 1
-    versionName "1.0"
+    minSdkVersion Versions.minSdk
+    targetSdkVersion Versions.targetSdk
+    versionCode Versions.versionCode
+    versionName Versions.versionName
   }
 
   buildTypes {
@@ -26,9 +26,9 @@ android {
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-  implementation rootProject.ext.deps["Design"]
-  implementation rootProject.ext.deps["SupportV4"]
-  implementation rootProject.ext.deps["CardViewV7"]
-  implementation rootProject.ext.deps["AppcompatV7"]
-  implementation rootProject.ext.deps["ConstraintLayout"]
+  implementation Libs.design
+  implementation Libs.supportV4
+  implementation Libs.cardViewV7
+  implementation Libs.appcompatV7
+  implementation Libs.constraintLayout
 }

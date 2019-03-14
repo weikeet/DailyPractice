@@ -2,13 +2,13 @@ apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
-  compileSdkVersion 28
+  compileSdkVersion Versions.compileSdk
   defaultConfig {
     applicationId "io.weicools.daily.practice"
-    minSdkVersion 21
-    targetSdkVersion 28
-    versionCode 1
-    versionName "1.0"
+    minSdkVersion Versions.minSdk
+    targetSdkVersion Versions.targetSdk
+    versionCode Versions.versionCode
+    versionName Versions.versionName
   }
 
   //greenDao配置
@@ -28,34 +28,32 @@ android {
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-  implementation rootProject.ext.deps["Design"]
-  implementation rootProject.ext.deps["SupportV4"]
-  implementation rootProject.ext.deps["CardViewV7"]
-  implementation rootProject.ext.deps["AppcompatV7"]
-  implementation rootProject.ext.deps["ConstraintLayout"]
+  implementation Libs.design
+  implementation Libs.supportV4
+  implementation Libs.cardViewV7
+  implementation Libs.appcompatV7
+  implementation Libs.constraintLayout
 
-  implementation rootProject.ext.deps["RxJava2"]
-  implementation rootProject.ext.deps["RxAndroid2"]
+  implementation Libs.rxJava2
+  implementation Libs.rxAndroid2
 
-  implementation rootProject.ext.deps["RetrofitConverterGson"]
-  implementation rootProject.ext.deps["RetrofitAdapterRxJava2"]
+  implementation Libs.retrofit
+  implementation Libs.retrofitConverterGson
+  implementation Libs.retrofitAdapterRxJava2
 
-  implementation rootProject.ext.deps["Gson"]
-  implementation rootProject.ext.deps["GreenDao"]
+  implementation Libs.gson
+  implementation Libs.greenDao
 
-  implementation rootProject.ext.deps["ButterKnife"]
-  annotationProcessor rootProject.ext.deps["ButterKnifeCompiler"]
+  implementation Libs.butterKnife
+  annotationProcessor Libs.butterKnifeCompiler
 
-  implementation rootProject.ext.deps["Glide"]
-  annotationProcessor rootProject.ext.deps["GlideCompiler"]
+  implementation Libs.glide
+  annotationProcessor Libs.glideCompiler
 
-  implementation rootProject.ext.deps["RoomRuntime"]
-  implementation rootProject.ext.deps["RoomRxJava2"]
-  annotationProcessor rootProject.ext.deps["RoomCompiler"]
-  implementation rootProject.ext.deps["LifecycleRuntime"]
-  implementation rootProject.ext.deps["LifecycleExtensions"]
-  annotationProcessor rootProject.ext.deps["LifecycleCompiler"]
-
-  debugImplementation 'me.ele:uetool:1.0.15'
-  releaseImplementation 'me.ele:uetool-no-op:1.0.15'
+  implementation Libs.roomRuntime
+  implementation Libs.roomRxJava2
+  annotationProcessor Libs.roomCompiler
+  implementation Libs.lifecycleRuntime
+  implementation Libs.lifecycleExtensions
+  annotationProcessor Libs.lifecycleCompiler
 }
