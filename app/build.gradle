@@ -28,32 +28,32 @@ android {
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-  implementation Libs.design
-  implementation Libs.supportV4
-  implementation Libs.cardViewV7
-  implementation Libs.appcompatV7
-  implementation Libs.constraintLayout
+  implementation DepLibs.design
+  implementation DepLibs.supportV4
+  implementation DepLibs.cardViewV7
+  implementation DepLibs.appcompatV7
+  implementation DepLibs.constraintLayout
 
-  implementation Libs.rxJava2
-  implementation Libs.rxAndroid2
+  implementation DepLibs.rxJava2
+  implementation DepLibs.rxAndroid2
 
-  implementation Libs.retrofit
-  implementation Libs.retrofitConverterGson
-  implementation Libs.retrofitAdapterRxJava2
+  implementation DepLibs.retrofit
+  implementation DepLibs.retrofitConverterGson
+  implementation DepLibs.retrofitAdapterRxJava2
 
-  implementation Libs.gson
-  implementation Libs.greenDao
+  implementation DepLibs.gson
+  implementation DepLibs.greenDao
 
-  implementation Libs.butterKnife
-  annotationProcessor Libs.butterKnifeCompiler
+  implementation DepLibs.butterKnife
+  annotationProcessor DepLibs.butterKnifeCompiler
 
-  implementation Libs.glide
-  annotationProcessor Libs.glideCompiler
+  implementation DepLibs.glide
+  annotationProcessor DepLibs.glideCompiler
 
-  implementation Libs.roomRuntime
-  implementation Libs.roomRxJava2
-  annotationProcessor Libs.roomCompiler
-  implementation Libs.lifecycleRuntime
-  implementation Libs.lifecycleExtensions
-  annotationProcessor Libs.lifecycleCompiler
+  implementation DepLibs.roomRuntime
+  implementation DepLibs.roomRxJava2
+  annotationProcessor DepLibs.roomCompiler
+  implementation DepLibs.lifecycleRuntime
+  implementation DepLibs.lifecycleExtensions
+  annotationProcessor DepLibs.lifecycleCompiler
 }

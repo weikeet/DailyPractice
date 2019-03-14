@@ -7,8 +7,8 @@ buildscript {
   }
 
   dependencies {
-    classpath Libs.androidPlugin
-    classpath Libs.greebDaolugin
+    classpath DepLibs.androidPlugin
+    classpath DepLibs.greenDaoPlugin
   }
 }
 
