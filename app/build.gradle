@@ -1,14 +1,31 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'AndResGuard'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
-  compileSdkVersion Versions.compileSdk
+  compileSdkVersion 29
   defaultConfig {
     applicationId "io.weicools.daily.practice"
-    minSdkVersion Versions.minSdk
-    targetSdkVersion Versions.targetSdk
-    versionCode Versions.versionCode
-    versionName Versions.versionName
+    minSdkVersion 21
+    targetSdkVersion 29
+    versionCode 1
+    versionName "1.0"
+
+    lintOptions {
+      abortOnError false
+    }
+
+    kapt {
+      correctErrorTypes = true
+    }
+
+    compileOptions {
+      sourceCompatibility JavaVersion.VERSION_1_8
+      targetCompatibility JavaVersion.VERSION_1_8
+    }
   }
 
   //greenDao配置
@@ -18,8 +35,13 @@ android {
   }
 
   buildTypes {
-    release {
+    debug {
       minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    }
+
+    release {
+      minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
@@ -28,32 +50,29 @@ android {
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-  implementation DepLibs.design
-  implementation DepLibs.supportV4
-  implementation DepLibs.cardViewV7
-  implementation DepLibs.appcompatV7
-  implementation DepLibs.constraintLayout
+  implementation AndroidLibs.MaterialDesign
+  implementation AndroidLibs.SupportV4
+  implementation AndroidLibs.CardViewV7
+  implementation AndroidLibs.AppcompatV7
+  implementation AndroidLibs.ConstraintLayout
 
-  implementation DepLibs.rxJava2
-  implementation DepLibs.rxAndroid2
+  implementation RxLibs.RxJava2
+  implementation RxLibs.RxAndroid2
 
-  implementation DepLibs.retrofit
-  implementation DepLibs.retrofitConverterGson
-  implementation DepLibs.retrofitAdapterRxJava2
+  implementation NetworkLibs.Retrofit
+  implementation NetworkLibs.RetrofitConverterGson
+  implementation NetworkLibs.RetrofitAdapterRxJava2
 
-  implementation DepLibs.gson
-  implementation DepLibs.greenDao
+  implementation DepLibs.Gson
+  implementation DepLibs.GreenDao
 
-  implementation DepLibs.butterKnife
-  annotationProcessor DepLibs.butterKnifeCompiler
+  implementation ImageLoaderLibs.Glide
+  kapt ImageLoaderLibs.GlideCompiler
 
-  implementation DepLibs.glide
-  annotationProcessor DepLibs.glideCompiler
-
-  implementation DepLibs.roomRuntime
-  implementation DepLibs.roomRxJava2
-  annotationProcessor DepLibs.roomCompiler
-  implementation DepLibs.lifecycleRuntime
-  implementation DepLibs.lifecycleExtensions
-  annotationProcessor DepLibs.lifecycleCompiler
+  implementation ArchitectureLibs.RoomRuntime
+  implementation ArchitectureLibs.RoomRxJava2
+  kapt ArchitectureLibs.RoomCompiler
+  implementation ArchitectureLibs.LifecycleRuntime
+  implementation ArchitectureLibs.LifecycleExtensions
+  kapt ArchitectureLibs.LifecycleCompiler
 }

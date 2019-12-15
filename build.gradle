@@ -4,11 +4,15 @@ buildscript {
   repositories {
     google()
     jcenter()
+
+    maven { url 'https://jitpack.io' }
   }
 
   dependencies {
-    classpath DepLibs.androidPlugin
-    classpath DepLibs.greenDaoPlugin
+    classpath DepLibs.AndroidPlugin
+    classpath DepLibs.KotlinPlugin
+    classpath DepLibs.AndResGuardPlugin
+    classpath DepLibs.GreenDaoPlugin
   }
 }
 
@@ -16,6 +20,8 @@ allprojects {
   repositories {
     google()
     jcenter()
+
+    maven { url 'https://jitpack.io' }
   }
 }
 
