@@ -50,11 +50,11 @@ android {
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-  implementation AndroidLibs.MaterialDesign
-  implementation AndroidLibs.SupportV4
-  implementation AndroidLibs.CardViewV7
-  implementation AndroidLibs.AppcompatV7
-  implementation AndroidLibs.ConstraintLayout
+  implementation AndroidLibs.XMaterialDesign
+  implementation AndroidLibs.XSupportV4
+  implementation AndroidLibs.XCardView
+  implementation AndroidLibs.XAppCompat
+  implementation AndroidLibs.XConstraintLayout
 
   implementation RxLibs.RxJava2
   implementation RxLibs.RxAndroid2

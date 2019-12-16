@@ -1,9 +1,9 @@
 package io.weicools.daily.practice;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
-
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import java.util.List;
 
 /**
@@ -11,27 +11,27 @@ import java.util.List;
  */
 
 public class FragmentAdapter extends FragmentStatePagerAdapter {
-    private List<Fragment> mFragments;
-    private List<String> mTitles;
+  private List<Fragment> mFragments;
+  private List<String> mTitles;
 
-    public FragmentAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titles) {
-        super(fm);
-        mFragments = fragments;
-        mTitles = titles;
-    }
+  public FragmentAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titles) {
+    super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+    mFragments = fragments;
+    mTitles = titles;
+  }
 
-    @Override
-    public Fragment getItem(int position) {
-        return mFragments.get(position);
-    }
+  @NonNull @Override
+  public Fragment getItem(int position) {
+    return mFragments.get(position);
+  }
 
-    @Override
-    public int getCount() {
-        return mFragments.size();
-    }
+  @Override
+  public int getCount() {
+    return mFragments.size();
+  }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        return mTitles.get(position);
-    }
+  @Override
+  public CharSequence getPageTitle(int position) {
+    return mTitles.get(position);
+  }
 }
