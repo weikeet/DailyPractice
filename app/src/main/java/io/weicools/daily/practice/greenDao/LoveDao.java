@@ -1,8 +1,7 @@
 package io.weicools.daily.practice.greenDao;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import io.weicools.daily.practice.PracticeApp;
 
 /**
  * Create by weicools on 2018/1/1.
@@ -16,7 +15,7 @@ public class LoveDao {
    * @param shop shop
    */
   public static void insertLove(Shop shop) {
-    PracticeApp.getDaoInstance().getShopDao().insert(shop);
+    // PracticeApp.getDaoInstance().getShopDao().insert(shop);
   }
 
   /**
@@ -25,7 +24,7 @@ public class LoveDao {
    * @param id id
    */
   public static void deleteLove(long id) {
-    PracticeApp.getDaoInstance().getShopDao().deleteByKey(id);
+    // PracticeApp.getDaoInstance().getShopDao().deleteByKey(id);
   }
 
   /**
@@ -34,7 +33,7 @@ public class LoveDao {
    * @param shop shop
    */
   public static void updateLove(Shop shop) {
-    PracticeApp.getDaoInstance().getShopDao().update(shop);
+    // PracticeApp.getDaoInstance().getShopDao().update(shop);
   }
 
   /**
@@ -43,6 +42,7 @@ public class LoveDao {
    * @return shopList
    */
   public static List<Shop> queryShop() {
-    return PracticeApp.getDaoInstance().getShopDao().queryBuilder().where(ShopDao.Properties.Type.eq(Shop.TYPE_LOVE)).list();
+    return new ArrayList<>();
+    // return PracticeApp.getDaoInstance().getShopDao().queryBuilder().where(ShopDao.Properties.Type.eq(Shop.TYPE_LOVE)).list();
   }
 }
