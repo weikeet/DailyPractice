@@ -30,5 +30,8 @@
         <activity
             android:name=".room.ui.RoomActivity"
             android:label="@string/title_room" />
+
+        <activity android:name=".material.ToolbarTestActivity"
+            android:theme="@style/ToolbarTestStyle"/>
     </application>
 </manifest>

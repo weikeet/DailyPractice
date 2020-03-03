@@ -67,6 +67,8 @@ dependencies {
   implementation DepLibs.GreenDao
 
   implementation ImageLoaderLibs.Glide
+  implementation 'androidx.appcompat:appcompat:1.0.2'
+  implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
   kapt ImageLoaderLibs.GlideCompiler
 
   implementation ArchitectureLibs.RoomRuntime

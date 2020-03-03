@@ -1,5 +1,6 @@
 package io.weicools.daily.practice;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +18,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
+import io.weicools.daily.practice.material.ToolbarTestActivity;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -119,6 +121,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mDrawerLayout.closeDrawer(GravityCompat.START);
         break;
       case R.id.fab_main:
+        startActivity(new Intent(this, ToolbarTestActivity.class));
         Snackbar.make(view, getString(R.string.main_snack_bar), Snackbar.LENGTH_LONG)
             .setAction(getString(R.string.main_snack_bar_action), view1 -> { }).show();
       default:
