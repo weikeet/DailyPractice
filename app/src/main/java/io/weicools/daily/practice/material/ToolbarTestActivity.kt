@@ -21,6 +21,5 @@ class ToolbarTestActivity : AppCompatActivity() {
     toolbar.setNavigationOnClickListener {
       finish()
     }
-
   }
 }
