@@ -49,6 +49,7 @@ android {
 
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation DepLibs.KotlinLib7
 
   implementation AndroidXLibs.MaterialDesign
   implementation AndroidXLibs.SupportV4
@@ -75,4 +76,6 @@ dependencies {
   implementation ArchitectureLibs.LifecycleRuntime
   implementation ArchitectureLibs.LifecycleExtensions
   kapt ArchitectureLibs.LifecycleCompiler
+
+  api project(':lib-widget-tab-layout')
 }

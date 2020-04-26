@@ -50,6 +50,18 @@
             tools:ignore="HardcodedText" />
 
         <Button
+            android:id="@+id/btnTestTabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/btn_margin"
+            android:backgroundTint="#9C27B0"
+            android:padding="@dimen/btn_padding"
+            android:text="测试TabLayout"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
             android:id="@+id/btn_dialog_04"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -13,6 +13,7 @@ import io.weicools.daily.practice.activity.task.TaskTestActivity
 import io.weicools.daily.practice.greenDao.GreenDaoActivity
 import io.weicools.daily.practice.room.ui.RoomActivity
 import kotlinx.android.synthetic.main.fragment_card1.*
+import me.weicools.widget.tablayout.TabLayoutActivity
 
 /**
  * @author weicools
@@ -40,6 +41,9 @@ class Card1Fragment : Fragment(), View.OnClickListener {
 
     btnTestActivityTask.setOnClickListener {
       activity?.startActivity(Intent(activity, TaskTestActivity::class.java))
+    }
+    btnTestTabLayout.setOnClickListener {
+      activity?.startActivity(Intent(activity, TabLayoutActivity::class.java))
     }
   }
 
