@@ -50,11 +50,11 @@ android {
 dependencies {
   implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-  implementation AndroidLibs.XMaterialDesign
-  implementation AndroidLibs.XSupportV4
-  implementation AndroidLibs.XCardView
-  implementation AndroidLibs.XAppCompat
-  implementation AndroidLibs.XConstraintLayout
+  implementation AndroidXLibs.MaterialDesign
+  implementation AndroidXLibs.SupportV4
+  implementation AndroidXLibs.CardView
+  implementation AndroidXLibs.AppCompat
+  implementation AndroidXLibs.ConstraintLayout
 
   implementation RxLibs.RxJava2
   implementation RxLibs.RxAndroid2
@@ -67,8 +67,6 @@ dependencies {
   implementation DepLibs.GreenDao
 
   implementation ImageLoaderLibs.Glide
-  implementation 'androidx.appcompat:appcompat:1.0.2'
-  implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
   kapt ImageLoaderLibs.GlideCompiler
 
   implementation ArchitectureLibs.RoomRuntime
