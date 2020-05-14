@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import io.weicools.daily.practice.activity.task.TaskTestActivity
 import io.weicools.daily.practice.greenDao.GreenDaoActivity
 import io.weicools.daily.practice.room.ui.RoomActivity
+import io.weicools.daily.practice.viewlifecycle.ViewLifecycleActivity
 import kotlinx.android.synthetic.main.fragment_card1.*
 import me.weicools.widget.tablayout.TabLayoutActivity
 import kotlin.time.ExperimentalTime
@@ -50,6 +51,9 @@ class Card1Fragment : Fragment() {
     }
     btnTestTabLayout.setOnClickListener {
       activity?.startActivity(Intent(activity, TabLayoutActivity::class.java))
+    }
+    btnTestViewLifecycle.setOnClickListener {
+      activity?.startActivity(Intent(activity, ViewLifecycleActivity::class.java))
     }
   }
 }

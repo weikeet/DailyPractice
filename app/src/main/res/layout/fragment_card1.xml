@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:ignore="HardcodedText">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -46,8 +47,7 @@
             android:padding="@dimen/btn_padding"
             android:text="测试ActivityTask Top"
             android:textColor="@color/white"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/btnTestTabLayout"
@@ -58,17 +58,16 @@
             android:padding="@dimen/btn_padding"
             android:text="测试TabLayout"
             android:textColor="@color/white"
-            android:textSize="14sp"
-            tools:ignore="HardcodedText" />
+            android:textSize="14sp" />
 
         <Button
-            android:id="@+id/btn_dialog_04"
+            android:id="@+id/btnTestViewLifecycle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/btn_margin"
             android:backgroundTint="#3F51B5"
             android:padding="@dimen/btn_padding"
-            android:text="@string/test"
+            android:text="测试View生周期"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
