@@ -17,7 +17,7 @@
         android:paddingBottom="@dimen/activity_vertical_margin">
 
         <Button
-            android:id="@+id/btn_test_green_dao"
+            android:id="@+id/btnTestGreenDao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="#F44336"
@@ -27,7 +27,7 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/btn_test_room"
+            android:id="@+id/btnTestRoom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/btn_margin"

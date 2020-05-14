@@ -25,7 +25,8 @@ import java.util.List;
 /**
  * @author weicools
  */
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+public class MainActivity extends AppCompatActivity
+    implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
   Toolbar mToolbar;
   TabLayout mTabLayout;
@@ -91,12 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     mViewPager.addOnPageChangeListener(mPageChangeListener);
   }
 
-  private ViewPager.OnPageChangeListener mPageChangeListener = new ViewPager.OnPageChangeListener() {
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-
+  private ViewPager.OnPageChangeListener mPageChangeListener = new ViewPager.SimpleOnPageChangeListener() {
     @Override
     public void onPageSelected(int position) {
       if (position == 2) {
@@ -105,19 +101,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mFabMain.hide();
       }
     }
-
-    @Override
-    public void onPageScrollStateChanged(int state) {
-
-    }
   };
 
   @Override
   public void onClick(View view) {
     switch (view.getId()) {
       case R.id.nav_header:
-        // Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-        // startActivity(intent);
         mDrawerLayout.closeDrawer(GravityCompat.START);
         break;
       case R.id.fab_main:
@@ -140,7 +129,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
-    // Inflate the menu; this adds items to the action bar if it is present.
     getMenuInflater().inflate(R.menu.main, menu);
     return true;
   }
@@ -153,28 +141,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     if (id == R.id.action_settings) {
       return true;
     }
-
     return super.onOptionsItemSelected(item);
   }
 
   @SuppressWarnings("StatementWithEmptyBody")
   @Override
   public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-    // Handle navigation view item clicks here.
     int id = item.getItemId();
 
     if (id == R.id.nav_camera) {
-      // Handle the camera action
     } else if (id == R.id.nav_gallery) {
-
     } else if (id == R.id.nav_slideshow) {
-
     } else if (id == R.id.nav_manage) {
-
     } else if (id == R.id.nav_share) {
-
     } else if (id == R.id.nav_send) {
-
     }
 
     DrawerLayout drawer = findViewById(R.id.drawer_layout);
