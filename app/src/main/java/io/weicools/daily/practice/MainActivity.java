@@ -1,16 +1,22 @@
 package io.weicools.daily.practice;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
+import androidx.core.view.LayoutInflaterCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
@@ -37,6 +43,41 @@ public class MainActivity extends AppCompatActivity
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
+    // LayoutInflaterCompat.setFactory2(LayoutInflater.from(this), object : LayoutInflater.Factory2 {
+    //   private var sum: Double = 0.0
+    //   override fun onCreateView(parent: View?, name: String, context: Context, attrs: AttributeSet): View? {
+    //       // 测量构建单个View耗时: 1s = 1000ms / 1ms = 1000us / 1us = 1000ns / 1ns = 1000ps
+    //       val (view, duration) = measureTimedValue { delegate.createView(parent, name, context, attrs) }
+    //       sum += duration.inMilliseconds
+    //       Log.d(TEST_TAG, "view=${view?.let { it::class.simpleName }} duration=${duration}  sum=${sum}")
+    //   return view
+    //   }
+    //
+    //   override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
+    //   return null
+    //   }
+    // })
+
+    LayoutInflaterCompat.setFactory2(LayoutInflater.from(this), new LayoutInflater.Factory2() {
+      private float sumTimeUs;
+
+      @Override public View onCreateView(@Nullable View parent, @NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+        long startTimeNs = System.nanoTime();
+
+        View view = getDelegate().createView(parent, name, context, attrs);
+        float costUs = (System.nanoTime() - startTimeNs) / 1000f;
+
+        sumTimeUs += costUs;
+
+        String viewName = view == null ? "Null" : view.getClass().getSimpleName();
+        Log.d("TEST_TAG", "Factory2 onCreateView view=" + viewName + ", costUs=" + costUs + ", sumTimeMs=" + sumTimeUs / 1000f);
+        return view;
+      }
+
+      @Nullable @Override public View onCreateView(@NonNull String name, @NonNull Context context, @NonNull AttributeSet attrs) {
+        return null;
+      }
+    });
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
