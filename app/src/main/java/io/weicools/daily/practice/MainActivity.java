@@ -41,6 +41,13 @@ public class MainActivity extends AppCompatActivity
   NavigationView mNavView;
   DrawerLayout mDrawerLayout;
 
+  @Override public void onWindowFocusChanged(boolean hasFocus) {
+    super.onWindowFocusChanged(hasFocus);
+    if (hasFocus) {
+      TimeRecorder.INSTANCE.recordStopTime();
+    }
+  }
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     // LayoutInflaterCompat.setFactory2(LayoutInflater.from(this), object : LayoutInflater.Factory2 {
