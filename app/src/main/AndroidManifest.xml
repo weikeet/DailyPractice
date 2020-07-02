@@ -4,7 +4,6 @@
     package="io.weicools.daily.practice">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
 
@@ -17,6 +16,7 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
+        <activity android:name=".async.AsyncRequestActivity"></activity>
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
@@ -32,12 +32,11 @@
         <activity
             android:name=".room.ui.RoomActivity"
             android:label="@string/title_room" />
-
         <activity
             android:name=".material.ToolbarTestActivity"
             android:theme="@style/ToolbarTestStyle" />
-
         <activity android:name=".activity.task.TaskTestActivity" />
         <activity android:name=".viewlifecycle.ViewLifecycleActivity" />
     </application>
+
 </manifest>
