@@ -3,8 +3,6 @@
     package="me.weicools.widget.tablayout">
 
     <application>
-        <activity android:name=".MainActivity"></activity>
         <activity android:name=".TabLayoutActivity" />
     </application>
-
 </manifest>

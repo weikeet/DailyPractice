@@ -24,7 +24,7 @@ class GestureDetectorActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_gesture_detector)
 
-    val gestureListener = object : GestureDetector.SimpleOnGestureListener {
+    val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
       override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
         xMoveDistance -= distanceX
         yMoveDistance -= distanceY
@@ -39,12 +39,13 @@ class GestureDetectorActivity : AppCompatActivity() {
 
     rootView.setOnTouchListener(object : View.OnTouchListener {
       override fun onTouch(v: View?, event: MotionEvent?): Boolean {
-        if (event==null) {
-          return false;
+        if (event == null) {
+          return false
         }
         if (scrollView.translationY <= 0) {
-          return false;
+          return false
         }
+        return false
       }
     })
   }

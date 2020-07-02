@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.weicools.event.dispatch">
 
-    /
     <application>
         <activity android:name=".GestureDetectorActivity" />
     </application>
