@@ -2,6 +2,7 @@ package io.weicools.daily.practice.viewlifecycle
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 /**
@@ -16,7 +17,9 @@ class ViewLifecycleActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     Log.d(TAG, "onCreate")
-    setContentView(LifecycleView(this))
+    val lifecycleView = LifecycleView(this)
+    setContentView(lifecycleView)
+    lifecycleView.visibility = View.GONE
   }
 
   override fun onStart() {
