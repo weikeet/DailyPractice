@@ -6,7 +6,6 @@ apply plugin: 'kotlin-kapt'
 android {
   compileSdkVersion 29
   buildToolsVersion "29.0.3"
-
   defaultConfig {
     minSdkVersion 21
     targetSdkVersion 29
@@ -17,8 +16,13 @@ android {
   }
 
   buildTypes {
-    release {
+    debug {
       minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+
+    release {
+      minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
     }
   }
@@ -27,9 +31,13 @@ android {
 dependencies {
   implementation fileTree(dir: "libs", include: ["*.jar"])
   implementation DepLibs.KotlinLib7
-  implementation AndroidXLibs.AndroidCoreKtx
+
   implementation AndroidXLibs.AppCompat
   implementation AndroidXLibs.SupportV4
   implementation AndroidXLibs.MaterialDesign
   implementation AndroidXLibs.ConstraintLayout
+
+//  implementation ArchitectureLibs.LifecycleRuntime
+//  implementation ArchitectureLibs.LifecycleExtensions
+//  kapt ArchitectureLibs.LifecycleCompiler
 }

@@ -2,7 +2,7 @@ package io.weicools.daily.practice.room.ui;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.ViewModelProviders;
+// import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -41,7 +41,7 @@ public class RoomActivity extends AppCompatActivity {
     mRecyclerView.setLayoutManager(layoutManager);
     mRecyclerView.setAdapter(mAdapter);
     ViewModelFactory viewModelFactory = Injection.provideViewModelFactory(this);
-    mViewModel = ViewModelProviders.of(this, viewModelFactory).get(CardViewModel.class);
+    // mViewModel = ViewModelProviders.of(this, viewModelFactory).get(CardViewModel.class);
   }
 
   @Override

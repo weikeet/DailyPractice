@@ -23,6 +23,12 @@ allprojects {
   }
 }
 
+configurations.all() {
+  Configuration configuration ->
+    //当遇到版本冲突时直接构建失败
+    configuration.resolutionStrategy.failOnVersionConflict()
+}
+
 task clean(type: Delete) {
   delete rootProject.buildDir
 }
