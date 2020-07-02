@@ -11,8 +11,6 @@ buildscript {
   dependencies {
     classpath DepLibs.AndroidPlugin
     classpath DepLibs.KotlinPlugin
-    classpath DepLibs.AndResGuardPlugin
-    classpath DepLibs.GreenDaoPlugin
   }
 }
 
