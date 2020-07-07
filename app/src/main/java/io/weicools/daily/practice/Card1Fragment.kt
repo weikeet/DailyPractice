@@ -11,6 +11,7 @@ import io.weicools.daily.practice.async.AsyncRequestActivity
 import io.weicools.daily.practice.greenDao.GreenDaoActivity
 import io.weicools.daily.practice.room.ui.RoomActivity
 import io.weicools.daily.practice.viewlifecycle.ViewLifecycleActivity
+import io.weicools.daily.practice.widget.LinearGradientActivity
 import kotlinx.android.synthetic.main.fragment_card1.*
 import me.weicools.widget.tablayout.TabLayoutActivity
 import kotlin.time.ExperimentalTime
@@ -58,6 +59,9 @@ class Card1Fragment : Fragment() {
     }
     btnTestAsyncRequest.setOnClickListener {
       activity?.startActivity(Intent(activity, AsyncRequestActivity::class.java))
+    }
+    btnTestGradientAnim.setOnClickListener {
+      activity?.startActivity(Intent(activity, LinearGradientActivity::class.java))
     }
   }
 }

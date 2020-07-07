@@ -69,9 +69,9 @@ dependencies {
   implementation ArchitectureLibs.RoomRuntime
   implementation ArchitectureLibs.RoomRxJava2
   kapt ArchitectureLibs.RoomCompiler
-//  implementation ArchitectureLibs.LifecycleRuntime
-//  implementation ArchitectureLibs.LifecycleExtensions
-//  kapt ArchitectureLibs.LifecycleCompiler
+  //implementation ArchitectureLibs.LifecycleRuntime
+  //implementation ArchitectureLibs.LifecycleExtensions
+  //kapt ArchitectureLibs.LifecycleCompiler
 
   api project(':lib-widget-tab-layout')
   api project(':lib-event-dispatch')

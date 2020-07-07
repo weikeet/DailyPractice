@@ -16,7 +16,8 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".async.AsyncRequestActivity"></activity>
+        <activity android:name=".widget.LinearGradientActivity"></activity>
+        <activity android:name=".async.AsyncRequestActivity" />
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
