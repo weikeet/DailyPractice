@@ -75,7 +75,6 @@ dependencies {
   implementation NetworkLibs.RetrofitAdapterRxJava2
 
   implementation DepLibs.Gson
-  implementation DepLibs.GreenDao
 
   implementation ImageLoaderLibs.Glide
   kapt ImageLoaderLibs.GlideCompiler

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import io.weicools.daily.practice.activity.task.TaskTestActivity
 import io.weicools.daily.practice.async.AsyncRequestActivity
-import io.weicools.daily.practice.greenDao.GreenDaoActivity
 import io.weicools.daily.practice.room.ui.RoomActivity
 import io.weicools.daily.practice.viewlifecycle.ViewLifecycleActivity
 import io.weicools.daily.practice.widget.LinearGradientActivity
@@ -42,9 +41,6 @@ class Card1Fragment : Fragment() {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    btnTestGreenDao.setOnClickListener {
-      activity?.startActivity(Intent(activity, GreenDaoActivity::class.java))
-    }
     btnTestRoom.setOnClickListener {
       activity?.startActivity(Intent(activity, RoomActivity::class.java))
     }
