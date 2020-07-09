@@ -53,6 +53,20 @@ dependencies {
   implementation AndroidXLibs.MaterialDesign
   implementation AndroidXLibs.ConstraintLayout
 
+  implementation ArchitectureLibs.LifecycleRuntime
+  implementation ArchitectureLibs.LifecycleRuntimeKtx
+  implementation ArchitectureLibs.LifecycleViewModel
+  implementation ArchitectureLibs.LifecycleViewModelKtx
+  implementation ArchitectureLibs.LifecycleViewModelSaveState
+  implementation ArchitectureLibs.LifecycleLiveData
+  implementation ArchitectureLibs.LifecycleLiveDataKtx
+  implementation ArchitectureLibs.LifecycleCommon
+  implementation ArchitectureLibs.LifecycleCommonJava8
+
+  implementation ArchitectureLibs.RoomRuntime
+  implementation ArchitectureLibs.RoomRxJava2
+  kapt ArchitectureLibs.RoomCompiler
+
   implementation RxLibs.RxJava2
   implementation RxLibs.RxAndroid2
 
@@ -65,13 +79,6 @@ dependencies {
 
   implementation ImageLoaderLibs.Glide
   kapt ImageLoaderLibs.GlideCompiler
-
-  implementation ArchitectureLibs.RoomRuntime
-  implementation ArchitectureLibs.RoomRxJava2
-  kapt ArchitectureLibs.RoomCompiler
-  //implementation ArchitectureLibs.LifecycleRuntime
-  //implementation ArchitectureLibs.LifecycleExtensions
-  //kapt ArchitectureLibs.LifecycleCompiler
 
   api project(':lib-widget-tab-layout')
   api project(':lib-event-dispatch')

@@ -36,8 +36,4 @@ dependencies {
   implementation AndroidXLibs.SupportV4
   implementation AndroidXLibs.MaterialDesign
   implementation AndroidXLibs.ConstraintLayout
-
-//  implementation ArchitectureLibs.LifecycleRuntime
-//  implementation ArchitectureLibs.LifecycleExtensions
-//  kapt ArchitectureLibs.LifecycleCompiler
 }
