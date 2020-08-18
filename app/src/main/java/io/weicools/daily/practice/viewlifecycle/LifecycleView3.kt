@@ -6,31 +6,61 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
+import io.weicools.daily.practice.R
 import io.weicools.daily.practice.ktx.convertVisibility
 
 /**
  * @author weicools
  * @date 2020.05.14
  */
-class LifecycleView : View {
+class LifecycleView3 @JvmOverloads constructor(
+  context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
+) : View(context, attrs, defStyleAttr), LifecycleObserver {
   companion object {
-    const val TAG = "LifecycleView"
+    const val TAG = "LifecycleView3"
   }
 
-  constructor(context: Context?) : super(context) {
-    init()
-  }
-
-  constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
-    init()
-  }
-
-  constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr) {
-    init()
-  }
-
-  private fun init() {
+  init {
+    setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent16))
     Log.d(TAG, "init: ")
+    if (context is AppCompatActivity) {
+      context.lifecycle.addObserver(this)
+    }
+  }
+
+  @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+  fun onCreate() {
+    Log.d(TAG, "onCreate: ")
+  }
+
+  @OnLifecycleEvent(Lifecycle.Event.ON_START)
+  fun onStart() {
+    Log.d(TAG, "onStart: ")
+  }
+
+  @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
+  fun onResume() {
+    Log.d(TAG, "onResume: ")
+  }
+
+  @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
+  fun onPause() {
+    Log.d(TAG, "onPause: ")
+  }
+
+  @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
+  fun onStop() {
+    Log.d(TAG, "onStop: ")
+  }
+
+  @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+  fun onDestroy() {
+    Log.d(TAG, "onDestroy: ")
   }
 
   /**

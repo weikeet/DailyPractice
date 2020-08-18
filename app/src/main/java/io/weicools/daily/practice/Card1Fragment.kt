@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import io.weicools.daily.practice.activity.task.TaskTestActivity
 import io.weicools.daily.practice.async.AsyncRequestActivity
 import io.weicools.daily.practice.room.ui.RoomActivity
-import io.weicools.daily.practice.viewlifecycle.ViewLifecycleActivity
+import io.weicools.daily.practice.viewlifecycle.LifecycleXyViewActivity
 import io.weicools.daily.practice.widget.LinearGradientActivity
 import kotlinx.android.synthetic.main.fragment_card1.*
 import me.weicools.widget.tablayout.TabLayoutActivity
@@ -51,7 +51,7 @@ class Card1Fragment : Fragment() {
       activity?.startActivity(Intent(activity, TabLayoutActivity::class.java))
     }
     btnTestViewLifecycle.setOnClickListener {
-      activity?.startActivity(Intent(activity, ViewLifecycleActivity::class.java))
+      activity?.startActivity(Intent(activity, LifecycleXyViewActivity::class.java))
     }
     btnTestAsyncRequest.setOnClickListener {
       activity?.startActivity(Intent(activity, AsyncRequestActivity::class.java))

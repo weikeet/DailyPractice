@@ -70,9 +70,9 @@ dependencies {
   implementation RxLibs.RxJava2
   implementation RxLibs.RxAndroid2
 
-  implementation NetworkLibs.Retrofit
-  implementation NetworkLibs.RetrofitConverterGson
-  implementation NetworkLibs.RetrofitAdapterRxJava2
+  implementation HttpLibs.Retrofit
+  implementation HttpLibs.RetrofitConverterGson
+  implementation HttpLibs.RetrofitAdapterRxJava2
 
   implementation DepLibs.Gson
 

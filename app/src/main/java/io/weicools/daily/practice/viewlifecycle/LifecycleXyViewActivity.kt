@@ -2,14 +2,13 @@ package io.weicools.daily.practice.viewlifecycle
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 
 /**
  * @author weicools
  * @date 2020.05.14
  */
-class ViewLifecycleActivity : AppCompatActivity() {
+class LifecycleXyViewActivity : AppCompatActivity() {
   companion object {
     const val TAG = "LifecycleViewActivity"
   }
@@ -17,9 +16,9 @@ class ViewLifecycleActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     Log.d(TAG, "onCreate")
-    val lifecycleView = LifecycleView(this)
-    setContentView(lifecycleView)
-    lifecycleView.visibility = View.GONE
+    setContentView(LifecycleViewContainer(this))
+    // val lifecycleView = LifecycleView1(this)
+    // lifecycleView.visibility = View.GONE
   }
 
   override fun onStart() {

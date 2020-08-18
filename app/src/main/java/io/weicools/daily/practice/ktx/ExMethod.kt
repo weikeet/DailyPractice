@@ -9,11 +9,17 @@ import android.view.View
  * @date 2020.05.14
  */
 
-fun Int.dp(): Int =
-  TypedValue.applyDimension(
+val Int.dp
+  get() = TypedValue.applyDimension(
     TypedValue.COMPLEX_UNIT_DIP, this.toFloat(),
     Resources.getSystem().displayMetrics
   ).toInt()
+
+val Float.dp
+  get() = TypedValue.applyDimension(
+    TypedValue.COMPLEX_UNIT_DIP, this,
+    Resources.getSystem().displayMetrics
+  )
 
 fun Int.convertVisibility(): String {
   var visibility = "GONE"

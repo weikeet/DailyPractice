@@ -37,7 +37,7 @@
             android:name=".material.ToolbarTestActivity"
             android:theme="@style/ToolbarTestStyle" />
         <activity android:name=".activity.task.TaskTestActivity" />
-        <activity android:name=".viewlifecycle.ViewLifecycleActivity" />
+        <activity android:name=".viewlifecycle.LifecycleXyViewActivity" />
     </application>
 
 </manifest>
