@@ -5,10 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import io.weicools.daily.practice.activity.task.TaskTestActivity
 import io.weicools.daily.practice.async.AsyncRequestActivity
+import io.weicools.daily.practice.dialog.FetchWidthDialog
 import io.weicools.daily.practice.room.ui.RoomActivity
+import io.weicools.daily.practice.utils.DisplayUtils
 import io.weicools.daily.practice.viewlifecycle.LifecycleXyViewActivity
 import io.weicools.daily.practice.widget.LinearGradientActivity
 import kotlinx.android.synthetic.main.fragment_card1.*
@@ -58,6 +61,26 @@ class Card1Fragment : Fragment() {
     }
     btnTestGradientAnim.setOnClickListener {
       activity?.startActivity(Intent(activity, LinearGradientActivity::class.java))
+    }
+    btnTestDialogWidth.setOnClickListener {
+      activity?.let {
+        val st = arrayOf("原生", "0.822f", "0.850f", "0.910f","0.920f", "0.950f","0.960f")
+        AlertDialog.Builder(it)
+          .setSingleChoiceItems(st, 0) { dialog, which ->
+            val ratio = when (which) {
+              1 -> 0.822f
+              2 -> 0.850f
+              3 -> 0.910f
+              4 -> 0.920f
+              5 -> 0.950f
+              6 -> 0.960f
+              else -> 0f
+            }
+            FetchWidthDialog(it).apply { windowWidth = DisplayUtils.getDisplayWidth() * ratio }.show()
+            dialog?.dismiss()
+          }
+          .show()
+      }
     }
   }
 }
