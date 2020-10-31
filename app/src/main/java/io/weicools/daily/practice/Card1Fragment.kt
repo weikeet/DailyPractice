@@ -2,6 +2,7 @@ package io.weicools.daily.practice
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,7 @@ import androidx.fragment.app.Fragment
 import io.weicools.daily.practice.activity.task.TaskTestActivity
 import io.weicools.daily.practice.async.AsyncRequestActivity
 import io.weicools.daily.practice.dialog.FetchWidthDialog
+import io.weicools.daily.practice.reflect.ReflectSample
 import io.weicools.daily.practice.room.ui.RoomActivity
 import io.weicools.daily.practice.utils.DisplayUtils
 import io.weicools.daily.practice.viewlifecycle.LifecycleXyViewActivity
@@ -64,7 +66,7 @@ class Card1Fragment : Fragment() {
     }
     btnTestDialogWidth.setOnClickListener {
       activity?.let {
-        val st = arrayOf("原生", "0.822f", "0.850f", "0.910f","0.920f", "0.950f","0.960f")
+        val st = arrayOf("原生", "0.822f", "0.850f", "0.910f", "0.920f", "0.950f", "0.960f")
         AlertDialog.Builder(it)
           .setSingleChoiceItems(st, 0) { dialog, which ->
             val ratio = when (which) {
@@ -80,6 +82,11 @@ class Card1Fragment : Fragment() {
             dialog?.dismiss()
           }
           .show()
+      }
+
+      btnTestReflect.setOnClickListener {
+        Log.d("ReflectSample", "btnTestReflect: ")
+        ReflectSample.reflectIntent()
       }
     }
   }

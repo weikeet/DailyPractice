@@ -95,13 +95,13 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/btn_dialog_08"
+            android:id="@+id/btnTestReflect"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/btn_margin"
             android:backgroundTint="#FF9800"
             android:padding="@dimen/btn_padding"
-            android:text="@string/test"
+            android:text="测试反射"
             android:textColor="@color/white"
             android:textSize="14sp" />
 
