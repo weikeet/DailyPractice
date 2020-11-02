@@ -4,7 +4,6 @@
     package="io.weicools.daily.practice">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.REORDER_TASKS" />
 
     <application
@@ -16,7 +15,7 @@
         android:supportsRtl="false"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".widget.LinearGradientActivity"></activity>
+        <activity android:name=".widget.LinearGradientActivity" />
         <activity android:name=".async.AsyncRequestActivity" />
         <activity
             android:name=".MainActivity"
@@ -27,9 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".greenDao.GreenDaoActivity"
-            android:label="@string/title_green_dao" />
         <activity
             android:name=".room.ui.RoomActivity"
             android:label="@string/title_room" />
