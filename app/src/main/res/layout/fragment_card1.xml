@@ -106,13 +106,13 @@
             android:textSize="14sp" />
 
         <Button
-            android:id="@+id/btn_dialog_09"
+            android:id="@+id/btnTestSDF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/btn_margin"
             android:backgroundTint="#FF5722"
             android:padding="@dimen/btn_padding"
-            android:text="@string/test"
+            android:text="测试Format"
             android:textColor="@color/white"
             android:textSize="14sp" />
 

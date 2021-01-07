@@ -3,11 +3,15 @@ package io.weicools.daily.practice.ktx
 import android.content.res.Resources
 import android.util.TypedValue
 import android.view.View
+import android.view.ViewGroup
 
 /**
  * @author weicools
  * @date 2020.05.14
  */
+
+const val matchParent = ViewGroup.LayoutParams.MATCH_PARENT
+const val wrapContent = ViewGroup.LayoutParams.WRAP_CONTENT
 
 val Int.dp
   get() = TypedValue.applyDimension(
