@@ -53,14 +53,21 @@ dependencies {
   implementation AndroidXLibs.MaterialDesign
   implementation AndroidXLibs.ConstraintLayout
 
-  implementation ArchitectureLibs.LifecycleRuntime
+  implementation AndroidXLibs.Core
+  implementation AndroidXLibs.CoreKtx
+  implementation AndroidXLibs.Activity
+  implementation AndroidXLibs.ActivityKtx
+  implementation AndroidXLibs.Fragment
+  implementation AndroidXLibs.FragmentKtx
+
+  // implementation ArchitectureLibs.LifecycleRuntime
   implementation ArchitectureLibs.LifecycleRuntimeKtx
-  implementation ArchitectureLibs.LifecycleViewModel
+  // implementation ArchitectureLibs.LifecycleViewModel
   implementation ArchitectureLibs.LifecycleViewModelKtx
   implementation ArchitectureLibs.LifecycleViewModelSaveState
-  implementation ArchitectureLibs.LifecycleLiveData
+  // implementation ArchitectureLibs.LifecycleLiveData
   implementation ArchitectureLibs.LifecycleLiveDataKtx
-  implementation ArchitectureLibs.LifecycleCommon
+  // implementation ArchitectureLibs.LifecycleCommon
   implementation ArchitectureLibs.LifecycleCommonJava8
 
   implementation ArchitectureLibs.RoomRuntime
