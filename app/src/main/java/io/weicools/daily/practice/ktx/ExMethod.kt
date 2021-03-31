@@ -12,7 +12,11 @@ import android.view.ViewGroup
 
 const val matchParent = ViewGroup.LayoutParams.MATCH_PARENT
 const val wrapContent = ViewGroup.LayoutParams.WRAP_CONTENT
+val widthPixels
+  get() = Resources.getSystem().displayMetrics.widthPixels
 
+val heightPixels
+  get() = Resources.getSystem().displayMetrics.heightPixels
 val Int.dp
   get() = TypedValue.applyDimension(
     TypedValue.COMPLEX_UNIT_DIP, this.toFloat(),

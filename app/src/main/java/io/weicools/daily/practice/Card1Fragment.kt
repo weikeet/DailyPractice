@@ -17,7 +17,7 @@ import io.weicools.daily.practice.formatter.FormatterDialog
 import io.weicools.daily.practice.reflect.ReflectSample
 import io.weicools.daily.practice.room.ui.RoomActivity
 import io.weicools.daily.practice.utils.DisplayUtils
-import io.weicools.daily.practice.viewlifecycle.LifecycleXyViewActivity
+import io.weicools.daily.practice.lifecycle.view.LifecycleXyViewActivity
 import io.weicools.daily.practice.widget.LinearGradientActivity
 import kotlinx.android.synthetic.main.fragment_card1.*
 import me.weicools.widget.tablayout.TabLayoutActivity
@@ -107,6 +107,10 @@ class Card1Fragment : Fragment() {
 
     btnTestSDF.setOnClickListener {
       FormatterDialog(activity).show()
+    }
+
+    btnCleanAnim.setOnClickListener {
+      PracticeActivity.start(activity, 0)
     }
   }
 }
