@@ -1,4 +1,4 @@
-package io.weicools.daily.practice.viewlifecycle
+package io.weicools.daily.practice.lifecycle.view
 
 import android.content.Context
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package io.weicools.daily.practice.viewlifecycle
+package io.weicools.daily.practice.lifecycle.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,48 +6,30 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.util.Log
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.OnLifecycleEvent
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.ktx.convertVisibility
-import io.weicools.daily.practice.ktx.dp
 
 /**
  * @author weicools
  * @date 2020.05.14
  */
-class LifecycleViewContainer @JvmOverloads constructor(
+class LifecycleView3 @JvmOverloads constructor(
   context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
-) : LinearLayout(context, attrs, defStyleAttr), LifecycleObserver {
+) : View(context, attrs, defStyleAttr), LifecycleObserver {
   companion object {
-    const val TAG = "LifecycleViewContainer"
+    const val TAG = "LifecycleView3"
   }
 
-  private val con: FrameLayout
-
   init {
+    setBackgroundColor(ContextCompat.getColor(context, R.color.colorAccent16))
     Log.d(TAG, "init: ")
     if (context is AppCompatActivity) {
       context.lifecycle.addObserver(this)
-    }
-
-    orientation = VERTICAL
-
-    addView(LifecycleView1(context), LayoutParams.MATCH_PARENT, 100.dp)
-    addView(LifecycleView2(context), LayoutParams.MATCH_PARENT, 100.dp)
-
-    con = FrameLayout(context)
-    con.id = R.id.fragment_container
-    addView(con, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
-
-    if (context is AppCompatActivity) {
-      context.supportFragmentManager.beginTransaction()
-        .add(R.id.fragment_container, LifecycleViewFragment())
-        .commit()
     }
   }
 

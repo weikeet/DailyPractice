@@ -1,4 +1,4 @@
-package io.weicools.daily.practice.viewlifecycle
+package io.weicools.daily.practice.lifecycle.view
 
 import android.content.Context
 import android.graphics.Canvas
@@ -18,15 +18,15 @@ import io.weicools.daily.practice.ktx.convertVisibility
  * @author weicools
  * @date 2020.05.14
  */
-class LifecycleView1 @JvmOverloads constructor(
+class LifecycleView2 @JvmOverloads constructor(
   context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr), LifecycleObserver {
   companion object {
-    const val TAG = "LifecycleView1"
+    const val TAG = "LifecycleView2"
   }
 
   init {
-    setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary16))
+    setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimaryDark16))
     Log.d(TAG, "init: ")
     if (context is AppCompatActivity) {
       context.lifecycle.addObserver(this)
