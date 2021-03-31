@@ -14,10 +14,11 @@ import io.weicools.daily.practice.activity.task.TaskTestActivity
 import io.weicools.daily.practice.async.AsyncRequestActivity
 import io.weicools.daily.practice.dialog.FetchWidthDialog
 import io.weicools.daily.practice.formatter.FormatterDialog
+import io.weicools.daily.practice.lifecycle.fragment.FragmentLifeActivity
+import io.weicools.daily.practice.lifecycle.view.LifecycleXyViewActivity
 import io.weicools.daily.practice.reflect.ReflectSample
 import io.weicools.daily.practice.room.ui.RoomActivity
 import io.weicools.daily.practice.utils.DisplayUtils
-import io.weicools.daily.practice.lifecycle.view.LifecycleXyViewActivity
 import io.weicools.daily.practice.widget.LinearGradientActivity
 import kotlinx.android.synthetic.main.fragment_card1.*
 import me.weicools.widget.tablayout.TabLayoutActivity
@@ -36,24 +37,9 @@ class Card1Fragment : Fragment() {
 
   @ExperimentalTime
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-    // LayoutInflaterCompat.setFactory2(inflater, object : LayoutInflater.Factory2 {
-    //   private var sum: Double = 0.0
-    //   override fun onCreateView(parent: View?, name: String, context: Context, attrs: AttributeSet): View? {
-    //     // 测量构建单个View耗时: 1s = 1000ms / 1ms = 1000us / 1us = 1000ns / 1ns = 1000ps
-    //     val (view, duration) = measureTimedValue { (activity as AppCompatActivity).delegate.createView(parent, name, context, attrs) }
-    //     sum += duration.inMilliseconds
-    //     Log.d("TEST_TAG", "view=${view?.let { it::class.simpleName }} duration=${duration}  sum=${sum}")
-    //     return view
-    //   }
-    //
-    //   override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
-    //     return null
-    //   }
-    // })
     return inflater.inflate(R.layout.fragment_card1, container, false)
   }
 
-  private var aaa = false
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
@@ -111,6 +97,10 @@ class Card1Fragment : Fragment() {
 
     btnCleanAnim.setOnClickListener {
       PracticeActivity.start(activity, 0)
+    }
+
+    btnFragment.setOnClickListener {
+      activity.startActivity(Intent(activity, FragmentLifeActivity::class.java))
     }
   }
 }
