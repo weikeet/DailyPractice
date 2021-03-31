@@ -13,7 +13,10 @@ android {
     versionName "1.0"
 
     lintOptions {
+      ignoreWarnings true
       abortOnError false
+
+      disable 'MissingTranslation', 'MissingQuantity', 'ContentDescription', 'RtlHardcoded', 'SpUsage', 'SmallSp'
     }
 
     kapt {
@@ -80,6 +83,8 @@ dependencies {
   implementation HttpLibs.Retrofit
   implementation HttpLibs.RetrofitConverterGson
   implementation HttpLibs.RetrofitAdapterRxJava2
+
+  implementation WidgetLibs.Lottie
 
   implementation DepLibs.Gson
 
