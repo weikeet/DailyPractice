@@ -11,7 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import io.weicools.daily.practice.activity.task.TaskTestActivity
-import io.weicools.daily.practice.async.AsyncRequestActivity
 import io.weicools.daily.practice.dialog.FetchWidthDialog
 import io.weicools.daily.practice.formatter.FormatterDialog
 import io.weicools.daily.practice.lifecycle.fragment.FragmentLifeActivity
@@ -57,10 +56,6 @@ class Card1Fragment : Fragment() {
 
     btnTestViewLifecycle.setOnClickListener {
       activity.startActivity(Intent(activity, LifecycleXyViewActivity::class.java))
-    }
-
-    btnTestAsyncRequest.setOnClickListener {
-      activity.startActivity(Intent(activity, AsyncRequestActivity::class.java))
     }
 
     btnTestGradientAnim.setOnClickListener {
