@@ -4,11 +4,13 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-  compileSdkVersion 29
+  compileSdkVersion 30
+  buildToolsVersion "30.0.3"
+
   defaultConfig {
     applicationId "io.weicools.daily.practice"
     minSdkVersion 21
-    targetSdkVersion 29
+    targetSdkVersion 30
     versionCode 1
     versionName "1.0"
 
@@ -27,7 +29,6 @@ android {
       sourceCompatibility JavaVersion.VERSION_1_8
       targetCompatibility JavaVersion.VERSION_1_8
     }
-
     kotlinOptions {
       jvmTarget = "1.8"
     }
@@ -47,12 +48,9 @@ android {
 }
 
 dependencies {
-  implementation fileTree(dir: 'libs', include: ['*.jar'])
-  implementation DepLibs.KotlinLib7
+  implementation DepLibs.KotlinLib
 
   implementation AndroidXLibs.AppCompat
-  implementation AndroidXLibs.SupportV4
-  implementation AndroidXLibs.CardView
   implementation AndroidXLibs.MaterialDesign
   implementation AndroidXLibs.ConstraintLayout
 
@@ -63,14 +61,9 @@ dependencies {
   implementation AndroidXLibs.Fragment
   implementation AndroidXLibs.FragmentKtx
 
-  // implementation ArchitectureLibs.LifecycleRuntime
   implementation ArchitectureLibs.LifecycleRuntimeKtx
-  // implementation ArchitectureLibs.LifecycleViewModel
-  implementation ArchitectureLibs.LifecycleViewModelKtx
-  implementation ArchitectureLibs.LifecycleViewModelSaveState
-  // implementation ArchitectureLibs.LifecycleLiveData
   implementation ArchitectureLibs.LifecycleLiveDataKtx
-  // implementation ArchitectureLibs.LifecycleCommon
+  implementation ArchitectureLibs.LifecycleViewModelKtx
   implementation ArchitectureLibs.LifecycleCommonJava8
 
   implementation ArchitectureLibs.RoomRuntime
@@ -91,6 +84,6 @@ dependencies {
   implementation ImageLoaderLibs.Glide
   kapt ImageLoaderLibs.GlideCompiler
 
-  api project(':lib-widget-tab-layout')
-  api project(':lib-event-dispatch')
+  implementation project(':lib-widget-tab-layout')
+  implementation project(':lib-event-dispatch')
 }

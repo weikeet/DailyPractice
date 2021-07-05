@@ -1,32 +1,15 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-
 buildscript {
+  ext {
+    kotlin_version = '1.5.20'
+  }
   repositories {
     google()
-    jcenter()
-
-    maven { url 'https://jitpack.io' }
+    mavenCentral()
   }
-
   dependencies {
-    classpath DepLibs.AndroidPlugin
-    classpath DepLibs.KotlinPlugin
+    classpath 'com.android.tools.build:gradle:4.2.2'
+    classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
   }
-}
-
-allprojects {
-  repositories {
-    google()
-    jcenter()
-
-    maven { url 'https://jitpack.io' }
-  }
-}
-
-configurations.all() {
-  Configuration configuration ->
-    //当遇到版本冲突时直接构建失败
-    configuration.resolutionStrategy.failOnVersionConflict()
 }
 
 task clean(type: Delete) {
