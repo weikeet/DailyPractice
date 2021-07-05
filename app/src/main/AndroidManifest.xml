@@ -36,8 +36,6 @@
 
         <activity android:name=".widget.LinearGradientActivity" />
 
-        <activity android:name=".async.AsyncRequestActivity" />
-
         <activity android:name=".activity.task.TaskTestActivity" />
 
         <activity android:name=".lifecycle.LifecycleSecondActivity" />

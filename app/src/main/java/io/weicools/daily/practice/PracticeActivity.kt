@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
-import io.weicools.daily.practice.clean.StormAnimFragment
 
 /**
  * @author weicools
@@ -25,11 +24,6 @@ class PracticeActivity : AppCompatActivity() {
     setContentView(FrameLayout(this).apply { id = R.id.fragment_container })
 
     when (intent.getIntExtra("fuck", 0)) {
-      0 -> {
-        supportFragmentManager.beginTransaction()
-          .replace(R.id.fragment_container, StormAnimFragment.newInstance())
-          .commit()
-      }
     }
   }
 }
