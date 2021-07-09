@@ -54,11 +54,8 @@ dependencies {
   implementation AndroidXLibs.MaterialDesign
   implementation AndroidXLibs.ConstraintLayout
 
-  implementation AndroidXLibs.Core
   implementation AndroidXLibs.CoreKtx
-  implementation AndroidXLibs.Activity
   implementation AndroidXLibs.ActivityKtx
-  implementation AndroidXLibs.Fragment
   implementation AndroidXLibs.FragmentKtx
   implementation AndroidXLibs.ViewPager2
 
@@ -79,6 +76,7 @@ dependencies {
   implementation HttpLibs.RetrofitAdapterRxJava2
 
   implementation WidgetLibs.Lottie
+  implementation WidgetLibs.MultiType
 
   implementation DepLibs.Gson
 
