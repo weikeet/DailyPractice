@@ -1,4 +1,4 @@
-package io.weicools.daily.practice;
+package io.weicools.daily.practice.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

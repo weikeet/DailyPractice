@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="main_fragment_container" type="id" />
     <item name="fragment_container" type="id" />
     <item name="view_pager_c1" type="id" />
     <item name="view_pager_c2" type="id" />

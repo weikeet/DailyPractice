@@ -7,8 +7,8 @@ import android.util.Log
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
-import io.weicools.daily.practice.ktx.dp
-import io.weicools.daily.practice.ktx.matchParent
+import com.weicools.ktx.widget.extensions.dp
+import com.weicools.ktx.widget.params.matchParent
 import java.util.*
 
 /**

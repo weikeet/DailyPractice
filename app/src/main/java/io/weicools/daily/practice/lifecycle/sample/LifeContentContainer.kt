@@ -6,9 +6,9 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
+import com.weicools.ktx.convertVisibility
+import com.weicools.ktx.widget.params.matchParent
 import io.weicools.daily.practice.R
-import io.weicools.daily.practice.ktx.convertVisibility
-import io.weicools.daily.practice.ktx.matchParent
 import io.weicools.daily.practice.lifecycle.LifeViewLog
 import io.weicools.daily.practice.lifecycle.logger
 

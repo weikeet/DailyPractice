@@ -4,7 +4,7 @@ import android.content.ComponentName
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import io.weicools.daily.practice.MainActivity
+import io.weicools.daily.practice.ui.main.MainActivity
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.material.ActivityTaskUtils
 import kotlinx.android.synthetic.main.activity_task_test.*

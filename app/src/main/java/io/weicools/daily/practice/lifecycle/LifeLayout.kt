@@ -7,8 +7,8 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import androidx.core.content.ContextCompat
+import com.weicools.ktx.convertVisibility
 import io.weicools.daily.practice.R
-import io.weicools.daily.practice.ktx.convertVisibility
 
 /**
  * @author weicools
