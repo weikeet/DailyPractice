@@ -1,4 +1,4 @@
-package io.weicools.daily.practice.lifecycle.view
+package io.weicools.daily.practice.lifecycle
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,18 +6,15 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.ktx.convertVisibility
-import io.weicools.daily.practice.ktx.dp
-import io.weicools.daily.practice.lifecycle.LifeViewLog
-import io.weicools.daily.practice.lifecycle.logger
 
 /**
  * @author weicools
  * @date 2020.05.14
  */
-class LifecycleViewContainer : LinearLayout {
+open class LifeLayout : FrameLayout {
   constructor(context: Context) : super(context)
   constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
   constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
@@ -29,17 +26,16 @@ class LifecycleViewContainer : LinearLayout {
   }
 
   init {
-    orientation = VERTICAL
-
-    addView(LifecycleView1(context), LayoutParams.MATCH_PARENT, 100.dp)
-    addView(LifecycleView2(context), LayoutParams.MATCH_PARENT, 100.dp)
-
-    val container = FrameLayout(context)
-    container.id = R.id.fragment_container
-    addView(container, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
+    @Suppress("LeakingThis")
+    setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary16))
+    // if (context is AppCompatActivity) {
+    //   val observer = LifeViewObserver(TAG)
+    //   context.lifecycle.addObserver(observer)
+    //   post { observer.enableActivityLife = viewLog.enableActivityLife }
+    // }
   }
 
-  fun setupViewLog(viewLog: LifeViewLog) {
+  open fun setupViewLog(viewLog: LifeViewLog) {
   }
 
   private fun loggerInner(tag: String, msg: String) {

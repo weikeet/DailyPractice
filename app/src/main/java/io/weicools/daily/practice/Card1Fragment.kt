@@ -13,15 +13,14 @@ import androidx.fragment.app.Fragment
 import io.weicools.daily.practice.activity.task.TaskTestActivity
 import io.weicools.daily.practice.dialog.FetchWidthDialog
 import io.weicools.daily.practice.formatter.FormatterDialog
-import io.weicools.daily.practice.lifecycle.fragment.FragmentLifeActivity
-import io.weicools.daily.practice.lifecycle.view.LifecycleXyViewActivity
+import io.weicools.daily.practice.lifecycle.sample.SampleLifeActivity
+import io.weicools.daily.practice.lifecycle.view.LifecycleViewActivity
 import io.weicools.daily.practice.reflect.ReflectSample
 import io.weicools.daily.practice.room.ui.RoomActivity
 import io.weicools.daily.practice.utils.DisplayUtils
 import io.weicools.daily.practice.widget.LinearGradientActivity
 import kotlinx.android.synthetic.main.fragment_card1.*
 import me.weicools.widget.tablayout.TabLayoutActivity
-import kotlin.time.ExperimentalTime
 
 /**
  * @author weicools
@@ -34,7 +33,6 @@ class Card1Fragment : Fragment() {
     activity = context as AppCompatActivity
   }
 
-  @ExperimentalTime
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
     return inflater.inflate(R.layout.fragment_card1, container, false)
   }
@@ -55,7 +53,7 @@ class Card1Fragment : Fragment() {
     }
 
     btnTestViewLifecycle.setOnClickListener {
-      activity.startActivity(Intent(activity, LifecycleXyViewActivity::class.java))
+      activity.startActivity(Intent(activity, LifecycleViewActivity::class.java))
     }
 
     btnTestGradientAnim.setOnClickListener {
@@ -95,7 +93,7 @@ class Card1Fragment : Fragment() {
     }
 
     btnFragment.setOnClickListener {
-      activity.startActivity(Intent(activity, FragmentLifeActivity::class.java))
+      activity.startActivity(Intent(activity, SampleLifeActivity::class.java))
     }
   }
 }

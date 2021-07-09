@@ -1,42 +1,76 @@
-package io.weicools.daily.practice.lifecycle.view
+package io.weicools.daily.practice.lifecycle.sample
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
-import android.widget.FrameLayout
-import android.widget.LinearLayout
+import android.widget.RelativeLayout
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.ktx.convertVisibility
-import io.weicools.daily.practice.ktx.dp
+import io.weicools.daily.practice.ktx.matchParent
 import io.weicools.daily.practice.lifecycle.LifeViewLog
 import io.weicools.daily.practice.lifecycle.logger
 
 /**
  * @author weicools
- * @date 2020.05.14
+ * @date 2021.07.07
  */
-class LifecycleViewContainer : LinearLayout {
+class LifeContentContainer : RelativeLayout {
   constructor(context: Context) : super(context)
   constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
   constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
+
+  private val centerId = generateViewId();
+
+  private val centerView = View(context).apply {
+    id = centerId
+    layoutParams = LayoutParams(10, 10).apply {
+      addRule(CENTER_IN_PARENT)
+    }
+    setBackgroundResource(R.color.colorAccent)
+  }.also { addView(it) }
+
+  val content1Container = LifeContent1Container(context).apply {
+    id = generateViewId()
+    layoutParams = LayoutParams(matchParent, matchParent).apply {
+      addRule(ABOVE, centerId)
+      addRule(LEFT_OF, centerId)
+    }
+    // setBackgroundResource(R.color.colorAccent)
+  }.also { addView(it) }
+
+  val content2Container = LifeContent2Container(context).apply {
+    id = generateViewId()
+    layoutParams = LayoutParams(matchParent, matchParent).apply {
+      addRule(ABOVE, centerId)
+      addRule(RIGHT_OF, centerId)
+    }
+    // setBackgroundResource(R.color.colorAccent)
+  }.also { addView(it) }
+
+  val content3Container = LifeContent3Container(context).apply {
+    id = generateViewId()
+    layoutParams = LayoutParams(matchParent, matchParent).apply {
+      addRule(BELOW, centerId)
+      addRule(LEFT_OF, centerId)
+    }
+    // setBackgroundResource(R.color.colorAccent)
+  }.also { addView(it) }
+
+  val content4Container = LifeContent4Container(context).apply {
+    id = generateViewId()
+    layoutParams = LayoutParams(matchParent, matchParent).apply {
+      addRule(BELOW, centerId)
+      addRule(RIGHT_OF, centerId)
+    }
+    // setBackgroundResource(R.color.colorAccent)
+  }.also { addView(it) }
 
   private val TAG = javaClass.simpleName
 
   private val viewLog by lazy(LazyThreadSafetyMode.NONE) {
     LifeViewLog().also { setupViewLog(it) }
-  }
-
-  init {
-    orientation = VERTICAL
-
-    addView(LifecycleView1(context), LayoutParams.MATCH_PARENT, 100.dp)
-    addView(LifecycleView2(context), LayoutParams.MATCH_PARENT, 100.dp)
-
-    val container = FrameLayout(context)
-    container.id = R.id.fragment_container
-    addView(container, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
   }
 
   fun setupViewLog(viewLog: LifeViewLog) {

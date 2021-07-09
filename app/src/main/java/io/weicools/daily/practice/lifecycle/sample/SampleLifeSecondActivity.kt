@@ -1,4 +1,4 @@
-package io.weicools.daily.practice.lifecycle
+package io.weicools.daily.practice.lifecycle.sample
 
 import android.os.Bundle
 import android.view.View
@@ -10,7 +10,7 @@ import io.weicools.daily.practice.R
  * @author weicools
  * @date 2021.03.31
  */
-class LifecycleSecondActivity : AppCompatActivity() {
+class SampleLifeSecondActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     val container = FrameLayout(this).apply {

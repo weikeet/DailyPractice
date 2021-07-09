@@ -38,11 +38,11 @@
 
         <activity android:name=".activity.task.TaskTestActivity" />
 
-        <activity android:name=".lifecycle.LifecycleSecondActivity" />
+        <activity android:name=".lifecycle.sample.SampleLifeSecondActivity" />
 
-        <activity android:name=".lifecycle.view.LifecycleXyViewActivity" />
+        <activity android:name=".lifecycle.view.LifecycleViewActivity" />
 
-        <activity android:name=".lifecycle.fragment.FragmentLifeActivity" />
+        <activity android:name=".lifecycle.sample.SampleLifeActivity" />
 
         <activity android:name=".jetpack.TestLiveDataObserverActivity" />
 

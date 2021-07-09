@@ -60,6 +60,7 @@ dependencies {
   implementation AndroidXLibs.ActivityKtx
   implementation AndroidXLibs.Fragment
   implementation AndroidXLibs.FragmentKtx
+  implementation AndroidXLibs.ViewPager2
 
   implementation ArchitectureLibs.LifecycleRuntimeKtx
   implementation ArchitectureLibs.LifecycleLiveDataKtx

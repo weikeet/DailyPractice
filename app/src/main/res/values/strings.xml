@@ -20,4 +20,9 @@
     <string name="title_green_dao">GreenDao</string>
     <string name="btn_test_room">ROOM</string>
     <string name="title_room">Room</string>
+
+    <string name="title_home">PX</string>
+    <string name="title_dashboard">PY</string>
+    <string name="title_notifications">PZ</string>
+
 </resources>

@@ -7,9 +7,10 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import java.util.List;
 
 /**
- * Create by weicools on 2017/12/30.
+ * @author weicools
+ * @date 2017/12/30
  */
-
+@SuppressWarnings("deprecation")
 public class FragmentAdapter extends FragmentPagerAdapter {
   private final List<Fragment> mFragments;
   private final List<String> mTitles;
@@ -20,7 +21,14 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     mTitles = titles;
   }
 
-  @NonNull @Override
+  public FragmentAdapter(FragmentManager fm, int behavior, List<Fragment> fragments, List<String> titles) {
+    super(fm, behavior);
+    mFragments = fragments;
+    mTitles = titles;
+  }
+
+  @NonNull
+  @Override
   public Fragment getItem(int position) {
     return mFragments.get(position);
   }

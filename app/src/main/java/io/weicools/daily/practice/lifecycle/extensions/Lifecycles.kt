@@ -1,4 +1,4 @@
-package io.weicools.daily.practice.lifecycle
+package io.weicools.daily.practice.lifecycle.extensions
 
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.Lifecycle
