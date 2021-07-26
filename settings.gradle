@@ -8,5 +8,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DailyPractice"
 include ':app'
-include ':lib-event-dispatch'
-include ':lib-widget-tab-layout'

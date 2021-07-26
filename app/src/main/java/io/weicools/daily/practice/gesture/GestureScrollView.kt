@@ -1,4 +1,4 @@
-package me.weicools.event.dispatch
+package io.weicools.daily.practice.gesture
 
 import android.content.Context
 import android.util.AttributeSet

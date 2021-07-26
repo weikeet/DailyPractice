@@ -1,11 +1,14 @@
-package me.weicools.event.dispatch
+package io.weicools.daily.practice.gesture
 
 import android.os.Bundle
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_gesture_detector.*
+import com.weicools.ktx.widget.dsl.autoAddView
+import com.weicools.ktx.widget.dsl.frameLayout
+import com.weicools.ktx.widget.params.defaultParams
+import com.weicools.ktx.widget.params.matchParent
 import kotlin.math.abs
 
 /**
@@ -22,7 +25,13 @@ class GestureDetectorActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_gesture_detector)
+    val scrollView = GestureScrollView(this)
+    val contentLayout = frameLayout {
+      scrollView.autoAddView(this) {
+        layoutParams = defaultParams(matchParent, matchParent)
+      }
+    }
+    setContentView(contentLayout)
 
     val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
       override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
@@ -37,7 +46,7 @@ class GestureDetectorActivity : AppCompatActivity() {
       }
     }
 
-    rootView.setOnTouchListener(object : View.OnTouchListener {
+    contentLayout.setOnTouchListener(object : View.OnTouchListener {
       override fun onTouch(v: View?, event: MotionEvent?): Boolean {
         if (event == null) {
           return false

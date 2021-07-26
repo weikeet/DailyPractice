@@ -83,6 +83,4 @@ dependencies {
   implementation ImageLoaderLibs.Glide
   kapt ImageLoaderLibs.GlideCompiler
 
-  implementation project(':lib-widget-tab-layout')
-  implementation project(':lib-event-dispatch')
 }
