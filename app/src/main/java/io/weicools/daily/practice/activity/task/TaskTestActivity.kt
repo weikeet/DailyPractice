@@ -2,12 +2,12 @@ package io.weicools.daily.practice.activity.task
 
 import android.content.ComponentName
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import io.weicools.daily.practice.ui.main.MainActivity
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.material.ActivityTaskUtils
-import kotlinx.android.synthetic.main.activity_task_test.*
+import io.weicools.daily.practice.ui.main.MainActivity
 
 /**
  * @author weicools
@@ -18,6 +18,7 @@ class TaskTestActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_task_test)
 
+    val btnTestTaskActivity: Button = findViewById(R.id.btnTestTaskActivity)
     btnTestTaskActivity.setOnClickListener {
       val testClassName = ComponentName(packageName, TaskTestActivity::class.java.name).className
       val isRunningTasksTop = ActivityTaskUtils.isRunningTasksTop(applicationContext, testClassName)
@@ -28,6 +29,7 @@ class TaskTestActivity : AppCompatActivity() {
       ).show()
     }
 
+    val btnTestMainActivity: Button = findViewById(R.id.btnTestMainActivity)
     btnTestMainActivity.setOnClickListener {
       val testClassName = ComponentName(packageName, MainActivity::class.java.name).className
       val isRunningTasksTop = ActivityTaskUtils.isRunningTasksTop(applicationContext, testClassName)
