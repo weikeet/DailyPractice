@@ -1,6 +1,7 @@
 package io.weicools.daily.practice.ui.main
 
 import android.content.Context
+import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.weicools.ktx.widget.dsl.imageView
 import com.weicools.ktx.widget.dsl.textView
@@ -24,22 +25,24 @@ class ModuleFunctionView(context: Context) : ConstraintLayout(context) {
   private val titleId = generateViewId()
   private val descriptionId = generateViewId()
 
-  val iconView = imageView {
+  private val iconView = imageView(iconId) {
     layoutParams = constraintParams(40.dp, 40.dp) {
       leftToLeft = parentId
       center_VerticalOf = parentId
       leftMargin = 8.dp
     }
   }
-  val arrowView = imageView {
+
+  val arrowView = imageView(arrowId) {
     layoutParams = constraintParams(40.dp, 40.dp) {
       rightToRight = parentId
       center_VerticalOf = parentId
       rightMargin = 8.dp
     }
   }
-  val titleView = textView {
-    layoutParams = constraintParams(40.dp, 40.dp) {
+
+  private val titleView = textView(titleId) {
+    layoutParams = constraintParams(0, 0) {
       leftToRight = iconId
       rightToLeft = arrowId
       topToTop = parentId
@@ -51,13 +54,14 @@ class ModuleFunctionView(context: Context) : ConstraintLayout(context) {
     textSize = 16f
     text_colorResource = R.color.md_grey900
   }
-  val descriptionView = textView {
-    layoutParams = constraintParams(40.dp, 40.dp) {
+
+  private val descriptionView = textView(descriptionId) {
+    layoutParams = constraintParams(0, 0) {
       leftToRight = iconId
       rightToLeft = arrowId
       topToBottom = titleId
       bottomToBottom = parentId
-      topMargin = 8.dp
+      topMargin = 2.dp
       leftMargin = 8.dp
       rightMargin = 8.dp
     }
@@ -72,7 +76,7 @@ class ModuleFunctionView(context: Context) : ConstraintLayout(context) {
     titleView.text = moduleFunction.title
     descriptionView.text = moduleFunction.description
     setOnClickListener {
-      moduleFunction.clickAction(context)
+      moduleFunction.clickAction(context as AppCompatActivity)
     }
   }
 }

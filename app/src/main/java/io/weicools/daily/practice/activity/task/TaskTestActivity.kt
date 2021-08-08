@@ -6,7 +6,6 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import io.weicools.daily.practice.R
-import io.weicools.daily.practice.material.ActivityTaskUtils
 import io.weicools.daily.practice.ui.main.MainActivity
 
 /**
