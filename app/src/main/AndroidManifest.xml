@@ -32,6 +32,8 @@
 
         <activity android:name=".activity.task.TaskTestActivity" />
 
+        <activity android:name=".lifecycle.LifeActivity" />
+
         <activity android:name=".lifecycle.sample.SampleLifeSecondActivity" />
 
         <activity android:name=".lifecycle.view.LifecycleViewActivity" />
