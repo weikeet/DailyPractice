@@ -6,7 +6,7 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
-import com.weicools.ktx.convertVisibility
+import io.weicools.daily.practice.extensions.visibilityText
 import com.weicools.ktx.widget.params.matchParent
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.lifecycle.LifeViewLog
@@ -141,7 +141,7 @@ class LifeContentContainer : RelativeLayout {
   override fun onVisibilityChanged(changedView: View, visibility: Int) {
     super.onVisibilityChanged(changedView, visibility)
     if (viewLog.enableVisibilityChanged) {
-      loggerInner(TAG, "onVisibilityChanged: visibility=${visibility.convertVisibility()}")
+      loggerInner(TAG, "onVisibilityChanged: visibility=${visibility.visibilityText}")
     }
   }
 
@@ -151,7 +151,7 @@ class LifeContentContainer : RelativeLayout {
   override fun onWindowVisibilityChanged(visibility: Int) {
     super.onWindowVisibilityChanged(visibility)
     if (viewLog.enableWindowVisibilityChanged) {
-      loggerInner(TAG, "onWindowVisibilityChanged: visibility=${visibility.convertVisibility()}")
+      loggerInner(TAG, "onWindowVisibilityChanged: visibility=${visibility.visibilityText}")
     }
   }
   //endregion

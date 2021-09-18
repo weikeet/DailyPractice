@@ -6,7 +6,7 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
-import com.weicools.ktx.convertVisibility
+import io.weicools.daily.practice.extensions.visibilityText
 import io.weicools.daily.practice.R
 
 /**
@@ -102,7 +102,7 @@ open class LifeView : View {
   override fun onVisibilityChanged(changedView: View, visibility: Int) {
     super.onVisibilityChanged(changedView, visibility)
     if (viewLog.enableVisibilityChanged) {
-      loggerInner(TAG, "onVisibilityChanged: visibility=${visibility.convertVisibility()}")
+      loggerInner(TAG, "onVisibilityChanged: visibility=${visibility.visibilityText}")
     }
   }
 
@@ -112,7 +112,7 @@ open class LifeView : View {
   override fun onWindowVisibilityChanged(visibility: Int) {
     super.onWindowVisibilityChanged(visibility)
     if (viewLog.enableWindowVisibilityChanged) {
-      loggerInner(TAG, "onWindowVisibilityChanged: visibility=${visibility.convertVisibility()}")
+      loggerInner(TAG, "onWindowVisibilityChanged: visibility=${visibility.visibilityText}")
     }
   }
   //endregion

@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import com.weicools.ktx.convertVisibility
+import io.weicools.daily.practice.extensions.visibilityText
 import com.weicools.ktx.widget.extensions.dp
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.lifecycle.LifeViewLog
@@ -107,7 +107,7 @@ class LifecycleViewContainer : LinearLayout {
   override fun onVisibilityChanged(changedView: View, visibility: Int) {
     super.onVisibilityChanged(changedView, visibility)
     if (viewLog.enableVisibilityChanged) {
-      loggerInner(TAG, "onVisibilityChanged: visibility=${visibility.convertVisibility()}")
+      loggerInner(TAG, "onVisibilityChanged: visibility=${visibility.visibilityText}")
     }
   }
 
@@ -117,7 +117,7 @@ class LifecycleViewContainer : LinearLayout {
   override fun onWindowVisibilityChanged(visibility: Int) {
     super.onWindowVisibilityChanged(visibility)
     if (viewLog.enableWindowVisibilityChanged) {
-      loggerInner(TAG, "onWindowVisibilityChanged: visibility=${visibility.convertVisibility()}")
+      loggerInner(TAG, "onWindowVisibilityChanged: visibility=${visibility.visibilityText}")
     }
   }
   //endregion
