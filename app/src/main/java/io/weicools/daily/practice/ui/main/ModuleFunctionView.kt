@@ -11,6 +11,7 @@ import com.weicools.ktx.widget.params.center_VerticalOf
 import com.weicools.ktx.widget.params.chainPacked
 import com.weicools.ktx.widget.params.constraintParams
 import com.weicools.ktx.widget.params.parentId
+import com.weicools.ktx.widget.params.wrapContent
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.ui.main.data.ModuleFunction
 
@@ -42,7 +43,7 @@ class ModuleFunctionView(context: Context) : ConstraintLayout(context) {
   }
 
   private val titleView = textView(titleId) {
-    layoutParams = constraintParams(0, 0) {
+    layoutParams = constraintParams(0, wrapContent) {
       leftToRight = iconId
       rightToLeft = arrowId
       topToTop = parentId
@@ -56,7 +57,7 @@ class ModuleFunctionView(context: Context) : ConstraintLayout(context) {
   }
 
   private val descriptionView = textView(descriptionId) {
-    layoutParams = constraintParams(0, 0) {
+    layoutParams = constraintParams(0, wrapContent) {
       leftToRight = iconId
       rightToLeft = arrowId
       topToBottom = titleId

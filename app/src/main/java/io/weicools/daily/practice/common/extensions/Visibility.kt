@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package io.weicools.daily.practice.extensions
+package io.weicools.daily.practice.common.extensions
 
 import android.view.View
 

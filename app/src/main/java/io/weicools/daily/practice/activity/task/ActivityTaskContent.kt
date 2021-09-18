@@ -9,10 +9,11 @@ import io.weicools.daily.practice.ui.main.data.ModuleFunction
  *
  * @date 2021.08.08
  */
-class ActivityTaskContent: ModuleContent() {
+class ActivityTaskContent : ModuleContent() {
   override fun setupFunction(function: ModuleFunction) {
     function.apply {
-      title = "DialogWidth"
+      title = "Activity Task"
+      description = "测试 Activity Task top"
       clickAction = {
         it.startActivity(Intent(it, TaskTestActivity::class.java))
       }

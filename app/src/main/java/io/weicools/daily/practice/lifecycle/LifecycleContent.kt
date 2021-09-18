@@ -13,6 +13,7 @@ class LifecycleContent: ModuleContent() {
   override fun setupFunction(function: ModuleFunction) {
     function.apply {
       title = "Lifecycle"
+      description = "测试 Activity Fragment View 生命周期"
       clickAction = {
         it.startActivity(Intent(it, LifeActivity::class.java))
       }

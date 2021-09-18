@@ -1,15 +1,17 @@
 package io.weicools.daily.practice
 
 import android.app.ActivityManager
-import android.app.Application
 import android.content.Context
 import android.os.Process
 import android.text.TextUtils
+import com.weicools.core.app.BaseApplication
+import com.weicools.core.global.AppGlobal
+import com.weicools.ktx.core.KtxInitializer
 
 /**
  * @author weicools Create on 2018/1/1.
  */
-class PracticeApp : Application() {
+class PracticeApp : BaseApplication() {
   private val appProcessName: String = ""
     get() {
       if (!TextUtils.isEmpty(field)) {
@@ -27,8 +29,20 @@ class PracticeApp : Application() {
       return ""
     }
 
-  override fun attachBaseContext(base: Context?) {
+  override fun attachBaseContext(base: Context) {
     super.attachBaseContext(base)
+
+    AppGlobal.initAppContext(base)
+
     TimeRecorder.recordStartTime(appProcessName)
+  }
+
+  override fun onCreate() {
+    super.onCreate()
+
+    KtxInitializer.appContext = this
+
+    AppGlobal.initApplication(this)
+    AppGlobal.initDebuggable(BuildConfig.DEBUG)
   }
 }

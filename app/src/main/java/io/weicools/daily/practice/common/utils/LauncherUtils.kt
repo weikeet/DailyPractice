@@ -1,4 +1,4 @@
-package io.weicools.daily.practice.utils
+package io.weicools.daily.practice.common.utils
 
 import android.content.Context
 import android.content.Intent

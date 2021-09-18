@@ -12,6 +12,7 @@ class DialogContent: ModuleContent() {
   override fun setupFunction(function: ModuleFunction) {
     function.apply {
       title = "FetchWidthDialog"
+      description = "获取 Dialog 宽度"
       clickAction = {
         val dialog = FetchWidthDialog(it)
         dialog.show()

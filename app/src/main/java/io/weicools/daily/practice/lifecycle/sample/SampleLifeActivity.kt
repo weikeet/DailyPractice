@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentPagerAdapter
 import androidx.viewpager.widget.ViewPager
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
-import io.weicools.daily.practice.adapter.FragmentAdapter
-import io.weicools.daily.practice.adapter.FragmentAdapter2
+import io.weicools.daily.practice.common.adapter.FragmentAdapter
+import io.weicools.daily.practice.common.adapter.FragmentAdapter2
 import io.weicools.daily.practice.lifecycle.LifeActivity
 import io.weicools.daily.practice.lifecycle.logger
 

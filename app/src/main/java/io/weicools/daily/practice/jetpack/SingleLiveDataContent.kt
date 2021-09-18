@@ -1,5 +1,6 @@
-package io.weicools.daily.practice.formatter
+package io.weicools.daily.practice.jetpack
 
+import android.content.Intent
 import io.weicools.daily.practice.ui.main.data.ModuleContent
 import io.weicools.daily.practice.ui.main.data.ModuleFunction
 
@@ -8,14 +9,13 @@ import io.weicools.daily.practice.ui.main.data.ModuleFunction
  *
  * @date 2021.08.08
  */
-class FormatterDialogContent: ModuleContent() {
+class SingleLiveDataContent: ModuleContent() {
   override fun setupFunction(function: ModuleFunction) {
     function.apply {
-      title = "Formatter thread safe"
-      description = "格式化数据线程安全测试"
+      title = "SingleLiveData"
+      description = "SingleLiveData 测试"
       clickAction = {
-        val dialog = FormatterDialog(it)
-        dialog.show()
+        it.startActivity(Intent(it, TestLiveDataObserverActivity::class.java))
       }
     }
   }

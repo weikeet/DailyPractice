@@ -6,8 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+import com.weicools.ktx.widthPixels
 import io.weicools.daily.practice.R
-import io.weicools.daily.practice.utils.DisplayUtils
 
 /**
  * @author weicools
@@ -32,7 +32,7 @@ class FetchWidthDialog(context: Context) : AlertDialog(context) {
     titleView!!.post {
       titleView.text = "ViewWidth = ${titleView.width}, " +
           "WindowWidth = ${window?.attributes?.width ?: 0}, " +
-          "DisplayWidth = ${DisplayUtils.getDisplayWidth()}"
+          "DisplayWidth = $widthPixels"
     }
   }
 }

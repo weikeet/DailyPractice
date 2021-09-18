@@ -6,7 +6,7 @@ import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.ContextCompat
-import io.weicools.daily.practice.extensions.visibilityText
+import io.weicools.daily.practice.common.extensions.visibilityText
 import io.weicools.daily.practice.R
 
 /**

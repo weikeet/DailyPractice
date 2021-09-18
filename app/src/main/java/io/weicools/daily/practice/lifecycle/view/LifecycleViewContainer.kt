@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import io.weicools.daily.practice.extensions.visibilityText
+import io.weicools.daily.practice.common.extensions.visibilityText
 import com.weicools.ktx.widget.extensions.dp
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.lifecycle.LifeViewLog
