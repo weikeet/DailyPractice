@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -17,7 +16,6 @@ import io.weicools.daily.practice.formatter.FormatterDialogContent
 import io.weicools.daily.practice.jetpack.JetpackContent
 import io.weicools.daily.practice.lifecycle.LifecycleContent
 import io.weicools.daily.practice.room.ui.RoomContent
-import io.weicools.daily.practice.ui.main.data.ModuleFunction
 import io.weicools.daily.practice.widget.LinearGradientContent
 
 /**
@@ -53,6 +51,14 @@ class MainFragment : Fragment() {
     super.onViewCreated(view, savedInstanceState)
 
     refreshItems()
+
+    // items.add(ModuleFunction(0, "AAA", "BBB") {
+    //   Toast.makeText(attachActivity, "click ok", Toast.LENGTH_SHORT).show()
+    //   startActivity(Intent(requireContext(), AsyncUiActivity::class.java))
+    // })
+    // items.add(ModuleFunction(0, "XXX", "YYY") {
+    //   Toast.makeText(attachActivity, "click ok", Toast.LENGTH_SHORT).show()
+    // })
 
     adapter.items = items
     adapter.notifyDataSetChanged()

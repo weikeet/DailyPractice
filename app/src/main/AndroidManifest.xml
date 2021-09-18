@@ -42,6 +42,8 @@
 
         <activity android:name=".gesture.GestureDetectorActivity" />
 
+        <activity android:name=".asyncui.AsyncUiActivity" />
+
         <activity android:name=".PracticeActivity" />
     </application>
 
