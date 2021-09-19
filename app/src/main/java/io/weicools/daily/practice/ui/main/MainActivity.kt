@@ -37,17 +37,4 @@ class MainActivity : AppCompatActivity() {
       .commitNow()
   }
 
-  override fun onCreateOptionsMenu(menu: Menu): Boolean {
-    menuInflater.inflate(R.menu.main, menu)
-    return true
-  }
-
-  override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    val id = item.itemId
-    if (id == R.id.action_settings) {
-      // TODO: 2021/7/10 settings
-      return true
-    }
-    return super.onOptionsItemSelected(item)
-  }
 }
