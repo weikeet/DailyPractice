@@ -1,6 +1,7 @@
 package io.weicools.daily.practice.jetpack
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -12,6 +13,7 @@ import io.weicools.daily.practice.R
  * @date 2021.01.07
  */
 class TestLiveDataObserverActivity : AppCompatActivity() {
+  private val TAG = "TestLiveDataObserverActivity"
 
   private val viewModel: TestViewModel by viewModels()
 
@@ -32,15 +34,43 @@ class TestLiveDataObserverActivity : AppCompatActivity() {
     }
     viewModel.getStringData().observe(this, ob)
 
-    // viewModel.getStringData().observe(this, Observer {
-    //   resultView.text = it
-    // })
+    viewModel.textData.observe(this, {
+      Log.d(TAG, "onCreate: observe textData=$it")
+    })
+    viewModel.textData.observeForever {
+      Log.d(TAG, "onCreate: observeForever textData=$it")
+    }
+
+    viewModel.refreshText()
+
   }
 
   override fun onStart() {
     super.onStart()
+    Log.d(TAG, "onStart: ")
 
     viewModel.getStringData().observe(this, ob)
     viewModel.refreshTip()
   }
+
+  override fun onResume() {
+    super.onResume()
+    Log.d(TAG, "onResume: ")
+  }
+
+  override fun onPause() {
+    super.onPause()
+    Log.d(TAG, "onPause: ")
+  }
+
+  override fun onStop() {
+    super.onStop()
+    Log.d(TAG, "onStop: ")
+  }
+
+  override fun onDestroy() {
+    super.onDestroy()
+    Log.d(TAG, "onDestroy: ")
+  }
+
 }
