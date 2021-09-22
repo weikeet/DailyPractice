@@ -26,15 +26,15 @@ import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.lifecycle.ViewTreeViewModelStoreOwner
 import androidx.savedstate.ViewTreeSavedStateRegistryOwner
 import com.weicools.core.app.BaseActivity
-import com.weicools.ktx.widget.dsl.frameLayout
-import com.weicools.ktx.widget.dsl.textView
-import com.weicools.ktx.widget.dsl.view
-import com.weicools.ktx.widget.extensions.background_colorResource
-import com.weicools.ktx.widget.extensions.dp
-import com.weicools.ktx.widget.extensions.gravity_center
-import com.weicools.ktx.widget.extensions.text_color
-import com.weicools.ktx.widget.params.frameParams
-import com.weicools.ktx.widget.params.matchParent
+import com.weicools.fluent.widget.dsl.frameLayout
+import com.weicools.fluent.widget.dsl.textView
+import com.weicools.fluent.widget.dsl.view
+import com.weicools.fluent.widget.extensions.background_colorResource
+import com.weicools.fluent.widget.extensions.dp
+import com.weicools.fluent.widget.extensions.gravity_center
+import com.weicools.fluent.widget.extensions.text_color
+import com.weicools.fluent.widget.params.frameParams
+import com.weicools.fluent.widget.params.matchParent
 import io.weicools.daily.practice.R
 import java.lang.ref.WeakReference
 

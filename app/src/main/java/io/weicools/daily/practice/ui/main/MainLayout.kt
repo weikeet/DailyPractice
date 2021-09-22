@@ -3,14 +3,14 @@ package io.weicools.daily.practice.ui.main
 import android.content.Context
 import android.widget.LinearLayout
 import androidx.fragment.app.FragmentContainerView
-import com.weicools.ktx.widget.dsl.autoAddView
-import com.weicools.ktx.widget.dsl.toolbar
-import com.weicools.ktx.widget.extensions.background_resource
-import com.weicools.ktx.widget.extensions.color_of
-import com.weicools.ktx.widget.extensions.dimenSize_of
-import com.weicools.ktx.widget.extensions.string_of
-import com.weicools.ktx.widget.params.linearParams
-import com.weicools.ktx.widget.params.matchParent
+import com.weicools.fluent.widget.dsl.autoAddView
+import com.weicools.fluent.widget.dsl.toolbar
+import com.weicools.fluent.widget.extensions.background_resource
+import com.weicools.fluent.widget.extensions.color_of
+import com.weicools.fluent.widget.extensions.dimenSize_of
+import com.weicools.fluent.widget.extensions.string_of
+import com.weicools.fluent.widget.params.linearParams
+import com.weicools.fluent.widget.params.matchParent
 import io.weicools.daily.practice.R
 
 /**

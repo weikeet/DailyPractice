@@ -5,8 +5,8 @@ import android.util.AttributeSet
 import android.view.Gravity
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.weicools.ktx.widget.extensions.dp
-import com.weicools.ktx.widget.params.matchParent
+import com.weicools.fluent.widget.extensions.dp
+import com.weicools.fluent.widget.params.matchParent
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.lifecycle.LifeLayout
 

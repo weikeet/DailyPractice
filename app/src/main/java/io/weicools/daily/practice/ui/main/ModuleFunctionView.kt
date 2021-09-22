@@ -3,15 +3,15 @@ package io.weicools.daily.practice.ui.main
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.weicools.ktx.widget.dsl.imageView
-import com.weicools.ktx.widget.dsl.textView
-import com.weicools.ktx.widget.extensions.dp
-import com.weicools.ktx.widget.extensions.text_colorResource
-import com.weicools.ktx.widget.params.center_VerticalOf
-import com.weicools.ktx.widget.params.chainPacked
-import com.weicools.ktx.widget.params.constraintParams
-import com.weicools.ktx.widget.params.parentId
-import com.weicools.ktx.widget.params.wrapContent
+import com.weicools.fluent.widget.dsl.imageView
+import com.weicools.fluent.widget.dsl.textView
+import com.weicools.fluent.widget.extensions.dp
+import com.weicools.fluent.widget.extensions.text_colorResource
+import com.weicools.fluent.widget.params.center_VerticalOf
+import com.weicools.fluent.widget.params.chainPacked
+import com.weicools.fluent.widget.params.constraintParams
+import com.weicools.fluent.widget.params.parentId
+import com.weicools.fluent.widget.params.wrapContent
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.ui.main.data.ModuleFunction
 

@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.drakeet.multitype.MultiTypeAdapter
 import com.weicools.core.app.BaseFragment
 import com.weicools.ktx.colorOf
-import com.weicools.ktx.widget.extensions.dp
+import com.weicools.fluent.widget.extensions.dp
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.activity.task.ActivityTaskContent
 import io.weicools.daily.practice.asyncui.AsyncUiContent
