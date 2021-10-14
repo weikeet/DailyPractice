@@ -47,6 +47,8 @@
         <activity android:name=".asyncui.AsyncUiActivity" />
 
         <activity android:name=".PracticeActivity" />
+
+        <activity android:name=".animator.AnimatedVectorActivity" />
     </application>
 
 </manifest>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <objectAnimator
+        android:duration="3000"
+        android:interpolator="@android:interpolator/linear"
+        android:propertyName="pathData"
+        android:repeatCount="0"
+        android:repeatMode="reverse"
+        android:valueFrom="@string/final_path_headic_arrow_baseline"
+        android:valueTo="@string/init_path_headic_arrow_baseline"
+        android:valueType="pathType" />
+    <objectAnimator
+        android:duration="1"
+        android:interpolator="@android:interpolator/linear"
+        android:propertyName="fillColor"
+        android:startOffset="1500"
+        android:valueFrom="@android:color/white"
+        android:valueTo="@android:color/white"
+        android:valueType="intType" />
+</set>
