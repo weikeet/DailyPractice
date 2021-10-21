@@ -34,18 +34,30 @@ public class BookActivity extends AppCompatActivity {
 
   private ServiceConnection serviceConnection;
 
+  private IBookManager bookManager = null;
+
+  private IOnNewBookArrivedListener arrivedListener;
+
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+
+    arrivedListener = new IOnNewBookArrivedListener.Stub() {
+      @Override public void onNewBookArrived(Book newBook) throws RemoteException {
+        Log.d(TAG, "BookActivity onNewBookArrived: " + newBook + ", thread=" + Thread.currentThread());
+      }
+    };
 
     serviceConnection = new ServiceConnection() {
       @Override
       public void onServiceConnected(ComponentName name, IBinder service) {
         Log.d(TAG, "BookActivity onServiceConnected: ");
 
-        IBookManager bookManager = IBookManager.Stub.asInterface(service);
+        bookManager = IBookManager.Stub.asInterface(service);
 
         try {
+          bookManager.registerNewBookArrivedListener(arrivedListener);
+
           Log.d(TAG, "BookActivity onServiceConnected: addBook: ");
 
           bookManager.addBook(new Book(1, "Android 开发艺术探索"));
@@ -66,16 +78,25 @@ public class BookActivity extends AppCompatActivity {
       }
     };
 
+    Log.d(TAG, "BookActivity onCreate: bindService");
+
     Intent serviceIntent = new Intent(this, BookService.class);
     bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
-
-    Log.d(TAG, "BookActivity onCreate: bindService");
   }
 
   @Override
   protected void onDestroy() {
     super.onDestroy();
-    unbindService(serviceConnection);
+
+    if (bookManager != null && bookManager.asBinder().isBinderAlive()) {
+      try {
+        bookManager.unregisterNewBookArrivedListener(arrivedListener);
+      } catch (RemoteException e) {
+        e.printStackTrace();
+      }
+    }
+
     Log.d(TAG, "BookActivity onDestroy: unbindService");
+    unbindService(serviceConnection);
   }
 }

@@ -56,6 +56,8 @@ public class MessengerActivity extends AppCompatActivity {
       }
     });
 
+    Log.d(TAG, "MessengerActivity onCreate: bindService");
+
     Intent serviceIntent = new Intent(this, MessengerService.class);
     serviceConnection = new ServiceConnection() {
       @Override
@@ -85,14 +87,13 @@ public class MessengerActivity extends AppCompatActivity {
       }
     };
     bindService(serviceIntent, serviceConnection, Context.BIND_AUTO_CREATE);
-
-    Log.d(TAG, "MessengerActivity onCreate: bindService");
   }
 
   @Override
   protected void onDestroy() {
     super.onDestroy();
-    unbindService(serviceConnection);
+
     Log.d(TAG, "MessengerActivity onDestroy: unbindService");
+    unbindService(serviceConnection);
   }
 }

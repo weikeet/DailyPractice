@@ -30,6 +30,7 @@ public class BookService extends Service {
   private static final String TAG = "AIDL_BookSample";
 
   private final CopyOnWriteArrayList<Book> bookList = new CopyOnWriteArrayList<>();
+  private final CopyOnWriteArrayList<IOnNewBookArrivedListener> listeners = new CopyOnWriteArrayList<>();
 
   private final IBinder binder = new IBookManager.Stub() {
     @Override public List<Book> getBookList() throws RemoteException {
@@ -39,7 +40,20 @@ public class BookService extends Service {
 
     @Override public void addBook(Book book) throws RemoteException {
       Log.d(TAG, "BookService addBook: " + book + ", thread=" + Thread.currentThread());
+
+      for (IOnNewBookArrivedListener listener : listeners) {
+        listener.onNewBookArrived(book);
+      }
+
       bookList.add(book);
+    }
+
+    @Override public void registerNewBookArrivedListener(IOnNewBookArrivedListener listener) throws RemoteException {
+      listeners.add(listener);
+    }
+
+    @Override public void unregisterNewBookArrivedListener(IOnNewBookArrivedListener listener) throws RemoteException {
+      listeners.remove(listener);
     }
   };
 
