@@ -33,6 +33,12 @@ android {
     }
   }
 
+  sourceSets {
+    main {
+      aidl.srcDirs = ['src/main/aidl']
+    }
+  }
+
   buildTypes {
     debug {
       minifyEnabled false
@@ -69,6 +75,8 @@ dependencies {
 
   implementation RxLibs.RxJava2
   implementation RxLibs.RxAndroid2
+
+  implementation DepLibs.EventBus
 
   implementation HttpLibs.Retrofit
   implementation HttpLibs.RetrofitConverterGson

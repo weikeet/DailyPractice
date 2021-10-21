@@ -49,6 +49,18 @@
         <activity android:name=".PracticeActivity" />
 
         <activity android:name=".animator.AnimatedVectorActivity" />
+
+        <activity android:name="com.ryg.chapter_2.BookActivity" />
+
+        <service
+            android:name="com.ryg.chapter_2.BookService"
+            android:process=":remote" />
+
+        <activity android:name="com.ryg.chapter_2.messenger.MessengerActivity" />
+
+        <service
+            android:name="com.ryg.chapter_2.messenger.MessengerService"
+            android:process=":remote" />
     </application>
 
 </manifest>
