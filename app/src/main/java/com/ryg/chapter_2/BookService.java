@@ -33,12 +33,12 @@ public class BookService extends Service {
 
   private final IBinder binder = new IBookManager.Stub() {
     @Override public List<Book> getBookList() throws RemoteException {
-      Log.d(TAG, "BookService getBookList: " + bookList.size());
+      Log.d(TAG, "BookService getBookList: " + bookList.size() + ", thread=" + Thread.currentThread());
       return bookList;
     }
 
     @Override public void addBook(Book book) throws RemoteException {
-      Log.d(TAG, "BookService addBook: " + book);
+      Log.d(TAG, "BookService addBook: " + book + ", thread=" + Thread.currentThread());
       bookList.add(book);
     }
   };
