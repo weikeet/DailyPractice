@@ -16,6 +16,7 @@ package com.ryg.chapter_2;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.util.Log;
 import androidx.annotation.Nullable;
@@ -30,7 +31,10 @@ public class BookService extends Service {
   private static final String TAG = "AIDL_BookSample";
 
   private final CopyOnWriteArrayList<Book> bookList = new CopyOnWriteArrayList<>();
-  private final CopyOnWriteArrayList<IOnNewBookArrivedListener> listeners = new CopyOnWriteArrayList<>();
+
+  // 客户端传来的对象在服务端会变成不同对象，导致 register 和 unregister 不是同一对象
+  // private final CopyOnWriteArrayList<IOnNewBookArrivedListener> listeners = new CopyOnWriteArrayList<>();
+  private final RemoteCallbackList<IOnNewBookArrivedListener> listeners = new RemoteCallbackList<>();
 
   private final IBinder binder = new IBookManager.Stub() {
     @Override public List<Book> getBookList() throws RemoteException {
@@ -41,19 +45,48 @@ public class BookService extends Service {
     @Override public void addBook(Book book) throws RemoteException {
       Log.d(TAG, "BookService addBook: " + book + ", thread=" + Thread.currentThread());
 
-      for (IOnNewBookArrivedListener listener : listeners) {
-        listener.onNewBookArrived(book);
+      // for (IOnNewBookArrivedListener listener : listeners) {
+      //   listener.onNewBookArrived(book);
+      // }
+
+      final int n = listeners.beginBroadcast();
+
+      for (int i = 0; i < n; i++) {
+        IOnNewBookArrivedListener listener = listeners.getBroadcastItem(i);
+        if (listener != null) {
+          try {
+            listener.onNewBookArrived(book);
+          } catch (RemoteException e) {
+            e.printStackTrace();
+          }
+        }
       }
+
+      listeners.finishBroadcast();
 
       bookList.add(book);
     }
 
     @Override public void registerNewBookArrivedListener(IOnNewBookArrivedListener listener) throws RemoteException {
-      listeners.add(listener);
+      // if (listeners.contains(listener)) {
+      //   Log.d(TAG, "BookService registerNewBookArrivedListener: listener exist");
+      // } else {
+      //   Log.d(TAG, "BookService registerNewBookArrivedListener: add listener");
+      //   listeners.add(listener);
+      // }
+
+      listeners.register(listener);
     }
 
     @Override public void unregisterNewBookArrivedListener(IOnNewBookArrivedListener listener) throws RemoteException {
-      listeners.remove(listener);
+      // if (listeners.contains(listener)) {
+      //   Log.d(TAG, "BookService unregisterNewBookArrivedListener: remove listener");
+      //   listeners.remove(listener);
+      // } else {
+      //   Log.d(TAG, "BookService unregisterNewBookArrivedListener: listener not exist");
+      // }
+
+      listeners.unregister(listener);
     }
   };
 
