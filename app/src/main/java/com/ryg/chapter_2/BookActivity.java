@@ -44,6 +44,7 @@ public class BookActivity extends AppCompatActivity {
 
     final IBinder.DeathRecipient deathRecipient  = new IBinder.DeathRecipient() {
       @Override public void binderDied() {
+        // binder 线程回调，适合重新连接服务
         if (bookManager==null) {
           return;
         }
@@ -93,6 +94,7 @@ public class BookActivity extends AppCompatActivity {
       @Override
       public void onServiceDisconnected(ComponentName name) {
         Log.d(TAG, "BookActivity onServiceDisconnected: ");
+        // UI 线程回调，适合重新连接服务
       }
     };
 
