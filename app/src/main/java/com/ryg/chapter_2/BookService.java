@@ -16,12 +16,16 @@ package com.ryg.chapter_2;
 import android.app.Service;
 import android.content.Intent;
 import android.os.IBinder;
+import android.os.Parcel;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.PermissionChecker;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
+import org.jetbrains.annotations.NotNull;
 
 /**
  * @author weicools
@@ -101,6 +105,27 @@ public class BookService extends Service {
       Log.d(TAG, "BookService addBook: " + book);
       bookList.add(book);
     }
+
+    @Override
+    protected boolean onTransact(int code, @NonNull Parcel data, @Nullable Parcel reply, int flags) throws RemoteException {
+      // 验证权限
+      int checkResult = checkCallingOrSelfPermission(PERMISSION);
+      if (checkResult == PermissionChecker.PERMISSION_DENIED) {
+        return false;
+      }
+
+      // 验证 Uid 和 Pid
+      String packageName = null;
+      String[] packages = getPackageManager().getPackagesForUid(getCallingUid());
+      if (packages != null && packages.length > 0) {
+        packageName = packages[0];
+      }
+      if (packageName != null && !packageName.startsWith("com.ryg")) {
+        return false;
+      }
+
+      return super.onTransact(code, data, reply, flags);
+    }
   };
 
   @Override
@@ -117,10 +142,19 @@ public class BookService extends Service {
     return super.onStartCommand(intent, flags, startId);
   }
 
+  private static final String PERMISSION = "com.ryg.chapter_2.permission.ACCESS_BOOK_SERVICE";
+
   @Nullable
   @Override
   public IBinder onBind(Intent intent) {
     Log.d(TAG, "BookService onBind: ");
+
+    // 权限验证方法1：onBind 中判断，不通过返回 null 客户端无法绑定服务
+    int checkResult = checkCallingOrSelfPermission(PERMISSION);
+    if (checkResult == PermissionChecker.PERMISSION_DENIED) {
+      Log.d(TAG, "BookService onBind: ");
+      return null;
+    }
     return binder;
   }
 
