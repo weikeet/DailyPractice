@@ -42,6 +42,17 @@ public class BookActivity extends AppCompatActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
+    final IBinder.DeathRecipient deathRecipient  = new IBinder.DeathRecipient() {
+      @Override public void binderDied() {
+        if (bookManager==null) {
+          return;
+        }
+        bookManager.asBinder().unlinkToDeath(this, 0);
+        bookManager = null;
+        // TODO: rebind service
+      }
+    };
+
     arrivedListener = new IOnNewBookArrivedListener.Stub() {
       @Override public void onNewBookArrived(Book newBook) throws RemoteException {
         Log.d(TAG, "BookActivity onNewBookArrived: " + newBook + ", thread=" + Thread.currentThread());
@@ -54,6 +65,13 @@ public class BookActivity extends AppCompatActivity {
         Log.d(TAG, "BookActivity onServiceConnected: ");
 
         bookManager = IBookManager.Stub.asInterface(service);
+
+        try {
+          // 给 binder 设置死亡代理 第二个参数是标记位 一般设0
+          service.linkToDeath(deathRecipient, 0);
+        } catch (RemoteException e) {
+          e.printStackTrace();
+        }
 
         try {
           bookManager.registerNewBookArrivedListener(arrivedListener);
