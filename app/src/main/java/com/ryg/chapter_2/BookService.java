@@ -25,7 +25,6 @@ import androidx.annotation.Nullable;
 import androidx.core.content.PermissionChecker;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-import org.jetbrains.annotations.NotNull;
 
 /**
  * @author weicools
@@ -95,7 +94,7 @@ public class BookService extends Service {
   };
 
   // manual
-  private final IBinder bookManager = new com.ryg.chapter_2.manual.IBookManager.BookManager() {
+  private final IBinder bookManager = new com.ryg.chapter_2.manual.IBookManager.Stub() {
     @Override public List<Book> getBookList() throws RemoteException {
       Log.d(TAG, "BookService getBookList: ");
       return bookList;
