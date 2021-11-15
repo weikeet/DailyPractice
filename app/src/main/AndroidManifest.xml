@@ -66,6 +66,8 @@
         <service
             android:name="com.ryg.chapter_2.messenger.MessengerService"
             android:process=":remote" />
+
+        <activity android:name=".viewevent.ViewEventActivity" />
     </application>
 
 </manifest>

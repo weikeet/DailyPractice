@@ -26,6 +26,7 @@ import io.weicools.daily.practice.formatter.FormatterDialogContent
 import io.weicools.daily.practice.jetpack.SingleLiveDataContent
 import io.weicools.daily.practice.lifecycle.LifecycleContent
 import io.weicools.daily.practice.room.ui.RoomContent
+import io.weicools.daily.practice.viewevent.ViewEventContent
 import io.weicools.daily.practice.widget.LinearGradientContent
 
 /**
@@ -98,6 +99,7 @@ class MainFragment : BaseFragment() {
     items.add(ActivityTaskContent())
     items.add(AnimatedVectorContent())
     items.add(AsyncUiContent())
+    items.add(ViewEventContent())
     items.add(DialogContent())
     items.add(FormatterDialogContent())
     items.add(SingleLiveDataContent())
