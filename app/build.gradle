@@ -1,36 +1,19 @@
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
+plugins {
+  id 'com.android.application'
+  id 'kotlin-android'
+  id 'kotlin-kapt'
+}
 
 android {
-  compileSdkVersion 30
-  buildToolsVersion "30.0.3"
+  compileSdkVersion 31
+  buildToolsVersion "31.0.0"
 
   defaultConfig {
     applicationId "io.weicools.daily.practice"
     minSdkVersion 21
-    targetSdkVersion 30
+    targetSdkVersion 31
     versionCode 1
     versionName "1.0"
-
-    lintOptions {
-      ignoreWarnings true
-      abortOnError false
-
-      disable 'MissingTranslation', 'MissingQuantity', 'ContentDescription', 'RtlHardcoded', 'SpUsage', 'SmallSp'
-    }
-
-    kapt {
-      correctErrorTypes = true
-    }
-
-    compileOptions {
-      sourceCompatibility JavaVersion.VERSION_1_8
-      targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-      jvmTarget = "1.8"
-    }
   }
 
   sourceSets {
@@ -49,6 +32,26 @@ android {
       minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
+  }
+
+  kapt {
+    correctErrorTypes = true
+  }
+
+  lintOptions {
+    ignoreWarnings true
+    abortOnError false
+
+    disable 'MissingTranslation', 'MissingQuantity', 'ContentDescription', 'RtlHardcoded', 'SpUsage', 'SmallSp'
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  kotlinOptions {
+    jvmTarget = "1.8"
   }
 }
 
@@ -71,24 +74,28 @@ dependencies {
 
   implementation ArchitectureLibs.RoomRuntime
   implementation ArchitectureLibs.RoomRxJava2
-  kapt ArchitectureLibs.RoomCompiler
-
-  implementation RxLibs.RxJava2
-  implementation RxLibs.RxAndroid2
+  // kapt ArchitectureLibs.RoomCompiler
 
   implementation DepLibs.EventBus
 
+  implementation DepLibs.Gson
+
+  implementation HttpLibs.OkHttp3
+  implementation HttpLibs.OkHttp3Logging
   implementation HttpLibs.Retrofit
   implementation HttpLibs.RetrofitConverterGson
   implementation HttpLibs.RetrofitAdapterRxJava2
 
+  implementation ImageLoaderLibs.Glide
+  // kapt ImageLoaderLibs.GlideCompiler
+  implementation ImageLoaderLibs.GlideLoaderOkHttp3
+  implementation ImageLoaderLibs.GlideTransformations
+
+  implementation RxLibs.RxJava2
+  implementation RxLibs.RxAndroid2
+
   implementation WidgetLibs.Lottie
   implementation WidgetLibs.MultiType
-
-  implementation DepLibs.Gson
-
-  implementation ImageLoaderLibs.Glide
-  kapt ImageLoaderLibs.GlideCompiler
 
   implementation "com.weicools:core:1.0.0"
   implementation "com.weicools:ktx:1.0.1"
