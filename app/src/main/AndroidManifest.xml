@@ -57,6 +57,10 @@
 
         <activity android:name=".animator.AnimatedVectorActivity" />
 
+        <activity
+            android:name=".binder.TransactionTooLargeActivity"
+            android:process=":remote" />
+
         <activity android:name="com.ryg.chapter_2.BookActivity" />
 
         <service

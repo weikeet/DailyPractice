@@ -21,6 +21,7 @@ import io.weicools.daily.practice.R
 import io.weicools.daily.practice.activity.task.ActivityTaskContent
 import io.weicools.daily.practice.animator.AnimatedVectorContent
 import io.weicools.daily.practice.asyncui.AsyncUiContent
+import io.weicools.daily.practice.binder.TransactionTooLargeContent
 import io.weicools.daily.practice.dialog.DialogContent
 import io.weicools.daily.practice.formatter.FormatterDialogContent
 import io.weicools.daily.practice.jetpack.SingleLiveDataContent
@@ -99,6 +100,7 @@ class MainFragment : BaseFragment() {
     items.add(ActivityTaskContent())
     items.add(AnimatedVectorContent())
     items.add(AsyncUiContent())
+    items.add(TransactionTooLargeContent())
     items.add(ViewEventContent())
     items.add(DialogContent())
     items.add(FormatterDialogContent())
