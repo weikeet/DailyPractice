@@ -8,17 +8,38 @@ android {
   compileSdkVersion 31
   buildToolsVersion "31.0.0"
 
+  // https://developer.android.com/studio/projects/install-ndk#apply-specific-version
+  ndkVersion "21.3.6528147"
+
   defaultConfig {
     applicationId "io.weicools.daily.practice"
     minSdkVersion 21
     targetSdkVersion 31
     versionCode 1
     versionName "1.0"
+
+    externalNativeBuild {
+      cmake {
+        cppFlags ""
+      }
+    }
+  }
+
+  // https://developer.android.com/studio/projects/install-ndk#vanilla_cmake
+  externalNativeBuild {
+    cmake {
+      path "src/main/cpp/CMakeLists.txt"
+      version "3.10.2"
+    }
   }
 
   sourceSets {
     main {
       aidl.srcDirs = ['src/main/aidl']
+
+      jni {
+        srcDirs 'src/main/jni', 'src/main/cpp'
+      }
     }
   }
 

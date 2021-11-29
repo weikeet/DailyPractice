@@ -28,6 +28,7 @@ import io.weicools.daily.practice.dialog.DialogContent
 import io.weicools.daily.practice.formatter.FormatterDialogContent
 import io.weicools.daily.practice.jetpack.SingleLiveDataContent
 import io.weicools.daily.practice.lifecycle.LifecycleContent
+import io.weicools.daily.practice.ndk.HelloWorldContent
 import io.weicools.daily.practice.room.ui.RoomContent
 import io.weicools.daily.practice.viewevent.ViewEventContent
 import io.weicools.daily.practice.widget.LinearGradientContent
@@ -104,6 +105,7 @@ class MainFragment : BaseFragment() {
     items.add(AsyncUiContent())
     items.add(AutoStartContent())
     items.add(BindingContent())
+    items.add(HelloWorldContent())
     items.add(TransactionTooLargeContent())
     items.add(ViewEventContent())
     items.add(DialogContent())
