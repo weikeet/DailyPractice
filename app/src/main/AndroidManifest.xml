@@ -57,6 +57,8 @@
 
         <activity android:name=".animator.AnimatedVectorActivity" />
 
+        <activity android:name=".binding.BindingActivity" />
+
         <activity
             android:name=".binder.TransactionTooLargeActivity"
             android:process=":remote" />
