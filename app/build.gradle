@@ -140,4 +140,5 @@ dependencies {
   implementation "com.weicools:core:1.0.0"
   implementation "com.weicools:ktx:1.0.1"
   implementation "com.weicools:fluentlayout:1.0.1"
+  implementation project(path: ':cockroach')
 }
