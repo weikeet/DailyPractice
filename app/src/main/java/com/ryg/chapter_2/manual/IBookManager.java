@@ -2,6 +2,7 @@ package com.ryg.chapter_2.manual;
 
 import android.os.Binder;
 import android.os.IBinder;
+import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.ryg.chapter_2.Book;
@@ -11,21 +12,21 @@ import java.util.List;
  * @author weicools
  * @date 2021.10.21
  */
-public interface IBookManager extends android.os.IInterface {
+public interface IBookManager extends IInterface {
 
   public List<Book> getBookList() throws RemoteException;
   public void addBook(Book book) throws RemoteException;
 
   /** Default implementation for IBookManager. */
   public static class Default implements IBookManager {
-    @Override public java.util.List<Book> getBookList() throws android.os.RemoteException {
+    @Override public List<Book> getBookList() throws RemoteException {
       return null;
     }
 
-    @Override public void addBook(Book book) throws android.os.RemoteException {
+    @Override public void addBook(Book book) throws RemoteException {
     }
 
-    @Override public android.os.IBinder asBinder() {
+    @Override public IBinder asBinder() {
       return null;
     }
   }
@@ -45,7 +46,7 @@ public interface IBookManager extends android.os.IInterface {
       if (obj == null) {
         return null;
       }
-      android.os.IInterface iin = obj.queryLocalInterface(DESCRIPTOR);
+      IInterface iin = obj.queryLocalInterface(DESCRIPTOR);
       if (iin instanceof IBookManager) {
         return ((IBookManager) iin);
       }
@@ -87,7 +88,7 @@ public interface IBookManager extends android.os.IInterface {
     }
 
     private static class Proxy implements IBookManager {
-      private android.os.IBinder mRemote;
+      private IBinder mRemote;
 
       Proxy(IBinder remote) {
         mRemote = remote;
