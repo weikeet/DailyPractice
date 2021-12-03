@@ -137,6 +137,8 @@ dependencies {
   implementation WidgetLibs.Lottie
   implementation WidgetLibs.MultiType
 
+  debugImplementation AnalyticLibs.LeakCanaryDebug
+
   implementation "com.weicools:core:1.0.0"
   implementation "com.weicools:ktx:1.0.1"
   implementation "com.weicools:fluentlayout:1.0.1"

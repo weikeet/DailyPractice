@@ -29,6 +29,7 @@ import io.weicools.daily.practice.dialog.DialogContent
 import io.weicools.daily.practice.formatter.FormatterDialogContent
 import io.weicools.daily.practice.jetpack.SingleLiveDataContent
 import io.weicools.daily.practice.lifecycle.LifecycleContent
+import io.weicools.daily.practice.memoryleak.MemoryLeakContent
 import io.weicools.daily.practice.ndk.HelloWorldContent
 import io.weicools.daily.practice.room.ui.RoomContent
 import io.weicools.daily.practice.viewevent.ViewEventContent
@@ -113,6 +114,7 @@ class MainFragment : BaseFragment() {
     items.add(FormatterDialogContent())
     items.add(SingleLiveDataContent())
     items.add(LifecycleContent())
+    items.add(MemoryLeakContent())
     items.add(NoCrashContent())
     items.add(RoomContent())
     items.add(LinearGradientContent())

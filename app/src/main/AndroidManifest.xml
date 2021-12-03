@@ -61,6 +61,8 @@
 
         <activity android:name=".cockroach.NoCrashActivity" />
 
+        <activity android:name=".memoryleak.LeakTestActivity" />
+
         <activity
             android:name=".binder.TransactionTooLargeActivity"
             android:process=":remote" />
