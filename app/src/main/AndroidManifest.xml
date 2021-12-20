@@ -35,6 +35,8 @@
             android:name=".room.ui.RoomActivity"
             android:label="@string/title_room" />
 
+        <activity android:name=".adb.AdbTestActivity" />
+
         <activity android:name=".widget.LinearGradientActivity" />
 
         <activity android:name=".activity.task.TaskTestActivity" />

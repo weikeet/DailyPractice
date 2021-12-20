@@ -85,6 +85,11 @@ android {
     disable 'MissingTranslation', 'MissingQuantity', 'ContentDescription', 'RtlHardcoded', 'SpUsage', 'SmallSp'
   }
 
+  packagingOptions {
+    exclude 'META-INF/LICENSE.md'
+    exclude 'META-INF/LICENSE-notice.md'
+  }
+
   compileOptions {
     sourceCompatibility JavaVersion.VERSION_1_8
     targetCompatibility JavaVersion.VERSION_1_8
@@ -143,4 +148,6 @@ dependencies {
   implementation "com.weicools:ktx:1.0.1"
   implementation "com.weicools:fluentlayout:1.0.1"
   implementation project(path: ':cockroach')
+
+  implementation("dev.mobile:dadb:0.0.7")
 }

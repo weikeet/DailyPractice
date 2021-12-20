@@ -19,6 +19,7 @@ import com.weicools.fluent.widget.extensions.dp
 import com.weicools.ktx.colorOf
 import io.weicools.daily.practice.R
 import io.weicools.daily.practice.activity.task.ActivityTaskContent
+import io.weicools.daily.practice.adb.AdbTestContent
 import io.weicools.daily.practice.animator.AnimatedVectorContent
 import io.weicools.daily.practice.asyncui.AsyncUiContent
 import io.weicools.daily.practice.autostart.AutoStartContent
@@ -102,6 +103,7 @@ class MainFragment : BaseFragment() {
   private fun refreshItems() {
     items.clear()
 
+    items.add(AdbTestContent())
     items.add(ActivityTaskContent())
     items.add(AnimatedVectorContent())
     items.add(AsyncUiContent())
