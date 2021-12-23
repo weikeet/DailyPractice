@@ -28,9 +28,8 @@ import androidx.core.view.ViewCompat
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
 import kotlin.properties.ReadOnlyProperty
@@ -210,16 +209,16 @@ abstract class LifecycleViewBindingProperty<in R : Any, out VB : ViewBinding>(
 
   private class ClearOnDestroyLifecycleObserver(
     private val property: ViewBindingProperty<*, *>
-  ) : LifecycleObserver {
+  ) : LifecycleEventObserver {
 
     private companion object {
       private val mainHandler = Handler(Looper.getMainLooper())
     }
 
-    @MainThread
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy(owner: LifecycleOwner) {
-      mainHandler.post { property.clear() }
+    override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+      if (event == Lifecycle.Event.ON_DESTROY) {
+        mainHandler.post { property.clear() }
+      }
     }
   }
 }
