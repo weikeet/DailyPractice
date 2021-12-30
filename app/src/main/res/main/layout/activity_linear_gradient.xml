@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.5" />
 
-    <io.weicools.daily.practice.widget.LinearGradientView
+    <com.weiwei.practice.widget.LinearGradientView
         android:id="@+id/linearGradientView"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <io.weicools.daily.practice.widget.LinearGradientDrawView
+    <com.weiwei.practice.widget.LinearGradientDrawView
         android:id="@+id/linearGradientDrawView"
         android:layout_width="0dp"
         android:layout_height="0dp"

@@ -12,7 +12,7 @@ android {
   // ndkVersion "21.3.6528147"
 
   defaultConfig {
-    applicationId "io.weicools.daily.practice"
+    applicationId "com.weiwei.practice"
     minSdkVersion 21
     targetSdkVersion 31
     versionCode 1

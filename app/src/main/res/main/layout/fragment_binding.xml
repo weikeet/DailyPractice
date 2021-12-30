@@ -28,7 +28,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <io.weicools.daily.practice.binding.BindingDetailView
+    <com.weiwei.practice.binding.BindingDetailView
         android:layout_width="0dp"
         android:layout_height="100dp"
         android:layout_marginLeft="16dp"

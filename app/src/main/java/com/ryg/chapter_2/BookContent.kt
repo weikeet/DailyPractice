@@ -1,8 +1,8 @@
 package com.ryg.chapter_2
 
 import android.content.Intent
-import io.weicools.daily.practice.ui.main.data.ModuleContent
-import io.weicools.daily.practice.ui.main.data.ModuleFunction
+import com.weiwei.practice.ui.main.data.ModuleContent
+import com.weiwei.practice.ui.main.data.ModuleFunction
 
 /**
  * @author Weicools
