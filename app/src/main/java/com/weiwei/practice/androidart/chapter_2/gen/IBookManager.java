@@ -1,17 +1,17 @@
-package com.ryg.chapter_2.gen;
+package com.weiwei.practice.androidart.chapter_2.gen;
 
 public interface IBookManager extends android.os.IInterface {
 
-  public java.util.List<com.ryg.chapter_2.Book> getBookList() throws android.os.RemoteException;
-  public void addBook(com.ryg.chapter_2.Book book) throws android.os.RemoteException;
+  public java.util.List<com.weiwei.practice.androidart.chapter_2.Book> getBookList() throws android.os.RemoteException;
+  public void addBook(com.weiwei.practice.androidart.chapter_2.Book book) throws android.os.RemoteException;
 
   /** Default implementation for IBookManager. */
   public static class Default implements IBookManager {
-    @Override public java.util.List<com.ryg.chapter_2.Book> getBookList() throws android.os.RemoteException {
+    @Override public java.util.List<com.weiwei.practice.androidart.chapter_2.Book> getBookList() throws android.os.RemoteException {
       return null;
     }
 
-    @Override public void addBook(com.ryg.chapter_2.Book book) throws android.os.RemoteException {
+    @Override public void addBook(com.weiwei.practice.androidart.chapter_2.Book book) throws android.os.RemoteException {
     }
 
     @Override public android.os.IBinder asBinder() {
@@ -21,7 +21,7 @@ public interface IBookManager extends android.os.IInterface {
 
   /** Local-side IPC implementation stub class. */
   public static abstract class Stub extends android.os.Binder implements IBookManager {
-    private static final String DESCRIPTOR = "com.ryg.chapter_2.IBookManager";
+    private static final String DESCRIPTOR = "com.weiwei.practice.androidart.chapter_2.IBookManager";
 
     static final int TRANSACTION_getBookList = (android.os.IBinder.FIRST_CALL_TRANSACTION + 0);
     static final int TRANSACTION_addBook = (android.os.IBinder.FIRST_CALL_TRANSACTION + 1);
@@ -32,7 +32,7 @@ public interface IBookManager extends android.os.IInterface {
     }
 
     /**
-     * Cast an IBinder object into an com.ryg.chapter_2.IBookManager interface,
+     * Cast an IBinder object into an com.weiwei.practice.androidart.chapter_2.IBookManager interface,
      * generating a proxy if needed.
      */
     public static IBookManager asInterface(android.os.IBinder obj) {
@@ -59,16 +59,16 @@ public interface IBookManager extends android.os.IInterface {
         }
         case TRANSACTION_getBookList: {
           data.enforceInterface(descriptor);
-          java.util.List<com.ryg.chapter_2.Book> _result = this.getBookList();
+          java.util.List<com.weiwei.practice.androidart.chapter_2.Book> _result = this.getBookList();
           reply.writeNoException();
           reply.writeTypedList(_result);
           return true;
         }
         case TRANSACTION_addBook: {
           data.enforceInterface(descriptor);
-          com.ryg.chapter_2.Book _arg0 = null;
+          com.weiwei.practice.androidart.chapter_2.Book _arg0 = null;
           if ((0 != data.readInt())) {
-            _arg0 = com.ryg.chapter_2.Book.CREATOR.createFromParcel(data);
+            _arg0 = com.weiwei.practice.androidart.chapter_2.Book.CREATOR.createFromParcel(data);
           }
           this.addBook(_arg0);
           reply.writeNoException();
@@ -95,10 +95,10 @@ public interface IBookManager extends android.os.IInterface {
         return DESCRIPTOR;
       }
 
-      @Override public java.util.List<com.ryg.chapter_2.Book> getBookList() throws android.os.RemoteException {
+      @Override public java.util.List<com.weiwei.practice.androidart.chapter_2.Book> getBookList() throws android.os.RemoteException {
         android.os.Parcel _data = android.os.Parcel.obtain();
         android.os.Parcel _reply = android.os.Parcel.obtain();
-        java.util.List<com.ryg.chapter_2.Book> _result;
+        java.util.List<com.weiwei.practice.androidart.chapter_2.Book> _result;
         try {
           _data.writeInterfaceToken(DESCRIPTOR);
           boolean _status = mRemote.transact(Stub.TRANSACTION_getBookList, _data, _reply, 0);
@@ -106,7 +106,7 @@ public interface IBookManager extends android.os.IInterface {
             return getDefaultImpl().getBookList();
           }
           _reply.readException();
-          _result = _reply.createTypedArrayList(com.ryg.chapter_2.Book.CREATOR);
+          _result = _reply.createTypedArrayList(com.weiwei.practice.androidart.chapter_2.Book.CREATOR);
         } finally {
           _reply.recycle();
           _data.recycle();
@@ -114,7 +114,7 @@ public interface IBookManager extends android.os.IInterface {
         return _result;
       }
 
-      @Override public void addBook(com.ryg.chapter_2.Book book) throws android.os.RemoteException {
+      @Override public void addBook(com.weiwei.practice.androidart.chapter_2.Book book) throws android.os.RemoteException {
         android.os.Parcel _data = android.os.Parcel.obtain();
         android.os.Parcel _reply = android.os.Parcel.obtain();
         try {

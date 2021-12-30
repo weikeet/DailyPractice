@@ -1,11 +1,11 @@
-package com.ryg.chapter_2.manual;
+package com.weiwei.practice.androidart.chapter_2.manual;
 
 import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-import com.ryg.chapter_2.Book;
+import com.weiwei.practice.androidart.chapter_2.Book;
 import java.util.List;
 
 /**
@@ -33,7 +33,7 @@ public interface IBookManager extends IInterface {
 
   /** Local-side IPC implementation stub class. */
   public abstract class Stub extends Binder implements IBookManager {
-    private static final String DESCRIPTOR = "com.ryg.chapter_2.IBookManager";
+    private static final String DESCRIPTOR = "com.weiwei.practice.androidart.chapter_2.IBookManager";
 
     static final int TRANSACTION_getBookList = (IBinder.FIRST_CALL_TRANSACTION + 0);
     static final int TRANSACTION_addBook = (IBinder.FIRST_CALL_TRANSACTION + 1);

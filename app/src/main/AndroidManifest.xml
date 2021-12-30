@@ -7,8 +7,9 @@
     <uses-permission android:name="android.permission.REORDER_TASKS" />
 
     <permission
-        android:name="com.ryg.chapter_2.permission.ACCESS_BOOK_SERVICE"
+        android:name="com.weiwei.practice.androidart.chapter_2.permission.ACCESS_BOOK_SERVICE"
         android:protectionLevel="normal" />
+
     <uses-permission android:name="com.ryg.chapter_2.permission.ACCESS_BOOK_SERVICE" />
 
     <application
@@ -69,16 +70,16 @@
             android:name=".binder.TransactionTooLargeActivity"
             android:process=":remote" />
 
-        <activity android:name="com.ryg.chapter_2.BookActivity" />
+        <activity android:name="com.weiwei.practice.androidart.chapter_2.BookActivity" />
 
         <service
-            android:name="com.ryg.chapter_2.BookService"
+            android:name="com.weiwei.practice.androidart.chapter_2.BookService"
             android:process=":remote" />
 
-        <activity android:name="com.ryg.chapter_2.messenger.MessengerActivity" />
+        <activity android:name="com.weiwei.practice.androidart.chapter_2.messenger.MessengerActivity" />
 
         <service
-            android:name="com.ryg.chapter_2.messenger.MessengerService"
+            android:name="com.weiwei.practice.androidart.chapter_2.messenger.MessengerService"
             android:process=":remote" />
 
         <activity android:name=".viewevent.ViewEventActivity" />

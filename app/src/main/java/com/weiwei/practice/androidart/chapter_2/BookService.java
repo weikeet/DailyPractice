@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.ryg.chapter_2;
+package com.weiwei.practice.androidart.chapter_2;
 
 import android.app.Service;
 import android.content.Intent;
@@ -94,7 +94,7 @@ public class BookService extends Service {
   };
 
   // manual
-  private final IBinder bookManager = new com.ryg.chapter_2.manual.IBookManager.Stub() {
+  private final IBinder bookManager = new com.weiwei.practice.androidart.chapter_2.manual.IBookManager.Stub() {
     @Override public List<Book> getBookList() throws RemoteException {
       Log.d(TAG, "BookService getBookList: ");
       return bookList;
@@ -141,7 +141,7 @@ public class BookService extends Service {
     return super.onStartCommand(intent, flags, startId);
   }
 
-  private static final String PERMISSION = "com.ryg.chapter_2.permission.ACCESS_BOOK_SERVICE";
+  private static final String PERMISSION = "com.weiwei.practice.androidart.chapter_2.permission.ACCESS_BOOK_SERVICE";
 
   @Nullable
   @Override

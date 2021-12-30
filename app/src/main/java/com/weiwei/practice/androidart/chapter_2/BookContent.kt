@@ -1,4 +1,4 @@
-package com.ryg.chapter_2
+package com.weiwei.practice.androidart.chapter_2
 
 import android.content.Intent
 import com.weiwei.practice.ui.main.data.ModuleContent

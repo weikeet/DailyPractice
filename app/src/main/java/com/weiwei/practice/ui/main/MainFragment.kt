@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
 import com.drakeet.multitype.MultiTypeAdapter
-import com.ryg.chapter_2.BookContent
-import com.ryg.chapter_2.messenger.MessengerContent
+import com.weiwei.practice.androidart.chapter_2.BookContent
+import com.weiwei.practice.androidart.chapter_2.messenger.MessengerContent
 import com.weicools.core.app.BaseFragment
 import com.weicools.fluent.widget.extensions.dp
 import com.weicools.ktx.colorOf

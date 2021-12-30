@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.ryg.chapter_2.messenger;
+package com.weiwei.practice.androidart.chapter_2.messenger;
 
 import android.content.ComponentName;
 import android.content.Context;

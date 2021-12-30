@@ -1,4 +1,4 @@
-package com.ryg.chapter_2.messenger
+package com.weiwei.practice.androidart.chapter_2.messenger
 
 import android.content.Intent
 import com.weiwei.practice.ui.main.data.ModuleContent
