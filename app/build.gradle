@@ -40,6 +40,12 @@ android {
       // jni {
       //   srcDirs 'src/main/jni', 'src/main/cpp'
       // }
+
+      res.srcDirs += [
+          'src/main/res/main',
+          'src/main/res/guide/navigation',
+          'src/main/res/guide/paging',
+      ]
     }
   }
 
@@ -116,6 +122,9 @@ dependencies {
   implementation ArchitectureLibs.LifecycleLiveDataKtx
   implementation ArchitectureLibs.LifecycleViewModelKtx
   implementation ArchitectureLibs.LifecycleCommonJava8
+
+  implementation ArchitectureLibs.NavigationUIKtx
+  implementation ArchitectureLibs.NavigationFragmentKtx
 
   implementation ArchitectureLibs.RoomRuntime
   implementation ArchitectureLibs.RoomRxJava2
