@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Weicools
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~    https://www.apache.org/licenses/LICENSE-2.0
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/basic_navi_graph"
+    app:startDestination="@id/titleScreen">
+    <fragment
+        android:id="@+id/titleScreen"
+        android:name="com.weiwei.practice.guide.navigation.basic.TitleScreen"
+        android:label="TitleScreen"
+        tools:layout="@layout/fragment_title_screen">
+        <action
+            android:id="@+id/action_titleScreen_to_register"
+            app:destination="@id/register"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_titleScreen_to_leaderboard"
+            app:destination="@id/leaderboard"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/leaderboard"
+        android:name="com.weiwei.practice.guide.navigation.basic.Leaderboard"
+        android:label="Leaderboard"
+        tools:layout="@layout/fragment_leaderboard">
+        <action
+            android:id="@+id/action_leaderboard_to_userProfile"
+            app:destination="@id/userProfile"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/register"
+        android:name="com.weiwei.practice.guide.navigation.basic.Register"
+        android:label="Register"
+        tools:layout="@layout/fragment_register">
+        <action
+            android:id="@+id/action_register_to_match"
+            app:destination="@id/match"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/match"
+        android:name="com.weiwei.practice.guide.navigation.basic.Match"
+        android:label="Match"
+        tools:layout="@layout/fragment_match">
+        <action
+            android:id="@+id/action_match_to_inGame"
+            app:destination="@id/inGame"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/inGame"
+        android:name="com.weiwei.practice.guide.navigation.basic.InGame"
+        android:label="InGame"
+        tools:layout="@layout/fragment_in_game">
+        <action
+            android:id="@+id/action_inGame_to_gameOver"
+            app:destination="@id/gameOver" />
+        <action
+            android:id="@+id/action_inGame_to_resultsWinner"
+            app:destination="@id/resultsWinner" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/gameOver"
+        android:name="com.weiwei.practice.guide.navigation.basic.GameOver"
+        android:label="GameOver"
+        tools:layout="@layout/fragment_game_over">
+        <action
+            android:id="@+id/action_gameOver_to_match"
+            app:destination="@id/match" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/resultsWinner"
+        android:name="com.weiwei.practice.guide.navigation.basic.ResultsWinner"
+        android:label="ResultsWinner"
+        tools:layout="@layout/fragment_results_winner">
+        <action
+            android:id="@+id/action_resultsWinner_to_match"
+            app:destination="@id/match" />
+        <action
+            android:id="@+id/action_resultsWinner_to_leaderboard"
+            app:destination="@id/leaderboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userProfile"
+        android:name="com.weiwei.practice.guide.navigation.basic.UserProfile"
+        android:label="UserProfile"
+        tools:layout="@layout/fragment_user_profile" />
+
+    <action
+        android:id="@+id/action_global_register"
+        app:destination="@id/register" />
+</navigation>

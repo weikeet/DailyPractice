@@ -82,6 +82,8 @@
             android:name="com.weiwei.practice.androidart.chapter_2.messenger.MessengerService"
             android:process=":remote" />
 
+        <activity android:name=".guide.navigation.basic.NavigationBasicActivity" />
+
         <activity android:name=".viewevent.ViewEventActivity" />
     </application>
 

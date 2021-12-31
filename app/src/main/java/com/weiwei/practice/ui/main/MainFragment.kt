@@ -28,6 +28,7 @@ import com.weiwei.practice.binding.BindingContent
 import com.weiwei.practice.cockroach.NoCrashContent
 import com.weiwei.practice.dialog.DialogContent
 import com.weiwei.practice.formatter.FormatterDialogContent
+import com.weiwei.practice.guide.navigation.basic.NavigationBasicContent
 import com.weiwei.practice.jetpack.SingleLiveDataContent
 import com.weiwei.practice.lifecycle.LifecycleContent
 import com.weiwei.practice.memoryleak.MemoryLeakContent
@@ -110,6 +111,7 @@ class MainFragment : BaseFragment() {
     items.add(AutoStartContent())
     items.add(BindingContent())
     items.add(HelloWorldContent())
+    items.add(NavigationBasicContent())
     items.add(TransactionTooLargeContent())
     items.add(ViewEventContent())
     items.add(DialogContent())
