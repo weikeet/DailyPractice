@@ -11,21 +11,13 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.guide.navigation.basic
-
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.weiwei.practice.R
+package com.weiwei.practice.guide.navigation.login
 
 /**
  * @author weiwei
- * @date 2021.12.30
+ * @date 2021.12.31
  */
-class NavigationBasicActivity : AppCompatActivity() {
-
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    // setContentView(R.layout.navigation_activity_basic)
-    setContentView(R.layout.navigation_activity_login)
-  }
+class User {
+  var success: Boolean = false
+  var username = ""
 }

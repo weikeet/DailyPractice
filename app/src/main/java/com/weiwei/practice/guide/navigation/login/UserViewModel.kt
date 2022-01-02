@@ -11,21 +11,27 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.guide.navigation.basic
+package com.weiwei.practice.guide.navigation.login
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import com.weiwei.practice.R
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
 
 /**
  * @author weiwei
- * @date 2021.12.30
+ * @date 2021.12.31
  */
-class NavigationBasicActivity : AppCompatActivity() {
+class UserViewModel : ViewModel() {
+  fun login(name: String, password: String): MutableLiveData<User> {
+    val userData = MutableLiveData<User>()
+    val userInfo = User().apply {
+      success = true
+      username = "weiwei"
+    }
+    userData.value = userInfo
+    user.value = userInfo
 
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    // setContentView(R.layout.navigation_activity_basic)
-    setContentView(R.layout.navigation_activity_login)
+    return user
   }
+
+  val user: MutableLiveData<User> = MutableLiveData()
 }
