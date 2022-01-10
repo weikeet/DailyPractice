@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewGroup.MarginLayoutParams
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ItemDecoration
@@ -33,6 +34,7 @@ import com.weiwei.practice.jetpack.SingleLiveDataContent
 import com.weiwei.practice.lifecycle.LifecycleContent
 import com.weiwei.practice.memoryleak.MemoryLeakContent
 import com.weiwei.practice.ndk.HelloWorldContent
+import com.weiwei.practice.player.VideoPlayerContent
 import com.weiwei.practice.room.ui.RoomContent
 import com.weiwei.practice.viewevent.ViewEventContent
 import com.weiwei.practice.widget.LinearGradientContent
@@ -110,6 +112,7 @@ class MainFragment : BaseFragment() {
     items.add(AsyncUiContent())
     items.add(AutoStartContent())
     items.add(BindingContent())
+    items.add(VideoPlayerContent(findNavController()))
     items.add(HelloWorldContent())
     items.add(NavigationBasicContent())
     items.add(TransactionTooLargeContent())

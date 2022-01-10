@@ -1,8 +1,6 @@
 package com.weiwei.practice.ui.main
 
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.weiwei.practice.R
 import com.weiwei.practice.TimeRecorder.recordStopTime
@@ -27,14 +25,7 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    val mainLayout = MainLayout(this)
-    setContentView(mainLayout)
-
-    setSupportActionBar(mainLayout.toolbar)
-
-    supportFragmentManager.beginTransaction()
-      .replace(mainLayout.containerView.id, MainFragment.newInstance(), TAG_MAIN)
-      .commitNow()
+    setContentView(R.layout.activity_main)
   }
 
 }

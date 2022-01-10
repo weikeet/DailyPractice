@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2020 Weicools
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~    https://www.apache.org/licenses/LICENSE-2.0
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <VideoView
+        android:id="@+id/videoView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="9:16"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.72" />
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="create"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="play"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btn1"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/btn3"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="resume"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btn2"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/btn4"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="pause"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/btn3"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/btn5"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="stop"
+        app:layout_constraintBottom_toTopOf="@id/btn1"
+        app:layout_constraintLeft_toLeftOf="@id/btn1"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/btn6"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="seekTo"
+        app:layout_constraintBottom_toTopOf="@id/btn1"
+        app:layout_constraintLeft_toRightOf="@id/btn5"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/btn7"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toTopOf="@id/btn1"
+        app:layout_constraintLeft_toRightOf="@id/btn6"
+        app:layout_constraintWidth_percent="0.25" />
+
+    <Button
+        android:id="@+id/btn8"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        app:layout_constraintBottom_toTopOf="@id/btn1"
+        app:layout_constraintLeft_toRightOf="@id/btn7"
+        app:layout_constraintWidth_percent="0.25" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
