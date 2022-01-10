@@ -49,6 +49,13 @@ class PracticeApp : BaseApplication() {
 
     KtxInitializer.appContext = this
 
+    installCockroach()
+
+    AppGlobal.initApplication(this)
+    AppGlobal.initDebuggable(BuildConfig.DEBUG)
+  }
+
+  private fun installCockroach() {
     Cockroach.install(this, object : ExceptionHandler() {
       val toast: Toast = Toast.makeText(applicationContext, "", Toast.LENGTH_SHORT)
 
@@ -91,8 +98,5 @@ class PracticeApp : BaseApplication() {
         sysExceptionHandler.uncaughtException(thread, RuntimeException("black screen"))
       }
     })
-
-    AppGlobal.initApplication(this)
-    AppGlobal.initDebuggable(BuildConfig.DEBUG)
   }
 }
