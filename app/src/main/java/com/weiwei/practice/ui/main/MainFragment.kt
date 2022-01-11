@@ -37,6 +37,7 @@ import com.weiwei.practice.ndk.HelloWorldContent
 import com.weiwei.practice.player.VideoPlayerContent
 import com.weiwei.practice.room.ui.RoomContent
 import com.weiwei.practice.viewevent.ViewEventContent
+import com.weiwei.practice.wave.WaveViewContent
 import com.weiwei.practice.widget.LinearGradientContent
 
 /**
@@ -113,6 +114,7 @@ class MainFragment : BaseFragment() {
     items.add(AutoStartContent())
     items.add(BindingContent())
     items.add(VideoPlayerContent(findNavController()))
+    items.add(WaveViewContent(findNavController()))
     items.add(HelloWorldContent())
     items.add(NavigationBasicContent())
     items.add(TransactionTooLargeContent())

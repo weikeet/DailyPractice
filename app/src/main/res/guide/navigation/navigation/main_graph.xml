@@ -23,10 +23,17 @@
         <action
             android:id="@+id/action_mainFragment_to_videoPlayerFragment"
             app:destination="@id/videoPlayerFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_waveViewFragment"
+            app:destination="@id/waveViewFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/videoPlayerFragment"
         android:name="com.weiwei.practice.player.VideoPlayerFragment" />
+
+    <fragment
+        android:id="@+id/waveViewFragment"
+        android:name="com.weiwei.practice.wave.WaveViewFragment" />
 
 </navigation>
