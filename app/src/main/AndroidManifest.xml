@@ -86,6 +86,9 @@
         <activity android:name=".guide.navigation.basic.NavigationBasicActivity" />
 
         <activity android:name=".viewevent.ViewEventActivity" />
+
+        <activity android:name=".window.WindowInsetsTestActivity" />
+
     </application>
 
 </manifest>
