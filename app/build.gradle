@@ -41,11 +41,9 @@ android {
       //   srcDirs 'src/main/jni', 'src/main/cpp'
       // }
 
-      res.srcDirs += [
-          'src/main/res/main',
-          'src/main/res/guide/navigation',
-          'src/main/res/guide/paging',
-      ]
+      res.srcDirs += ['src/main/res/main',
+                      'src/main/res/guide/navigation',
+                      'src/main/res/guide/paging',]
     }
   }
 
@@ -153,11 +151,15 @@ dependencies {
 
   debugImplementation AnalyticLibs.LeakCanaryDebug
 
-  implementation "com.weicools:core:1.0.0"
-  implementation "com.weicools:ktx:1.0.1"
-  implementation "com.weicools:taskscheduler:1.0.0"
-  implementation "com.weicools:fluentlayout:1.0.1"
-  implementation project(path: ':cockroach')
-
   implementation("dev.mobile:dadb:0.0.7")
+
+  implementation "com.weicools:core:1.1.0"
+  implementation "com.weicools:core-ktx:1.1.0"
+  implementation "com.weicools:mmkv-ktx:1.1.0"
+  implementation "com.weicools:view-binding:1.1.0"
+  implementation "com.weicools:fluent-layout:1.1.1"
+  implementation "com.weicools:task-scheduler:1.1.0"
+  implementation "com.weicools:utils:1.1.0"
+
+  implementation project(path: ':cockroach')
 }

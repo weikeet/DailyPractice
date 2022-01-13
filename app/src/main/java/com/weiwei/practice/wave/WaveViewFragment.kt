@@ -21,7 +21,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.weicools.ktx.colorOf
+import com.weiwei.extensions.colorOf
 import com.weiwei.practice.R
 import com.weiwei.practice.binding.viewBinding
 import com.weiwei.practice.databinding.WaveFragmentViewBinding

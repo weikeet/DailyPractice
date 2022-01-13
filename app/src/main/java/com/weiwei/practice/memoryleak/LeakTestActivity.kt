@@ -20,11 +20,11 @@ import android.os.Message
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.weicools.fluent.widget.dsl.button
-import com.weicools.fluent.widget.dsl.linearLayout
-import com.weicools.fluent.widget.extensions.dp
-import com.weicools.fluent.widget.params.linearParams
-import com.weicools.fluent.widget.params.matchParent
+import com.weiwei.fluent.widget.button
+import com.weiwei.fluent.widget.linearLayout
+import com.weiwei.fluent.widget.extensions.dp
+import com.weiwei.fluent.widget.params.linearParams
+import com.weiwei.fluent.widget.params.matchParent
 
 class LeakTestActivity : AppCompatActivity() {
 

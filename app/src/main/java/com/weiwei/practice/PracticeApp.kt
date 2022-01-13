@@ -8,11 +8,10 @@ import android.os.Process
 import android.text.TextUtils
 import android.util.Log
 import android.widget.Toast
-import com.weicools.core.app.BaseApplication
-import com.weicools.core.global.AppGlobal
-import com.weicools.ktx.core.KtxInitializer
 import com.weiwei.cockroach.Cockroach
 import com.weiwei.cockroach.ExceptionHandler
+import com.weiwei.core.app.BaseApplication
+import com.weiwei.core.global.AppGlobal
 
 
 /**
@@ -46,8 +45,6 @@ class PracticeApp : BaseApplication() {
 
   override fun onCreate() {
     super.onCreate()
-
-    KtxInitializer.appContext = this
 
     installCockroach()
 

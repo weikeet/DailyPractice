@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-import com.weicools.ktx.widthPixels
+import com.weiwei.extensions.widthPixels
 import com.weiwei.practice.R
 
 /**

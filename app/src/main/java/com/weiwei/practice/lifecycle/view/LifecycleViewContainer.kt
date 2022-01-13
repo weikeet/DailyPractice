@@ -8,7 +8,7 @@ import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
 import com.weiwei.practice.common.extensions.visibilityText
-import com.weicools.fluent.widget.extensions.dp
+import com.weiwei.fluent.widget.extensions.dp
 import com.weiwei.practice.R
 import com.weiwei.practice.lifecycle.LifeViewLog
 import com.weiwei.practice.lifecycle.logger

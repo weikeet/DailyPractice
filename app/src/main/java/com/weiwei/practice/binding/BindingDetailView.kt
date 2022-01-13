@@ -16,8 +16,8 @@ package com.weiwei.practice.binding
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
-import com.weicools.fluent.widget.extensions.background_colorResource
-import com.weicools.fluent.widget.extensions.gravity_center
+import com.weiwei.fluent.widget.extensions.background_colorResource
+import com.weiwei.fluent.widget.extensions.gravity_center
 import com.weiwei.practice.R
 import com.weiwei.practice.databinding.ItemBindingDetalBinding
 

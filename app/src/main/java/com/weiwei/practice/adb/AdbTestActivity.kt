@@ -16,13 +16,13 @@ package com.weiwei.practice.adb
 import android.os.Bundle
 import android.widget.LinearLayout
 import android.widget.Toast
-import com.weicools.core.app.BaseActivity
-import com.weicools.fluent.widget.dsl.button
-import com.weicools.fluent.widget.dsl.editText
-import com.weicools.fluent.widget.dsl.linearLayout
-import com.weicools.fluent.widget.extensions.dp
-import com.weicools.fluent.widget.extensions.gravity_centerHorizontal
-import com.weicools.fluent.widget.params.linearParams
+import com.weiwei.core.app.BaseActivity
+import com.weiwei.fluent.widget.button
+import com.weiwei.fluent.widget.editText
+import com.weiwei.fluent.widget.linearLayout
+import com.weiwei.fluent.widget.extensions.dp
+import com.weiwei.fluent.widget.extensions.gravity_centerHorizontal
+import com.weiwei.fluent.widget.params.linearParams
 import dadb.Dadb
 
 /**

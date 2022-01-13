@@ -10,8 +10,8 @@ import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
-import com.weicools.core.app.BaseFragment
-import com.weicools.fluent.widget.extensions.dp
+import com.weiwei.core.app.BaseFragment
+import com.weiwei.fluent.widget.extensions.dp
 import com.weiwei.practice.R
 import com.weiwei.practice.activity.task.ActivityTaskContent
 import com.weiwei.practice.adb.AdbTestContent

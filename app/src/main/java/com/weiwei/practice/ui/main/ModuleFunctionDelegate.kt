@@ -2,9 +2,9 @@ package com.weiwei.practice.ui.main
 
 import android.content.Context
 import com.drakeet.multitype.ViewDelegate
-import com.weicools.fluent.widget.extensions.dp
-import com.weicools.fluent.widget.params.defaultParams
-import com.weicools.fluent.widget.params.matchParent
+import com.weiwei.fluent.widget.extensions.dp
+import com.weiwei.fluent.widget.params.defaultParams
+import com.weiwei.fluent.widget.params.matchParent
 import com.weiwei.practice.ui.main.data.ModuleContent
 
 /**

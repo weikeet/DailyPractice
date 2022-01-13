@@ -3,15 +3,15 @@ package com.weiwei.practice.ui.main
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.weicools.fluent.widget.dsl.imageView
-import com.weicools.fluent.widget.dsl.textView
-import com.weicools.fluent.widget.extensions.dp
-import com.weicools.fluent.widget.extensions.text_colorResource
-import com.weicools.fluent.widget.params.center_VerticalOf
-import com.weicools.fluent.widget.params.chainPacked
-import com.weicools.fluent.widget.params.constraintParams
-import com.weicools.fluent.widget.params.parentId
-import com.weicools.fluent.widget.params.wrapContent
+import com.weiwei.fluent.widget.imageView
+import com.weiwei.fluent.widget.textView
+import com.weiwei.fluent.widget.extensions.dp
+import com.weiwei.fluent.widget.extensions.text_colorResource
+import com.weiwei.fluent.widget.params.center_VerticalOf
+import com.weiwei.fluent.widget.params.chainPacked
+import com.weiwei.fluent.widget.params.constraintParams
+import com.weiwei.fluent.widget.params.parentId
+import com.weiwei.fluent.widget.params.wrapContent
 import com.weiwei.practice.R
 import com.weiwei.practice.ui.main.data.ModuleFunction
 

@@ -19,11 +19,11 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.weicools.fluent.widget.dsl.imageView
-import com.weicools.fluent.widget.dsl.linearLayout
-import com.weicools.fluent.widget.extensions.image_bitmap
-import com.weicools.fluent.widget.extensions.image_resource
-import com.weicools.fluent.widget.params.linearParams
+import com.weiwei.fluent.widget.imageView
+import com.weiwei.fluent.widget.linearLayout
+import com.weiwei.fluent.widget.extensions.image_bitmap
+import com.weiwei.fluent.widget.extensions.image_resource
+import com.weiwei.fluent.widget.params.linearParams
 import com.weiwei.practice.TransactLargeService
 import com.weiwei.practice.R
 

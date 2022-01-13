@@ -5,10 +5,10 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.weicools.fluent.widget.dsl.autoAddView
-import com.weicools.fluent.widget.dsl.frameLayout
-import com.weicools.fluent.widget.params.defaultParams
-import com.weicools.fluent.widget.params.matchParent
+import com.weiwei.fluent.widget.autoAddView
+import com.weiwei.fluent.widget.frameLayout
+import com.weiwei.fluent.widget.params.defaultParams
+import com.weiwei.fluent.widget.params.matchParent
 import kotlin.math.abs
 
 /**

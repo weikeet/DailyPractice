@@ -19,7 +19,7 @@ import android.graphics.Rect
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.weicools.ktx.colorOf
+import com.weiwei.extensions.colorOf
 import com.weiwei.practice.R
 
 /**

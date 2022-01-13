@@ -7,7 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.RelativeLayout
 import com.weiwei.practice.common.extensions.visibilityText
-import com.weicools.fluent.widget.params.matchParent
+import com.weiwei.fluent.widget.params.matchParent
 import com.weiwei.practice.R
 import com.weiwei.practice.lifecycle.LifeViewLog
 import com.weiwei.practice.lifecycle.logger

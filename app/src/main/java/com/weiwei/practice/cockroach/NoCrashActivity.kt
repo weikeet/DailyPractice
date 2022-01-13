@@ -18,12 +18,12 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.weicools.fluent.widget.dsl.linearLayout
-import com.weicools.fluent.widget.dsl.textView
-import com.weicools.fluent.widget.extensions.dp
-import com.weicools.fluent.widget.extensions.gravity_center
-import com.weicools.fluent.widget.extensions.paddings
-import com.weicools.fluent.widget.params.linearParams
+import com.weiwei.fluent.widget.linearLayout
+import com.weiwei.fluent.widget.textView
+import com.weiwei.fluent.widget.extensions.dp
+import com.weiwei.fluent.widget.extensions.gravity_center
+import com.weiwei.fluent.widget.extensions.paddings
+import com.weiwei.fluent.widget.params.linearParams
 import kotlin.concurrent.thread
 
 class NoCrashActivity : AppCompatActivity() {

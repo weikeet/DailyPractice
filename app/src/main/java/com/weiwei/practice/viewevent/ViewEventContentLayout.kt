@@ -16,11 +16,11 @@ package com.weiwei.practice.viewevent
 import android.content.Context
 import android.util.Log
 import android.view.MotionEvent
-import com.weicools.fluent.widget.dsl.autoAddView
-import com.weicools.fluent.widget.extensions.background_colorResource
-import com.weicools.fluent.widget.extensions.dp
-import com.weicools.fluent.widget.params.linearParams
-import com.weicools.fluent.widget.params.matchParent
+import com.weiwei.fluent.widget.autoAddView
+import com.weiwei.fluent.widget.extensions.background_colorResource
+import com.weiwei.fluent.widget.extensions.dp
+import com.weiwei.fluent.widget.params.linearParams
+import com.weiwei.fluent.widget.params.matchParent
 import com.weiwei.practice.R
 
 /**
