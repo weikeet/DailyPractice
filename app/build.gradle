@@ -6,7 +6,6 @@ plugins {
 
 android {
   compileSdkVersion 31
-  buildToolsVersion "31.0.0"
 
   // https://developer.android.com/studio/projects/install-ndk#apply-specific-version
   // ndkVersion "21.3.6528147"
@@ -14,7 +13,7 @@ android {
   defaultConfig {
     applicationId "com.weiwei.practice"
     minSdkVersion 21
-    targetSdkVersion 31
+    targetSdkVersion 32
     versionCode 1
     versionName "1.0"
 
@@ -48,22 +47,8 @@ android {
   }
 
   buildFeatures {
-    // Determines whether to generate a BuildConfig class.
-    // buildConfig = true
-    // Determines whether to support View Binding.
-    // Note that the viewBinding.enabled property is now deprecated.
     viewBinding = true
-    // Determines whether to support Data Binding.
-    // Note that the dataBinding.enabled property is now deprecated.
     dataBinding = false
-    // Determines whether to generate binder classes for your AIDL files.
-    // aidl = true
-    // Determines whether to support RenderScript.
-    // renderScript = true
-    // Determines whether to support injecting custom variables into the module’s R class.
-    // resValues = true
-    // Determines whether to support shader AOT compilation.
-    // shaders = true
   }
 
   buildTypes {
@@ -74,7 +59,9 @@ android {
 
     release {
       minifyEnabled true
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+      proguardFile 'proguard-rules.pro'
+      proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
     }
   }
 
