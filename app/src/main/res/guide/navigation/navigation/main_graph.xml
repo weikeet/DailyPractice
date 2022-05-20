@@ -11,8 +11,7 @@
   ~ limitations under the License.
   -->
 
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_graph"
     app:startDestination="@id/mainFragment">
@@ -26,6 +25,9 @@
         <action
             android:id="@+id/action_mainFragment_to_waveViewFragment"
             app:destination="@id/waveViewFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_recyclerPayloadFragment"
+            app:destination="@id/recyclerPayloadFragment" />
     </fragment>
 
     <fragment
@@ -35,5 +37,9 @@
     <fragment
         android:id="@+id/waveViewFragment"
         android:name="com.weiwei.practice.wave.WaveViewFragment" />
+
+    <fragment
+        android:id="@+id/recyclerPayloadFragment"
+        android:name="com.weiwei.practice.widget.recycler.RecyclerPayloadFragment" />
 
 </navigation>
