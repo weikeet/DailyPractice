@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-  compileSdkVersion 31
+  compileSdkVersion 32
 
   // https://developer.android.com/studio/projects/install-ndk#apply-specific-version
   // ndkVersion "21.3.6528147"
