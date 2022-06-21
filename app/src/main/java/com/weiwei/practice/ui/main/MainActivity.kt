@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
   companion object {
     private const val TAG = "MainActivity_"
 
-    private const val TAG_MAIN = "TAG_MAIN"
+    private const val tag_main = "TAG_MAIN"
   }
 
   override fun onWindowFocusChanged(hasFocus: Boolean) {

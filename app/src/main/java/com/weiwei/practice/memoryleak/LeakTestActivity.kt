@@ -16,26 +16,32 @@ package com.weiwei.practice.memoryleak
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.os.Message
+import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.weiwei.fluent.widget.button
-import com.weiwei.fluent.widget.linearLayout
 import com.weiwei.fluent.widget.extensions.dp
+import com.weiwei.fluent.widget.linearLayout
 import com.weiwei.fluent.widget.params.linearParams
 import com.weiwei.fluent.widget.params.matchParent
 
+/**
+ * [内存泄露监测与问题排查](https://blog.csdn.net/wumeixinjiazu/article/details/124347893)
+ * docs: [DailyStudy/Performance/MemoryLeak-监测和排查]
+ */
 class LeakTestActivity : AppCompatActivity() {
+  companion object {
+    @JvmStatic
+    private val viewList: ArrayList<View> = ArrayList()
+  }
 
-  private val handler = Handler(Looper.getMainLooper(), object : Handler.Callback {
-    override fun handleMessage(msg: Message): Boolean {
-      if (msg.what == 100) {
-        handlerButton.text = "handleMessage"
-      }
-      return true
+  private val handler = Handler(Looper.getMainLooper()) { msg ->
+    if (msg.what == 100) {
+      handlerButton.text = "handleMessage"
     }
-  })
+    true
+  }
 
   private lateinit var handlerButton: Button
   private lateinit var threadButton: Button
@@ -73,14 +79,18 @@ class LeakTestActivity : AppCompatActivity() {
 
     setContentView(rootView)
 
+    viewList.add(rootView)
+    viewList.add(handlerButton)
+    viewList.add(threadButton)
+
     handlerButton.setOnClickListener {
       val msg = handler.obtainMessage().apply { what = 100 }
-      handler.sendMessageDelayed(msg, 20000L)
+      handler.sendMessageDelayed(msg, 8000L)
     }
 
     threadButton.setOnClickListener {
       Thread {
-        Thread.sleep(20000L)
+        Thread.sleep(8000L)
         handler.sendEmptyMessage(0)
       }.start()
     }
