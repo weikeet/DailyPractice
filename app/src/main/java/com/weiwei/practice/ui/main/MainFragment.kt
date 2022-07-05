@@ -34,6 +34,7 @@ import com.weiwei.practice.memoryleak.MemoryLeakContent
 import com.weiwei.practice.ndk.HelloWorldContent
 import com.weiwei.practice.player.VideoPlayerContent
 import com.weiwei.practice.room.ui.RoomContent
+import com.weiwei.practice.shadow.ShadowContainerContent
 import com.weiwei.practice.viewevent.ViewEventContent
 import com.weiwei.practice.wave.WaveViewContent
 import com.weiwei.practice.widget.LinearGradientContent
@@ -106,6 +107,7 @@ class MainFragment : BaseFragment() {
     items.add(ViewEventContent())
     items.add(DialogContent())
     items.add(FormatterDialogContent())
+    items.add(ShadowContainerContent())
     items.add(SingleLiveDataContent())
     items.add(LifecycleContent())
     items.add(MemoryLeakContent())

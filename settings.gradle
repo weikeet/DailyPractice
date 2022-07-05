@@ -10,3 +10,5 @@ dependencyResolutionManagement {
 rootProject.name = "DailyPractice"
 include ':app'
 include ':cockroach'
+include ':shadow'
+include ':sample-plugin'

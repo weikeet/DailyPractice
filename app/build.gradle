@@ -138,7 +138,7 @@ dependencies {
 
   debugImplementation AnalyticLibs.LeakCanaryDebug
 
-  implementation("dev.mobile:dadb:0.0.7")
+  implementation('dev.mobile:dadb:0.0.10')
 
   implementation "com.weicools:core:1.1.0"
   implementation "com.weicools:core-ktx:1.1.0"
@@ -149,4 +149,6 @@ dependencies {
   implementation "com.weicools:utils:1.1.0"
 
   implementation project(path: ':cockroach')
+
+  implementation project(path: ':shadow')
 }

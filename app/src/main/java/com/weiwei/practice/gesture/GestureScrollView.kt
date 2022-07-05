@@ -12,7 +12,7 @@ import androidx.core.widget.NestedScrollView
 class GestureScrollView @JvmOverloads constructor(
   context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : NestedScrollView(context, attrs, defStyleAttr) {
-  override fun onTouchEvent(ev: MotionEvent?): Boolean {
+  override fun onTouchEvent(ev: MotionEvent): Boolean {
     return super.onTouchEvent(ev)
   }
 }
