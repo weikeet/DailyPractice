@@ -12,6 +12,7 @@ import com.weiwei.cockroach.Cockroach
 import com.weiwei.cockroach.ExceptionHandler
 import com.weiwei.core.app.BaseApplication
 import com.weiwei.core.global.AppGlobal
+import xcrash.XCrash
 
 
 /**
@@ -40,13 +41,17 @@ class PracticeApp : BaseApplication() {
 
     AppGlobal.initAppContext(base)
 
+    val params = XCrash.InitParameters()
+    params.setLogDir(getExternalFilesDir("tombstones")?.path)
+    XCrash.init(this, params)
+
     TimeRecorder.recordStartTime(appProcessName)
   }
 
   override fun onCreate() {
     super.onCreate()
 
-    installCockroach()
+    // installCockroach()
 
     AppGlobal.initApplication(this)
     AppGlobal.initDebuggable(BuildConfig.DEBUG)

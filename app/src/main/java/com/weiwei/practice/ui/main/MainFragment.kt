@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.doOnPreDraw
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
 import androidx.navigation.fragment.findNavController
@@ -23,7 +22,7 @@ import com.weiwei.practice.autostart.AutoStartContent
 import com.weiwei.practice.binder.TransactionTooLargeContent
 import com.weiwei.practice.binding.BindingContent
 import com.weiwei.practice.binding.viewBinding
-import com.weiwei.practice.cockroach.NoCrashContent
+import com.weiwei.practice.crash.CrashTestContent
 import com.weiwei.practice.databinding.FragmentMainBinding
 import com.weiwei.practice.dialog.DialogContent
 import com.weiwei.practice.formatter.FormatterDialogContent
@@ -111,7 +110,7 @@ class MainFragment : BaseFragment() {
     items.add(SingleLiveDataContent())
     items.add(LifecycleContent())
     items.add(MemoryLeakContent())
-    items.add(NoCrashContent())
+    items.add(CrashTestContent())
     items.add(RoomContent())
     items.add(LinearGradientContent())
 

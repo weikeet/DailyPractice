@@ -18,20 +18,20 @@ android {
     versionCode 1
     versionName "1.0"
 
-    // externalNativeBuild {
-    //   cmake {
-    //     cppFlags ""
-    //   }
-    // }
+    externalNativeBuild {
+      cmake {
+        cppFlags ""
+      }
+    }
   }
 
   // https://developer.android.com/studio/projects/install-ndk#vanilla_cmake
-  // externalNativeBuild {
-  //   cmake {
-  //     path "src/main/cpp/CMakeLists.txt"
-  //     version "3.10.2"
-  //   }
-  // }
+  externalNativeBuild {
+    cmake {
+      path "src/main/cpp/CMakeLists.txt"
+      version "3.10.2"
+    }
+  }
 
   sourceSets {
     main {
@@ -138,6 +138,8 @@ dependencies {
   implementation WidgetLibs.MultiType
 
   debugImplementation AnalyticLibs.LeakCanaryDebug
+
+  implementation 'com.iqiyi.xcrash:xcrash-android-lib:3.1.0'
 
   implementation('dev.mobile:dadb:0.0.10')
 

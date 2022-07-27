@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Weicools
+ * Copyright (c) 2020 Weiwei
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -11,19 +11,19 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.cockroach
+package com.weiwei.practice.crash
 
 import android.content.Intent
 import com.weiwei.practice.ui.main.data.ModuleContent
 import com.weiwei.practice.ui.main.data.ModuleFunction
 
-class NoCrashContent : ModuleContent() {
+class CrashTestContent : ModuleContent() {
   override fun setupFunction(function: ModuleFunction) {
     function.apply {
-      title = "No crash"
-      description = "test no crash"
+      title = "Crash test"
+      description = "test java and native crash"
       clickAction = {
-        it.startActivity(Intent(it, NoCrashActivity::class.java))
+        it.startActivity(Intent(it, CrashTestActivity::class.java))
       }
     }
   }

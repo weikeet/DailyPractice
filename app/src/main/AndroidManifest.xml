@@ -63,7 +63,7 @@
 
         <activity android:name=".binding.BindingActivity" />
 
-        <activity android:name=".cockroach.NoCrashActivity" />
+        <activity android:name=".crash.CrashTestActivity" />
 
         <activity android:name=".memoryleak.LeakTestActivity" />
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Weicools
+ * Copyright (c) 2020 Weiwei
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -11,36 +11,45 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.cockroach
+package com.weiwei.practice.crash
 
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.weiwei.fluent.widget.linearLayout
-import com.weiwei.fluent.widget.textView
 import com.weiwei.fluent.widget.extensions.dp
 import com.weiwei.fluent.widget.extensions.gravity_center
 import com.weiwei.fluent.widget.extensions.paddings
+import com.weiwei.fluent.widget.linearLayout
+import com.weiwei.fluent.widget.materialButton
 import com.weiwei.fluent.widget.params.linearParams
-import kotlin.concurrent.thread
+import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluent.widget.params.wrapContent
+import com.weiwei.practice.ndk.HelloWorld
+import com.weiwei.task.scheduler.TaskScheduler
 
-class NoCrashActivity : AppCompatActivity() {
+class CrashTestActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
-    val tvMain = textView {
-      layoutParams = linearParams { }
+    val tvMain = materialButton {
+      layoutParams = linearParams(matchParent, wrapContent) { }
       paddings = 16.dp
       text = "TEST Main Crash"
     }
 
-    val tvWork = textView {
-      layoutParams = linearParams { topMargin = 20.dp }
+    val tvWork = materialButton {
+      layoutParams = linearParams(matchParent, wrapContent) { topMargin = 20.dp }
       paddings = 16.dp
       text = "TEST Crash"
+    }
+
+    val tvNative = materialButton {
+      layoutParams = linearParams(matchParent, wrapContent) { topMargin = 20.dp }
+      paddings = 16.dp
+      text = "TEST native crash"
     }
 
     val view = linearLayout {
@@ -48,6 +57,7 @@ class NoCrashActivity : AppCompatActivity() {
       gravity = gravity_center
       addView(tvMain)
       addView(tvWork)
+      addView(tvNative)
     }
 
     setContentView(view)
@@ -66,10 +76,17 @@ class NoCrashActivity : AppCompatActivity() {
 
     tvWork.setOnClickListener {
       handler.postDelayed({
-        thread {
+        // thread {
+        //   throw RuntimeException("test crash on thread delay 2s")
+        // }
+        TaskScheduler.executeTask {
           throw RuntimeException("test crash on thread delay 2s")
         }
       }, 2000L)
+    }
+
+    tvNative.setOnClickListener {
+      HelloWorld().testNativeCrash()
     }
   }
 }

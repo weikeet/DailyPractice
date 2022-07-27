@@ -13,7 +13,6 @@
 
 package com.weiwei.practice.ndk
 
-import android.util.Log
 import com.weiwei.practice.ui.main.data.ModuleContent
 import com.weiwei.practice.ui.main.data.ModuleFunction
 
@@ -29,8 +28,7 @@ class HelloWorldContent : ModuleContent() {
 
         // 访问静态字段和实例字段
         helloWorld.accessField()
-        Log.d("HelloWorldContent", HelloWorld.getStaticName())
-        Log.d("HelloWorldContent", helloWorld.memberName)
+        helloWorld.printName()
 
         // 访问静态方法和实例方法
         helloWorld.accessMethod()
