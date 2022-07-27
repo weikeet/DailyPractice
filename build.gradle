@@ -1,6 +1,7 @@
 buildscript {
   ext {
-    kotlin_version = '1.7.0'
+    kotlin_version = "1.7.10"
+    booster_version = "4.12.0"
   }
   repositories {
     gradlePluginPortal()
@@ -8,8 +9,59 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath 'com.android.tools.build:gradle:7.2.1'
+    classpath 'com.android.tools.build:gradle:7.0.4'
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+    //region booster
+    // https://booster.johnsonlee.io
+    // https://github.com/didi/booster
+    // ./gradlew assembleDebug --dry-run 确认 Booster 是否启用
+    classpath "com.didiglobal.booster:booster-gradle-plugin:$booster_version"
+
+    // 弄清楚真正需要的特性，然后从下面的模块列表中选择正确的模块进行集成
+
+    // Performance
+    // 静态分析工具
+    classpath "com.didiglobal.booster:booster-task-analyser:$booster_version"
+    // 多线程优化
+    classpath "com.didiglobal.booster:booster-transform-thread:$booster_version"
+    // WebView 预加载
+    // classpath "com.didiglobal.booster:booster-transform-webview:$booster_version"
+    // SharedPreferences 优化
+    // classpath "com.didiglobal.booster:booster-transform-shared-preferences:$booster_version"
+
+    // Package Size
+    // 采用 cwebp 对资源进行压缩 (set android.precompileDependenciesResources=false)
+    // classpath "com.didiglobal.booster:booster-task-compression-cwebp:$booster_version"
+    // 采用 pngquant 对资源进行压缩 (set android.precompileDependenciesResources=false)
+    // classpath "com.didiglobal.booster:booster-task-compression-pngquant:$booster_version"
+    // ap_ 文件压缩
+    // classpath "com.didiglobal.booster:booster-task-compression-processed-res:$booster_version"
+    // 去冗余资源 (set android.precompileDependenciesResources=false)
+    classpath "com.didiglobal.booster:booster-task-resource-deredundancy:$booster_version"
+    // 资源索引内联
+    // classpath "com.didiglobal.booster:booster-transform-r-inline:$booster_version"
+    // DataBinding BR索引内联
+    // classpath "com.didiglobal.booster:booster-transform-br-inline:$booster_version"
+
+    // System Bug
+    // 修复 finalizer 导致的 TimeoutException
+    classpath "com.didiglobal.booster:booster-transform-finalizer-watchdog-daemon:$booster_version"
+    // 修复 MediaPlayer 崩溃
+    // classpath "com.didiglobal.booster:booster-transform-media-player:$booster_version"
+    // 检查覆盖安装导致的 Resources 和 Assets 未加载的 Bug
+    // classpath "com.didiglobal.booster:booster-transform-res-check:$booster_version"
+    // 修复 Toast 在 Android 7.1 上的 Bug
+    classpath "com.didiglobal.booster:booster-transform-toast:$booster_version"
+    // 处理系统 Crash
+    classpath "com.didiglobal.booster:booster-transform-activity-thread:$booster_version"
+
+    // Utility
+    // 显示 AAR 使用的权限清单
+    // classpath "com.didiglobal.booster:booster-task-list-permission:$booster_version"
+    // 显示 AAR 包含的动态库清单
+    // classpath "com.didiglobal.booster:booster-task-list-shared-library:$booster_version"
+    //endregion
   }
 }
 

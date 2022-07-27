@@ -1,5 +1,6 @@
 plugins {
   id 'com.android.application'
+  id 'com.didiglobal.booster'
   id 'kotlin-android'
   id 'kotlin-kapt'
 }
