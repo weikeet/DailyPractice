@@ -91,6 +91,8 @@
 
         <activity android:name=".shadow.PluginContainerActivity" />
 
+        <service android:name=".service.TestForegroundService" />
+
     </application>
 
 </manifest>

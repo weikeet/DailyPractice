@@ -33,6 +33,7 @@ import com.weiwei.practice.memoryleak.MemoryLeakContent
 import com.weiwei.practice.ndk.HelloWorldContent
 import com.weiwei.practice.player.VideoPlayerContent
 import com.weiwei.practice.room.ui.RoomContent
+import com.weiwei.practice.service.ForegroundServiceContent
 import com.weiwei.practice.shadow.ShadowContainerContent
 import com.weiwei.practice.viewevent.ViewEventContent
 import com.weiwei.practice.wave.WaveViewContent
@@ -101,6 +102,7 @@ class MainFragment : BaseFragment() {
     items.add(WaveViewContent(findNavController()))
     items.add(PayloadContent(findNavController()))
     items.add(HelloWorldContent())
+    items.add(ForegroundServiceContent())
     items.add(NavigationBasicContent())
     items.add(TransactionTooLargeContent())
     items.add(ViewEventContent())
