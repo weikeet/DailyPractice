@@ -43,7 +43,7 @@
 
         <activity android:name=".activity.task.TaskTestActivity" />
 
-        <activity android:name=".lifecycle.LifeActivity" />
+        <activity android:name=".lifecycle.core.LifeActivity" />
 
         <activity android:name=".lifecycle.sample.SampleLifeSecondActivity" />
 

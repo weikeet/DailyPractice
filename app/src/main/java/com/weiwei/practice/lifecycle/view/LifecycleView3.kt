@@ -2,7 +2,7 @@ package com.weiwei.practice.lifecycle.view
 
 import android.content.Context
 import android.util.AttributeSet
-import com.weiwei.practice.lifecycle.LifeView
+import com.weiwei.practice.lifecycle.core.LifeView
 
 /**
  * @author weicools

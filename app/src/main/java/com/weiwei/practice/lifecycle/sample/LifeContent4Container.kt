@@ -8,7 +8,7 @@ import com.google.android.material.tabs.TabLayout
 import com.weiwei.fluent.widget.extensions.dp
 import com.weiwei.fluent.widget.params.matchParent
 import com.weiwei.practice.R
-import com.weiwei.practice.lifecycle.LifeLayout
+import com.weiwei.practice.lifecycle.core.LifeLayout
 
 /**
  * @author weicools

@@ -1,4 +1,4 @@
-package com.weiwei.practice.lifecycle
+package com.weiwei.practice.lifecycle.core
 
 /**
  * @author weicools

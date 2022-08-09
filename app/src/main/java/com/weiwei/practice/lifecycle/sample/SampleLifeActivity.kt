@@ -8,8 +8,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import com.weiwei.practice.common.adapter.FragmentAdapter
 import com.weiwei.practice.common.adapter.FragmentAdapter2
-import com.weiwei.practice.lifecycle.LifeActivity
-import com.weiwei.practice.lifecycle.logger
+import com.weiwei.practice.lifecycle.core.LifeActivity
+import com.weiwei.practice.lifecycle.core.logger
 
 /**
  * @author weicools

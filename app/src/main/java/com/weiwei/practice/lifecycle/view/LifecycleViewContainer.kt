@@ -10,8 +10,8 @@ import android.widget.LinearLayout
 import com.weiwei.practice.common.extensions.visibilityText
 import com.weiwei.fluent.widget.extensions.dp
 import com.weiwei.practice.R
-import com.weiwei.practice.lifecycle.LifeViewLog
-import com.weiwei.practice.lifecycle.logger
+import com.weiwei.practice.lifecycle.core.LifeViewLog
+import com.weiwei.practice.lifecycle.core.logger
 
 /**
  * @author weicools

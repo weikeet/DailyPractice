@@ -1,4 +1,4 @@
-package com.weiwei.practice.lifecycle
+package com.weiwei.practice.lifecycle.core
 
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver

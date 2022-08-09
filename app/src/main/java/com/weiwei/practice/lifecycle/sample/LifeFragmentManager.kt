@@ -5,7 +5,7 @@ import androidx.fragment.app.FragmentManager
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
 import com.weiwei.practice.R
-import com.weiwei.practice.lifecycle.logger
+import com.weiwei.practice.lifecycle.core.logger
 import java.util.*
 
 /**

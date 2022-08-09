@@ -7,6 +7,8 @@ import androidx.lifecycle.LifecycleOwner
 /**
  * @author weicools
  * @date 2020.07.08
+ *
+ * Notes: @Drakeet 直接实现 DefaultLifecycleObserver 的子类会导致无法完全混淆，所以需要做一层封装
  */
 
 fun Lifecycle.addObserver(observer: ObscureDefaultLifecycleObserver) {

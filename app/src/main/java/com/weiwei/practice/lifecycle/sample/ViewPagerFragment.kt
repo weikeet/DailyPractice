@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatTextView
-import com.weiwei.practice.lifecycle.LifeFragment
+import com.weiwei.practice.lifecycle.core.LifeFragment
 
 /**
  * @author weicools

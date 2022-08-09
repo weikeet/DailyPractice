@@ -2,7 +2,7 @@ package com.weiwei.practice.lifecycle.view
 
 import android.os.Bundle
 import android.util.Log
-import com.weiwei.practice.lifecycle.LifeActivity
+import com.weiwei.practice.lifecycle.core.LifeActivity
 
 /**
  * @author weicools
