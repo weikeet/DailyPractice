@@ -14,7 +14,7 @@ import java.util.List;
  * @date 2021.07.09
  */
 public class FragmentAdapter2 extends FragmentStateAdapter {
-  private List<Fragment> fragmentList = new ArrayList<>();
+  private final List<Fragment> fragmentList = new ArrayList<>();
 
   public void updateFragmentList(List<Fragment> fragmentList) {
     this.fragmentList.clear();
@@ -39,7 +39,8 @@ public class FragmentAdapter2 extends FragmentStateAdapter {
     return fragmentList.get(position);
   }
 
-  @Override public int getItemCount() {
+  @Override
+  public int getItemCount() {
     return fragmentList.size();
   }
 }

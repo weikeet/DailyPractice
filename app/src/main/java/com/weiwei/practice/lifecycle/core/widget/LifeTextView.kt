@@ -11,41 +11,38 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.lifecycle.core
+package com.weiwei.practice.lifecycle.core.widget
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.view.View
-import android.widget.FrameLayout
-import androidx.core.content.ContextCompat
+import androidx.appcompat.widget.AppCompatTextView
+import androidx.core.view.doOnPreDraw
 import com.weiwei.practice.common.extensions.visibilityText
-import com.weiwei.practice.R
+import com.weiwei.practice.lifecycle.core.LifeViewLog
+import com.weiwei.practice.lifecycle.core.logger
 
 /**
  * @author weicools
  * @date 2020.05.14
  */
-open class LifeLayout : FrameLayout {
+open class LifeTextView : AppCompatTextView {
   constructor(context: Context) : super(context)
   constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
   constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
-  private val TAG = javaClass.simpleName
+  var viewTag = javaClass.simpleName
 
   private val viewLog by lazy(LazyThreadSafetyMode.NONE) {
     LifeViewLog().also { setupViewLog(it) }
   }
 
   init {
-    @Suppress("LeakingThis")
-    setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary16))
-    // if (context is AppCompatActivity) {
-    //   val observer = LifeViewObserver(TAG)
-    //   context.lifecycle.addObserver(observer)
-    //   post { observer.enableActivityLife = viewLog.enableActivityLife }
-    // }
+    doOnPreDraw {
+      loggerInner(viewTag, "onPreDraw")
+    }
   }
 
   open fun setupViewLog(viewLog: LifeViewLog) {
@@ -62,7 +59,7 @@ open class LifeLayout : FrameLayout {
    */
   override fun onFinishInflate() {
     super.onFinishInflate()
-    loggerInner(TAG, "onFinishInflate: ")
+    loggerInner(viewTag, "onFinishInflate: ")
   }
 
   //region Attach-Detach
@@ -72,7 +69,7 @@ open class LifeLayout : FrameLayout {
   override fun onAttachedToWindow() {
     super.onAttachedToWindow()
     if (viewLog.enableAttachDetach) {
-      loggerInner(TAG, "onAttachedToWindow: ")
+      loggerInner(viewTag, "onAttachedToWindow: ")
     }
   }
 
@@ -82,7 +79,7 @@ open class LifeLayout : FrameLayout {
   override fun onDetachedFromWindow() {
     super.onDetachedFromWindow()
     if (viewLog.enableAttachDetach) {
-      loggerInner(TAG, "onDetachedFromWindow: ")
+      loggerInner(viewTag, "onDetachedFromWindow: ")
     }
   }
   //endregion
@@ -94,7 +91,7 @@ open class LifeLayout : FrameLayout {
   override fun onFocusChanged(gainFocus: Boolean, direction: Int, previouslyFocusedRect: Rect?) {
     super.onFocusChanged(gainFocus, direction, previouslyFocusedRect)
     if (viewLog.enableFocusChanged) {
-      loggerInner(TAG, "onFocusChanged: gainFocus=$gainFocus")
+      loggerInner(viewTag, "onFocusChanged: gainFocus=$gainFocus")
     }
   }
 
@@ -104,7 +101,7 @@ open class LifeLayout : FrameLayout {
   override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
     super.onWindowFocusChanged(hasWindowFocus)
     if (viewLog.enableWindowFocusChanged) {
-      loggerInner(TAG, "onWindowFocusChanged: hasWindowFocus=$hasWindowFocus")
+      loggerInner(viewTag, "onWindowFocusChanged: hasWindowFocus=$hasWindowFocus")
     }
   }
   //endregion
@@ -116,7 +113,7 @@ open class LifeLayout : FrameLayout {
   override fun onVisibilityChanged(changedView: View, visibility: Int) {
     super.onVisibilityChanged(changedView, visibility)
     if (viewLog.enableVisibilityChanged) {
-      loggerInner(TAG, "onVisibilityChanged: visibility=${visibility.visibilityText}")
+      loggerInner(viewTag, "onVisibilityChanged: visibility=${visibility.visibilityText}")
     }
   }
 
@@ -126,7 +123,7 @@ open class LifeLayout : FrameLayout {
   override fun onWindowVisibilityChanged(visibility: Int) {
     super.onWindowVisibilityChanged(visibility)
     if (viewLog.enableWindowVisibilityChanged) {
-      loggerInner(TAG, "onWindowVisibilityChanged: visibility=${visibility.visibilityText}")
+      loggerInner(viewTag, "onWindowVisibilityChanged: visibility=${visibility.visibilityText}")
     }
   }
   //endregion
@@ -138,7 +135,7 @@ open class LifeLayout : FrameLayout {
   override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
     super.onMeasure(widthMeasureSpec, heightMeasureSpec)
     if (viewLog.enableMeasure) {
-      loggerInner(TAG, "onMeasure: widthMeasureSpec=$widthMeasureSpec, heightMeasureSpec=$heightMeasureSpec")
+      loggerInner(viewTag, "onMeasure: widthMeasureSpec=$widthMeasureSpec, heightMeasureSpec=$heightMeasureSpec")
     }
   }
 
@@ -148,7 +145,7 @@ open class LifeLayout : FrameLayout {
   override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
     super.onLayout(changed, left, top, right, bottom)
     if (viewLog.enableLayout) {
-      loggerInner(TAG, "onLayout: changed=$changed, left=$left, top=$top, right=$right, bottom=$bottom")
+      loggerInner(viewTag, "onLayout: changed=$changed, left=$left, top=$top, right=$right, bottom=$bottom")
     }
   }
 
@@ -158,7 +155,7 @@ open class LifeLayout : FrameLayout {
   override fun onSizeChanged(w: Int, h: Int, oldw: Int, oldh: Int) {
     super.onSizeChanged(w, h, oldw, oldh)
     if (viewLog.enableSizeChanged) {
-      loggerInner(TAG, "onSizeChanged: w=$w, h=$h, oldW=$oldw, oldH=$oldh")
+      loggerInner(viewTag, "onSizeChanged: w=$w, h=$h, oldW=$oldw, oldH=$oldh")
     }
   }
 
@@ -168,7 +165,7 @@ open class LifeLayout : FrameLayout {
   override fun onDraw(canvas: Canvas) {
     super.onDraw(canvas)
     if (viewLog.enableDraw) {
-      loggerInner(TAG, "onDraw: ")
+      loggerInner(viewTag, "onDraw: ")
     }
   }
   //endregion

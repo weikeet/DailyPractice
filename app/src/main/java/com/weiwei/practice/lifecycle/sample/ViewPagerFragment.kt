@@ -6,8 +6,8 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.AppCompatTextView
 import com.weiwei.practice.lifecycle.core.LifeFragment
+import com.weiwei.practice.lifecycle.core.widget.LifeTextView
 
 /**
  * @author weicools
@@ -36,11 +36,14 @@ class ViewPagerZFragment : ViewPagerFragment()
 open class ViewPagerFragment : LifeFragment() {
 
   override fun createView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-    return AppCompatTextView(requireContext()).apply {
+    return LifeTextView(requireContext()).apply {
+      val simpleName = this@ViewPagerFragment.javaClass.simpleName
+
+      viewTag = "${simpleName}#TextView"
       layoutParams = ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
       gravity = Gravity.CENTER
       textSize = 16f
-      text = this@ViewPagerFragment.javaClass.simpleName
+      text = simpleName
 
       setOnClickListener {
         val activity = requireActivity()

@@ -1,6 +1,7 @@
 package com.weiwei.practice.lifecycle
 
 import android.content.Intent
+import com.weiwei.practice.lifecycle.sample.SampleLifeActivity
 import com.weiwei.practice.lifecycle.view.LifecycleViewActivity
 import com.weiwei.practice.ui.main.data.ModuleContent
 import com.weiwei.practice.ui.main.data.ModuleFunction
@@ -16,7 +17,7 @@ class LifecycleContent: ModuleContent() {
       title = "Lifecycle"
       description = "测试 Activity Fragment View 生命周期"
       clickAction = {
-        it.startActivity(Intent(it, LifecycleViewActivity::class.java))
+        it.startActivity(Intent(it, SampleLifeActivity::class.java))
       }
     }
   }

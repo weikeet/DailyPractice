@@ -12,34 +12,31 @@ import java.util.List;
  */
 @SuppressWarnings("deprecation")
 public class FragmentAdapter extends FragmentPagerAdapter {
-  private final List<Fragment> mFragments;
-  private final List<String> mTitles;
+  private final List<FragmentData> fragmentDataList;
 
-  public FragmentAdapter(FragmentManager fm, List<Fragment> fragments, List<String> titles) {
+  public FragmentAdapter(FragmentManager fm, List<FragmentData> fragmentDataList) {
     super(fm, BEHAVIOR_SET_USER_VISIBLE_HINT);
-    mFragments = fragments;
-    mTitles = titles;
+    this.fragmentDataList = fragmentDataList;
   }
 
-  public FragmentAdapter(FragmentManager fm, int behavior, List<Fragment> fragments, List<String> titles) {
+  public FragmentAdapter(FragmentManager fm, int behavior, List<FragmentData> fragmentDataList) {
     super(fm, behavior);
-    mFragments = fragments;
-    mTitles = titles;
+    this.fragmentDataList = fragmentDataList;
   }
 
   @NonNull
   @Override
   public Fragment getItem(int position) {
-    return mFragments.get(position);
+    return fragmentDataList.get(position).getFragment();
   }
 
   @Override
   public int getCount() {
-    return mFragments.size();
+    return fragmentDataList.size();
   }
 
   @Override
   public CharSequence getPageTitle(int position) {
-    return mTitles.get(position);
+    return fragmentDataList.get(position).getTitle();
   }
 }
