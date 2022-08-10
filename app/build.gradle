@@ -18,32 +18,32 @@ android {
     versionCode 1
     versionName "1.0"
 
-    externalNativeBuild {
-      cmake {
-        cppFlags ""
-      }
-    }
+    // externalNativeBuild {
+    //   cmake {
+    //     cppFlags ""
+    //   }
+    // }
   }
 
   // https://developer.android.com/studio/projects/install-ndk#vanilla_cmake
-  externalNativeBuild {
-    cmake {
-      path "src/main/cpp/CMakeLists.txt"
-      version "3.10.2"
-    }
-  }
+  // externalNativeBuild {
+  //   cmake {
+  //     path "src/main/cpp/CMakeLists.txt"
+  //     version "3.10.2"
+  //   }
+  // }
 
   sourceSets {
     main {
       aidl.srcDirs = ['src/main/aidl']
 
-      // jni {
-      //   srcDirs 'src/main/jni', 'src/main/cpp'
-      // }
+      jniLibs.srcDirs = ['jniLibs'] // default is src/main/jniLibs
 
-      res.srcDirs += ['src/main/res/main',
-                      'src/main/res/guide/navigation',
-                      'src/main/res/guide/paging',]
+      res.srcDirs += [
+          'src/main/res/main',
+          'src/main/res/guide/navigation',
+          'src/main/res/guide/paging',
+      ]
     }
   }
 
@@ -55,7 +55,6 @@ android {
   buildTypes {
     debug {
       minifyEnabled false
-      proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
 
     release {
