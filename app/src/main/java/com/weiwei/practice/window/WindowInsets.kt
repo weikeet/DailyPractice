@@ -13,39 +13,60 @@
 
 package com.weiwei.practice.window
 
+import android.app.Activity
+import android.content.Context
+import android.content.ContextWrapper
 import android.graphics.Rect
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.updatePadding
+import androidx.core.view.WindowInsetsControllerCompat
 
 /**
  * @author weiwei
  * @date 2022.01.12
  */
 
+fun Context.findWindow(): Window? {
+  var context = this
+  while (context is ContextWrapper) {
+    if (context is Activity) {
+      return context.window
+    }
+    context = context.baseContext
+  }
+  return null
+}
+
+fun View.getWindowInsetsControllerCompat(): WindowInsetsControllerCompat? {
+  val window = context.findWindow() ?: return null
+  return WindowCompat.getInsetsController(window, this)
+}
+
 // -------------------------------------------------------------------------------------
 // getInsets from WindowInsetsCompat
 // -------------------------------------------------------------------------------------
 
-inline val WindowInsetsCompat.statusBarInsets: Insets
+inline val WindowInsetsCompat.statusBarsInsets: Insets
   get() = this.getInsets(WindowInsetsCompat.Type.statusBars())
 
-inline val WindowInsetsCompat.statusBarInsetsIgnore: Insets
+inline val WindowInsetsCompat.statusBarsInsetsIgnore: Insets
   get() = this.getInsetsIgnoringVisibility(WindowInsetsCompat.Type.statusBars())
 
-inline val WindowInsetsCompat.navigationBarInsets: Insets
+inline val WindowInsetsCompat.navigationBarsInsets: Insets
   get() = this.getInsets(WindowInsetsCompat.Type.navigationBars())
 
-inline val WindowInsetsCompat.navigationBarInsetsIgnore: Insets
+inline val WindowInsetsCompat.navigationBarsInsetsIgnore: Insets
   get() = this.getInsetsIgnoringVisibility(WindowInsetsCompat.Type.navigationBars())
 
-inline val WindowInsetsCompat.systemBarInsets: Insets
+inline val WindowInsetsCompat.systemBarsInsets: Insets
   get() = this.getInsets(WindowInsetsCompat.Type.systemBars())
 
-inline val WindowInsetsCompat.systemBarIgnoreInsets: Insets
+inline val WindowInsetsCompat.systemBarsIgnoreInsets: Insets
   get() = this.getInsetsIgnoringVisibility(WindowInsetsCompat.Type.systemBars())
 
 inline val WindowInsetsCompat.imeInsets: Insets
@@ -59,13 +80,7 @@ inline val WindowInsetsCompat.imeInsets: Insets
 inline val WindowInsetsCompat.statusBarTop: Int
   get() = this.getInsets(WindowInsetsCompat.Type.statusBars()).top
 
-inline val WindowInsetsCompat.statusBarHeight: Int
-  get() = this.getInsets(WindowInsetsCompat.Type.statusBars()).top
-
 inline val WindowInsetsCompat.navigationBarBottom: Int
-  get() = this.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
-
-inline val WindowInsetsCompat.navigationBarHeight: Int
   get() = this.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
 
 inline val WindowInsetsCompat.systemBarTop: Int
@@ -88,41 +103,76 @@ inline val WindowInsetsCompat.imeBottom: Int
 
 
 // -------------------------------------------------------------------------------------
+// getInsets top/bottom/left/right from WindowInsetsCompat
+// -------------------------------------------------------------------------------------
+fun getRootStatusBarTop(activity: Activity, default: Int = 0): Int =
+  ViewCompat.getRootWindowInsets(activity.window.decorView)?.getInsets(WindowInsetsCompat.Type.statusBars())?.top ?: default
+
+fun getRootNavigationBar(activity: Activity, default: Int = 0): Int =
+  ViewCompat.getRootWindowInsets(activity.window.decorView)?.getInsets(WindowInsetsCompat.Type.navigationBars())?.bottom ?: default
+
+// -------------------------------------------------------------------------------------
 // view extensions for WindowInsets
 // -------------------------------------------------------------------------------------
 
 typealias InitialPadding = Rect
 typealias InitialMargin = Rect
+typealias InitialParam = ViewGroup.LayoutParams
 
-fun View.recordInitialPaddingForView(): InitialPadding =
+fun View.recordInitialParam(): InitialParam =
+  InitialParam(layoutParams.width, layoutParams.height)
+
+fun View.recordInitialPadding(): InitialPadding =
   InitialPadding(paddingLeft, paddingTop, paddingRight, paddingBottom)
 
-fun View.recordInitialMarginForView(): InitialMargin = (layoutParams as? ViewGroup.MarginLayoutParams)
+fun View.recordInitialMargin(): InitialMargin = (layoutParams as? ViewGroup.MarginLayoutParams)
   ?.let {
     InitialMargin(it.leftMargin, it.topMargin, it.rightMargin, it.bottomMargin)
   }
   ?: InitialMargin(0, 0, 0, 0)
 
-@Suppress("DEPRECATION")
-fun View.applyBottomWindowInsetForScrollingView(scrollingView: ViewGroup) {
-  scrollingView.clipToPadding = false
-  doOnApplyWindowInsets { windowInsets, padding, _ ->
-    scrollingView.updatePadding(bottom = padding.bottom + windowInsets.systemWindowInsetBottom)
+
+/**
+ * @param requestApplyInsets: see [requestApplyInsetsWhenAttached] notes
+ * @param block: callback WindowInsetsCompat
+ */
+fun View.doOnApplyWindowInsets(
+  requestApplyInsets: Boolean = false, block: (windowInsets: WindowInsetsCompat) -> Unit
+) {
+  ViewCompat.setOnApplyWindowInsetsListener(this) { _, windowInsets ->
+    block(windowInsets)
+    windowInsets
+  }
+  if (requestApplyInsets) {
+    requestApplyInsetsWhenAttached()
   }
 }
 
+/**
+ * @param requestApplyInsets: see [requestApplyInsetsWhenAttached] notes
+ * @param block: callback WindowInsetsCompat, InitialPadding, InitialMargin
+ */
 fun View.doOnApplyWindowInsets(
-  block: (windowInsets: WindowInsetsCompat, padding: InitialPadding, margin: InitialMargin) -> Unit
+  requestApplyInsets: Boolean = false, block: (windowInsets: WindowInsetsCompat, padding: InitialPadding, margin: InitialMargin) -> Unit
 ) {
-  val initialMargin = recordInitialMarginForView()
-  val initialPadding = recordInitialPaddingForView()
+  val initialMargin = recordInitialMargin()
+  val initialPadding = recordInitialPadding()
   ViewCompat.setOnApplyWindowInsetsListener(this) { _, windowInsets ->
     block(windowInsets, initialPadding, initialMargin)
     windowInsets
   }
-  requestApplyInsetsWhenAttached()
+  if (requestApplyInsets) {
+    requestApplyInsetsWhenAttached()
+  }
 }
 
+
+/**
+ * It is best always call this method when setting OnApplyWindowInsetsListener,
+ * otherwise OnApplyWindowInsetsListener will not be called sometimes, such as
+ * when we set OnApplyWindowInsetsListener in the constructor of a view and
+ * this view will be added to the ViewGroup after delay.
+ */
 fun View.requestApplyInsetsWhenAttached() {
   if (isAttachedToWindow) {
     requestApplyInsets()

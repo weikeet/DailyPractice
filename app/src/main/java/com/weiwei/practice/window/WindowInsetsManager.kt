@@ -42,7 +42,7 @@ class WindowInsetsManager {
     val windowInsetsCompat = ViewCompat.getRootWindowInsets(view)
 
     // 获取 StatusBar Insets
-    val statusBarInsets = windowInsetsCompat?.statusBarInsets
+    val statusBarInsets = windowInsetsCompat?.statusBarsInsets
     val statusBarTop = statusBarInsets?.top
     val statusBarBottom = statusBarInsets?.bottom
 
@@ -50,7 +50,7 @@ class WindowInsetsManager {
     Log.d("WeiOwO", "statusBarTop=$statusBarTop, statusBarBottom=$statusBarBottom")
 
     // 获取 NavigationBar Insets
-    val navigationBarInsets = windowInsetsCompat?.navigationBarInsets
+    val navigationBarInsets = windowInsetsCompat?.navigationBarsInsets
     val navigationBarTop = navigationBarInsets?.top
     val navigationBarBottom = navigationBarInsets?.bottom
 
@@ -59,8 +59,8 @@ class WindowInsetsManager {
 
     // 当 System bar 隐藏时 getInsets() 获取的高度为 0
     // 如果想在隐藏状态时也能获取高度，可以使用 `getInsetsIgnoringVisibility()` 方法
-    val statusBarInsetsIgnore = windowInsetsCompat?.statusBarInsetsIgnore
-    val navigationBarInsetsIgnore = windowInsetsCompat?.navigationBarInsetsIgnore
+    val statusBarInsetsIgnore = windowInsetsCompat?.statusBarsInsetsIgnore
+    val navigationBarInsetsIgnore = windowInsetsCompat?.navigationBarsInsetsIgnore
     Log.d("WeiOwO", "IgnoringVisibility statusBarTop=${statusBarInsetsIgnore?.top}, statusBarBottom=${statusBarInsetsIgnore?.bottom}")
     Log.d("WeiOwO", "IgnoringVisibility navigationBarTop=${navigationBarInsetsIgnore?.top}, navigationBarBottom=${navigationBarInsetsIgnore?.bottom}")
   }
