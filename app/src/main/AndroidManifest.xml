@@ -89,6 +89,8 @@
 
         <activity android:name=".window.WindowInsetsTestActivity" />
 
+        <activity android:name=".keyboard.KeyboardActivity" />
+
         <activity android:name=".shadow.PluginContainerActivity" />
 
         <service android:name=".service.TestForegroundService" />
