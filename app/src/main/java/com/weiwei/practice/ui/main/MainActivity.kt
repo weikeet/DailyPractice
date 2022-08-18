@@ -28,7 +28,9 @@ class MainActivity : AppCompatActivity() {
 
     setContentView(R.layout.activity_main)
 
-    EdgeInsetDelegate(this).start()
+    EdgeInsetDelegate(this)
+      .setNavigationBarColor(0x20000000)
+      .start()
 
     // // 不让 decorView 给状态栏导航栏留白
     // WindowCompat.setDecorFitsSystemWindows(this.window, false)

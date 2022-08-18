@@ -24,8 +24,8 @@ import com.weiwei.practice.ui.main.data.ModuleFunction
 class KeyboardContent : ModuleContent() {
   override fun setupFunction(function: ModuleFunction) {
     function.apply {
-      title = "Lifecycle"
-      description = "测试 keyboard"
+      title = "Soft Keyboard"
+      description = "测试 Soft Keyboard"
       clickAction = {
         it.startActivity(Intent(it, KeyboardActivity::class.java))
       }

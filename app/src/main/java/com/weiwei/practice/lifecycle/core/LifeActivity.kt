@@ -52,7 +52,9 @@ open class LifeActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setupLifeConfig(activityLog)
 
-    EdgeInsetDelegate(this).start()
+    EdgeInsetDelegate(this)
+      .setNavigationBarColor(0x20000000)
+      .start()
 
     loggerInner(TAG, "onCreate: savedState=$savedInstanceState")
     val contentView: View = findViewById(android.R.id.content)

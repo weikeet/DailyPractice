@@ -5,6 +5,7 @@ import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.weiwei.practice.R
+import com.weiwei.practice.window.delegate.EdgeInsetDelegate
 
 /**
  * @author weicools
@@ -18,5 +19,7 @@ class SampleLifeSecondActivity : AppCompatActivity() {
       setBackgroundResource(R.color.colorAccent)
     }
     setContentView(container)
+
+    EdgeInsetDelegate(this).start()
   }
 }

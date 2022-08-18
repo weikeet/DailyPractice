@@ -23,7 +23,7 @@ import androidx.core.view.updatePadding
 import com.weiwei.practice.R
 import com.weiwei.practice.binding.viewBinding
 import com.weiwei.practice.databinding.ActivityWindowInsetsTestBinding
-import com.weiwei.practice.window.delegate.EdgeInsetDelegate2
+import com.weiwei.practice.window.delegate.EdgeInsetDelegate
 
 /**
  * @author weiwei
@@ -81,7 +81,7 @@ class WindowInsetsTestActivity : AppCompatActivity() {
       }
     }
 
-    EdgeInsetDelegate2(this).start()
+    EdgeInsetDelegate(this).start()
 
   }
 
