@@ -28,10 +28,12 @@ import com.weiwei.practice.window.delegate.EdgeInsetDelegate
 import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.navigationBarBottom
 import com.weiwei.practice.window.recordInitialMargin
+import kotlin.math.max
 
 /**
  * @author weiwei
  * @date 2022.08.14
+ * @see [SoftKeyboard.md]
  */
 class KeyboardActivity : AppCompatActivity() {
 
@@ -61,8 +63,16 @@ class KeyboardActivity : AppCompatActivity() {
     }
 
     var animator: ValueAnimator? = null
-    SoftKeyboardWatcher(this, this) { imeVisible, imeHeight, navigationBarsHeight ->
+    SoftKeyboardWatcher(this, this) { imeVisible, imeHeight, navigationBarsHeight, animated ->
       Log.d("KeyboardActivity", "imeVisible=$imeVisible, imeHeight=$imeHeight, navigationBarsHeight=$navigationBarsHeight")
+
+      if (animated) {
+        val translation = -(max(imeHeight - navigationBarsHeight, 0)).toFloat()
+        btnSend.translationY = translation
+        textInputLayout.translationY = translation
+        return@SoftKeyboardWatcher
+      }
+
       // val translation = if (imeHeight > 0) imeHeight + 16f.dp - btnSend.marginBottom else 0f
       // btnSend.animate().translationY(-translation).setDuration(120L).start()
 

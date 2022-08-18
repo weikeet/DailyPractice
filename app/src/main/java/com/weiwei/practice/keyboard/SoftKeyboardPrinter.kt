@@ -124,4 +124,15 @@ object SoftKeyboardPrinter {
     }
     Log.e(tag, "popupViewWindowVisibleDisplayFrame top=${popupRect.top}, bottom=${popupRect.bottom}, height=${popupRect.height()}, viewHeight=${popupView.height}")
   }
+
+  fun printInset(insets: WindowInsetsCompat?, tag: String, msg: String) {
+    if (insets == null) {
+      Log.w(tag, "$msg: insets == null")
+      return
+    }
+    val imeVisible = insets.isVisible(WindowInsetsCompat.Type.ime())
+    val imeHeight = insets.getInsets(WindowInsetsCompat.Type.ime()).bottom
+    val navigationBarsHeight = insets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
+    Log.d(tag, "$msg: imeVisible=$imeVisible, imeHeight=$imeHeight, navigationBarsHeight=$navigationBarsHeight")
+  }
 }
