@@ -73,12 +73,9 @@ class KeyboardActivity : AppCompatActivity() {
         return@SoftKeyboardWatcher
       }
 
-      // val translation = if (imeHeight > 0) imeHeight + 16f.dp - btnSend.marginBottom else 0f
-      // btnSend.animate().translationY(-translation).setDuration(120L).start()
-
-      animator?.cancel()
       val currentTranslationY = btnSend.translationY
       val endTranslationY = if (imeVisible) imeHeight - navigationBarsHeight else 0
+      animator?.cancel()
       animator = ValueAnimator.ofFloat(currentTranslationY, -endTranslationY.toFloat()).apply {
         duration = 120L
         addUpdateListener {
@@ -89,6 +86,6 @@ class KeyboardActivity : AppCompatActivity() {
       }
     }
 
-    SoftKeyboardPrinter.start(this, window.decorView)
+    // SoftKeyboardPrinter.start(this, window.decorView)
   }
 }
