@@ -15,6 +15,7 @@ package com.weiwei.practice.keyboard
 import android.app.Activity
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.view.Gravity
 import android.view.ViewTreeObserver
 import android.view.WindowManager
@@ -33,7 +34,7 @@ class SoftKeyboardWatcher(
   activity: Activity,
   lifecycleOwner: LifecycleOwner,
   private val listener: (imeVisible: Boolean, imeHeight: Int, navigationBarsHeight: Int) -> Unit
-) : PopupWindow(activity), ViewTreeObserver.OnGlobalLayoutListener {
+) : ViewTreeObserver.OnGlobalLayoutListener {
 
   private val popupRect = Rect()
 
@@ -49,29 +50,40 @@ class SoftKeyboardWatcher(
   private var keyboardHeight = 0
 
   init {
-    contentView = popupView
-    popupView.viewTreeObserver.addOnGlobalLayoutListener(this)
+    val popupWindow = PopupWindow(activity).apply {
+      contentView = popupView
 
-    // 软键盘弹出时，PopupWindow 要调整大小
-    @Suppress("DEPRECATION")
-    softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE or WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
-    inputMethodMode = INPUT_METHOD_NEEDED
+      // 软键盘弹出时，PopupWindow 要调整大小
+      @Suppress("DEPRECATION")
+      softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE or WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE
+      inputMethodMode = PopupWindow.INPUT_METHOD_NEEDED
 
-    width = 0 // 宽度设为0，避免遮挡界面
-    height = WindowManager.LayoutParams.MATCH_PARENT
-    setBackgroundDrawable(ColorDrawable(0))
-
-    decorView.post {
-      if (!isShowing && decorView.windowToken != null) {
-        showAtLocation(decorView, Gravity.NO_GRAVITY, 0, 0)
+      width = 0 // 宽度设为0，避免遮挡界面
+      height = WindowManager.LayoutParams.MATCH_PARENT
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        /**
+         * windowLayoutType default = [WindowManager.LayoutParams.TYPE_APPLICATION_PANEL]
+         */
+        windowLayoutType = WindowManager.LayoutParams.TYPE_APPLICATION_ATTACHED_DIALOG
       }
+      setBackgroundDrawable(ColorDrawable(0))
     }
 
-    // Activity 销毁时或者 Fragment onDestroyView 时必须关闭 popupWindow ，避免内存泄漏
     lifecycleOwner.lifecycle.addObserver(object : DefaultLifecycleObserver {
+      override fun onCreate(owner: LifecycleOwner) {
+        super.onCreate(owner)
+        popupView.viewTreeObserver.addOnGlobalLayoutListener(this@SoftKeyboardWatcher)
+        decorView.post {
+          if (!popupWindow.isShowing && decorView.windowToken != null) {
+            popupWindow.showAtLocation(decorView, Gravity.NO_GRAVITY, 0, 0)
+          }
+        }
+      }
+
       override fun onDestroy(owner: LifecycleOwner) {
         super.onDestroy(owner)
-        dismiss()
+        popupView.viewTreeObserver.removeOnGlobalLayoutListener(this@SoftKeyboardWatcher)
+        popupWindow.dismiss()
       }
     })
   }
