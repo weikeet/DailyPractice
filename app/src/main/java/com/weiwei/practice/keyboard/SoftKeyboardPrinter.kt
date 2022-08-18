@@ -39,7 +39,9 @@ object SoftKeyboardPrinter {
     Resources.getSystem().displayMetrics.widthPixels
   }
 
-  // 一般来说是 屏幕真实高度 - 虚拟导航栏/手势导航栏高度, 具体参考 post/6908862707374489607
+  // 1. heightPixels = screenRealHeight
+  // 2. heightPixels = screenRealHeight - navigationBarHeight
+  // 3. heightPixels = screenRealHeight - navigationBarHeight - statusBarHeight
   private val heightPixels: Int by lazy(LazyThreadSafetyMode.NONE) {
     Resources.getSystem().displayMetrics.heightPixels
   }
@@ -66,6 +68,8 @@ object SoftKeyboardPrinter {
         mainHandler.postDelayed(this, 3000L)
       }
     }
+    mainHandler.postDelayed(runnable, 3000L)
+
     lifecycleOwner.lifecycle.addObserver(object : LifecycleEventObserver {
       override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
         if (event == Lifecycle.Event.ON_DESTROY) {
@@ -73,7 +77,6 @@ object SoftKeyboardPrinter {
         }
       }
     })
-    mainHandler.postDelayed(runnable, 3000L)
   }
 
   fun print(tag: String, decorView: View, popupView: View? = null, popupRect: Rect? = null) {

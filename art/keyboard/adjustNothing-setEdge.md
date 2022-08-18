@@ -2,9 +2,51 @@
 popupViewHeight = decorViewHeight - statusBarHeight - navigationBarHeight
 keyboardHeight = decorViewHeight - popupFrameHeight - statusBarHeight
 
-#### Pixel 5
+Xiaomi6 响应及时流畅，息屏后亮屏无法收到回调
+LGStylo6 响应稍慢，FooView 会影响弹出
+Redmi8A 响应及时流畅，FooView 会影响弹出
+MeizuNote3 响应及时流畅
 
-Android 12
+#### Android 5.0+ ViewTree
+
+##### setDecorFitsSystemWindows(window, false)
+
+WindowCompat.setDecorFitsSystemWindows(activity.window, false)
+
+```shell
+contentHeight = FrameLayoutHeight
+screenRealHeight = decorViewHeight = contentHeight
+
+DecorView
+├── LinearLayout
+│   ├── action_mode_bar_stub - ViewStub
+│   ├── FrameLayout
+│   │   ├── action_bar_root - FitWindowsLinearLayout
+│   │   │   ├── action_mode_bar_stub - ViewStubCompat
+│   │   │   ├── content - ContentFrameLayout
+```
+
+##### default
+
+```shell
+contentHeight = FrameLayoutHeight
+screenRealHeight = decorViewHeight = contentHeight + navigationBarHeight + statusBarHeight
+
+DecorView
+├── LinearLayout
+│   ├── action_mode_bar_stub - ViewStub
+│   ├── FrameLayout
+│   │   ├── action_bar_root - FitWindowsLinearLayout
+│   │   │   ├── action_mode_bar_stub - ViewStubCompat
+│   │   │   ├── content - ContentFrameLayout
+├── navigationBarBackground - View (有虚拟导航栏时)
+├── statusBarBackground - View
+```
+
+#### Xiaomi6
+
+原生, Android 12
+手势导航，无刘海
 
 ```shell
 SoftKeyboardWatcher: widthPixels=1080, heightPixels=1872, screenRealHeight=1920
@@ -61,6 +103,7 @@ SoftKeyboardWatcher: keyboardVisible = false, keyboardHeight = 0
 #### LG Stylo 6
 
 Android 10
+手势导航，有刘海
 
 ```shell
 SoftKeyboardWatcher: widthPixels=1080, heightPixels=2316, screenRealHeight=2460
@@ -126,7 +169,8 @@ SoftKeyboardWatcher: keyboardVisible = false, keyboardHeight = 0
 
 #### Redmi 8A
 
-Android 10
+MIUI 11, Android 9
+虚拟按键导航，有刘海
 
 ```shell
 SoftKeyboardWatcher: widthPixels=720, heightPixels=1369, screenRealHeight=1520
@@ -176,7 +220,8 @@ SoftKeyboardWatcher: keyboardVisible = false, keyboardHeight = 0
 
 #### Meizu Note3
 
-Android 7 Log.d 无法输出
+Flyme 7, Android 7
+物理按键导航，无刘海，Log.d 无法输出
 
 ```shell
 SoftKeyboardWatcher: widthPixels=1080, heightPixels=1920, screenRealHeight=1920

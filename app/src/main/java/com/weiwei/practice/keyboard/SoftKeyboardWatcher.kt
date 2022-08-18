@@ -15,7 +15,6 @@ package com.weiwei.practice.keyboard
 import android.app.Activity
 import android.graphics.Rect
 import android.graphics.drawable.ColorDrawable
-import android.util.Log
 import android.view.Gravity
 import android.view.ViewTreeObserver
 import android.view.WindowManager
@@ -47,7 +46,6 @@ class SoftKeyboardWatcher(
 
   private val decorView = activity.window.decorView
 
-  private var keyboardVisible = false
   private var keyboardHeight = 0
 
   init {
@@ -63,8 +61,6 @@ class SoftKeyboardWatcher(
     height = WindowManager.LayoutParams.MATCH_PARENT
     setBackgroundDrawable(ColorDrawable(0))
 
-    // androidx.appcompat.widget.ContentFrameLayout{...android:id/content}
-    // val rootView: View = activity.findViewById(android.R.id.content)
     decorView.post {
       if (!isShowing && decorView.windowToken != null) {
         showAtLocation(decorView, Gravity.NO_GRAVITY, 0, 0)
@@ -84,36 +80,24 @@ class SoftKeyboardWatcher(
 
     popupView.getWindowVisibleDisplayFrame(popupRect)
 
-    SoftKeyboardPrinter.print("SoftKeyboardWatcher", decorView, popupView, popupRect)
-
-    val rootInsets = ViewCompat.getRootWindowInsets(decorView)
-
-    var imeBottom = 0
     var statusBarTop = 0
     var navigationBarBottom = 0
+    val rootInsets = ViewCompat.getRootWindowInsets(decorView)
     if (rootInsets != null) {
-      imeBottom = rootInsets.getInsets(WindowInsetsCompat.Type.ime()).bottom
       statusBarTop = rootInsets.getInsets(WindowInsetsCompat.Type.statusBars()).top
       navigationBarBottom = rootInsets.getInsets(WindowInsetsCompat.Type.navigationBars()).bottom
     }
 
-    // TODO: check visibleHeight not change
-
     // 粗略计算高度的变化值，后面会根据状态栏和导航栏修正
     val heightDiff = decorView.height - popupRect.height()
     // 如果获取到的高度大于 1/5，即认为软键盘弹出
-    keyboardVisible = heightDiff > SoftKeyboardPrinter.screenRealHeight / 5
+    val keyboardVisible = heightDiff > SoftKeyboardPrinter.screenRealHeight / 5
     // 全屏时 statusBarTop = 0, 不需要考虑全屏和刘海屏的问题
-    keyboardHeight = if (keyboardVisible) heightDiff - statusBarTop else 0
+    val keyboardHeight = if (keyboardVisible) heightDiff - statusBarTop else 0
 
-    if ((keyboardHeight > 0 && imeBottom == 0) || (keyboardHeight == 0 && imeBottom > 0)) {
-      decorView.post {
-        SoftKeyboardPrinter.print("SoftKeyboardWatcherPost", decorView)
-      }
+    if (this.keyboardHeight != keyboardHeight) {
+      this.keyboardHeight = keyboardHeight
+      listener.invoke(keyboardVisible, keyboardHeight, navigationBarBottom)
     }
-
-    Log.i("SoftKeyboardWatcher", "keyboardVisible = $keyboardVisible, keyboardHeight = $keyboardHeight")
-
-    listener.invoke(keyboardVisible, keyboardHeight, navigationBarBottom)
   }
 }

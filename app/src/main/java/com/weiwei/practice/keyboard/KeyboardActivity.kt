@@ -13,6 +13,7 @@
 
 package com.weiwei.practice.keyboard
 
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.util.Log
 import android.view.ViewGroup
@@ -20,9 +21,8 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.marginBottom
 import androidx.core.view.updateLayoutParams
-import com.weiwei.fluent.widget.extensions.dp
+import com.google.android.material.textfield.TextInputLayout
 import com.weiwei.practice.R
 import com.weiwei.practice.window.delegate.EdgeInsetDelegate
 import com.weiwei.practice.window.doOnApplyWindowInsets
@@ -48,6 +48,7 @@ class KeyboardActivity : AppCompatActivity() {
 
     val btnSend: Button = findViewById(R.id.btnSend)
     val editText: EditText = findViewById(R.id.editText)
+    val textInputLayout: TextInputLayout = findViewById(R.id.textInputLayout)
 
     btnSend.setOnClickListener {
       EdgeInsetDelegate(this).start()
@@ -57,16 +58,24 @@ class KeyboardActivity : AppCompatActivity() {
     btnSend.doOnApplyWindowInsets { windowInsets ->
       val navigationBarBottom = windowInsets.navigationBarBottom
       btnSend.updateLayoutParams<ViewGroup.MarginLayoutParams> { bottomMargin = navigationBarBottom + btnMarginRect.bottom }
-      editText.translationY = -navigationBarBottom.toFloat()
     }
 
+    var animator: ValueAnimator? = null
     SoftKeyboardWatcher(this, this) { imeVisible, imeHeight, navigationBarsHeight ->
       Log.d("KeyboardActivity", "imeVisible=$imeVisible, imeHeight=$imeHeight, navigationBarsHeight=$navigationBarsHeight")
-      if (imeHeight > 0) {
-        val translation = imeHeight + 16f.dp - btnSend.marginBottom
-        btnSend.animate().translationY(-translation).setDuration(120L).start()
-      } else {
-        btnSend.animate().translationY(0f).setDuration(120L).start()
+      // val translation = if (imeHeight > 0) imeHeight + 16f.dp - btnSend.marginBottom else 0f
+      // btnSend.animate().translationY(-translation).setDuration(120L).start()
+
+      animator?.cancel()
+      val currentTranslationY = btnSend.translationY
+      val endTranslationY = if (imeVisible) imeHeight - navigationBarsHeight else 0
+      animator = ValueAnimator.ofFloat(currentTranslationY, -endTranslationY.toFloat()).apply {
+        duration = 120L
+        addUpdateListener {
+          btnSend.translationY = it.animatedValue as Float
+          textInputLayout.translationY = it.animatedValue as Float
+        }
+        start()
       }
     }
 
