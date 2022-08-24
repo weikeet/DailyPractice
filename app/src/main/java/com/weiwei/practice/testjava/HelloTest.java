@@ -11,14 +11,18 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice;
+package com.weiwei.practice.testjava;
 
 /**
  * @author weiwei
- * @date 2022.07.04
+ * @date 2022.08.10
  */
-public class Abc {
-  public static void a() {
+public class HelloTest {
+  public static void main(String[] args) {
+    float a = 119.98f;
+    float b = 0.01f;
+    float c = a + b;
+    System.out.println(c); // 119.990005
     System.out.println("Hello World!");
   }
 }
