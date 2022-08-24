@@ -3,6 +3,7 @@ package com.weiwei.practice.window.delegate
 import android.app.Activity
 import android.content.res.Resources
 import android.graphics.Color
+import android.os.Build
 import android.view.View
 import androidx.core.graphics.Insets
 import androidx.core.view.ViewCompat
@@ -43,12 +44,13 @@ class EdgeInsetDelegate(private val activity: Activity) {
 
         // Gesture navigation bar height threshold
         val threshold = (20 * Resources.getSystem().displayMetrics.density).toInt()
+        // 44/66 is the fixed height of the iOS-like navigation bar (Gesture navigation), in pixels!
+        val gestureNavigationHeight = threshold.coerceAtLeast(if (Build.VERSION.SDK_INT < 33) 44 else 66)
 
         // This prevents a translucent white bottom bar from appearing on the MIUI system
         ViewCompat.setOnApplyWindowInsetsListener(window.decorView) { _: View?, windowInsets: WindowInsetsCompat ->
             val navigationBarsInsets = windowInsets.getInsets(WindowInsetsCompat.Type.navigationBars())
-            // 44 is the fixed height of the iOS-like navigation bar (Gesture navigation), in pixels!
-            val isGestureNavigation = navigationBarsInsets.bottom <= threshold.coerceAtLeast(44) // 20dp or 44px
+            val isGestureNavigation = navigationBarsInsets.bottom <= gestureNavigationHeight
 
             if (!isGestureNavigation) {
                 // Let decorView draw the translucent navigationBarColor
