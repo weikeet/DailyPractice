@@ -1,12 +1,12 @@
 plugins {
   id 'com.android.application'
-  id 'com.didiglobal.booster'
+  // id 'com.didiglobal.booster'
   id 'kotlin-android'
   id 'kotlin-kapt'
 }
 
 android {
-  compileSdkVersion 33
+  compileSdkVersion 32
 
   // https://developer.android.com/studio/projects/install-ndk#apply-specific-version
   // ndkVersion "21.3.6528147"
@@ -14,7 +14,7 @@ android {
   defaultConfig {
     applicationId "com.weiwei.practice"
     minSdkVersion 21
-    targetSdkVersion 33
+    targetSdkVersion 32
     versionCode 1
     versionName "1.0"
 
