@@ -24,17 +24,16 @@ import android.view.WindowManager
 import android.widget.Toast
 import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.lifecycle.ViewTreeViewModelStoreOwner
-import androidx.savedstate.ViewTreeSavedStateRegistryOwner
 import com.weiwei.core.app.BaseActivity
-import com.weiwei.fluent.widget.frameLayout
-import com.weiwei.fluent.widget.textView
-import com.weiwei.fluent.widget.view
 import com.weiwei.fluent.widget.extensions.background_colorResource
 import com.weiwei.fluent.widget.extensions.dp
 import com.weiwei.fluent.widget.extensions.gravity_center
 import com.weiwei.fluent.widget.extensions.text_color
+import com.weiwei.fluent.widget.frameLayout
 import com.weiwei.fluent.widget.params.frameParams
 import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluent.widget.textView
+import com.weiwei.fluent.widget.view
 import com.weiwei.practice.R
 import java.lang.ref.WeakReference
 
@@ -81,7 +80,7 @@ class AsyncUiActivity : BaseActivity() {
 
           ViewTreeLifecycleOwner.set(decorView, activity)
           ViewTreeViewModelStoreOwner.set(decorView, activity)
-          ViewTreeSavedStateRegistryOwner.set(decorView, activity)
+          // ViewTreeSavedStateRegistryOwner.set(decorView, activity)
         }
       }
     }

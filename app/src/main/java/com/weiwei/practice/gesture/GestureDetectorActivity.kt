@@ -34,7 +34,7 @@ class GestureDetectorActivity : AppCompatActivity() {
     setContentView(contentLayout)
 
     val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
-      override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
+      override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
         xMoveDistance -= distanceX
         yMoveDistance -= distanceY
         if (moveStepCount == MAX_MOVEMENT_STEP_TO_GET_DIRECTION && abs(xMoveDistance) < abs(yMoveDistance)) {
@@ -47,7 +47,7 @@ class GestureDetectorActivity : AppCompatActivity() {
     }
 
     contentLayout.setOnTouchListener(object : View.OnTouchListener {
-      override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+      override fun onTouch(v: View?, event: MotionEvent): Boolean {
         if (event == null) {
           return false
         }
