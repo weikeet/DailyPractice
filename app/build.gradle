@@ -6,15 +6,16 @@ plugins {
 }
 
 android {
-  compileSdkVersion 32
+  namespace 'com.weiwei.practice'
+  compileSdk 33
 
   // https://developer.android.com/studio/projects/install-ndk#apply-specific-version
   // ndkVersion "21.3.6528147"
 
   defaultConfig {
     applicationId "com.weiwei.practice"
-    minSdkVersion 21
-    targetSdkVersion 32
+    minSdk 26
+    targetSdk 33
     versionCode 1
     versionName "1.0"
 
@@ -99,7 +100,6 @@ dependencies {
   implementation AndroidXLibs.ConstraintLayout
 
   implementation AndroidXLibs.CoreKtx
-  implementation AndroidXLibs.ActivityKtx
   implementation AndroidXLibs.FragmentKtx
   implementation AndroidXLibs.ViewPager2
 
