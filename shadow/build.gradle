@@ -10,10 +10,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import com.weiwei.dependency.Libs
 
 plugins {
   id 'com.android.library'
   id 'org.jetbrains.kotlin.android'
+  id 'com.weiwei.dependency'
 }
 
 android {
@@ -44,6 +46,6 @@ android {
 }
 
 dependencies {
-  implementation 'androidx.core:core-ktx:1.9.0'
-  implementation 'androidx.appcompat:appcompat:1.5.1'
+  implementation(Libs.androidx.core.core_ktx)
+  implementation(Libs.androidx.appcompat.appcompat)
 }
