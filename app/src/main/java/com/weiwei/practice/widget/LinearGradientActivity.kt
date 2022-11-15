@@ -2,6 +2,7 @@ package com.weiwei.practice.widget
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 
 class LinearGradientActivity : AppCompatActivity() {
@@ -18,6 +19,8 @@ class LinearGradientActivity : AppCompatActivity() {
     linearGradientDrawView.setOnClickListener {
       linearGradientDrawView.changeColorSmoothly()
     }
+
+    WindowInsetsEdgeDelegate(this).start()
 
     //测试结果 linearGradientView和linearGradientDrawView 内存占用没有明显区别
   }

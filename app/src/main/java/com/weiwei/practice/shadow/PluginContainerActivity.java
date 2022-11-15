@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate;
 import com.weiwei.shadow.ShadowLifecycle;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -45,6 +46,8 @@ public class PluginContainerActivity extends AppCompatActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     Log.d(TAG, "onCreate: ");
+
+    new WindowInsetsEdgeDelegate(this).start();
 
     try {
       Class<?> pluginActivityClass = getClassLoader().loadClass("com.weiwei.shadow.plugin.sample.SamplePluginActivity");

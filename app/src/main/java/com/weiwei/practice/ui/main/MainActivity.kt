@@ -2,9 +2,9 @@ package com.weiwei.practice.ui.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 import com.weiwei.practice.TimeRecorder.recordStopTime
-import com.weiwei.practice.window.delegate.EdgeInsetDelegate
 
 /**
  * @author weicools
@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
 
     setContentView(R.layout.activity_main)
 
-    EdgeInsetDelegate(this)
+    WindowInsetsEdgeDelegate(this)
       .setNavigationBarColor(0x20000000)
       .start()
 

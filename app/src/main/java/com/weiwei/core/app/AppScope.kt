@@ -11,13 +11,14 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.app
+package com.weiwei.core.app
 
 import android.app.Application
 import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import androidx.core.os.HandlerCompat
+import com.weiwei.practice.app.PracticeApp
 
 /**
  * @author weiwei

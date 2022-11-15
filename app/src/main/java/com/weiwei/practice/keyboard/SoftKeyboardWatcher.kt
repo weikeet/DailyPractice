@@ -29,7 +29,7 @@ import androidx.core.view.WindowInsetsAnimationCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
-import com.weiwei.practice.app.mainContext
+import com.weiwei.core.app.mainContext
 
 /**
  * @author weiwei

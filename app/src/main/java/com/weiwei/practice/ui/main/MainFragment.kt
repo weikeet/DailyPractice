@@ -10,10 +10,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
 import com.weiwei.core.app.BaseFragment
-import com.weiwei.fluent.widget.extensions.dp
+import com.weiwei.fluentview.ui.unit.dp
 import com.weiwei.practice.R
-import com.weiwei.practice.activity.task.ActivityTaskContent
-import com.weiwei.practice.adb.AdbTestContent
+import com.weiwei.practice.activitytask.ActivityTaskContent
 import com.weiwei.practice.androidart.chapter_2.BookContent
 import com.weiwei.practice.androidart.chapter_2.messenger.MessengerContent
 import com.weiwei.practice.animator.AnimatedVectorContent
@@ -40,7 +39,10 @@ import com.weiwei.practice.viewevent.ViewEventContent
 import com.weiwei.practice.wave.WaveViewContent
 import com.weiwei.practice.widget.LinearGradientContent
 import com.weiwei.practice.widget.recycler.PayloadContent
-import com.weiwei.practice.window.*
+import com.weiwei.practice.window.WindowInsetsContent
+import com.weiwei.practice.window.doOnApplyWindowInsets
+import com.weiwei.practice.window.systemBarBottom
+import com.weiwei.practice.window.systemBarTop
 
 /**
  * @author Weicools
@@ -92,7 +94,6 @@ class MainFragment : BaseFragment() {
   private fun refreshItems() {
     items.clear()
 
-    items.add(AdbTestContent())
     items.add(ActivityTaskContent())
     items.add(AnimatedVectorContent())
     items.add(AsyncUiContent())

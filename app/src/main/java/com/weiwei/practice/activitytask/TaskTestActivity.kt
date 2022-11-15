@@ -1,10 +1,11 @@
-package com.weiwei.practice.activity.task
+package com.weiwei.practice.activitytask
 
 import android.content.ComponentName
 import android.os.Bundle
 import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 import com.weiwei.practice.ui.main.MainActivity
 
@@ -16,6 +17,8 @@ class TaskTestActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_task_test)
+
+    WindowInsetsEdgeDelegate(this).start()
 
     val btnTestTaskActivity: Button = findViewById(R.id.btnTestTaskActivity)
     btnTestTaskActivity.setOnClickListener {

@@ -19,7 +19,7 @@ import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationCompat
 import com.weiwei.practice.R
-import com.weiwei.practice.app.AppNotificationChannel
+import com.weiwei.core.app.AppNotificationChannel
 
 /**
  * @author weiwei

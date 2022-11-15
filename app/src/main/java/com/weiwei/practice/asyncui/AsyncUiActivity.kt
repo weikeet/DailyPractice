@@ -25,15 +25,16 @@ import android.widget.Toast
 import androidx.lifecycle.ViewTreeLifecycleOwner
 import androidx.lifecycle.ViewTreeViewModelStoreOwner
 import com.weiwei.core.app.BaseActivity
-import com.weiwei.fluent.widget.extensions.background_colorResource
-import com.weiwei.fluent.widget.extensions.dp
-import com.weiwei.fluent.widget.extensions.gravity_center
-import com.weiwei.fluent.widget.extensions.text_color
-import com.weiwei.fluent.widget.frameLayout
-import com.weiwei.fluent.widget.params.frameParams
-import com.weiwei.fluent.widget.params.matchParent
-import com.weiwei.fluent.widget.textView
-import com.weiwei.fluent.widget.view
+import com.weiwei.fluentview.ui.backgroundColorResource
+import com.weiwei.fluentview.ui.gravityCenter
+import com.weiwei.fluentview.ui.textColor
+import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
+import com.weiwei.fluentview.view.appcompat.textView
+import com.weiwei.fluentview.view.frameLayout
+import com.weiwei.fluentview.view.frameParams
+import com.weiwei.fluentview.view.matchParent
+import com.weiwei.fluentview.view.view
 import com.weiwei.practice.R
 import java.lang.ref.WeakReference
 
@@ -61,8 +62,8 @@ class AsyncUiActivity : BaseActivity() {
           val decorView = activity.frameLayout {
             textView {
               layoutParams = frameParams(100.dp, 100.dp) {}
-              gravity = gravity_center
-              text_color = Color.BLACK
+              gravity = gravityCenter
+              textColor = Color.BLACK
               text = "AddView"
               setOnClickListener {
                 Toast.makeText(activity, "CurrThread=${Thread.currentThread()}", Toast.LENGTH_SHORT).show()
@@ -70,7 +71,7 @@ class AsyncUiActivity : BaseActivity() {
                   layoutParams = frameParams(matchParent, 20.dp) {
                     topMargin = 4.dp
                   }
-                  background_colorResource = R.color.colorPrimary
+                  backgroundColorResource = R.color.colorPrimary
                 }
               }
             }
@@ -96,5 +97,7 @@ class AsyncUiActivity : BaseActivity() {
     val uiHandler = AsyncUiHandler(this, HandlerThread("Async-UI").also { it.start() }.looper)
     // uiHandler.sendEmptyMessageDelayed(INIT_VIEW, 1000L)
     uiHandler.sendEmptyMessage(INIT_VIEW)
+
+    WindowInsetsEdgeDelegate(this).start()
   }
 }

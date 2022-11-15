@@ -20,7 +20,6 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import androidx.core.view.doOnPreDraw
-import com.weiwei.practice.common.extensions.visibilityText
 import com.weiwei.practice.lifecycle.core.LifeViewLog
 import com.weiwei.practice.lifecycle.core.logger
 
@@ -43,6 +42,12 @@ open class LifeFrameLayout : FrameLayout {
     doOnPreDraw {
       loggerInner(viewTag, "onPreDraw")
     }
+  }
+
+  private fun getVisibilityText(visibility: Int): String = when (visibility) {
+    View.VISIBLE -> "VISIBLE"
+    View.INVISIBLE -> "INVISIBLE"
+    else -> "GONE"
   }
 
   open fun setupViewLog(viewLog: LifeViewLog) {
@@ -113,7 +118,7 @@ open class LifeFrameLayout : FrameLayout {
   override fun onVisibilityChanged(changedView: View, visibility: Int) {
     super.onVisibilityChanged(changedView, visibility)
     if (viewLog.enableVisibilityChanged) {
-      loggerInner(viewTag, "onVisibilityChanged: visibility=${visibility.visibilityText}")
+      loggerInner(viewTag, "onVisibilityChanged: visibility=${getVisibilityText(visibility)}")
     }
   }
 
@@ -123,7 +128,7 @@ open class LifeFrameLayout : FrameLayout {
   override fun onWindowVisibilityChanged(visibility: Int) {
     super.onWindowVisibilityChanged(visibility)
     if (viewLog.enableWindowVisibilityChanged) {
-      loggerInner(viewTag, "onWindowVisibilityChanged: visibility=${visibility.visibilityText}")
+      loggerInner(viewTag, "onWindowVisibilityChanged: visibility=${getVisibilityText(visibility)}")
     }
   }
   //endregion

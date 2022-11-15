@@ -16,6 +16,7 @@ package com.weiwei.practice.viewevent
 import android.os.Bundle
 import android.view.MotionEvent
 import androidx.appcompat.app.AppCompatActivity
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 
 /**
  * @author weicools
@@ -25,6 +26,8 @@ class ViewEventActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(ViewEventContentLayout(this))
+
+    WindowInsetsEdgeDelegate(this).start()
   }
 
   override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {

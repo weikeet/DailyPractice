@@ -4,8 +4,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
-import com.weiwei.practice.window.delegate.EdgeInsetDelegate
 
 /**
  * @author weicools
@@ -20,6 +20,6 @@ class SampleLifeSecondActivity : AppCompatActivity() {
     }
     setContentView(container)
 
-    EdgeInsetDelegate(this).start()
+    WindowInsetsEdgeDelegate(this).start()
   }
 }

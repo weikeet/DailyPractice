@@ -1,4 +1,4 @@
-package com.weiwei.practice.common.utils
+package com.weiwei.core.utils
 
 import android.content.Context
 import android.content.Intent

@@ -9,10 +9,9 @@ import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.weiwei.fluent.widget.extensions.dp
-import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.matchParent
 import com.weiwei.practice.R
-import com.weiwei.practice.common.adapter.FragmentAdapter2
 import com.weiwei.practice.lifecycle.core.logger
 import com.weiwei.practice.lifecycle.core.widget.LifeFrameLayout
 

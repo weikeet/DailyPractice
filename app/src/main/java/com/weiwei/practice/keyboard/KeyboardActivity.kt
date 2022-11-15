@@ -23,8 +23,8 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.updateLayoutParams
 import com.google.android.material.textfield.TextInputLayout
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
-import com.weiwei.practice.window.delegate.EdgeInsetDelegate
 import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.navigationBarBottom
 import com.weiwei.practice.window.recordInitialMargin
@@ -46,14 +46,14 @@ class KeyboardActivity : AppCompatActivity() {
 
     setContentView(R.layout.activity_keyboard)
 
-    EdgeInsetDelegate(this).start()
+    WindowInsetsEdgeDelegate(this).start()
 
     val btnSend: Button = findViewById(R.id.btnSend)
     val editText: EditText = findViewById(R.id.editText)
     val textInputLayout: TextInputLayout = findViewById(R.id.textInputLayout)
 
     btnSend.setOnClickListener {
-      EdgeInsetDelegate(this).start()
+      WindowInsetsEdgeDelegate(this).start()
     }
 
     val btnMarginRect = btnSend.recordInitialMargin()

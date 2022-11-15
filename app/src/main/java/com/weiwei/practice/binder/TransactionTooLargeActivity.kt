@@ -19,13 +19,14 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.weiwei.fluent.widget.imageView
-import com.weiwei.fluent.widget.linearLayout
-import com.weiwei.fluent.widget.extensions.image_bitmap
-import com.weiwei.fluent.widget.extensions.image_resource
-import com.weiwei.fluent.widget.params.linearParams
-import com.weiwei.practice.TransactLargeService
+import com.weiwei.fluentview.ui.imageBitmap
+import com.weiwei.fluentview.ui.imageResource
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
+import com.weiwei.fluentview.view.appcompat.imageView
+import com.weiwei.fluentview.view.linearLayout
+import com.weiwei.fluentview.view.linearParams
 import com.weiwei.practice.R
+import com.weiwei.practice.TransactLargeService
 
 /**
  * @author weiwei
@@ -53,10 +54,12 @@ class TransactionTooLargeActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
+    WindowInsetsEdgeDelegate(this).start()
+
     val iv = imageView {
       layoutParams = linearParams {
       }
-      image_resource = R.drawable.ic_share_white_24dp
+      imageResource = R.drawable.ic_share_white_24dp
     }
     setContentView(linearLayout {
       orientation = LinearLayout.VERTICAL
@@ -72,7 +75,7 @@ class TransactionTooLargeActivity : AppCompatActivity() {
 
         val binder = it.getBinder(EXTRA_BITMAP)
         val bitmapService = TransactLargeService.Stub.asInterface(binder)
-        iv.image_bitmap = bitmapService.largeBitmap
+        iv.imageBitmap = bitmapService.largeBitmap
       }
     }, 2000L)
   }

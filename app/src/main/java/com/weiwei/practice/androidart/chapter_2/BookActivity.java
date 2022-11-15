@@ -23,6 +23,7 @@ import android.os.RemoteException;
 import android.util.Log;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate;
 import java.util.List;
 
 /**
@@ -42,10 +43,13 @@ public class BookActivity extends AppCompatActivity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    final IBinder.DeathRecipient deathRecipient  = new IBinder.DeathRecipient() {
-      @Override public void binderDied() {
+    new WindowInsetsEdgeDelegate(this).start();
+
+    final IBinder.DeathRecipient deathRecipient = new IBinder.DeathRecipient() {
+      @Override
+      public void binderDied() {
         // binder 线程回调，适合重新连接服务
-        if (bookManager==null) {
+        if (bookManager == null) {
           return;
         }
         bookManager.asBinder().unlinkToDeath(this, 0);
@@ -55,7 +59,8 @@ public class BookActivity extends AppCompatActivity {
     };
 
     arrivedListener = new IOnNewBookArrivedListener.Stub() {
-      @Override public void onNewBookArrived(Book newBook) throws RemoteException {
+      @Override
+      public void onNewBookArrived(Book newBook) throws RemoteException {
         Log.d(TAG, "BookActivity onNewBookArrived: " + newBook + ", thread=" + Thread.currentThread());
       }
     };

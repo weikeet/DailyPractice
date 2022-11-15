@@ -18,14 +18,15 @@ import android.os.Handler
 import android.os.Looper
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.weiwei.fluent.widget.extensions.dp
-import com.weiwei.fluent.widget.extensions.gravity_center
-import com.weiwei.fluent.widget.extensions.paddings
-import com.weiwei.fluent.widget.linearLayout
-import com.weiwei.fluent.widget.materialButton
-import com.weiwei.fluent.widget.params.linearParams
-import com.weiwei.fluent.widget.params.matchParent
-import com.weiwei.fluent.widget.params.wrapContent
+import com.weiwei.fluentview.ui.allPadding
+import com.weiwei.fluentview.ui.gravityCenter
+import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
+import com.weiwei.fluentview.view.linearLayout
+import com.weiwei.fluentview.view.linearParams
+import com.weiwei.fluentview.view.matchParent
+import com.weiwei.fluentview.view.material.materialButton
+import com.weiwei.fluentview.view.wrapContent
 import com.weiwei.practice.ndk.HelloWorld
 import com.weiwei.task.scheduler.TaskScheduler
 
@@ -34,27 +35,29 @@ class CrashTestActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
 
+    WindowInsetsEdgeDelegate(this).start()
+
     val tvMain = materialButton {
       layoutParams = linearParams(matchParent, wrapContent) { }
-      paddings = 16.dp
+      allPadding = 16.dp
       text = "TEST Main Crash"
     }
 
     val tvWork = materialButton {
       layoutParams = linearParams(matchParent, wrapContent) { topMargin = 20.dp }
-      paddings = 16.dp
+      allPadding = 16.dp
       text = "TEST Crash"
     }
 
     val tvNative = materialButton {
       layoutParams = linearParams(matchParent, wrapContent) { topMargin = 20.dp }
-      paddings = 16.dp
+      allPadding = 16.dp
       text = "TEST native crash"
     }
 
     val view = linearLayout {
       orientation = LinearLayout.VERTICAL
-      gravity = gravity_center
+      gravity = gravityCenter
       addView(tvMain)
       addView(tvWork)
       addView(tvNative)

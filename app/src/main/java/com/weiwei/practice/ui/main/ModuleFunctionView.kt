@@ -3,15 +3,15 @@ package com.weiwei.practice.ui.main
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.weiwei.fluent.widget.imageView
-import com.weiwei.fluent.widget.textView
-import com.weiwei.fluent.widget.extensions.dp
-import com.weiwei.fluent.widget.extensions.text_colorResource
-import com.weiwei.fluent.widget.params.center_VerticalOf
-import com.weiwei.fluent.widget.params.chainPacked
-import com.weiwei.fluent.widget.params.constraintParams
-import com.weiwei.fluent.widget.params.parentId
-import com.weiwei.fluent.widget.params.wrapContent
+import com.weiwei.fluentview.ui.textColorResource
+import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.appcompat.imageView
+import com.weiwei.fluentview.view.appcompat.textView
+import com.weiwei.fluentview.view.constraint.centerVerticalOf
+import com.weiwei.fluentview.view.constraint.chainPacked
+import com.weiwei.fluentview.view.constraint.constraintParams
+import com.weiwei.fluentview.view.constraint.parentId
+import com.weiwei.fluentview.view.wrapContent
 import com.weiwei.practice.R
 import com.weiwei.practice.ui.main.data.ModuleFunction
 
@@ -29,7 +29,7 @@ class ModuleFunctionView(context: Context) : ConstraintLayout(context) {
   private val iconView = imageView(iconId) {
     layoutParams = constraintParams(40.dp, 40.dp) {
       leftToLeft = parentId
-      center_VerticalOf = parentId
+      centerVerticalOf = parentId
       leftMargin = 8.dp
     }
   }
@@ -37,7 +37,7 @@ class ModuleFunctionView(context: Context) : ConstraintLayout(context) {
   val arrowView = imageView(arrowId) {
     layoutParams = constraintParams(40.dp, 40.dp) {
       rightToRight = parentId
-      center_VerticalOf = parentId
+      centerVerticalOf = parentId
       rightMargin = 8.dp
     }
   }
@@ -53,7 +53,7 @@ class ModuleFunctionView(context: Context) : ConstraintLayout(context) {
       rightMargin = 8.dp
     }
     textSize = 16f
-    text_colorResource = R.color.md_grey900
+    textColorResource = R.color.md_grey900
   }
 
   private val descriptionView = textView(descriptionId) {
@@ -67,7 +67,7 @@ class ModuleFunctionView(context: Context) : ConstraintLayout(context) {
       rightMargin = 8.dp
     }
     textSize = 12f
-    text_colorResource = R.color.md_grey500
+    textColorResource = R.color.md_grey500
   }
 
   fun bindFunction(moduleFunction: ModuleFunction) {

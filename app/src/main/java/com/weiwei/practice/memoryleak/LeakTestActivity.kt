@@ -20,11 +20,12 @@ import android.view.View
 import android.widget.Button
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import com.weiwei.fluent.widget.button
-import com.weiwei.fluent.widget.extensions.dp
-import com.weiwei.fluent.widget.linearLayout
-import com.weiwei.fluent.widget.params.linearParams
-import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
+import com.weiwei.fluentview.view.appcompat.button
+import com.weiwei.fluentview.view.linearLayout
+import com.weiwei.fluentview.view.linearParams
+import com.weiwei.fluentview.view.matchParent
 
 /**
  * [内存泄露监测与问题排查](https://blog.csdn.net/wumeixinjiazu/article/details/124347893)
@@ -48,6 +49,8 @@ class LeakTestActivity : AppCompatActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+    WindowInsetsEdgeDelegate(this).start()
 
     val rootView = linearLayout {
       orientation = LinearLayout.VERTICAL

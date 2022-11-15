@@ -20,10 +20,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnPreDraw
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 import com.weiwei.practice.binding.viewBinding
 import com.weiwei.practice.databinding.ActivityWindowInsetsTestBinding
-import com.weiwei.practice.window.delegate.EdgeInsetDelegate
 
 /**
  * @author weiwei
@@ -81,7 +81,7 @@ class WindowInsetsTestActivity : AppCompatActivity() {
       }
     }
 
-    EdgeInsetDelegate(this).start()
+    WindowInsetsEdgeDelegate(this).start()
 
   }
 

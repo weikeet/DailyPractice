@@ -2,7 +2,7 @@ package com.weiwei.practice.lifecycle.sample
 
 import android.content.Context
 import android.util.AttributeSet
-import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluentview.view.matchParent
 import com.weiwei.practice.R
 import com.weiwei.practice.lifecycle.core.widget.LifeFrameLayout
 import com.weiwei.practice.lifecycle.core.widget.LifeRelativeLayout

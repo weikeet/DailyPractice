@@ -24,6 +24,7 @@ import android.widget.Toast
 import com.weiwei.cockroach.Cockroach
 import com.weiwei.cockroach.ExceptionHandler
 import com.weiwei.core.app.BaseApplication
+import com.weiwei.core.app.appInitializers
 import com.weiwei.core.global.AppGlobal
 import com.weiwei.practice.BuildConfig
 import com.weiwei.practice.TimeRecorder

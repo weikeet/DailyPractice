@@ -19,7 +19,7 @@ import android.os.PersistableBundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.doOnPreDraw
-import com.weiwei.practice.window.delegate.EdgeInsetDelegate
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 
 /**
  * @author weicools
@@ -52,7 +52,7 @@ open class LifeActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setupLifeConfig(activityLog)
 
-    EdgeInsetDelegate(this)
+    WindowInsetsEdgeDelegate(this)
       .setNavigationBarColor(0x20000000)
       .start()
 

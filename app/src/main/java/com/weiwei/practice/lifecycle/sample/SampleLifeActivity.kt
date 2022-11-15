@@ -3,6 +3,7 @@ package com.weiwei.practice.lifecycle.sample
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.view.updatePadding
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.lifecycle.core.LifeActivity
 import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.navigationBarBottom
@@ -17,6 +18,8 @@ class SampleLifeActivity : LifeActivity() {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
+
+    WindowInsetsEdgeDelegate(this).start()
 
     container = LifeContentContainer(this)
     setContentView(container)

@@ -10,29 +10,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+package com.weiwei.practice.lifecycle.sample
 
-package com.weiwei.practice.common.adapter;
-
-import androidx.fragment.app.Fragment;
+import androidx.fragment.app.Fragment
 
 /**
  * @author weiwei
  * @date 2022.08.09
  */
-public class FragmentData {
-  private final String title;
-  private final Fragment fragment;
-
-  public FragmentData(String title, Fragment fragment) {
-    this.title = title;
-    this.fragment = fragment;
-  }
-
-  public String getTitle() {
-    return title;
-  }
-
-  public Fragment getFragment() {
-    return fragment;
-  }
-}
+data class FragmentData(val title: String, val fragment: Fragment)

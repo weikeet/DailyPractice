@@ -26,8 +26,8 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleOwner
-import com.weiwei.practice.app.mainContext
-import com.weiwei.practice.app.mainHandler
+import com.weiwei.core.app.mainContext
+import com.weiwei.core.app.mainHandler
 
 /**
  * @author weiwei

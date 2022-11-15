@@ -30,7 +30,7 @@ class RecyclerViewDivider(private val dividerHeight: Int) : RecyclerView.ItemDec
   private val dividerPaint: Paint = Paint()
 
   init {
-    dividerPaint.color = colorOf(R.color.material_on_surface_stroke)
+    dividerPaint.color = colorOf(R.color.white)
     dividerPaint.style = Paint.Style.FILL
   }
 

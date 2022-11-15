@@ -15,6 +15,7 @@ package com.weiwei.practice.guide.navigation.basic
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 
 /**
@@ -27,5 +28,8 @@ class NavigationBasicActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     // setContentView(R.layout.navigation_activity_basic)
     setContentView(R.layout.navigation_activity_login)
+
+    WindowInsetsEdgeDelegate(this).start()
+
   }
 }

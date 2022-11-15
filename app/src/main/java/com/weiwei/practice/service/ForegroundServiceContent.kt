@@ -14,7 +14,7 @@
 package com.weiwei.practice.service
 
 import android.content.Intent
-import com.weiwei.practice.app.mainContext
+import com.weiwei.core.app.mainContext
 import com.weiwei.practice.ui.main.data.ModuleContent
 import com.weiwei.practice.ui.main.data.ModuleFunction
 

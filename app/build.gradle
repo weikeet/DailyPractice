@@ -136,17 +136,15 @@ dependencies {
 
   debugImplementation(Libs.squareup.leakcanary.leakcanary_android)
 
-  implementation 'com.iqiyi.xcrash:xcrash-android-lib:3.1.0'
+  implementation("com.iqiyi.xcrash:xcrash-android-lib:3.1.0")
 
-  implementation('dev.mobile:dadb:0.0.10')
-
-  implementation "com.weicools:core:1.1.0"
-  implementation "com.weicools:core-ktx:1.1.0"
-  implementation "com.weicools:mmkv-ktx:1.1.0"
-  implementation "com.weicools:view-binding:1.1.0"
-  implementation "com.weicools:fluent-layout:1.1.1"
-  implementation "com.weicools:task-scheduler:1.1.0"
-  implementation "com.weicools:utils:1.1.0"
+  implementation("com.weicools:core:1.1.0")
+  implementation("com.weicools:core-ktx:1.1.0")
+  implementation("com.weicools:mmkv-ktx:1.1.0")
+  implementation("com.weicools:view-binding:1.1.0")
+  implementation("com.weicools:fluent-view:2.0.0")
+  implementation("com.weicools:task-scheduler:1.1.0")
+  implementation("com.weicools:utils:1.1.0")
 
   implementation project(path: ':cockroach')
 

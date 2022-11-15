@@ -5,10 +5,11 @@ import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.weiwei.fluent.widget.autoAddView
-import com.weiwei.fluent.widget.frameLayout
-import com.weiwei.fluent.widget.params.defaultParams
-import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
+import com.weiwei.fluentview.view.autoAddView
+import com.weiwei.fluentview.view.defaultParams
+import com.weiwei.fluentview.view.frameLayout
+import com.weiwei.fluentview.view.matchParent
 import kotlin.math.abs
 
 /**
@@ -32,6 +33,8 @@ class GestureDetectorActivity : AppCompatActivity() {
       }
     }
     setContentView(contentLayout)
+
+    WindowInsetsEdgeDelegate(this).start()
 
     val gestureListener = object : GestureDetector.SimpleOnGestureListener() {
       override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {

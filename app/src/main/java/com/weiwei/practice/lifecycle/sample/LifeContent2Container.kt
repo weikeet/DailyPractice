@@ -5,13 +5,12 @@ import android.util.AttributeSet
 import android.view.Gravity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.weiwei.fluent.widget.extensions.dp
-import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.matchParent
 import com.weiwei.practice.R
-import com.weiwei.practice.common.adapter.FragmentAdapter
-import com.weiwei.practice.common.adapter.FragmentData
 import com.weiwei.practice.lifecycle.core.logger
 import com.weiwei.practice.lifecycle.core.widget.LifeFrameLayout
 
@@ -61,7 +60,7 @@ class LifeContent2Container : LifeFrameLayout {
       }
     }
 
-    viewPager.adapter = FragmentAdapter(supportFragmentManager, FragmentAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, fragmentDataList)
+    viewPager.adapter = FragmentAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, fragmentDataList)
     viewPager.addOnPageChangeListener(object : ViewPager.SimpleOnPageChangeListener() {
       override fun onPageSelected(position: Int) {
         logger(viewTag, "content1Container.viewPager onPageSelected: position=$position")

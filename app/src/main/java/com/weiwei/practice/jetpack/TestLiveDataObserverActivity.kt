@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 
 /**
@@ -23,6 +24,8 @@ class TestLiveDataObserverActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_test_live_data_observer)
 
+    WindowInsetsEdgeDelegate(this).start()
+
     supportFragmentManager.beginTransaction()
       .replace(R.id.fragment_container, TestLiveDataObserverFragment.newInstance(), "asd")
       .commit()
@@ -34,9 +37,9 @@ class TestLiveDataObserverActivity : AppCompatActivity() {
     }
     viewModel.getStringData().observe(this, ob)
 
-    viewModel.textData.observe(this, {
+    viewModel.textData.observe(this) {
       Log.d(TAG, "onCreate: observe textData=$it")
-    })
+    }
     viewModel.textData.observeForever {
       Log.d(TAG, "onCreate: observeForever textData=$it")
     }

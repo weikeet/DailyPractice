@@ -15,6 +15,7 @@ package com.weiwei.practice.binding
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 import com.weiwei.practice.databinding.ActivityBindingBinding
 
@@ -48,6 +49,8 @@ class BindingActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
 
     setContentView(R.layout.activity_binding)
+
+    WindowInsetsEdgeDelegate(this).start()
 
     binding.tvHello.text = "Activity: Hello World."
 

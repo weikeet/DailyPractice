@@ -37,11 +37,9 @@
             android:name=".room.ui.RoomActivity"
             android:label="@string/title_room" />
 
-        <activity android:name=".adb.AdbTestActivity" />
-
         <activity android:name=".widget.LinearGradientActivity" />
 
-        <activity android:name=".activity.task.TaskTestActivity" />
+        <activity android:name=".activitytask.TaskTestActivity" />
 
         <activity android:name=".lifecycle.core.LifeActivity" />
 
@@ -56,8 +54,6 @@
         <activity android:name=".gesture.GestureDetectorActivity" />
 
         <activity android:name=".asyncui.AsyncUiActivity" />
-
-        <activity android:name=".PracticeActivity" />
 
         <activity android:name=".animator.AnimatedVectorActivity" />
 

@@ -7,8 +7,7 @@ import android.util.AttributeSet
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.LinearLayout
-import com.weiwei.practice.common.extensions.visibilityText
-import com.weiwei.fluent.widget.extensions.dp
+import com.weiwei.fluentview.ui.unit.dp
 import com.weiwei.practice.R
 import com.weiwei.practice.lifecycle.core.LifeViewLog
 import com.weiwei.practice.lifecycle.core.logger
@@ -37,6 +36,12 @@ class LifecycleViewContainer : LinearLayout {
     val container = FrameLayout(context)
     container.id = R.id.fragment_container
     addView(container, LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT)
+  }
+
+  private fun getVisibilityText(visibility: Int): String = when (visibility) {
+    View.VISIBLE -> "VISIBLE"
+    View.INVISIBLE -> "INVISIBLE"
+    else -> "GONE"
   }
 
   fun setupViewLog(viewLog: LifeViewLog) {
@@ -107,7 +112,7 @@ class LifecycleViewContainer : LinearLayout {
   override fun onVisibilityChanged(changedView: View, visibility: Int) {
     super.onVisibilityChanged(changedView, visibility)
     if (viewLog.enableVisibilityChanged) {
-      loggerInner(TAG, "onVisibilityChanged: visibility=${visibility.visibilityText}")
+      loggerInner(TAG, "onVisibilityChanged: visibility=${getVisibilityText(visibility)}")
     }
   }
 
@@ -117,7 +122,7 @@ class LifecycleViewContainer : LinearLayout {
   override fun onWindowVisibilityChanged(visibility: Int) {
     super.onWindowVisibilityChanged(visibility)
     if (viewLog.enableWindowVisibilityChanged) {
-      loggerInner(TAG, "onWindowVisibilityChanged: visibility=${visibility.visibilityText}")
+      loggerInner(TAG, "onWindowVisibilityChanged: visibility=${getVisibilityText(visibility)}")
     }
   }
   //endregion

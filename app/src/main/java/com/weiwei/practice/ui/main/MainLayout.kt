@@ -3,14 +3,14 @@ package com.weiwei.practice.ui.main
 import android.content.Context
 import android.widget.LinearLayout
 import androidx.fragment.app.FragmentContainerView
-import com.weiwei.fluent.widget.autoAddView
-import com.weiwei.fluent.widget.toolbar
-import com.weiwei.fluent.widget.extensions.background_resource
-import com.weiwei.fluent.widget.extensions.color_of
-import com.weiwei.fluent.widget.extensions.dimenSize_of
-import com.weiwei.fluent.widget.extensions.string_of
-import com.weiwei.fluent.widget.params.linearParams
-import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluentview.ui.backgroundResource
+import com.weiwei.fluentview.ui.res.colorResource
+import com.weiwei.fluentview.ui.res.dimenSizeResource
+import com.weiwei.fluentview.ui.res.stringResource
+import com.weiwei.fluentview.view.appcompat.toolbar
+import com.weiwei.fluentview.view.autoAddView
+import com.weiwei.fluentview.view.linearParams
+import com.weiwei.fluentview.view.matchParent
 import com.weiwei.practice.R
 
 /**
@@ -20,10 +20,10 @@ import com.weiwei.practice.R
  */
 class MainLayout(context: Context) : LinearLayout(context) {
   val toolbar = toolbar {
-    layoutParams = linearParams(matchParent, dimenSize_of(R.dimen.toolbar_height)) { }
-    title = string_of(R.string.app_name)
-    setTitleTextColor(color_of(R.color.white))
-    background_resource = R.color.colorPrimary
+    layoutParams = linearParams(matchParent, dimenSizeResource(R.dimen.toolbar_height)) { }
+    title = stringResource(R.string.app_name)
+    setTitleTextColor(colorResource(R.color.white))
+    backgroundResource = R.color.colorPrimary
   }
 
   val containerView = FragmentContainerView(context).autoAddView(this) {

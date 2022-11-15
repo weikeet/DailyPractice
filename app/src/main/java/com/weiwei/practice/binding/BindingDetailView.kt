@@ -16,8 +16,8 @@ package com.weiwei.practice.binding
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
-import com.weiwei.fluent.widget.extensions.background_colorResource
-import com.weiwei.fluent.widget.extensions.gravity_center
+import com.weiwei.fluentview.ui.backgroundColorResource
+import com.weiwei.fluentview.ui.gravityCenter
 import com.weiwei.practice.R
 import com.weiwei.practice.databinding.ItemBindingDetalBinding
 
@@ -29,8 +29,8 @@ class BindingDetailView @JvmOverloads constructor(context: Context, attrs: Attri
     // use merge tag
     inflate(context, R.layout.item_binding_detal, this)
     orientation = VERTICAL
-    gravity = gravity_center
-    background_colorResource = R.color.colorAccent12
+    gravity = gravityCenter
+    backgroundColorResource = R.color.colorAccent12
   }
 
   override fun onAttachedToWindow() {

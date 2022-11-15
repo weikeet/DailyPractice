@@ -7,8 +7,8 @@ import android.util.Log
 import android.widget.LinearLayout
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.AppCompatButton
-import com.weiwei.fluent.widget.extensions.dp
-import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.matchParent
 import java.util.*
 
 /**

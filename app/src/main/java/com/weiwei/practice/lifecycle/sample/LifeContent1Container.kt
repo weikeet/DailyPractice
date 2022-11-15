@@ -7,11 +7,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.viewpager.widget.ViewPager
 import com.google.android.material.tabs.TabLayout
-import com.weiwei.fluent.widget.extensions.dp
-import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.matchParent
 import com.weiwei.practice.R
-import com.weiwei.practice.common.adapter.FragmentAdapter
-import com.weiwei.practice.common.adapter.FragmentData
 import com.weiwei.practice.lifecycle.core.logger
 import com.weiwei.practice.lifecycle.core.widget.LifeFrameLayout
 

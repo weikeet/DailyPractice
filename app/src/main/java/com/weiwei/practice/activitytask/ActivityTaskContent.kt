@@ -1,4 +1,4 @@
-package com.weiwei.practice.activity.task
+package com.weiwei.practice.activitytask
 
 import android.content.Intent
 import com.weiwei.practice.ui.main.data.ModuleContent

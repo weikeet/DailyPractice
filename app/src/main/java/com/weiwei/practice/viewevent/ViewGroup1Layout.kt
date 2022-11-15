@@ -16,11 +16,11 @@ package com.weiwei.practice.viewevent
 import android.content.Context
 import android.util.Log
 import android.view.MotionEvent
-import com.weiwei.fluent.widget.autoAddView
-import com.weiwei.fluent.widget.extensions.background_colorResource
-import com.weiwei.fluent.widget.extensions.dp
-import com.weiwei.fluent.widget.params.linearParams
-import com.weiwei.fluent.widget.params.matchParent
+import com.weiwei.fluentview.ui.backgroundColorResource
+import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.autoAddView
+import com.weiwei.fluentview.view.linearParams
+import com.weiwei.fluentview.view.matchParent
 import com.weiwei.practice.R
 
 /**
@@ -68,7 +68,7 @@ class ViewGroup1Layout(context: Context) : ViewEventBaseLayout(context) {
 
   val v1 = View1(context).autoAddView(this) {
     layoutParams = linearParams(matchParent, 72.dp) {}
-    background_colorResource = R.color.colorAccent16
+    backgroundColorResource = R.color.colorAccent16
   }
 
   override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {

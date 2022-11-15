@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.app
+package com.weiwei.core.app
 
 import android.content.ClipboardManager
 import android.content.pm.PackageManager
