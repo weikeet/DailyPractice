@@ -13,12 +13,16 @@
 
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_graph"
     app:startDestination="@id/mainFragment">
 
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.weiwei.practice.ui.main.MainFragment">
+        <action
+            android:id="@+id/action_mainFragment_to_MaterialShapeFragment"
+            app:destination="@id/MaterialShapeFragment" />
         <action
             android:id="@+id/action_mainFragment_to_videoPlayerFragment"
             app:destination="@id/videoPlayerFragment" />
@@ -29,6 +33,11 @@
             android:id="@+id/action_mainFragment_to_recyclerPayloadFragment"
             app:destination="@id/recyclerPayloadFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/MaterialShapeFragment"
+        android:name="com.weiwei.practice.material.MaterialShapeFragment"
+        tools:layout="@layout/material_fragment_shape" />
 
     <fragment
         android:id="@+id/videoPlayerFragment"

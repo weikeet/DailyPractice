@@ -29,6 +29,7 @@ import com.weiwei.practice.guide.navigation.basic.NavigationBasicContent
 import com.weiwei.practice.jetpack.SingleLiveDataContent
 import com.weiwei.practice.keyboard.KeyboardContent
 import com.weiwei.practice.lifecycle.LifecycleContent
+import com.weiwei.practice.material.MaterialShapeContent
 import com.weiwei.practice.memoryleak.MemoryLeakContent
 import com.weiwei.practice.ndk.HelloWorldContent
 import com.weiwei.practice.player.VideoPlayerContent
@@ -101,6 +102,7 @@ class MainFragment : BaseFragment() {
     items.add(BindingContent())
     items.add(KeyboardContent())
     items.add(WindowInsetsContent())
+    items.add(MaterialShapeContent(findNavController()))
     items.add(VideoPlayerContent(findNavController()))
     items.add(WaveViewContent(findNavController()))
     items.add(PayloadContent(findNavController()))
