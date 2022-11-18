@@ -28,6 +28,7 @@ import com.weiwei.core.app.appInitializers
 import com.weiwei.core.global.AppGlobal
 import com.weiwei.practice.BuildConfig
 import com.weiwei.practice.TimeRecorder
+import com.weiwei.practice.di.sample.ServiceLocator
 import xcrash.XCrash
 
 
@@ -35,6 +36,11 @@ import xcrash.XCrash
  * @author weicools Create on 2018/1/1.
  */
 class PracticeApp : BaseApplication() {
+
+  companion object {
+    lateinit var instance: PracticeApp
+  }
+
   private val appProcessName: String = ""
     get() {
       if (!TextUtils.isEmpty(field)) {
@@ -52,9 +58,7 @@ class PracticeApp : BaseApplication() {
       return ""
     }
 
-  companion object {
-    lateinit var instance: PracticeApp
-  }
+  lateinit var serviceLocator: ServiceLocator
 
   override fun attachBaseContext(base: Context) {
     super.attachBaseContext(base)
@@ -74,6 +78,8 @@ class PracticeApp : BaseApplication() {
     super.onCreate()
 
     instance = this
+
+    serviceLocator = ServiceLocator(applicationContext)
 
     // installCockroach()
 
