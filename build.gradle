@@ -1,6 +1,7 @@
 buildscript {
   ext {
-    kotlin_version = "1.7.10"
+    hilt_version = "2.42"
+    kotlin_version = "1.7.20"
     booster_version = "4.12.0"
   }
   repositories {
@@ -10,8 +11,9 @@ buildscript {
   }
 
   dependencies {
-    classpath 'com.android.tools.build:gradle:7.3.1'
+    classpath "com.android.tools.build:gradle:7.3.1"
     classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    classpath "com.google.dagger:hilt-android-gradle-plugin:$hilt_version"
 
     //region booster
     // https://booster.johnsonlee.io
