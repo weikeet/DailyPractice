@@ -21,7 +21,8 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.weiwei.practice.di.sample.data.LoggerLocalDataSource
+import com.weiwei.practice.di.sample.data.InMemoryLogger
+import com.weiwei.practice.di.sample.data.LoggerDataSource
 import com.weiwei.practice.di.sample.util.DateFormatter
 import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.statusBarTop
@@ -35,8 +36,9 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class LogsFragment : Fragment() {
 
+  @InMemoryLogger
   @Inject
-  lateinit var logger: LoggerLocalDataSource
+  lateinit var logger: LoggerDataSource
   @Inject
   lateinit var dateFormatter: DateFormatter
 
