@@ -17,11 +17,12 @@ import androidx.fragment.app.FragmentActivity
 import com.weiwei.practice.R
 import com.weiwei.practice.di.sample.ui.ButtonsFragment
 import com.weiwei.practice.di.sample.ui.LogsFragment
+import javax.inject.Inject
 
 /**
  * Navigator implementation.
  */
-class AppNavigatorImpl(private val activity: FragmentActivity) : AppNavigator {
+class AppNavigatorImpl @Inject constructor(private val activity: FragmentActivity) : AppNavigator {
 
   override fun navigateTo(screen: Screens) {
     val fragment = when (screen) {

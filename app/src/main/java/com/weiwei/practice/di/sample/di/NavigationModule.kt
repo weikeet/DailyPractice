@@ -11,19 +11,22 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.di
+package com.weiwei.practice.di.sample.di
 
-import com.weiwei.practice.ui.main.data.ModuleContent
-import com.weiwei.practice.ui.main.data.ModuleFunction
+import com.weiwei.practice.di.sample.navigator.AppNavigator
+import com.weiwei.practice.di.sample.navigator.AppNavigatorImpl
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.android.components.ActivityComponent
 
 /**
  * @author weiwei
- * @date 2022.11.15
+ * @date 2022.11.19
  */
-// Note: Dependency-injection.md
-// https://developer.android.com/training/dependency-injection?hl=zh-cn
-class DiContent : ModuleContent() {
-  override fun setupFunction(function: ModuleFunction) {
-    //
-  }
+@InstallIn(ActivityComponent::class)
+@Module
+abstract class NavigationModule {
+  @Binds
+  abstract fun bindNavigator(navigatorImpl: AppNavigatorImpl): AppNavigator
 }

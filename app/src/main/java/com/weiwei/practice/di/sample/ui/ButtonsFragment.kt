@@ -13,7 +13,6 @@
 
 package com.weiwei.practice.di.sample.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -29,18 +28,22 @@ import com.weiwei.fluentview.view.linearLayout
 import com.weiwei.fluentview.view.linearParams
 import com.weiwei.fluentview.view.matchParent
 import com.weiwei.fluentview.view.wrapContent
-import com.weiwei.practice.app.PracticeApp
 import com.weiwei.practice.di.sample.data.LoggerLocalDataSource
 import com.weiwei.practice.di.sample.navigator.AppNavigator
 import com.weiwei.practice.di.sample.navigator.Screens
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * Fragment that displays buttons whose interactions are recorded.
  */
+@AndroidEntryPoint
 class ButtonsFragment : Fragment() {
 
-  private lateinit var logger: LoggerLocalDataSource
-  private lateinit var navigator: AppNavigator
+  @Inject
+  lateinit var logger: LoggerLocalDataSource
+  @Inject
+  lateinit var navigator: AppNavigator
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
     return requireContext().linearLayout {
@@ -115,17 +118,5 @@ class ButtonsFragment : Fragment() {
         text = "DeleteLogs"
       }
     }
-  }
-
-  override fun onAttach(context: Context) {
-    super.onAttach(context)
-
-    populateFields(context)
-  }
-
-  private fun populateFields(context: Context) {
-    logger = (context.applicationContext as PracticeApp).serviceLocator.loggerLocalDataSource
-
-    navigator = (context.applicationContext as PracticeApp).serviceLocator.provideNavigator(requireActivity())
   }
 }

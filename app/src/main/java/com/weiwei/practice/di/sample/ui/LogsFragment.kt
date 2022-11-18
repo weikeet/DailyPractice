@@ -13,7 +13,6 @@
 
 package com.weiwei.practice.di.sample.ui
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -22,20 +21,24 @@ import androidx.core.view.updatePadding
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.weiwei.practice.app.PracticeApp
 import com.weiwei.practice.di.sample.data.LoggerLocalDataSource
 import com.weiwei.practice.di.sample.util.DateFormatter
 import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.statusBarTop
 import com.weiwei.practice.window.systemBarBottom
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * Fragment that displays the database logs.
  */
+@AndroidEntryPoint
 class LogsFragment : Fragment() {
 
-  private lateinit var logger: LoggerLocalDataSource
-  private lateinit var dateFormatter: DateFormatter
+  @Inject
+  lateinit var logger: LoggerLocalDataSource
+  @Inject
+  lateinit var dateFormatter: DateFormatter
 
   private lateinit var recyclerView: RecyclerView
 
@@ -52,17 +55,6 @@ class LogsFragment : Fragment() {
     view.doOnApplyWindowInsets { windowInsets ->
       view.updatePadding(top = windowInsets.statusBarTop, bottom = windowInsets.systemBarBottom)
     }
-  }
-
-  override fun onAttach(context: Context) {
-    super.onAttach(context)
-
-    populateFields(context)
-  }
-
-  private fun populateFields(context: Context) {
-    logger = (context.applicationContext as PracticeApp).serviceLocator.loggerLocalDataSource
-    dateFormatter = (context.applicationContext as PracticeApp).serviceLocator.provideDateFormatter()
   }
 
   override fun onResume() {

@@ -18,17 +18,20 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
-import com.weiwei.practice.app.PracticeApp
 import com.weiwei.practice.di.sample.navigator.AppNavigator
 import com.weiwei.practice.di.sample.navigator.Screens
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * @author weiwei
  * @date 2022.11.18
  */
+@AndroidEntryPoint
 class DiMainActivity : AppCompatActivity() {
 
-  private lateinit var navigator: AppNavigator
+  @Inject
+  lateinit var navigator: AppNavigator
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -37,8 +40,6 @@ class DiMainActivity : AppCompatActivity() {
     })
 
     WindowInsetsEdgeDelegate(this).start()
-
-    navigator = (applicationContext as PracticeApp).serviceLocator.provideNavigator(this)
 
     if (savedInstanceState == null) {
       navigator.navigateTo(Screens.BUTTONS)

@@ -28,13 +28,14 @@ import com.weiwei.core.app.appInitializers
 import com.weiwei.core.global.AppGlobal
 import com.weiwei.practice.BuildConfig
 import com.weiwei.practice.TimeRecorder
-import com.weiwei.practice.di.sample.ServiceLocator
+import dagger.hilt.android.HiltAndroidApp
 import xcrash.XCrash
 
 
 /**
  * @author weicools Create on 2018/1/1.
  */
+@HiltAndroidApp
 class PracticeApp : BaseApplication() {
 
   companion object {
@@ -58,8 +59,6 @@ class PracticeApp : BaseApplication() {
       return ""
     }
 
-  lateinit var serviceLocator: ServiceLocator
-
   override fun attachBaseContext(base: Context) {
     super.attachBaseContext(base)
 
@@ -78,8 +77,6 @@ class PracticeApp : BaseApplication() {
     super.onCreate()
 
     instance = this
-
-    serviceLocator = ServiceLocator(applicationContext)
 
     // installCockroach()
 

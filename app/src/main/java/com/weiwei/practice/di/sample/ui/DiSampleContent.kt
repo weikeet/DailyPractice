@@ -21,6 +21,10 @@ import com.weiwei.practice.ui.main.data.ModuleFunction
  * @author weiwei
  * @date 2022.11.18
  */
+// Note: Dependency-injection.md
+// https://developer.android.com/codelabs/android-hilt?hl=zh-cn
+// https://developer.android.com/training/dependency-injection?hl=zh-cn
+// https://developer.android.com/training/dependency-injection/hilt-android?hl=zh-cn
 class DiSampleContent : ModuleContent() {
   override fun setupFunction(function: ModuleFunction) {
     function.apply {
