@@ -142,7 +142,7 @@ dependencies {
   implementation("com.weicools:core-ktx:1.1.0")
   implementation("com.weicools:mmkv-ktx:1.1.0")
   implementation("com.weicools:view-binding:1.1.0")
-  implementation("com.weicools:fluent-view:2.0.0")
+  implementation("com.weicools:fluent-view:2.0.1")
   implementation("com.weicools:task-scheduler:1.1.0")
   implementation("com.weicools:utils:1.1.0")
 
