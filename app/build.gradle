@@ -5,6 +5,7 @@ plugins {
   // id 'com.didiglobal.booster'
   id 'kotlin-android'
   id 'kotlin-kapt'
+  id 'dagger.hilt.android.plugin'
   id 'com.weiwei.dependency'
 }
 
@@ -135,6 +136,10 @@ dependencies {
   implementation(Libs.com.drakeet.multitype.multitype)
 
   debugImplementation(Libs.squareup.leakcanary.leakcanary_android)
+
+  // Hilt dependencies
+  implementation "com.google.dagger:hilt-android:$hilt_version"
+  kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
 
   implementation("com.iqiyi.xcrash:xcrash-android-lib:3.1.0")
 

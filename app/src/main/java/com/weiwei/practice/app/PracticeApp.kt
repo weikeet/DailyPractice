@@ -28,13 +28,20 @@ import com.weiwei.core.app.appInitializers
 import com.weiwei.core.global.AppGlobal
 import com.weiwei.practice.BuildConfig
 import com.weiwei.practice.TimeRecorder
+import dagger.hilt.android.HiltAndroidApp
 import xcrash.XCrash
 
 
 /**
  * @author weicools Create on 2018/1/1.
  */
+@HiltAndroidApp
 class PracticeApp : BaseApplication() {
+
+  companion object {
+    lateinit var instance: PracticeApp
+  }
+
   private val appProcessName: String = ""
     get() {
       if (!TextUtils.isEmpty(field)) {
@@ -51,10 +58,6 @@ class PracticeApp : BaseApplication() {
       }
       return ""
     }
-
-  companion object {
-    lateinit var instance: PracticeApp
-  }
 
   override fun attachBaseContext(base: Context) {
     super.attachBaseContext(base)

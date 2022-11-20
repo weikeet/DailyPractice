@@ -23,6 +23,7 @@ import com.weiwei.practice.binding.BindingContent
 import com.weiwei.practice.binding.viewBinding
 import com.weiwei.practice.crash.CrashTestContent
 import com.weiwei.practice.databinding.FragmentMainBinding
+import com.weiwei.practice.di.sample.ui.DiSampleContent
 import com.weiwei.practice.dialog.DialogContent
 import com.weiwei.practice.formatter.FormatterDialogContent
 import com.weiwei.practice.guide.navigation.basic.NavigationBasicContent
@@ -100,6 +101,7 @@ class MainFragment : BaseFragment() {
     items.add(AsyncUiContent())
     items.add(AutoStartContent())
     items.add(BindingContent())
+    items.add(DiSampleContent())
     items.add(KeyboardContent())
     items.add(WindowInsetsContent())
     items.add(MaterialShapeContent(findNavController()))

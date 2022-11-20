@@ -89,6 +89,8 @@
 
         <activity android:name=".shadow.PluginContainerActivity" />
 
+        <activity android:name=".di.sample.ui.DiMainActivity" />
+
         <service android:name=".service.TestForegroundService" />
 
     </application>
