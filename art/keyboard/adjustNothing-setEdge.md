@@ -43,6 +43,22 @@ DecorView
 ├── statusBarBackground - View
 ```
 
+
+#### Honor7A
+
+EMUI, Android 8.0
+
+```shell
+SoftKeyboardWatcher: widthPixels=720, heightPixels=1358, screenRealHeight=1440
+SoftKeyboardWatcher: heightPixels = screenRealHeight - navigationBarBottom
+SoftKeyboardWatcher: imBottom=0, statusBarTop=48, navigationBarBottom=82
+
+contentHeight=(1440 - 48 - 82) = 1310
+
+ratio=1310/720 = 1.819
+```
+
+
 #### Xiaomi6
 
 原生, Android 12
@@ -51,6 +67,24 @@ DecorView
 ```shell
 SoftKeyboardWatcher: widthPixels=1080, heightPixels=1872, screenRealHeight=1920
 SoftKeyboardWatcher: heightPixels = screenRealHeight - navigationBarBottom
+SoftKeyboardWatcher: imBottom=0, statusBarTop=72, navigationBarBottom=48
+
+contentHeight=(1920 - 48 - 72)=1800
+
+ratio=1800/1080 = 1.67
+```
+
+原生, Android 13
+手势导航，无刘海
+
+```shell
+SoftKeyboardWatcher: widthPixels=1080, heightPixels=1854, screenRealHeight=1920
+SoftKeyboardWatcher: heightPixels = screenRealHeight - navigationBarBottom
+SoftKeyboardWatcher: imBottom=0, statusBarTop=72, navigationBarBottom=66
+
+contentHeight=(1920 - 66 - 72)=1782
+
+ratio=1782/1080 = 1.65
 ```
 
 ##### start:
@@ -108,6 +142,11 @@ Android 10
 ```shell
 SoftKeyboardWatcher: widthPixels=1080, heightPixels=2316, screenRealHeight=2460
 SoftKeyboardWatcher: heightPixels = screenRealHeight - navigationBarBottom - statusBarTop
+SoftKeyboardWatcher: imBottom=0, statusBarTop=102, navigationBarBottom=42
+
+contentHeight=(2460 - 102 - 42)=2316
+
+ratio=2316/1080 = 2.14
 ```
 
 ##### start:
@@ -175,6 +214,11 @@ MIUI 11, Android 9
 ```shell
 SoftKeyboardWatcher: widthPixels=720, heightPixels=1369, screenRealHeight=1520
 SoftKeyboardWatcher: heightPixels = screenRealHeight - navigationBarBottom - statusBarTop
+SoftKeyboardWatcher: imBottom=0, statusBarTop=55, navigationBarBottom=96
+
+contentHeight=(2460 - 55 - 96)=1369
+
+ratio=1369/720 = 1.90
 ```
 
 ##### start:
@@ -225,7 +269,7 @@ Flyme 7, Android 7
 
 ```shell
 SoftKeyboardWatcher: widthPixels=1080, heightPixels=1920, screenRealHeight=1920
-SoftKeyboardWatcher: heightPixels = screenRealHeight
+SoftKeyboardWatcher: heightPixels = screenRealHeight - navigationBarBottom (0)
 ```
 
 ##### start:

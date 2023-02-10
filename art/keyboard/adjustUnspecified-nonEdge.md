@@ -173,7 +173,7 @@ Android 7 Log.d 无法输出
 
 ```shell
 SoftKeyboardWatcher: widthPixels=1080, heightPixels=1920, screenRealHeight=1920
-SoftKeyboardWatcher: heightPixels = screenRealHeight
+SoftKeyboardWatcher: heightPixels = screenRealHeight - navigationBarBottom (0)
 ```
 
 ##### start:
