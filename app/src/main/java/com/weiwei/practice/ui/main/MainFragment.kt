@@ -25,6 +25,7 @@ import com.weiwei.practice.crash.CrashTestContent
 import com.weiwei.practice.databinding.FragmentMainBinding
 import com.weiwei.practice.di.sample.ui.DiSampleContent
 import com.weiwei.practice.dialog.DialogContent
+import com.weiwei.practice.flow.FlowSampleContent
 import com.weiwei.practice.formatter.FormatterDialogContent
 import com.weiwei.practice.guide.navigation.basic.NavigationBasicContent
 import com.weiwei.practice.jetpack.SingleLiveDataContent
@@ -104,6 +105,7 @@ class MainFragment : BaseFragment() {
     items.add(DiSampleContent())
     items.add(KeyboardContent())
     items.add(WindowInsetsContent())
+    items.add(FlowSampleContent(findNavController()))
     items.add(MaterialShapeContent(findNavController()))
     items.add(VideoPlayerContent(findNavController()))
     items.add(WaveViewContent(findNavController()))
