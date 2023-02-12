@@ -46,6 +46,7 @@ import com.weiwei.practice.window.WindowInsetsContent
 import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.systemBarBottom
 import com.weiwei.practice.window.systemBarTop
+import com.weiwei.practice.workout.WorkoutContent
 
 /**
  * @author Weicools
@@ -97,6 +98,7 @@ class MainFragment : BaseFragment() {
   private fun refreshItems() {
     items.clear()
 
+    items.add(WorkoutContent(findNavController()))
     items.add(ActivityTaskContent())
     items.add(AnimatedVectorContent())
     items.add(AsyncUiContent())

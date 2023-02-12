@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_MainFragment_to_FlowSampleFragment"
             app:destination="@id/FlowSampleFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_WorkoutPlayFragment"
+            app:destination="@id/WorkoutPlayFragment" />
     </fragment>
 
     <fragment
@@ -89,5 +92,10 @@
         android:id="@+id/FlowSampleRoomFragment"
         android:name="com.weiwei.practice.flow.FlowSampleRoomFragment"
         tools:layout="@layout/fragment_flow_sample_room" />
+
+    <fragment
+        android:id="@+id/WorkoutPlayFragment"
+        android:name="com.weiwei.practice.workout.WorkoutPlayFragment"
+        tools:layout="@layout/fragment_workout_play" />
 
 </navigation>
