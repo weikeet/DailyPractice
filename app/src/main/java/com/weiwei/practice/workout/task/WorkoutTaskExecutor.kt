@@ -14,7 +14,7 @@
 package com.weiwei.practice.workout.task
 
 import com.weiwei.practice.mvi.core.UiEvent
-import com.weiwei.practice.mvi.core.container.MutableContainer
+import com.weiwei.practice.mvi.core.container.MutableFlowContainer
 import com.weiwei.practice.workout.state.WorkoutType
 import com.weiwei.practice.workout.state.WorkoutUiState
 import kotlinx.coroutines.CoroutineScope
@@ -23,7 +23,7 @@ import kotlinx.coroutines.CoroutineScope
  * @author weiwei
  * @date 2023.02.10
  */
-class WorkoutTaskExecutor(val scope: CoroutineScope, val container: MutableContainer<WorkoutUiState, UiEvent>) {
+class WorkoutTaskExecutor(val scope: CoroutineScope, val container: MutableFlowContainer<WorkoutUiState, UiEvent>) {
 
   private var currWorkoutTask: WorkoutTask? = null
 

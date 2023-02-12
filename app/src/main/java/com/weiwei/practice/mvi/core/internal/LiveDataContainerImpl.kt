@@ -13,40 +13,34 @@
 
 package com.weiwei.practice.mvi.core.internal
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.weiwei.practice.mvi.core.UiEvent
 import com.weiwei.practice.mvi.core.UiState
-import com.weiwei.practice.mvi.core.container.MutableContainer
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
+import com.weiwei.practice.mvi.core.container.MutableLiveDataContainer
+import com.weiwei.practice.mvi.core.lifecycle.LiveEvent
 
 /**
  * @author weiwei
  * @date 2023.02.11
  */
-class RealContainer<STATE : UiState, EVENT : UiEvent>(
+internal class LiveDataContainerImpl<STATE : UiState, EVENT : UiEvent>(
   initialState: STATE,
-  private val scope: CoroutineScope,
-) : MutableContainer<STATE, EVENT> {
+) : MutableLiveDataContainer<STATE, EVENT> {
 
-  private val mutableUiStateFlow: MutableStateFlow<STATE> = MutableStateFlow(initialState)
+  private val mutableUiState: MutableLiveData<STATE> = MutableLiveData(initialState)
 
-  private val mutableEventFlow: MutableSharedFlow<EVENT> = MutableSharedFlow()
+  private val mutableEvent: LiveEvent<EVENT> = LiveEvent()
 
-  override val uiStateFlow: StateFlow<STATE> get() = mutableUiStateFlow
+  override val uiState: LiveData<STATE> get() = mutableUiState
 
-  override val uiEventFlow: Flow<EVENT> get() = mutableEventFlow
+  override val uiEvent: LiveEvent<EVENT> get() = mutableEvent
 
   override fun updateState(block: STATE.() -> STATE) {
-    mutableUiStateFlow.value = uiStateFlow.value.block()
+    mutableUiState.value = uiState.value?.block()
   }
 
   override fun sendEvent(event: EVENT) {
-    scope.launch {
-      mutableEventFlow.emit(event)
-    }
+    // mutableEvent.sendEvent(event)
   }
 }

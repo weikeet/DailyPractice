@@ -13,17 +13,21 @@
 
 package com.weiwei.practice.mvi.core.container
 
+import androidx.lifecycle.LiveData
 import com.weiwei.practice.mvi.core.UiEvent
 import com.weiwei.practice.mvi.core.UiState
+import com.weiwei.practice.mvi.core.lifecycle.LiveEvent
 
 /**
  * @author weiwei
  * @date 2023.02.11
  */
-interface MutableContainer<STATE : UiState, EVENT : UiEvent> : Container<STATE, EVENT> {
+interface LiveDataContainer<STATE : UiState, EVENT : UiEvent> {
 
-  fun updateState(block: STATE.() -> STATE)
+  //ui状态流
+  val uiState: LiveData<STATE>
 
-  fun sendEvent(event: EVENT)
+  //单次事件流
+  val uiEvent: LiveEvent<EVENT>
 
 }

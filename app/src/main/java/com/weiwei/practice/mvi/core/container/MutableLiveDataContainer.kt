@@ -11,27 +11,19 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.workout
+package com.weiwei.practice.mvi.core.container
 
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.weiwei.practice.mvi.core.UiEvent
-import com.weiwei.practice.mvi.core.container.MutableFlowContainer
-import com.weiwei.practice.mvi.core.extension.flowContainer
-import com.weiwei.practice.workout.state.WorkoutUiState
-import com.weiwei.practice.workout.task.WorkoutTaskExecutor
+import com.weiwei.practice.mvi.core.UiState
 
 /**
  * @author weiwei
  * @date 2023.02.11
  */
-class WorkoutPlayViewModel : ViewModel() {
+interface MutableLiveDataContainer<STATE : UiState, EVENT : UiEvent> : LiveDataContainer<STATE, EVENT> {
 
-  val stateContainer: MutableFlowContainer<WorkoutUiState, UiEvent> by flowContainer(WorkoutUiState())
+  fun updateState(block: STATE.() -> STATE)
 
-  val executor = WorkoutTaskExecutor(viewModelScope, stateContainer)
+  fun sendEvent(event: EVENT)
 
-  init {
-    executor.initailize()
-  }
 }

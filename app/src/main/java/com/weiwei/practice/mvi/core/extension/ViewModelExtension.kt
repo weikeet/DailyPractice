@@ -17,8 +17,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.weiwei.practice.mvi.core.UiEvent
 import com.weiwei.practice.mvi.core.UiState
-import com.weiwei.practice.mvi.core.container.MutableContainer
-import com.weiwei.practice.mvi.core.internal.RealContainer
+import com.weiwei.practice.mvi.core.container.MutableFlowContainer
+import com.weiwei.practice.mvi.core.container.MutableLiveDataContainer
+import com.weiwei.practice.mvi.core.internal.FlowContainerImpl
+import com.weiwei.practice.mvi.core.internal.LiveDataContainerImpl
 import kotlinx.coroutines.CoroutineScope
 
 /**
@@ -29,21 +31,39 @@ import kotlinx.coroutines.CoroutineScope
 /**
  * 构建viewModel的Ui容器，存储Ui状态和一次性事件
  */
-fun <STATE : UiState> ViewModel.containers(
+fun <STATE : UiState> ViewModel.flowContainer(
   initialState: STATE,
-): Lazy<MutableContainer<STATE, UiEvent>> {
-  return ContainerLazy(initialState, viewModelScope)
+): Lazy<MutableFlowContainer<STATE, UiEvent>> {
+  return FlowContainerLazy(initialState, viewModelScope)
 }
 
-private class ContainerLazy<STATE : UiState, EVENT : UiEvent>(
+private class FlowContainerLazy<STATE : UiState, EVENT : UiEvent>(
   initialState: STATE,
   scope: CoroutineScope,
-) : Lazy<MutableContainer<STATE, EVENT>> {
+) : Lazy<MutableFlowContainer<STATE, EVENT>> {
 
-  private var cached: MutableContainer<STATE, EVENT>? = null
+  private var cached: MutableFlowContainer<STATE, EVENT>? = null
 
-  override val value: MutableContainer<STATE, EVENT> =
-    cached ?: RealContainer<STATE, EVENT>(initialState, scope).also { cached = it }
+  override val value: MutableFlowContainer<STATE, EVENT> =
+    cached ?: FlowContainerImpl<STATE, EVENT>(initialState, scope).also { cached = it }
+
+  override fun isInitialized(): Boolean = cached != null
+}
+
+fun <STATE : UiState> ViewModel.liveDataContainer(
+  initialState: STATE,
+): Lazy<MutableLiveDataContainer<STATE, UiEvent>> {
+  return LiveDataContainerLazy(initialState)
+}
+
+private class LiveDataContainerLazy<STATE : UiState, EVENT : UiEvent>(
+  initialState: STATE,
+) : Lazy<MutableLiveDataContainer<STATE, EVENT>> {
+
+  private var cached: MutableLiveDataContainer<STATE, EVENT>? = null
+
+  override val value: MutableLiveDataContainer<STATE, EVENT> =
+    cached ?: LiveDataContainerImpl<STATE, EVENT>(initialState).also { cached = it }
 
   override fun isInitialized(): Boolean = cached != null
 }

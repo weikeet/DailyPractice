@@ -15,19 +15,15 @@ package com.weiwei.practice.mvi.core.container
 
 import com.weiwei.practice.mvi.core.UiEvent
 import com.weiwei.practice.mvi.core.UiState
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.StateFlow
 
 /**
  * @author weiwei
  * @date 2023.02.11
  */
-interface Container<STATE : UiState, EVENT : UiEvent> {
+interface MutableFlowContainer<STATE : UiState, EVENT : UiEvent> : FlowContainer<STATE, EVENT> {
 
-  //ui状态流
-  val uiStateFlow: StateFlow<STATE>
+  fun updateState(block: STATE.() -> STATE)
 
-  //单次事件流
-  val uiEventFlow: Flow<EVENT>
+  fun sendEvent(event: EVENT)
 
 }
