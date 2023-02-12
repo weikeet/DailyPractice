@@ -83,6 +83,6 @@ fun <T> MutableLiveData<T>.setState(reducer: T.() -> T) {
   this.value = this.value?.reducer()
 }
 
-fun <T> LiveEvent<T>.setEvent(vararg values: T) {
-  this.value = values.toList()
+fun <T> LiveEvent<T>.setEvent(event: T) {
+  this.value = event
 }

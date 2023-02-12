@@ -14,6 +14,7 @@
 package com.weiwei.practice.workout
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -52,6 +53,30 @@ class WorkoutPlayFragment : Fragment(R.layout.fragment_workout_play) {
     }
     binding.btnNext.setOnClickListener {
       viewModel.executor.next()
+    }
+
+    Log.d("TestEvent", "onViewCreated: ")
+    viewModel.event.observe(viewLifecycleOwner) {
+      Log.d("TestEvent", "onViewCreated: 111")
+    }
+    viewModel.event.observe(viewLifecycleOwner) {
+      Log.d("TestEvent", "onViewCreated: 222")
+    }
+    viewModel.event.observe(viewLifecycleOwner) {
+      Log.d("TestEvent", "onViewCreated: 333")
+    }
+    binding.test1.setOnClickListener {
+      viewModel.event.setValue("test1")
+    }
+    var count = 1
+    binding.test2.setOnClickListener {
+      viewModel.event.observe(viewLifecycleOwner) {
+        Log.d("TestEvent", "onViewCreated: test21-tag${count}")
+      }
+      viewModel.event.setValue("test2-${count++}")
+      viewModel.event.observe(viewLifecycleOwner) {
+        Log.d("TestEvent", "onViewCreated: test22-tag${count}")
+      }
     }
   }
 }

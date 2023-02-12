@@ -31,8 +31,11 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
     if (hasActiveObservers()) {
       Log.d("SingleLiveEvent", "Multiple observers registered but only one will be notified of changes.")
     }
+    Log.d("SingleLiveEvent", "observe: observer: $observer")
     super.observe(owner) {
+      Log.d("SingleLiveEvent", "observe: super onChanged, observer: $observer")
       if (pendingFlag.compareAndSet(true, false)) {
+        Log.d("SingleLiveEvent", "observe: notify observer, observer: $observer")
         observer.onChanged(it)
       }
     }

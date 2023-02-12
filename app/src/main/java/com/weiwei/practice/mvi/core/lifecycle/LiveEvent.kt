@@ -25,12 +25,12 @@ import java.util.concurrent.atomic.AtomicBoolean
  * 比如我们在请求开始时发出ShowLoading，网络请求成功后发出DismissLoading与Toast事件
  * 如果我们在请求开始后回到桌面，成功后再回到App,这样有一个事件就会被覆盖，因此将所有事件通过List存储
  */
-class LiveEvent<T> : MutableLiveData<List<T>>() {
+class LiveEvent<T> : MutableLiveData<T>() {
 
   private val observers = hashSetOf<ObserverWrapper<in T>>()
 
   @MainThread
-  override fun observe(owner: LifecycleOwner, observer: Observer<in List<T>>) {
+  override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
     observers.find { it.observer === observer }?.let { _ -> // existing
       return
     }
@@ -40,7 +40,7 @@ class LiveEvent<T> : MutableLiveData<List<T>>() {
   }
 
   @MainThread
-  override fun observeForever(observer: Observer<in List<T>>) {
+  override fun observeForever(observer: Observer<in T>) {
     observers.find { it.observer === observer }?.let { _ -> // existing
       return
     }
@@ -50,7 +50,7 @@ class LiveEvent<T> : MutableLiveData<List<T>>() {
   }
 
   @MainThread
-  override fun removeObserver(observer: Observer<in List<T>>) {
+  override fun removeObserver(observer: Observer<in T>) {
     if (observer is ObserverWrapper<*> && observers.remove(observer)) {
       super.removeObserver(observer)
       return
@@ -67,24 +67,24 @@ class LiveEvent<T> : MutableLiveData<List<T>>() {
   }
 
   @MainThread
-  override fun setValue(t: List<T>?) {
+  override fun setValue(t: T?) {
     observers.forEach { it.newValue(t) }
     super.setValue(t)
   }
 
-  private class ObserverWrapper<T>(val observer: Observer<in List<T>>) : Observer<List<T>> {
+  private class ObserverWrapper<T>(val observer: Observer<in T>) : Observer<T> {
 
     private val pending = AtomicBoolean(false)
-    private val eventList = mutableListOf<List<T>>()
+    private val eventList = mutableListOf<T>()
 
-    override fun onChanged(t: List<T>?) {
+    override fun onChanged(t: T?) {
       if (pending.compareAndSet(true, false)) {
-        observer.onChanged(eventList.flatten())
+        eventList.forEach { observer.onChanged(it) }
         eventList.clear()
       }
     }
 
-    fun newValue(t: List<T>?) {
+    fun newValue(t: T?) {
       pending.set(true)
       t?.let {
         eventList.add(it)
