@@ -1,15 +1,18 @@
 package com.weiwei.practice.ui.main
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
 import com.weiwei.core.app.BaseFragment
+import com.weiwei.core.app.mainHandler
 import com.weiwei.fluentview.ui.unit.dp
 import com.weiwei.practice.R
 import com.weiwei.practice.activitytask.ActivityTaskContent
@@ -58,6 +61,8 @@ class MainFragment : BaseFragment() {
   private val adapter = MultiTypeAdapter()
   private val items = ArrayList<Any>()
 
+  private val sharedViewModel: MainSharedViewModel by activityViewModels()
+
   private val binding: FragmentMainBinding by viewBinding(FragmentMainBinding::bind)
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -66,6 +71,17 @@ class MainFragment : BaseFragment() {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
+
+    Log.d("TestEvent", "main-onViewCreated: ")
+    sharedViewModel.event.observe(viewLifecycleOwner) {
+      Log.d("TestEvent", "main-onViewCreated: 111")
+    }
+    sharedViewModel.event.observe(viewLifecycleOwner) {
+      Log.d("TestEvent", "main-onViewCreated: 222")
+    }
+    mainHandler.postDelayed({
+      sharedViewModel.event.setValue("test1")
+    }, 1000)
 
     binding.statusBarView.doOnApplyWindowInsets { windowInsets, padding, margin ->
       binding.statusBarView.updateLayoutParams {

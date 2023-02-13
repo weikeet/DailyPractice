@@ -1,7 +1,10 @@
 package com.weiwei.practice.ui.main
 
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import com.weiwei.core.app.mainHandler
 import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 import com.weiwei.practice.TimeRecorder.recordStopTime
@@ -15,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
     private const val tag_main = "TAG_MAIN"
   }
+
+  private val sharedViewModel: MainSharedViewModel by viewModels()
 
   override fun onWindowFocusChanged(hasFocus: Boolean) {
     super.onWindowFocusChanged(hasFocus)
@@ -37,6 +42,27 @@ class MainActivity : AppCompatActivity() {
     //
     // this.window.statusBarColor = Color.TRANSPARENT
     // this.window.navigationBarColor = Color.TRANSPARENT
+
+    // Log.d("TestEvent", "onCreate: ")
+    // sharedViewModel.event.observe(this) {
+    //   Log.d("TestEvent", "onCreate: 111-$it")
+    // }
+    // sharedViewModel.event.observe(this) {
+    //   Log.d("TestEvent", "onCreate: 222-$it")
+    // }
+    //
+    // mainHandler.postDelayed({
+    //   sharedViewModel.event.setValue("test1")
+    // }, 1000)
+    // mainHandler.postDelayed({
+    //   sharedViewModel.event.observe(this) {
+    //     Log.d("TestEvent", "onCreate: 123-$it")
+    //   }
+    //   sharedViewModel.event.setValue("test2")
+    //   sharedViewModel.event.observe(this) {
+    //     Log.d("TestEvent", "onCreate: 456-$it")
+    //   }
+    // }, 3000)
   }
 
 }

@@ -17,10 +17,13 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import com.weiwei.core.app.mainHandler
 import com.weiwei.practice.R
 import com.weiwei.practice.databinding.FragmentWorkoutPlayBinding
 import com.weiwei.practice.mvi.core.extension.collectState
+import com.weiwei.practice.ui.main.MainSharedViewModel
 
 /**
  * @author weiwei
@@ -30,8 +33,21 @@ class WorkoutPlayFragment : Fragment(R.layout.fragment_workout_play) {
 
   private val viewModel: WorkoutPlayViewModel by viewModels()
 
+  private val sharedViewModel: MainSharedViewModel by activityViewModels()
+
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
+
+    Log.d("TestEvent", "wk-onViewCreated: ")
+    sharedViewModel.event.observe(viewLifecycleOwner) {
+      Log.d("TestEvent", "wk-onViewCreated: 111")
+    }
+    sharedViewModel.event.observe(viewLifecycleOwner) {
+      Log.d("TestEvent", "wk-onViewCreated: 222")
+    }
+    mainHandler.postDelayed({
+      sharedViewModel.event.setValue("test1")
+    }, 1000)
 
     val binding = FragmentWorkoutPlayBinding.bind(view)
 
@@ -55,28 +71,5 @@ class WorkoutPlayFragment : Fragment(R.layout.fragment_workout_play) {
       viewModel.executor.next()
     }
 
-    Log.d("TestEvent", "onViewCreated: ")
-    viewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "onViewCreated: 111")
-    }
-    viewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "onViewCreated: 222")
-    }
-    viewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "onViewCreated: 333")
-    }
-    binding.test1.setOnClickListener {
-      viewModel.event.setValue("test1")
-    }
-    var count = 1
-    binding.test2.setOnClickListener {
-      viewModel.event.observe(viewLifecycleOwner) {
-        Log.d("TestEvent", "onViewCreated: test21-tag${count}")
-      }
-      viewModel.event.setValue("test2-${count++}")
-      viewModel.event.observe(viewLifecycleOwner) {
-        Log.d("TestEvent", "onViewCreated: test22-tag${count}")
-      }
-    }
   }
 }
