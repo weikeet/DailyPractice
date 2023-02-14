@@ -52,8 +52,8 @@ class WorkoutTaskExecutor(val scope: CoroutineScope, val container: MutableFlowC
     if (currWorkoutTask?.nextTask == null) {
       return
     }
-    currWorkoutTask?.stop()
-    currWorkoutTask?.nextTask?.start()
+    currWorkoutTask?.stop(false)
+    currWorkoutTask?.nextTask?.start(false)
     switchToTask(currWorkoutTask?.nextTask)
   }
 
@@ -61,17 +61,17 @@ class WorkoutTaskExecutor(val scope: CoroutineScope, val container: MutableFlowC
     if (currWorkoutTask?.prevTask == null) {
       return
     }
-    currWorkoutTask?.stop()
-    currWorkoutTask?.prevTask?.start()
+    currWorkoutTask?.stop(false)
+    currWorkoutTask?.prevTask?.start(false)
     switchToTask(currWorkoutTask?.prevTask)
   }
 
   fun start() {
-    currWorkoutTask?.start()
+    currWorkoutTask?.start(true)
   }
 
   fun stop() {
-    currWorkoutTask?.stop()
+    currWorkoutTask?.stop(true)
   }
 
 }

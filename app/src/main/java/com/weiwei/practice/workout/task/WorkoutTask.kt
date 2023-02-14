@@ -47,11 +47,15 @@ data class WorkoutTask(
 
   private var canceled = false
 
-  fun start() {
+  fun start(resume: Boolean) {
     canceled = false
 
+    if (!resume) {
+      remainingTime = time
+    }
+
     val timeFlow = flow {
-      for (i in time downTo 0) {
+      for (i in remainingTime downTo 0) {
         emit(i)
         delay(1000)
       }
@@ -63,7 +67,7 @@ data class WorkoutTask(
       .onCompletion {
         Log.d("WorkoutTask", "end: countdownTime: $countdownTime, remainingTime: $remainingTime")
         if (!canceled) {
-          nextTask?.start()
+          nextTask?.start(false)
           executor.switchToTask(nextTask)
         }
       }
@@ -87,9 +91,13 @@ data class WorkoutTask(
       .launchIn(executor.scope)
   }
 
-  fun stop() {
+  fun stop(pause: Boolean) {
+    if (pause) {
+      remainingTime = countdownTime
+    }
     canceled = true
     timeJob?.cancel()
+    timeJob = null
   }
 
 }
