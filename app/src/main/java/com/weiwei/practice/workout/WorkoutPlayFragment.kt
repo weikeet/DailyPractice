@@ -40,13 +40,20 @@ class WorkoutPlayFragment : Fragment(R.layout.fragment_workout_play) {
 
     Log.d("TestEvent", "wk-onViewCreated: ")
     sharedViewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "wk-onViewCreated: 111")
+      Log.d("TestEvent", "wk-onViewCreated: 111, $it")
     }
     sharedViewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "wk-onViewCreated: 222")
+      Log.d("TestEvent", "wk-onViewCreated: 222, $it")
     }
     mainHandler.postDelayed({
+      sharedViewModel.event.observe(viewLifecycleOwner) {
+        Log.d("TestEvent", "wk-onViewCreated: 333, $it")
+      }
       sharedViewModel.event.setValue("test1")
+      sharedViewModel.event.setValue("test2")
+      sharedViewModel.event.observe(viewLifecycleOwner) {
+        Log.d("TestEvent", "wk-onViewCreated: 444, $it")
+      }
     }, 1000)
 
     val binding = FragmentWorkoutPlayBinding.bind(view)

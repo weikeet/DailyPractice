@@ -21,9 +21,9 @@ import java.util.concurrent.atomic.AtomicBoolean
 
 /**
  * LiveEvents
- * 负责处理多维度一次性Event，支持多个监听者
- * 比如我们在请求开始时发出ShowLoading，网络请求成功后发出DismissLoading与Toast事件
- * 如果我们在请求开始后回到桌面，成功后再回到App,这样有一个事件就会被覆盖，因此将所有事件通过List存储
+ * 负责处理多维度一次性 Event，支持多个监听者
+ * 比如我们在请求开始时发出 ShowLoading，网络请求成功后发出 DismissLoading 与 Toast 事件
+ * 如果我们在请求开始后回到桌面，成功后再回到 App,这样有一个事件就会被覆盖，因此将所有事件通过 List 存储
  */
 class LiveEvent<T> : MutableLiveData<T>() {
 

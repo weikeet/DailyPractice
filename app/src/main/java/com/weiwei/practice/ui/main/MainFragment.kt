@@ -74,14 +74,23 @@ class MainFragment : BaseFragment() {
 
     Log.d("TestEvent", "main-onViewCreated: ")
     sharedViewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "main-onViewCreated: 111")
+      Log.d("TestEvent", "main-onViewCreated: 111, $it")
     }
     sharedViewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "main-onViewCreated: 222")
+      Log.d("TestEvent", "main-onViewCreated: 222, $it")
     }
     mainHandler.postDelayed({
+      sharedViewModel.event.observe(viewLifecycleOwner) {
+        Log.d("TestEvent", "main-onViewCreated: 333, $it")
+      }
       sharedViewModel.event.setValue("test1")
-    }, 1000)
+      sharedViewModel.event.setValue("test2")
+      sharedViewModel.event.observe(viewLifecycleOwner) {
+        // 使用 LiveEvent 不会收到事件，必须在 setValue 之前监听才会收到
+        // MutableLiveData 可以在 setValue 之后监听到事件
+        Log.d("TestEvent", "main-onViewCreated: 444, $it")
+      }
+    }, 2000)
 
     binding.statusBarView.doOnApplyWindowInsets { windowInsets, padding, margin ->
       binding.statusBarView.updateLayoutParams {

@@ -13,7 +13,9 @@
 
 package com.weiwei.practice.ui.main
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.weiwei.practice.mvi.core.lifecycle.LiveEvent
 import com.weiwei.practice.mvi.core.lifecycle.SingleLiveEvent
 
 /**
@@ -32,8 +34,8 @@ class MainSharedViewModel : ViewModel() {
   // observe: super onChanged, observer: @12590c3
   // observe: super onChanged, observer: @6bfc479
   // 由于 SingleLiveEvent 的特性，只有第一个 observer 会收到事件，pendingFlag 会被设置为 false，后续的 observer 不会收到事件
-  val event: SingleLiveEvent<String> = SingleLiveEvent() // Only first observer will be notified
-  // val event: LiveEvent<String> = LiveEvent() // Avoid receiving previous events
+  // val event: SingleLiveEvent<String> = SingleLiveEvent() // Only first observer will be notified
+  val event: LiveEvent<String> = LiveEvent() // Avoid receiving previous events
   // val event: MutableLiveData<String> = MutableLiveData()
 
 }
