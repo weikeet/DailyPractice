@@ -23,11 +23,16 @@ import com.weiwei.practice.databinding.FragmentFlowSampleOtherBinding
 import com.weiwei.practice.flow.case.SearchTextWatcher
 import com.weiwei.practice.flow.case.SearchTextWatcherFlow
 import com.weiwei.practice.flow.case.clickFlow
+import com.weiwei.practice.flow.case.countdown
 import com.weiwei.practice.flow.case.throttleFirst
 import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.systemBarTop
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.reduce
+import kotlinx.coroutines.launch
 
 /**
  * @author weiwei
@@ -56,5 +61,28 @@ class FlowSampleOtherFragment : Fragment(R.layout.fragment_flow_sample_other) {
         binding.tvResult.text = "Fast Click ${System.currentTimeMillis()}"
       }
       .launchIn(lifecycleScope)
+
+    binding.flowCountdownButton.setOnClickListener {
+      lifecycleScope.launch {
+        countdown(10, 1) {
+          binding.tvResult.text = "Countdown $it"
+        }
+        val ret = countdown(60_000, 2_000) { remainingTime ->
+          // calculate(remainingTime)
+          remainingTime + 2
+        }
+          .onStart {
+            binding.tvResult.text = "countdown start"
+          }
+          .onCompletion {
+            binding.tvResult.text = "countdown completion"
+          }
+          .reduce { acc, value ->
+            binding.tvResult.text = "countdown acc = $acc, value = $value, res=${acc + value}"
+            acc + value
+          }
+        binding.tvResult.text = "countdown acc ret = $ret"
+      }
+    }
   }
 }
