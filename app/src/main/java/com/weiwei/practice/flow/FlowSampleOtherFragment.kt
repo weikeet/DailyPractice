@@ -17,9 +17,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.lifecycleScope
 import com.weiwei.practice.R
-import com.weiwei.practice.databinding.FragmentFlowSampleBinding
+import com.weiwei.practice.databinding.FragmentFlowSampleOtherBinding
+import com.weiwei.practice.flow.case.SearchTextWatcher
+import com.weiwei.practice.flow.case.SearchTextWatcherFlow
 import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.systemBarTop
 
@@ -27,27 +29,21 @@ import com.weiwei.practice.window.systemBarTop
  * @author weiwei
  * @date 2022.12.08
  */
-class FlowSampleFragment : Fragment(R.layout.fragment_flow_sample) {
+class FlowSampleOtherFragment : Fragment(R.layout.fragment_flow_sample_other) {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    val binding = FragmentFlowSampleBinding.bind(view)
+    val binding = FragmentFlowSampleOtherBinding.bind(view)
 
     view.doOnApplyWindowInsets { windowInsets ->
       binding.statusBarView.updateLayoutParams { height = windowInsets.systemBarTop }
     }
 
-    binding.downloadButton.setOnClickListener {
-      findNavController().navigate(R.id.action_FlowSampleFragment_to_FlowSampleDownloadFragment)
+    SearchTextWatcher(binding.editText1) {
+      binding.tvResult.text = it
     }
-    binding.retrofitButton.setOnClickListener {
-      findNavController().navigate(R.id.action_FlowSampleFragment_to_FlowSampleRetrofitFragment)
-    }
-    binding.roomButton.setOnClickListener {
-      findNavController().navigate(R.id.action_FlowSampleFragment_to_FlowSampleRoomFragment)
-    }
-    binding.otherButton.setOnClickListener {
-      findNavController().navigate(R.id.action_FlowSampleFragment_to_FlowSampleOtherFragment)
+    SearchTextWatcherFlow(binding.editText2, lifecycleScope) {
+      binding.tvResult.text = it
     }
   }
 }

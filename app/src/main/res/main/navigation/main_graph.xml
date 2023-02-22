@@ -76,6 +76,10 @@
         <action
             android:id="@+id/action_FlowSampleFragment_to_FlowSampleRoomFragment"
             app:destination="@id/FlowSampleRoomFragment" />
+
+        <action
+            android:id="@+id/action_FlowSampleFragment_to_FlowSampleOtherFragment"
+            app:destination="@id/FlowSampleOtherFragment" />
     </fragment>
 
     <fragment
@@ -92,6 +96,11 @@
         android:id="@+id/FlowSampleRoomFragment"
         android:name="com.weiwei.practice.flow.data.FlowSampleRoomFragment"
         tools:layout="@layout/fragment_flow_sample_room" />
+
+    <fragment
+        android:id="@+id/FlowSampleOtherFragment"
+        android:name="com.weiwei.practice.flow.FlowSampleOtherFragment"
+        tools:layout="@layout/fragment_flow_sample_other" />
 
     <fragment
         android:id="@+id/WorkoutPlayFragment"
