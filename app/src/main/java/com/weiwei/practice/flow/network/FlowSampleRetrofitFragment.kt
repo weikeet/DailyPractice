@@ -13,12 +13,30 @@
 
 package com.weiwei.practice.flow.network
 
+import android.os.Bundle
+import android.view.View
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import com.weiwei.practice.R
+import com.weiwei.practice.databinding.FragmentFlowSampleRetrofitBinding
+import com.weiwei.practice.window.doOnApplyWindowInsets
+import com.weiwei.practice.window.systemBarTop
 
 /**
  * @author weiwei
  * @date 2022.12.10
  */
-class FlowSampleRetrofitFragment: Fragment(R.layout.fragment_flow_sample_retrofit) {
+class FlowSampleRetrofitFragment : Fragment(R.layout.fragment_flow_sample_retrofit) {
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+
+    val binding = FragmentFlowSampleRetrofitBinding.bind(view)
+
+    view.doOnApplyWindowInsets { windowInsets ->
+      binding.statusBarView.updateLayoutParams { height = windowInsets.systemBarTop }
+    }
+
+  }
+
 }

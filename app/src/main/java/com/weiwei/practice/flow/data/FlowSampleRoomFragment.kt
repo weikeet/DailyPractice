@@ -13,12 +13,30 @@
 
 package com.weiwei.practice.flow.data
 
+import android.os.Bundle
+import android.view.View
+import androidx.core.view.updateLayoutParams
 import androidx.fragment.app.Fragment
 import com.weiwei.practice.R
+import com.weiwei.practice.databinding.FragmentFlowSampleRoomBinding
+import com.weiwei.practice.window.doOnApplyWindowInsets
+import com.weiwei.practice.window.systemBarTop
 
 /**
  * @author weiwei
  * @date 2022.12.10
  */
-class FlowSampleRoomFragment:Fragment(R.layout.fragment_flow_sample_room) {
+class FlowSampleRoomFragment : Fragment(R.layout.fragment_flow_sample_room) {
+
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+
+    val binding = FragmentFlowSampleRoomBinding.bind(view)
+
+    view.doOnApplyWindowInsets { windowInsets ->
+      binding.statusBarView.updateLayoutParams { height = windowInsets.systemBarTop }
+    }
+
+  }
+
 }
