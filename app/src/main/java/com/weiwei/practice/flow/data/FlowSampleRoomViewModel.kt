@@ -11,14 +11,13 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.flow
+package com.weiwei.practice.flow.data
 
-import androidx.fragment.app.Fragment
-import com.weiwei.practice.R
+import androidx.lifecycle.ViewModel
 
 /**
  * @author weiwei
  * @date 2022.12.10
  */
-class FlowSampleRetrofitFragment: Fragment(R.layout.fragment_flow_sample_retrofit) {
+class FlowSampleRoomViewModel : ViewModel() {
 }

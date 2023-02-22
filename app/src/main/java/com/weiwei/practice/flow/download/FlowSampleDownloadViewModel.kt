@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.flow
+package com.weiwei.practice.flow.download
 
 import androidx.lifecycle.ViewModel
 

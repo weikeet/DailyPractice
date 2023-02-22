@@ -11,13 +11,14 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.flow
+package com.weiwei.practice.flow.download
 
-import androidx.lifecycle.ViewModel
+import androidx.fragment.app.Fragment
+import com.weiwei.practice.R
 
 /**
  * @author weiwei
  * @date 2022.12.10
  */
-class FlowSampleRoomViewModel : ViewModel() {
+class FlowSampleDownloadFragment:Fragment(R.layout.fragment_flow_sample_file_download) {
 }

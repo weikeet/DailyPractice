@@ -11,11 +11,11 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.flow
+package com.weiwei.practice.flow.data
 
 /**
  * @author weiwei
  * @date 2022.12.10
  */
-interface FlowSampleRoomDao {
+class FlowSampleRoomDatabase {
 }

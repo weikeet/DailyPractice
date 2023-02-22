@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.flow
+package com.weiwei.practice.flow.network
 
 import androidx.fragment.app.Fragment
 import com.weiwei.practice.R
@@ -20,5 +20,5 @@ import com.weiwei.practice.R
  * @author weiwei
  * @date 2022.12.10
  */
-class FlowSampleDownloadFragment:Fragment(R.layout.fragment_flow_sample_file_download) {
+class FlowSampleRetrofitFragment: Fragment(R.layout.fragment_flow_sample_retrofit) {
 }

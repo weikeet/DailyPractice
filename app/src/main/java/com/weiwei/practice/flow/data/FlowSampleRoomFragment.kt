@@ -11,11 +11,14 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.flow
+package com.weiwei.practice.flow.data
+
+import androidx.fragment.app.Fragment
+import com.weiwei.practice.R
 
 /**
  * @author weiwei
  * @date 2022.12.10
  */
-class FlowSampleRoomDatabase {
+class FlowSampleRoomFragment:Fragment(R.layout.fragment_flow_sample_room) {
 }

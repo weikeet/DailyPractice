@@ -80,17 +80,17 @@
 
     <fragment
         android:id="@+id/FlowSampleDownloadFragment"
-        android:name="com.weiwei.practice.flow.FlowSampleDownloadFragment"
+        android:name="com.weiwei.practice.flow.download.FlowSampleDownloadFragment"
         tools:layout="@layout/fragment_flow_sample_download" />
 
     <fragment
         android:id="@+id/FlowSampleRetrofitFragment"
-        android:name="com.weiwei.practice.flow.FlowSampleRetrofitFragment"
+        android:name="com.weiwei.practice.flow.network.FlowSampleRetrofitFragment"
         tools:layout="@layout/fragment_flow_sample_retrofit" />
 
     <fragment
         android:id="@+id/FlowSampleRoomFragment"
-        android:name="com.weiwei.practice.flow.FlowSampleRoomFragment"
+        android:name="com.weiwei.practice.flow.data.FlowSampleRoomFragment"
         tools:layout="@layout/fragment_flow_sample_room" />
 
     <fragment
