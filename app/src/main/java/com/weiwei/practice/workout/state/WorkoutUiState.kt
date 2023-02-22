@@ -13,7 +13,7 @@
 
 package com.weiwei.practice.workout.state
 
-import com.weiwei.practice.mvi.core.UiState
+import com.weiwei.core.arch.UiState
 
 /**
  * @author weiwei

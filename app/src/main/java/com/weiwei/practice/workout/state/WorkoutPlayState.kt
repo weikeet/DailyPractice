@@ -17,6 +17,14 @@ package com.weiwei.practice.workout.state
  * @author weiwei
  * @date 2023.02.10
  */
-enum class WorkoutPlayState {
-  Start, Running, End, Stop
+sealed interface WorkoutPlayState {
+  object Stop : WorkoutPlayState
+
+  sealed interface Play : WorkoutPlayState {
+    object Start : Play
+    object Running : Play
+    object End : Play
+  }
+
+  object Finish : WorkoutPlayState
 }

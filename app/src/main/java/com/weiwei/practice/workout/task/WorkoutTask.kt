@@ -74,14 +74,8 @@ data class WorkoutTask(
       .onEach {
         countdownTime = it
         Log.d("WorkoutTask", "each: countdownTime: $countdownTime, remainingTime: $remainingTime")
-        val state = when (countdownTime) {
-          0L -> WorkoutPlayState.End
-          time -> WorkoutPlayState.Start
-          else -> WorkoutPlayState.Running
-        }
         executor.container.updateState {
           copy(
-            state = state,
             type = WorkoutType.Preview,
             name = this@WorkoutTask.name,
             tick = this@WorkoutTask.countdownTime,

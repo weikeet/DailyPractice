@@ -11,16 +11,12 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core.extension
+package com.weiwei.core.arch
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.weiwei.practice.mvi.core.UiEvent
-import com.weiwei.practice.mvi.core.UiState
-import com.weiwei.practice.mvi.core.container.MutableFlowContainer
-import com.weiwei.practice.mvi.core.container.MutableLiveDataContainer
-import com.weiwei.practice.mvi.core.internal.FlowContainerImpl
-import com.weiwei.practice.mvi.core.internal.LiveDataContainerImpl
+import com.weiwei.core.arch.internal.FlowContainerImpl
+import com.weiwei.core.arch.internal.LiveDataContainerImpl
 import kotlinx.coroutines.CoroutineScope
 
 /**

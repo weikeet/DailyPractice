@@ -15,10 +15,9 @@ package com.weiwei.practice.workout
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.weiwei.practice.mvi.core.UiEvent
-import com.weiwei.practice.mvi.core.container.MutableFlowContainer
-import com.weiwei.practice.mvi.core.extension.flowContainer
-import com.weiwei.practice.mvi.core.lifecycle.SingleLiveEvent
+import com.weiwei.core.arch.UiEvent
+import com.weiwei.core.arch.MutableFlowContainer
+import com.weiwei.core.arch.flowContainer
 import com.weiwei.practice.workout.state.WorkoutUiState
 import com.weiwei.practice.workout.task.WorkoutTaskExecutor
 

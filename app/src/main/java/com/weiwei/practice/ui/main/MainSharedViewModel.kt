@@ -13,10 +13,8 @@
 
 package com.weiwei.practice.ui.main
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.weiwei.practice.mvi.core.lifecycle.LiveEvent
-import com.weiwei.practice.mvi.core.lifecycle.SingleLiveEvent
+import com.weiwei.core.arch.lifecycle.LiveEvent
 
 /**
  * @author weiwei

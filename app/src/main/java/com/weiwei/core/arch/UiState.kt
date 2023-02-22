@@ -11,19 +11,19 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core.container
+package com.weiwei.core.arch
 
-import com.weiwei.practice.mvi.core.UiEvent
-import com.weiwei.practice.mvi.core.UiState
+import androidx.annotation.Keep
+import kotlin.reflect.KProperty1
 
 /**
  * @author weiwei
  * @date 2023.02.11
  */
-interface MutableLiveDataContainer<STATE : UiState, EVENT : UiEvent> : LiveDataContainer<STATE, EVENT> {
+interface UiState
 
-  fun updateState(block: STATE.() -> STATE)
-
-  fun sendEvent(event: EVENT)
-
-}
+/**
+ * 如果使用 [observeState]/[StateCollector.collectPartial] 等方法依赖于 [KProperty1] 实现的状态监听，需要 keep UiState class。
+ */
+@Keep
+interface UiStateProp

@@ -11,16 +11,16 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core.extension
+package com.weiwei.core.arch
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.distinctUntilChanged
 import androidx.lifecycle.map
-import com.weiwei.practice.mvi.core.internal.StateTuple2
-import com.weiwei.practice.mvi.core.internal.StateTuple3
-import com.weiwei.practice.mvi.core.lifecycle.LiveEvent
+import com.weiwei.core.arch.internal.StateTuple2
+import com.weiwei.core.arch.internal.StateTuple3
+import com.weiwei.core.arch.lifecycle.LiveEvent
 import kotlin.reflect.KProperty1
 
 /**

@@ -11,13 +11,10 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core
-
-import androidx.annotation.Keep
+package com.weiwei.core.arch
 
 /**
  * @author weiwei
  * @date 2023.02.11
  */
-@Keep
-interface UiState
+interface UiEvent

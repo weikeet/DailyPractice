@@ -11,14 +11,14 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core.internal
+package com.weiwei.core.arch.internal
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.weiwei.practice.mvi.core.UiEvent
-import com.weiwei.practice.mvi.core.UiState
-import com.weiwei.practice.mvi.core.container.MutableLiveDataContainer
-import com.weiwei.practice.mvi.core.lifecycle.LiveEvent
+import com.weiwei.core.arch.UiEvent
+import com.weiwei.core.arch.UiState
+import com.weiwei.core.arch.MutableLiveDataContainer
+import com.weiwei.core.arch.lifecycle.LiveEvent
 
 /**
  * @author weiwei

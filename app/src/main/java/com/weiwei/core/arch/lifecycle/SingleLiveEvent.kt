@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core.lifecycle
+package com.weiwei.core.arch.lifecycle
 
 import android.util.Log
 import androidx.lifecycle.LifecycleOwner

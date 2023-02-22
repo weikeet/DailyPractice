@@ -11,11 +11,11 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core.internal
+package com.weiwei.core.arch.internal
 
-import com.weiwei.practice.mvi.core.UiEvent
-import com.weiwei.practice.mvi.core.UiState
-import com.weiwei.practice.mvi.core.container.MutableFlowContainer
+import com.weiwei.core.arch.UiEvent
+import com.weiwei.core.arch.UiState
+import com.weiwei.core.arch.MutableFlowContainer
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow

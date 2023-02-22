@@ -20,9 +20,9 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import com.weiwei.core.app.mainHandler
+import com.weiwei.core.arch.collectState
 import com.weiwei.practice.R
 import com.weiwei.practice.databinding.FragmentWorkoutPlayBinding
-import com.weiwei.practice.mvi.core.extension.collectState
 import com.weiwei.practice.ui.main.MainSharedViewModel
 
 /**

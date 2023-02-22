@@ -11,12 +11,21 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core.internal
+package com.weiwei.core.arch
+
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 
 /**
  * @author weiwei
  * @date 2023.02.11
  */
+interface FlowContainer<STATE : UiState, EVENT : UiEvent> {
 
-internal data class StateTuple2<A, B>(val a: A, val b: B)
-internal data class StateTuple3<A, B, C>(val a: A, val b: B, val c: C)
+  //ui状态流
+  val uiStateFlow: StateFlow<STATE>
+
+  //单次事件流
+  val uiEventFlow: Flow<EVENT>
+
+}

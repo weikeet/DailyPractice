@@ -11,13 +11,16 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core
-
-import androidx.annotation.Keep
+package com.weiwei.core.arch
 
 /**
  * @author weiwei
  * @date 2023.02.11
  */
-@Keep
-interface UiEvent
+interface MutableLiveDataContainer<STATE : UiState, EVENT : UiEvent> : LiveDataContainer<STATE, EVENT> {
+
+  fun updateState(block: STATE.() -> STATE)
+
+  fun sendEvent(event: EVENT)
+
+}

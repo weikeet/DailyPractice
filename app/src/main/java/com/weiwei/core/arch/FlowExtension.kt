@@ -11,16 +11,14 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core.extension
+package com.weiwei.core.arch
 
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.weiwei.practice.mvi.core.UiEvent
-import com.weiwei.practice.mvi.core.UiState
-import com.weiwei.practice.mvi.core.internal.StateTuple2
-import com.weiwei.practice.mvi.core.internal.StateTuple3
+import com.weiwei.core.arch.internal.StateTuple2
+import com.weiwei.core.arch.internal.StateTuple3
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map

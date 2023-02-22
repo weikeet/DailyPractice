@@ -11,23 +11,16 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.mvi.core.container
-
-import androidx.lifecycle.LiveData
-import com.weiwei.practice.mvi.core.UiEvent
-import com.weiwei.practice.mvi.core.UiState
-import com.weiwei.practice.mvi.core.lifecycle.LiveEvent
+package com.weiwei.core.arch
 
 /**
  * @author weiwei
  * @date 2023.02.11
  */
-interface LiveDataContainer<STATE : UiState, EVENT : UiEvent> {
+interface MutableFlowContainer<STATE : UiState, EVENT : UiEvent> : FlowContainer<STATE, EVENT> {
 
-  //ui状态流
-  val uiState: LiveData<STATE>
+  fun updateState(block: STATE.() -> STATE)
 
-  //单次事件流
-  val uiEvent: LiveEvent<EVENT>
+  fun sendEvent(event: EVENT)
 
 }
