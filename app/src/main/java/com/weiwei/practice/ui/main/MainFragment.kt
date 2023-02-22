@@ -92,14 +92,14 @@ class MainFragment : BaseFragment() {
       }
     }, 2000)
 
-    binding.statusBarView.doOnApplyWindowInsets { windowInsets, padding, margin ->
+    binding.statusBarView.doOnApplyWindowInsets { windowInsets ->
       binding.statusBarView.updateLayoutParams {
         height = windowInsets.systemBarTop
       }
     }
 
     binding.recyclerView.clipToPadding = false
-    binding.recyclerView.doOnApplyWindowInsets { windowInsets, padding, margin ->
+    binding.recyclerView.doOnApplyWindowInsets { windowInsets, padding, _ ->
       binding.recyclerView.updatePadding(bottom = padding.bottom + windowInsets.systemBarBottom)
     }
 
