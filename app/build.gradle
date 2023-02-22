@@ -43,12 +43,6 @@ android {
       aidl.srcDirs = ['src/main/aidl']
 
       jniLibs.srcDirs = ['jniLibs'] // default is src/main/jniLibs
-
-      res.srcDirs += [
-          'src/main/res/main',
-          'src/main/res/guide/navigation',
-          'src/main/res/guide/paging',
-      ]
     }
   }
 
