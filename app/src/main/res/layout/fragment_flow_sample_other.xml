@@ -52,4 +52,13 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="8dp" />
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/fastClickButton"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginTop="8dp"
+        android:text="FastClick"
+        android:textAllCaps="false" />
+
 </LinearLayout>

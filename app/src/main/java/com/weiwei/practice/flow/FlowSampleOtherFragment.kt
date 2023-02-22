@@ -22,8 +22,12 @@ import com.weiwei.practice.R
 import com.weiwei.practice.databinding.FragmentFlowSampleOtherBinding
 import com.weiwei.practice.flow.case.SearchTextWatcher
 import com.weiwei.practice.flow.case.SearchTextWatcherFlow
+import com.weiwei.practice.flow.case.clickFlow
+import com.weiwei.practice.flow.case.throttleFirst
 import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.systemBarTop
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 
 /**
  * @author weiwei
@@ -45,5 +49,12 @@ class FlowSampleOtherFragment : Fragment(R.layout.fragment_flow_sample_other) {
     SearchTextWatcherFlow(binding.editText2, lifecycleScope) {
       binding.tvResult.text = it
     }
+
+    binding.fastClickButton.clickFlow()
+      .throttleFirst(500)
+      .onEach {
+        binding.tvResult.text = "Fast Click ${System.currentTimeMillis()}"
+      }
+      .launchIn(lifecycleScope)
   }
 }
