@@ -98,6 +98,7 @@ class MainFragment : BaseFragment() {
       }
     }
 
+    binding.recyclerView.addItemDecoration(MainItemDecoration(adapter))
     binding.recyclerView.clipToPadding = false
     binding.recyclerView.doOnApplyWindowInsets { windowInsets, padding, _ ->
       binding.recyclerView.updatePadding(bottom = padding.bottom + windowInsets.systemBarBottom)
