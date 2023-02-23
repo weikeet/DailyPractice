@@ -11,19 +11,16 @@
  * limitations under the License.
  */
 
-package com.weiwei.flow.sample
+package com.weiwei.kotlinx.coroutines
 
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-// Kotlin协程之Flow使用 https://juejin.cn/post/7034381227025465375
-// 【Kotlin Flow】 一眼看全——Flow操作符大全 https://juejin.cn/post/6989536876096913439
-
 /**
  * @author weiwei
- * @date 2022.12.05
+ * @date 2023.02.23
  */
 
 fun main() {

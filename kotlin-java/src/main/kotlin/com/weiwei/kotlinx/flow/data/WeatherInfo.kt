@@ -11,21 +11,10 @@
  * limitations under the License.
  */
 
-package com.weiwei.flow.sample.request
-
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+package com.weiwei.kotlinx.flow.data
 
 /**
  * @author weiwei
  * @date 2022.12.05
  */
-class WeatherRequest {
-  fun requestRealtimeWeatherFlow(): Flow<String> = flow {
-    emit("RealtimeWeather(x)")
-  }
-
-  fun requestSevenDaysWeatherFlow(): Flow<String> = flow {
-    emit("SevenDaysWeather(y)")
-  }
-}
+data class WeatherInfo(val realtime: String, val sevenDays: String)

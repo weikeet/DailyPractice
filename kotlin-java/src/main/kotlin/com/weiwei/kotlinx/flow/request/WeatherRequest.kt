@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.weiwei.flow.sample.request
+package com.weiwei.kotlinx.flow.request
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -20,20 +20,12 @@ import kotlinx.coroutines.flow.flow
  * @author weiwei
  * @date 2022.12.05
  */
-class UserInfoRequest {
-  fun getToken(block: (String) -> Unit) {
-    block("token-xxx")
+class WeatherRequest {
+  fun requestRealtimeWeatherFlow(): Flow<String> = flow {
+    emit("RealtimeWeather(x)")
   }
 
-  fun getUserInfo(token: String, block: (String) -> Unit) {
-    block("user-info-git-with-$token")
-  }
-
-  fun getTokenFlow(): Flow<String> = flow {
-    emit("token-xxx")
-  }
-
-  fun getUserInfoFlow(token: String): Flow<String> = flow {
-    emit("user-info-git-with-$token")
+  fun requestSevenDaysWeatherFlow(): Flow<String> = flow {
+    emit("SevenDaysWeather(y)")
   }
 }

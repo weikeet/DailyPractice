@@ -10,19 +10,30 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import com.weiwei.dependency.Libs
 
-plugins {
-  id("java-library")
-  id("org.jetbrains.kotlin.jvm")
-  id("com.weiwei.dependency")
-}
+package com.weiwei.kotlinx.flow.request
 
-java {
-  sourceCompatibility = JavaVersion.VERSION_1_8
-  targetCompatibility = JavaVersion.VERSION_1_8
-}
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 
-dependencies {
-  implementation(Libs.org.jetbrains.kotlinx.kotlinx_coroutines_core)
+/**
+ * @author weiwei
+ * @date 2022.12.05
+ */
+class UserInfoRequest {
+  fun getToken(block: (String) -> Unit) {
+    block("token-xxx")
+  }
+
+  fun getUserInfo(token: String, block: (String) -> Unit) {
+    block("user-info-git-with-$token")
+  }
+
+  fun getTokenFlow(): Flow<String> = flow {
+    emit("token-xxx")
+  }
+
+  fun getUserInfoFlow(token: String): Flow<String> = flow {
+    emit("user-info-git-with-$token")
+  }
 }

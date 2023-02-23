@@ -13,11 +13,11 @@
 
 @file:Suppress("OPT_IN_USAGE")
 
-package com.weiwei.flow.sample
+package com.weiwei.kotlinx.flow
 
-import com.weiwei.flow.sample.data.WeatherInfo
-import com.weiwei.flow.sample.request.UserInfoRequest
-import com.weiwei.flow.sample.request.WeatherRequest
+import com.weiwei.kotlinx.flow.data.WeatherInfo
+import com.weiwei.kotlinx.flow.request.UserInfoRequest
+import com.weiwei.kotlinx.flow.request.WeatherRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.buffer
