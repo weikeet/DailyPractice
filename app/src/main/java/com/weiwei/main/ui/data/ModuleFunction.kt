@@ -1,4 +1,4 @@
-package com.weiwei.practice.ui.main.data
+package com.weiwei.main.ui.data
 
 import androidx.appcompat.app.AppCompatActivity
 

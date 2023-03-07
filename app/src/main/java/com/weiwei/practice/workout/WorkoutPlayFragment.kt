@@ -23,7 +23,7 @@ import com.weiwei.core.app.mainHandler
 import com.weiwei.core.arch.collectState
 import com.weiwei.practice.R
 import com.weiwei.practice.databinding.FragmentWorkoutPlayBinding
-import com.weiwei.practice.ui.main.MainSharedViewModel
+import com.weiwei.main.ui.MainSharedViewModel
 
 /**
  * @author weiwei

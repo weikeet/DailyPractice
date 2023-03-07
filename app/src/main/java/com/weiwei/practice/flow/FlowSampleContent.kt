@@ -15,8 +15,8 @@ package com.weiwei.practice.flow
 
 import androidx.navigation.NavController
 import com.weiwei.practice.R
-import com.weiwei.practice.ui.main.data.ModuleContent
-import com.weiwei.practice.ui.main.data.ModuleFunction
+import com.weiwei.main.ui.data.ModuleContent
+import com.weiwei.main.ui.data.ModuleFunction
 
 // Kotlin 异步 | Flow 应用场景及原理 https://juejin.cn/post/6989032238079803429
 // Kotlin 异步 | Flow 限流的应用场景及原理 https://juejin.cn/post/6989782281191686180

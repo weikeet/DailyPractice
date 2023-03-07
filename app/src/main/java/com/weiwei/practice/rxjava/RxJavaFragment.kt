@@ -11,20 +11,13 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.crash
+package com.weiwei.practice.rxjava
 
-import android.content.Intent
-import com.weiwei.main.ui.data.ModuleContent
-import com.weiwei.main.ui.data.ModuleFunction
+import androidx.fragment.app.Fragment
 
-class CrashTestContent : ModuleContent() {
-  override fun setupFunction(function: ModuleFunction) {
-    function.apply {
-      title = "Crash test"
-      description = "test java and native crash"
-      clickAction = {
-        it.startActivity(Intent(it, CrashTestActivity::class.java))
-      }
-    }
-  }
+/**
+ * @author weiwei
+ * @date 2023.03.07
+ */
+class RxJavaFragment : Fragment() {
 }

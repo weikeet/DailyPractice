@@ -1,4 +1,4 @@
-package com.weiwei.practice.ui.main.data
+package com.weiwei.main.ui.data
 
 /**
  * @author Weicools
@@ -10,5 +10,5 @@ abstract class ModuleContent {
     ModuleFunction().also { setupFunction(it) }
   }
 
-  abstract fun setupFunction(function :ModuleFunction)
+  abstract fun setupFunction(function : ModuleFunction)
 }

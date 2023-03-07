@@ -14,8 +14,8 @@
 package com.weiwei.practice.guide.navigation.basic
 
 import android.content.Intent
-import com.weiwei.practice.ui.main.data.ModuleContent
-import com.weiwei.practice.ui.main.data.ModuleFunction
+import com.weiwei.main.ui.data.ModuleContent
+import com.weiwei.main.ui.data.ModuleFunction
 
 /**
  * @author weiwei

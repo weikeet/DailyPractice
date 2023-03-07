@@ -14,8 +14,8 @@
 package com.weiwei.practice.viewevent
 
 import android.content.Intent
-import com.weiwei.practice.ui.main.data.ModuleContent
-import com.weiwei.practice.ui.main.data.ModuleFunction
+import com.weiwei.main.ui.data.ModuleContent
+import com.weiwei.main.ui.data.ModuleFunction
 
 /**
  * @author weicools

@@ -6,8 +6,8 @@ import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
+import com.weiwei.main.ui.MainActivity
 import com.weiwei.practice.R
-import com.weiwei.practice.ui.main.MainActivity
 
 /**
  * @author weicools

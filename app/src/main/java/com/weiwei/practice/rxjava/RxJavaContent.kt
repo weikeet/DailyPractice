@@ -11,19 +11,24 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.crash
+package com.weiwei.practice.rxjava
 
 import android.content.Intent
+import androidx.navigation.NavController
 import com.weiwei.main.ui.data.ModuleContent
 import com.weiwei.main.ui.data.ModuleFunction
+import com.weiwei.practice.androidart.chapter_2.BookActivity
 
-class CrashTestContent : ModuleContent() {
+/**
+ * @author weiwei
+ * @date 2023.03.07
+ */
+class RxJavaContent(val navController: NavController) : ModuleContent() {
+
   override fun setupFunction(function: ModuleFunction) {
     function.apply {
-      title = "Crash test"
-      description = "test java and native crash"
+      title = "RxJava"
       clickAction = {
-        it.startActivity(Intent(it, CrashTestActivity::class.java))
       }
     }
   }

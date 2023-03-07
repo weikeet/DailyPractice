@@ -11,24 +11,26 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.keyboard
+package com.weiwei.main.ui
 
-import android.content.Intent
+import android.content.Context
+import com.drakeet.multitype.ViewDelegate
+import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.defaultParams
+import com.weiwei.fluentview.view.matchParent
 import com.weiwei.main.ui.data.ModuleContent
-import com.weiwei.main.ui.data.ModuleFunction
 
 /**
- * @author weiwei
- * @date 2022.08.14
+ * @author Weicools
+ *
+ * @date 2021.07.10
  */
-class KeyboardContent : ModuleContent() {
-  override fun setupFunction(function: ModuleFunction) {
-    function.apply {
-      title = "Soft Keyboard"
-      description = "测试 Soft Keyboard"
-      clickAction = {
-        it.startActivity(Intent(it, KeyboardActivity::class.java))
-      }
-    }
+class ModuleFunctionDelegate : ViewDelegate<ModuleContent, ModuleFunctionView>() {
+  override fun onCreateView(context: Context): ModuleFunctionView {
+    return ModuleFunctionView(context).apply { layoutParams = defaultParams(matchParent, 72.dp) }
+  }
+
+  override fun onBindView(view: ModuleFunctionView, item: ModuleContent) {
+    view.bindFunction(item.function)
   }
 }

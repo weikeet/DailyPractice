@@ -33,12 +33,12 @@ class ObtainMotionEventView(private val context: Context) {
       // 点击屏幕滑动一会再松开，事件序列为 DOWN -> MOVE -> … > MOVE -> UP
 
       // 相对于当前 View 左上角的 x 和 y 坐标
-      val x = event.x
-      val y = event.y
+      // val x = event.x
+      // val y = event.y
 
       // 相对于手机屏幕左上角的x和y坐标
-      val rx = event.rawX
-      val ry = event.rawY
+      // val rx = event.rawX
+      // val ry = event.rawY
 
       return super.onTouchEvent(event)
     }

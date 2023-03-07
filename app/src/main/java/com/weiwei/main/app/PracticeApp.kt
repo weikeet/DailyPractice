@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.app
+package com.weiwei.main.app
 
 import android.app.ActivityManager
 import android.content.Context
@@ -126,7 +126,7 @@ class PracticeApp : BaseApplication() {
 
         Log.e("AndroidRuntime", "--->onUncaughtExceptionHappened:$thread<---", e)
         //黑屏时建议直接杀死app
-        sysExceptionHandler.uncaughtException(thread, RuntimeException("black screen"))
+        sysExceptionHandler?.uncaughtException(thread, RuntimeException("black screen"))
       }
     })
   }

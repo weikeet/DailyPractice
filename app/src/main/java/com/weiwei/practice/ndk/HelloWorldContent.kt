@@ -13,8 +13,8 @@
 
 package com.weiwei.practice.ndk
 
-import com.weiwei.practice.ui.main.data.ModuleContent
-import com.weiwei.practice.ui.main.data.ModuleFunction
+import com.weiwei.main.ui.data.ModuleContent
+import com.weiwei.main.ui.data.ModuleFunction
 
 class HelloWorldContent : ModuleContent() {
   override fun setupFunction(function: ModuleFunction) {

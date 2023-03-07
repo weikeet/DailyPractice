@@ -15,8 +15,8 @@ package com.weiwei.practice.material
 
 import androidx.navigation.NavController
 import com.weiwei.practice.R
-import com.weiwei.practice.ui.main.data.ModuleContent
-import com.weiwei.practice.ui.main.data.ModuleFunction
+import com.weiwei.main.ui.data.ModuleContent
+import com.weiwei.main.ui.data.ModuleFunction
 
 /**
  * @author weiwei

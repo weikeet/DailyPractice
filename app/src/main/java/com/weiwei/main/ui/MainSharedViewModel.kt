@@ -11,7 +11,7 @@
  * limitations under the License.
  */
 
-package com.weiwei.practice.ui.main
+package com.weiwei.main.ui
 
 import androidx.lifecycle.ViewModel
 import com.weiwei.core.arch.lifecycle.LiveEvent

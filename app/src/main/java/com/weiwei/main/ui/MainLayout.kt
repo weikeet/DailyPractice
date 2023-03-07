@@ -1,4 +1,4 @@
-package com.weiwei.practice.ui.main
+package com.weiwei.main.ui
 
 import android.content.Context
 import android.widget.LinearLayout

@@ -18,7 +18,7 @@ import android.content.Context
 import android.os.Handler
 import android.os.Looper
 import androidx.core.os.HandlerCompat
-import com.weiwei.practice.app.PracticeApp
+import com.weiwei.main.app.PracticeApp
 
 /**
  * @author weiwei

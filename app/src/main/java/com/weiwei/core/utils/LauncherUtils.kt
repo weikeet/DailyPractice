@@ -18,6 +18,7 @@ object LauncherUtils {
 
     var infoList: List<ResolveInfo?>? = null
     try {
+      @Suppress("DEPRECATION")
       infoList = context.packageManager.queryIntentActivities(intentToResolve, 0)
     } catch (e: Exception) {
       e.printStackTrace()
@@ -29,6 +30,7 @@ object LauncherUtils {
     val intent = Intent(Intent.ACTION_MAIN)
     intent.addCategory(Intent.CATEGORY_HOME)
 
+    @Suppress("DEPRECATION")
     val resolveInfoList = context.packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY)
     val launcherAppList: MutableList<String> = ArrayList()
     for (resolveInfo in resolveInfoList) {
