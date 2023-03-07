@@ -29,17 +29,19 @@ fun main() {
 
 private fun asyncTest() {
   val currentTime = System.currentTimeMillis()
-  GlobalScope.launch() {
-    println("start-->${System.currentTimeMillis() - currentTime}")
+  GlobalScope.launch {
+    println("start-->${System.currentTimeMillis() - currentTime}, thread=${Thread.currentThread().name}")
     // val withA = withContext(Dispatchers.Default) {
     //   delay(2000)
     //   "a"
     // }
     val awaitB = async {
+      println("b thread=${Thread.currentThread().name}")
       delay(2000)
       "b"
     }
     val awaitC = async {
+      println("c thread=${Thread.currentThread().name}")
       delay(1000)
       "c"
     }
