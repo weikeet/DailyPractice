@@ -1,6 +1,7 @@
 package com.weiwei.practice.reflect;
 
 import android.util.Log;
+import com.weiwei.core.androidx.Reflection;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -8,6 +9,7 @@ import java.lang.reflect.Method;
 /**
  * @author weicools
  * @date 2020.10.31
+ * {@link Reflection}
  */
 public class ReflectSample {
   public static final String TAG = "ReflectSample";
