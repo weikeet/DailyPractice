@@ -15,10 +15,11 @@ package com.weiwei.core.arch.internal
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.weiwei.core.arch.MutableLiveDataContainer
 import com.weiwei.core.arch.UiEvent
 import com.weiwei.core.arch.UiState
-import com.weiwei.core.arch.MutableLiveDataContainer
 import com.weiwei.core.arch.lifecycle.LiveEvent
+import com.weiwei.core.arch.sendEvent
 
 /**
  * @author weiwei
@@ -41,6 +42,6 @@ internal class LiveDataContainerImpl<STATE : UiState, EVENT : UiEvent>(
   }
 
   override fun sendEvent(event: EVENT) {
-    // mutableEvent.sendEvent(event)
+    mutableEvent.sendEvent(event)
   }
 }

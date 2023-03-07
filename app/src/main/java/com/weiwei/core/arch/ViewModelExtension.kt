@@ -46,7 +46,7 @@ private class FlowContainerLazy<STATE : UiState, EVENT : UiEvent>(
   override fun isInitialized(): Boolean = cached != null
 }
 
-fun <STATE : UiState> ViewModel.liveDataContainer(
+fun <STATE : UiState> liveDataContainer(
   initialState: STATE,
 ): Lazy<MutableLiveDataContainer<STATE, UiEvent>> {
   return LiveDataContainerLazy(initialState)

@@ -83,6 +83,6 @@ fun <T> MutableLiveData<T>.setState(reducer: T.() -> T) {
   this.value = this.value?.reducer()
 }
 
-fun <T> LiveEvent<T>.setEvent(event: T) {
+fun <T> LiveEvent<T>.sendEvent(event: T) {
   this.value = event
 }
