@@ -147,5 +147,5 @@ dependencies {
 
   implementation project(path: ':cockroach')
 
-  implementation project(path: ':shadow')
+  implementation project(path: ':plug-in:shadow')
 }

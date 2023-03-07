@@ -19,6 +19,6 @@ includeBuild("build-logic")
 rootProject.name = "DailyPractice"
 include ':app'
 include ':cockroach'
-include ':shadow'
-include ':sample-plugin'
 include ':kotlin-java'
+include ':plug-in:sample'
+include ':plug-in:shadow'
