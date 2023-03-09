@@ -38,6 +38,9 @@
         <action
             android:id="@+id/action_MainFragment_to_WorkoutPlayFragment"
             app:destination="@id/WorkoutPlayFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_TestLiveEventFirstFragment"
+            app:destination="@id/TestLiveEventFirstFragment" />
     </fragment>
 
     <fragment
@@ -106,5 +109,20 @@
         android:id="@+id/WorkoutPlayFragment"
         android:name="com.weiwei.practice.workout.WorkoutPlayFragment"
         tools:layout="@layout/fragment_workout_play" />
+
+    <fragment
+        android:id="@+id/TestLiveEventFirstFragment"
+        android:name="com.weiwei.practice.jetpack.TestLiveEventFirstFragment">
+
+        <action
+            android:id="@+id/action_TestLiveEventFirstFragment_to_TestLiveEventSecondFragment"
+            app:destination="@id/TestLiveEventSecondFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/TestLiveEventSecondFragment"
+        android:name="com.weiwei.practice.jetpack.TestLiveEventSecondFragment">
+
+    </fragment>
 
 </navigation>

@@ -1,38 +1,36 @@
 package com.weiwei.practice.jetpack
 
-import android.os.Handler
-import android.os.Looper
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 /**
  * @author weicools
  * @date 2021.01.07
  */
 class TestViewModel : ViewModel() {
-  private val handler = Handler(Looper.getMainLooper())
+  companion object {
+    val stringData1: MutableLiveData<String> = MutableLiveData()
+  }
 
   val textData: MutableLiveData<String> = MutableLiveData()
 
-  fun refreshText() {
-    handler.postDelayed({
-      textData.value = "2233"
-    }, 5000L)
-  }
+  val stringData get() = stringData1
 
-  fun getStringData(): LiveData<String> {
-    return SingleData.stringData
+  fun refreshText() {
+    viewModelScope.launch {
+      delay(5000)
+      textData.value = "2233"
+    }
   }
 
   fun refreshTip() {
-    handler.postDelayed({
-      SingleData.stringData.value = "refreshTip+++"
-    }, 2000L)
+    viewModelScope.launch {
+      delay(5000)
+      stringData.value = "refreshTip+++"
+    }
   }
 
-  override fun onCleared() {
-    super.onCleared()
-    handler.removeCallbacksAndMessages(null)
-  }
 }

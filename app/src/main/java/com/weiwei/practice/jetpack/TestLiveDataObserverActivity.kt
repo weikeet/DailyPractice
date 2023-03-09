@@ -5,7 +5,6 @@ import android.util.Log
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Observer
 import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 
@@ -17,8 +16,6 @@ class TestLiveDataObserverActivity : AppCompatActivity() {
   private val TAG = "TestLiveDataObserverActivity"
 
   private val viewModel: TestViewModel by viewModels()
-
-  private lateinit var ob: Observer<String>
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -32,11 +29,9 @@ class TestLiveDataObserverActivity : AppCompatActivity() {
 
     val resultView: TextView = findViewById(R.id.resultView)
 
-    ob = Observer {
+    viewModel.stringData.observe(this) {
       resultView.text = it
     }
-    viewModel.getStringData().observe(this, ob)
-
     viewModel.textData.observe(this) {
       Log.d(TAG, "onCreate: observe textData=$it")
     }
@@ -45,6 +40,7 @@ class TestLiveDataObserverActivity : AppCompatActivity() {
     }
 
     viewModel.refreshText()
+    viewModel.refreshTip()
 
   }
 
@@ -52,8 +48,6 @@ class TestLiveDataObserverActivity : AppCompatActivity() {
     super.onStart()
     Log.d(TAG, "onStart: ")
 
-    viewModel.getStringData().observe(this, ob)
-    viewModel.refreshTip()
   }
 
   override fun onResume() {

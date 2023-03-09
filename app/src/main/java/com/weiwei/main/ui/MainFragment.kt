@@ -14,18 +14,15 @@
 package com.weiwei.main.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
-import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
 import com.weiwei.core.app.BaseFragment
-import com.weiwei.core.app.mainHandler
 import com.weiwei.fluentview.ui.unit.dp
 import com.weiwei.practice.R
 import com.weiwei.practice.activitytask.ActivityTaskContent
@@ -44,7 +41,8 @@ import com.weiwei.practice.dialog.DialogContent
 import com.weiwei.practice.flow.FlowSampleContent
 import com.weiwei.practice.formatter.FormatterDialogContent
 import com.weiwei.practice.guide.navigation.basic.NavigationBasicContent
-import com.weiwei.practice.jetpack.SingleLiveDataContent
+import com.weiwei.practice.jetpack.TestLiveDataContent
+import com.weiwei.practice.jetpack.TestLiveEventContent
 import com.weiwei.practice.keyboard.KeyboardContent
 import com.weiwei.practice.lifecycle.LifecycleContent
 import com.weiwei.practice.material.MaterialShapeContent
@@ -74,8 +72,6 @@ class MainFragment : BaseFragment() {
   private val adapter = MultiTypeAdapter()
   private val items = ArrayList<Any>()
 
-  private val sharedViewModel: MainSharedViewModel by activityViewModels()
-
   private val binding: FragmentMainBinding by viewBinding(FragmentMainBinding::bind)
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -84,26 +80,6 @@ class MainFragment : BaseFragment() {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-
-    Log.d("TestEvent", "main-onViewCreated: ")
-    sharedViewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "main-onViewCreated: 111, $it")
-    }
-    sharedViewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "main-onViewCreated: 222, $it")
-    }
-    mainHandler.postDelayed({
-      sharedViewModel.event.observe(viewLifecycleOwner) {
-        Log.d("TestEvent", "main-onViewCreated: 333, $it")
-      }
-      sharedViewModel.event.setValue("test1")
-      sharedViewModel.event.setValue("test2")
-      sharedViewModel.event.observe(viewLifecycleOwner) {
-        // 使用 LiveEvent 不会收到事件，必须在 setValue 之前监听才会收到
-        // MutableLiveData 可以在 setValue 之后监听到事件
-        Log.d("TestEvent", "main-onViewCreated: 444, $it")
-      }
-    }, 2000)
 
     binding.statusBarView.doOnApplyWindowInsets { windowInsets ->
       binding.statusBarView.updateLayoutParams {
@@ -159,7 +135,8 @@ class MainFragment : BaseFragment() {
     items.add(DialogContent())
     items.add(FormatterDialogContent())
     items.add(ShadowContainerContent())
-    items.add(SingleLiveDataContent())
+    items.add(TestLiveDataContent())
+    items.add(TestLiveEventContent(findNavController()))
     items.add(LifecycleContent())
     items.add(MemoryLeakContent())
     items.add(CrashTestContent())

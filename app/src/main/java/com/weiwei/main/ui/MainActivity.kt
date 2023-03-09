@@ -14,7 +14,6 @@
 package com.weiwei.main.ui
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
@@ -29,8 +28,6 @@ class MainActivity : AppCompatActivity() {
 
     private const val tag_main = "TAG_MAIN"
   }
-
-  private val sharedViewModel: MainSharedViewModel by viewModels()
 
   override fun onWindowFocusChanged(hasFocus: Boolean) {
     super.onWindowFocusChanged(hasFocus)

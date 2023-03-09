@@ -14,16 +14,12 @@
 package com.weiwei.practice.workout
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import com.weiwei.core.app.mainHandler
 import com.weiwei.core.arch.collectState
 import com.weiwei.practice.R
 import com.weiwei.practice.databinding.FragmentWorkoutPlayBinding
-import com.weiwei.main.ui.MainSharedViewModel
 
 /**
  * @author weiwei
@@ -33,28 +29,8 @@ class WorkoutPlayFragment : Fragment(R.layout.fragment_workout_play) {
 
   private val viewModel: WorkoutPlayViewModel by viewModels()
 
-  private val sharedViewModel: MainSharedViewModel by activityViewModels()
-
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-
-    Log.d("TestEvent", "wk-onViewCreated: ")
-    sharedViewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "wk-onViewCreated: 111, $it")
-    }
-    sharedViewModel.event.observe(viewLifecycleOwner) {
-      Log.d("TestEvent", "wk-onViewCreated: 222, $it")
-    }
-    mainHandler.postDelayed({
-      sharedViewModel.event.observe(viewLifecycleOwner) {
-        Log.d("TestEvent", "wk-onViewCreated: 333, $it")
-      }
-      sharedViewModel.event.setValue("test1")
-      sharedViewModel.event.setValue("test2")
-      sharedViewModel.event.observe(viewLifecycleOwner) {
-        Log.d("TestEvent", "wk-onViewCreated: 444, $it")
-      }
-    }, 1000)
 
     val binding = FragmentWorkoutPlayBinding.bind(view)
 

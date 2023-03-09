@@ -9,11 +9,10 @@ import com.weiwei.main.ui.data.ModuleFunction
  *
  * @date 2021.08.08
  */
-class SingleLiveDataContent: ModuleContent() {
+class TestLiveDataContent: ModuleContent() {
   override fun setupFunction(function: ModuleFunction) {
     function.apply {
-      title = "SingleLiveData"
-      description = "SingleLiveData 测试"
+      title = "Test LiveData"
       clickAction = {
         it.startActivity(Intent(it, TestLiveDataObserverActivity::class.java))
       }
