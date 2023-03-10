@@ -18,6 +18,9 @@ import com.weiwei.main.ui.data.ModuleContent
 import com.weiwei.main.ui.data.ModuleFunction
 import com.weiwei.practice.R
 
+// [更高效地刷新 RecyclerView | DiffUtil二次封装](https://juejin.cn/post/6882531923537707015)
+// [wisdomtl/VarietyAdapter](https://github.com/wisdomtl/VarietyAdapter)
+
 /**
  * @author weiwei
  * @date 2023.03.10
