@@ -41,6 +41,9 @@
         <action
             android:id="@+id/action_MainFragment_to_TestLiveEventFirstFragment"
             app:destination="@id/TestLiveEventFirstFragment" />
+        <action
+            android:id="@+id/action_MainFragment_to_ListDifferFragment"
+            app:destination="@id/ListDifferFragment" />
     </fragment>
 
     <fragment
@@ -121,8 +124,10 @@
 
     <fragment
         android:id="@+id/TestLiveEventSecondFragment"
-        android:name="com.weiwei.practice.jetpack.TestLiveEventSecondFragment">
+        android:name="com.weiwei.practice.jetpack.TestLiveEventSecondFragment"/>
 
-    </fragment>
+    <fragment
+        android:id="@+id/ListDifferFragment"
+        android:name="com.weiwei.practice.differ.ListDifferFragment"/>
 
 </navigation>
