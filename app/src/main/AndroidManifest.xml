@@ -93,6 +93,9 @@
 
         <service android:name=".service.TestForegroundService" />
 
+        <activity android:name=".widget.rvsticky.RvStickyMainActivity"/>
+        <activity android:name=".widget.rvsticky.RvStickyMultiActivity"/>
+
     </application>
 
 </manifest>

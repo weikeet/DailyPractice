@@ -57,6 +57,7 @@ import com.weiwei.practice.viewevent.ViewEventContent
 import com.weiwei.practice.wave.WaveViewContent
 import com.weiwei.practice.widget.LinearGradientContent
 import com.weiwei.practice.widget.recycler.PayloadContent
+import com.weiwei.practice.widget.rvsticky.RvStickyContent
 import com.weiwei.practice.window.WindowInsetsContent
 import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.systemBarBottom
@@ -114,6 +115,7 @@ class MainFragment : BaseFragment() {
   private fun refreshItems() {
     items.clear()
 
+    items.add(RvStickyContent(requireActivity()))
     items.add(ListDifferContent(findNavController()))
     items.add(WorkoutContent(findNavController()))
     items.add(ActivityTaskContent())
