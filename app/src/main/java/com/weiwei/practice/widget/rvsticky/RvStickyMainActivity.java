@@ -32,15 +32,15 @@ public class RvStickyMainActivity extends AppCompatActivity {
     mSuspensionTv = (TextView) findViewById(R.id.tv_nickname);
     mSuspensionIv = (ImageView) findViewById(R.id.iv_avatar);
 
-    Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-    toolbar.inflateMenu(R.menu.rvsticky_menu_main);
-    toolbar.setOnMenuItemClickListener(item -> {
-      if (item.getItemId() == R.id.item_jump) {
-        Intent intent = new Intent(RvStickyMainActivity.this, RvStickyMultiActivity.class);
-        startActivity(intent);
-      }
-      return false;
-    });
+    // Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+    // toolbar.inflateMenu(R.menu.rvsticky_menu_main);
+    // toolbar.setOnMenuItemClickListener(item -> {
+    //   if (item.getItemId() == R.id.item_jump) {
+    //     Intent intent = new Intent(RvStickyMainActivity.this, RvStickyMultiActivity.class);
+    //     startActivity(intent);
+    //   }
+    //   return false;
+    // });
 
     final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
     final RvStickyFeedAdapter adapter = new RvStickyFeedAdapter();
