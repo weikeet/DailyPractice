@@ -13,11 +13,13 @@
 
 package com.weiwei.practice.differ
 
+import android.content.Context
 import android.graphics.Color
 import android.os.Bundle
 import android.text.format.DateFormat
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.updatePadding
@@ -30,6 +32,7 @@ import com.weiwei.fluentview.ui.bottomPadding
 import com.weiwei.fluentview.ui.gravityBottom
 import com.weiwei.fluentview.ui.res.colorResource
 import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.fluentview.view.autoAddView
 import com.weiwei.fluentview.view.doOnApplyWindowInsets
 import com.weiwei.fluentview.view.frameLayout
 import com.weiwei.fluentview.view.frameParams
@@ -47,6 +50,17 @@ import com.weiwei.practice.widget.topAppToolbar
  * @date 2023.03.10
  */
 class ListDifferFragment : Fragment() {
+
+  class MyRecyclerView(context: Context) : RecyclerView(context) {
+    override fun onTouchEvent(e: MotionEvent?): Boolean {
+      if (e?.action == MotionEvent.ACTION_DOWN) {
+        Log.d("FuckEvent", "rv-1 onTouchEvent: down")
+      } else if (e?.action == MotionEvent.ACTION_UP) {
+        Log.d("FuckEvent", "rv-1 onTouchEvent: up")
+      }
+      return super.onTouchEvent(e)
+    }
+  }
 
   private lateinit var recyclerView: RecyclerView
 
@@ -67,7 +81,7 @@ class ListDifferFragment : Fragment() {
         layoutParams = linearParams(matchParent, matchParent) {
         }
 
-        recyclerView = recyclerView {
+        recyclerView = MyRecyclerView(context).autoAddView(this) {
           layoutParams = frameParams(matchParent, matchParent) {
           }
           bottomPadding = 144.dp
@@ -199,11 +213,19 @@ class ListDifferFragment : Fragment() {
     val multiTypeAdapter = FluentAdapter()
     multiTypeAdapter.register(ListDifferData1ViewBinder())
     multiTypeAdapter.register(ListDifferData2ViewBinder())
+    multiTypeAdapter.register(ListDayDataViewBinder())
 
     this.multiTypeAdapter = multiTypeAdapter
     recyclerView.adapter = multiTypeAdapter
 
     val dataList: ArrayList<Any> = ArrayList()
+
+    val dayList: ArrayList<ListDayItemData> = ArrayList()
+    for (i in 1..10) {
+      dayList.add(ListDayItemData("day-$i"))
+    }
+    dataList.add(ListDayData(dayList))
+
     for (i in 0 until 10) {
       dataList.add(ListDifferData1("title-$i", false))
       for (j in 0 until 5) {
