@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     WindowInsetsEdgeDelegate(this)
-      .setNavigationBarColor(0x20000000)
+      // .setNavigationBarColor(0x20000000)
       .start()
 
     // // 不让 decorView 给状态栏导航栏留白
