@@ -45,4 +45,9 @@ class SingleLiveEvent<T> : MutableLiveData<T>() {
     pendingFlag.set(true)
     super.setValue(t)
   }
+
+  fun sendEvent(t: T) {
+    setValue(t)
+  }
+
 }
