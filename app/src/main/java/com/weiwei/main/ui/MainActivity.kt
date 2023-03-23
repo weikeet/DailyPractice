@@ -18,6 +18,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 import com.weiwei.practice.TimeRecorder.recordStopTime
+import com.weiwei.practice.handler.CoroutineScheduler
+import com.weiwei.practice.handler.HandlerScheduler
 
 /**
  * @author weicools
@@ -44,6 +46,11 @@ class MainActivity : AppCompatActivity() {
     WindowInsetsEdgeDelegate(this)
       // .setNavigationBarColor(0x20000000)
       .start()
+
+    // val handlerScheduler = HandlerScheduler()
+    // handlerScheduler.startScheduleRefresh()
+    // val coroutineScheduler = CoroutineScheduler()
+    // coroutineScheduler.startScheduleRefresh()
 
     // // 不让 decorView 给状态栏导航栏留白
     // WindowCompat.setDecorFitsSystemWindows(this.window, false)
