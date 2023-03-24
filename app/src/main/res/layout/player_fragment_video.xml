@@ -17,56 +17,71 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="16dp" />
+
     <VideoView
         android:id="@+id/videoView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="9:16"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintWidth_percent="0.72" />
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/coverView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:scaleType="centerCrop" />
 
     <Button
         android:id="@+id/btn1"
+        style="@style/AppWidget.MaterialButton.Unelevated"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:text="create"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintWidth_percent="0.25" />
 
     <Button
         android:id="@+id/btn2"
+        style="@style/AppWidget.MaterialButton.Unelevated"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:text="play"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
         app:layout_constraintLeft_toRightOf="@id/btn1"
         app:layout_constraintWidth_percent="0.25" />
 
     <Button
         android:id="@+id/btn3"
+        style="@style/AppWidget.MaterialButton.Unelevated"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:text="resume"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
         app:layout_constraintLeft_toRightOf="@id/btn2"
         app:layout_constraintWidth_percent="0.25" />
 
     <Button
         android:id="@+id/btn4"
+        style="@style/AppWidget.MaterialButton.Unelevated"
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:text="pause"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_bottom"
         app:layout_constraintLeft_toRightOf="@id/btn3"
         app:layout_constraintWidth_percent="0.25" />
 
     <Button
         android:id="@+id/btn5"
+        style="@style/AppWidget.MaterialButton.Unelevated"
         android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
         android:text="stop"
         app:layout_constraintBottom_toTopOf="@id/btn1"
         app:layout_constraintLeft_toLeftOf="@id/btn1"
@@ -74,8 +89,10 @@
 
     <Button
         android:id="@+id/btn6"
+        style="@style/AppWidget.MaterialButton.Unelevated"
         android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
         android:text="seekTo"
         app:layout_constraintBottom_toTopOf="@id/btn1"
         app:layout_constraintLeft_toRightOf="@id/btn5"
@@ -83,16 +100,20 @@
 
     <Button
         android:id="@+id/btn7"
+        style="@style/AppWidget.MaterialButton.Unelevated"
         android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@id/btn1"
         app:layout_constraintLeft_toRightOf="@id/btn6"
         app:layout_constraintWidth_percent="0.25" />
 
     <Button
         android:id="@+id/btn8"
+        style="@style/AppWidget.MaterialButton.Unelevated"
         android:layout_width="0dp"
         android:layout_height="48dp"
+        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@id/btn1"
         app:layout_constraintLeft_toRightOf="@id/btn7"
         app:layout_constraintWidth_percent="0.25" />

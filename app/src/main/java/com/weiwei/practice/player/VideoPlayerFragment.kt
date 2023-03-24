@@ -14,9 +14,7 @@
 package com.weiwei.practice.player
 
 import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,22 +22,14 @@ import androidx.fragment.app.Fragment
 import com.weiwei.practice.R
 import com.weiwei.practice.binding.viewBinding
 import com.weiwei.practice.databinding.PlayerFragmentVideoBinding
-
+import com.weiwei.practice.window.doOnApplyWindowInsets
+import com.weiwei.practice.window.systemBarBottom
 
 /**
  * @author weiwei
  * @date 2022.01.09
  */
 class VideoPlayerFragment : Fragment() {
-  companion object {
-    fun newInstance(): VideoPlayerFragment {
-      val args = Bundle()
-
-      val fragment = VideoPlayerFragment()
-      fragment.arguments = args
-      return fragment
-    }
-  }
 
   private val binding: PlayerFragmentVideoBinding by viewBinding(PlayerFragmentVideoBinding::bind)
 
@@ -50,45 +40,49 @@ class VideoPlayerFragment : Fragment() {
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
 
-    binding.apply {
-      btn1.setOnClickListener {
-        Log.d("weiweix", "onViewCreated: setVideoURI")
-        val videoResId = R.raw.melody_video_ocean_waves
-        val localUrl = "android.resource://" + requireContext().packageName.toString() + "/" + videoResId
-        videoView.setVideoURI(Uri.parse(localUrl))
-        videoView.setOnPreparedListener { mp ->
-          mp.isLooping = true
-          mp.setVideoScalingMode(MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING)
-          videoView.setOnInfoListener { player, what, extra ->
-            if (what === MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
-              Log.d("weiweix", "onViewCreated: onInfo start")
-              // coverView.setVisibility(View.GONE)
-            }
-            false
-          }
-          Log.d("weiweix", "onViewCreated: Prepared")
-        }
-      }
+    view.doOnApplyWindowInsets { windowInsets ->
+      binding.guidelineBottom.setGuidelineEnd(windowInsets.systemBarBottom)
+    }
 
-      btn2.setOnClickListener {
-        Log.d("weiweix", "onViewCreated: start")
-        videoView.start()
-      }
+    val lifeVideoViewHolder = LifeVideoViewHolder(viewLifecycleOwner, binding.videoView, binding.coverView)
 
-      btn3.setOnClickListener {
-        Log.d("weiweix", "onViewCreated: resume")
-        videoView.resume()
+    lifeVideoViewHolder.prepareRaw(
+      rawResource = R.raw.melody_video_ocean_waves,
+      playWhenReady = true,
+      onVideoPrepared = { mp ->
+        mp.isLooping = true
+        mp.setVideoScalingMode(MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING)
       }
+    )
 
-      btn4.setOnClickListener {
-        Log.d("weiweix", "onViewCreated: pause")
-        videoView.pause()
-      }
+    // don't support asset://
+    // videoViewWrapper.prepareAssets(
+    //   videoPath = "Wakeup/melody_video_happy_ukulele.mp4",
+    //   playWhenReady = false,
+    //   onVideoPrepared = {mp->
+    //     mp.isLooping = true
+    //     mp.setVideoScalingMode(MediaPlayer.VIDEO_SCALING_MODE_SCALE_TO_FIT_WITH_CROPPING)
+    //   }
+    // )
 
-      btn5.setOnClickListener {
-        Log.d("weiweix", "onViewCreated: stopPlayback")
-        videoView.stopPlayback()
-      }
+    binding.btn1.setOnClickListener {
+    }
+
+    binding.btn2.setOnClickListener {
+      lifeVideoViewHolder.start()
+    }
+
+    binding.btn3.setOnClickListener {
+      lifeVideoViewHolder.resume()
+    }
+
+    binding.btn4.setOnClickListener {
+      lifeVideoViewHolder.pause()
+    }
+
+    binding.btn5.setOnClickListener {
+      lifeVideoViewHolder.stop()
     }
   }
+
 }

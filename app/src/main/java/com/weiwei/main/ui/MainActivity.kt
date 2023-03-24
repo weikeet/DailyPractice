@@ -18,8 +18,6 @@ import androidx.appcompat.app.AppCompatActivity
 import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 import com.weiwei.practice.TimeRecorder.recordStopTime
-import com.weiwei.practice.handler.CoroutineScheduler
-import com.weiwei.practice.handler.HandlerScheduler
 
 /**
  * @author weicools
@@ -52,32 +50,17 @@ class MainActivity : AppCompatActivity() {
     // val coroutineScheduler = CoroutineScheduler()
     // coroutineScheduler.startScheduleRefresh()
 
+    // assets 视频首帧可以正常加载，只是 VideoView 无法播放 assets 的资源
+    // VideoCacheManager.loadAssetsCover("Wakeup/melody_video_happy_ukulele.mp4")
+    // VideoCacheManager.loadRawCover(applicationContext, R.raw.melody_video_ocean_waves)
+    // VideoCacheManager.loadCover("http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4")
+
     // // 不让 decorView 给状态栏导航栏留白
     // WindowCompat.setDecorFitsSystemWindows(this.window, false)
     //
     // this.window.statusBarColor = Color.TRANSPARENT
     // this.window.navigationBarColor = Color.TRANSPARENT
 
-    // Log.d("TestEvent", "onCreate: ")
-    // sharedViewModel.event.observe(this) {
-    //   Log.d("TestEvent", "onCreate: 111-$it")
-    // }
-    // sharedViewModel.event.observe(this) {
-    //   Log.d("TestEvent", "onCreate: 222-$it")
-    // }
-    //
-    // mainHandler.postDelayed({
-    //   sharedViewModel.event.setValue("test1")
-    // }, 1000)
-    // mainHandler.postDelayed({
-    //   sharedViewModel.event.observe(this) {
-    //     Log.d("TestEvent", "onCreate: 123-$it")
-    //   }
-    //   sharedViewModel.event.setValue("test2")
-    //   sharedViewModel.event.observe(this) {
-    //     Log.d("TestEvent", "onCreate: 456-$it")
-    //   }
-    // }, 3000)
   }
 
 }
