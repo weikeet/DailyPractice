@@ -129,6 +129,8 @@ dependencies {
   implementation(Libs.com.airbnb.android.lottie)
   implementation(Libs.com.drakeet.multitype.multitype)
 
+  implementation(Libs.com.jakewharton.timber.timber)
+
   debugImplementation(Libs.squareup.leakcanary.leakcanary_android)
 
   // Hilt dependencies

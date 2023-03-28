@@ -29,6 +29,7 @@ import com.weiwei.core.global.AppGlobal
 import com.weiwei.practice.BuildConfig
 import com.weiwei.practice.TimeRecorder
 import dagger.hilt.android.HiltAndroidApp
+import timber.log.Timber
 import xcrash.XCrash
 
 
@@ -78,12 +79,22 @@ class PracticeApp : BaseApplication() {
 
     instance = this
 
+    initTimber()
+
     // installCockroach()
 
     appInitializers.forEach { it() }
 
     AppGlobal.initApplication(this)
     AppGlobal.initDebuggable(BuildConfig.DEBUG)
+  }
+
+  private fun initTimber() {
+    if (BuildConfig.DEBUG) {
+      Timber.plant(Timber.DebugTree())
+    } else {
+      Timber.plant(CrashReportingTree())
+    }
   }
 
   private fun installCockroach() {
