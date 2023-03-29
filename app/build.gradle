@@ -51,6 +51,19 @@ android {
     dataBinding = true
   }
 
+  def keystorePropertiesFile = rootProject.file("local.properties")
+  def keystoreProperties = new Properties()
+  keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+  signingConfigs {
+    release {
+      storeFile file(keystoreProperties['prodStoreFile'])
+      storePassword keystoreProperties['prodStorePassword']
+      keyAlias keystoreProperties['prodKeyAlias']
+      keyPassword keystoreProperties['prodKeyPassword']
+    }
+  }
+
   buildTypes {
     debug {
       minifyEnabled false
