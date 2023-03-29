@@ -40,27 +40,9 @@ class LifeVideoViewHolder(
 
   private val context = videoView.context
 
-  // private fun getAssetsResourceUrl(videoPath: String): String {
-  //   return "file:///android_asset/$videoPath"
-  // }
-
   private fun getRawResourceUrl(rawResource: Int): String {
     return "android.resource://${context.packageName}/$rawResource"
   }
-
-  // fun prepareAssets(
-  //   videoPath: String,
-  //   playWhenReady: Boolean = false,
-  //   onVideoPrepared: ((mediaPlayer: MediaPlayer) -> Unit)? = null,
-  //   onVideoInfoChanged: ((player: MediaPlayer, what: Int, extra: Int) -> Boolean)? = null,
-  // ) {
-  //   prepare(
-  //     videoUrl = getAssetsResourceUrl(videoPath),
-  //     playWhenReady = playWhenReady,
-  //     onVideoPrepared = onVideoPrepared,
-  //     onVideoInfoChanged = onVideoInfoChanged,
-  //   )
-  // }
 
   fun prepareRaw(
     rawResource: Int,
@@ -98,30 +80,6 @@ class LifeVideoViewHolder(
     videoView.setVideoPath(videoUrl)
     videoView.setOnPreparedListener { mediaPlayer ->
       Log.d(TAG, "prepare: onPrepared mediaPlayer=$mediaPlayer")
-
-      // mediaPlayer.setOnInfoListener { mp, what, extra ->
-      //   if (what == MediaPlayer.MEDIA_INFO_VIDEO_RENDERING_START) {
-      //     Log.d(TAG, "prepare: onInfo mp=$mp, what=$what, extra=$extra")
-      //   }
-      //   onVideoInfoChanged?.invoke(mp, what, extra) ?: false
-      // }
-      //
-      // mediaPlayer.setOnVideoSizeChangedListener { mp, width, height ->
-      //   Log.d(TAG, "prepare: onVideoSizeChanged mp=$mp, width=$width, height=$height")
-      // }
-      // // mediaPlayer.setOnBufferingUpdateListener { mp, percent ->
-      // //   Log.d(TAG, "prepare: onBufferingUpdate mp=$mp, percent=$percent")
-      // // }
-      // mediaPlayer.setOnErrorListener { mp, what, extra ->
-      //   Log.d(TAG, "prepare: onError mp=$mp, what=$what, extra=$extra")
-      //   false
-      // }
-      // mediaPlayer.setOnCompletionListener { mp ->
-      //   Log.d(TAG, "prepare: onCompletion mp=$mp")
-      // }
-      // mediaPlayer.setOnSeekCompleteListener { mp ->
-      //   Log.d(TAG, "prepare: onSeekComplete mp=$mp")
-      // }
 
       onVideoPrepared?.invoke(mediaPlayer)
       // mediaPlayer.isLooping = isLooping
