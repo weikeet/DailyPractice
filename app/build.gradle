@@ -146,6 +146,10 @@ dependencies {
 
   debugImplementation(Libs.squareup.leakcanary.leakcanary_android)
 
+  def appCenterSdkVersion = '4.4.5'
+  implementation "com.microsoft.appcenter:appcenter-analytics:${appCenterSdkVersion}"
+  implementation "com.microsoft.appcenter:appcenter-crashes:${appCenterSdkVersion}"
+
   // Hilt dependencies
   implementation "com.google.dagger:hilt-android:$hilt_version"
   kapt "com.google.dagger:hilt-android-compiler:$hilt_version"

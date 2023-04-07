@@ -26,6 +26,9 @@ import com.weiwei.cockroach.ExceptionHandler
 import com.weiwei.core.app.BaseApplication
 import com.weiwei.core.app.appInitializers
 import com.weiwei.core.global.AppGlobal
+import com.weiwei.main.app.appcenter.AppCenters
+import com.weiwei.main.app.crashes.AppCrashes
+import com.weiwei.main.app.track.PageViewedTrack
 import com.weiwei.practice.BuildConfig
 import com.weiwei.practice.TimeRecorder
 import dagger.hilt.android.HiltAndroidApp
@@ -81,7 +84,15 @@ class PracticeApp : BaseApplication() {
 
     initTimber()
 
+    AppCrashes.initialize()
+
+    AppCenters.initialize(this)
+
+    PageViewedTrack.initialize(this)
+
     // installCockroach()
+
+    AppCenters.initialize(this)
 
     appInitializers.forEach { it() }
 

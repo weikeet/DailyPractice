@@ -23,7 +23,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
 import com.weiwei.core.app.BaseFragment
+import com.weiwei.core.track.PageViewedTracker
 import com.weiwei.fluentview.ui.unit.dp
+import com.weiwei.main.ui.data.ModuleContent
+import com.weiwei.main.ui.data.ModuleFunction
 import com.weiwei.practice.R
 import com.weiwei.practice.activitytask.ActivityTaskContent
 import com.weiwei.practice.androidart.chapter_2.BookContent
@@ -69,12 +72,16 @@ import com.weiwei.practice.workout.WorkoutContent
  *
  * @date 2021.07.10
  */
-class MainFragment : BaseFragment() {
+class MainFragment : BaseFragment(), PageViewedTracker {
 
   private val adapter = MultiTypeAdapter()
   private val items = ArrayList<Any>()
 
   private val binding: FragmentMainBinding by viewBinding(FragmentMainBinding::bind)
+
+  override val trackId: String get() = "MainFragment"
+
+  override val extraPrams: Map<String, String> get() = hashMapOf("extra" to "test")
 
   override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
     return inflater.inflate(R.layout.fragment_main, container, false)
@@ -149,5 +156,15 @@ class MainFragment : BaseFragment() {
 
     items.add(BookContent())
     items.add(MessengerContent())
+    items.add(object : ModuleContent() {
+      override fun setupFunction(function: ModuleFunction) {
+        function.apply {
+          title = "Test crash"
+          clickAction = {
+            throw RuntimeException("Test crash")
+          }
+        }
+      }
+    })
   }
 }
