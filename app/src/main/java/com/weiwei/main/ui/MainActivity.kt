@@ -15,9 +15,12 @@ package com.weiwei.main.ui
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import com.weiwei.fluentview.view.WindowInsetsEdgeDelegate
 import com.weiwei.practice.R
 import com.weiwei.practice.TimeRecorder.recordStopTime
+import com.weiwei.practice.apm.ThreadMonitor
+import kotlinx.coroutines.delay
 
 /**
  * @author weicools
@@ -44,6 +47,13 @@ class MainActivity : AppCompatActivity() {
     WindowInsetsEdgeDelegate(this)
       // .setNavigationBarColor(0x20000000)
       .start()
+
+    lifecycleScope.launchWhenStarted {
+      while (true) {
+        delay(5000L)
+        ThreadMonitor.trackThreadCount()
+      }
+    }
 
     // val handlerScheduler = HandlerScheduler()
     // handlerScheduler.startScheduleRefresh()
