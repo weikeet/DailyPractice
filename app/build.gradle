@@ -6,6 +6,7 @@ plugins {
   id 'kotlin-android'
   id 'kotlin-kapt'
   id 'dagger.hilt.android.plugin'
+  id "io.gitlab.arturbosch.detekt"
   id 'com.weiwei.dependency'
 }
 
@@ -167,4 +168,30 @@ dependencies {
   implementation project(path: ':cockroach')
 
   implementation project(path: ':plug-in:shadow')
+}
+
+// https://detekt.dev/docs/gettingstarted/gradle
+detekt {
+  // Builds the AST in parallel. Rules are always executed in parallel.
+  // Can lead to speedups in larger projects. `false` by default.
+  parallel = true
+
+  // Define the detekt configuration(s) you want to use.
+  // Defaults to the default detekt configuration.
+  // config = files("path/to/config.yml")
+  config = files("${projectDir}/config/detekt-config.yml")
+}
+
+tasks.named("detekt").configure {
+  reports {
+    html.required.set(true)
+    html.outputLocation.set(file("build/reports/detekt.html"))
+    md.required.set(true)
+    md.outputLocation.set(file("build/reports/detekt.md"))
+    custom {
+      // The simple class name of your custom report.
+      reportId = "CustomJsonReport"
+      outputLocation.set(file("build/reports/detekt.json"))
+    }
+  }
 }
