@@ -19,6 +19,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.updateLayoutParams
 import androidx.core.view.updatePadding
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.drakeet.multitype.MultiTypeAdapter
@@ -66,6 +70,8 @@ import com.weiwei.practice.window.doOnApplyWindowInsets
 import com.weiwei.practice.window.systemBarBottom
 import com.weiwei.practice.window.systemBarTop
 import com.weiwei.practice.workout.WorkoutContent
+import kotlinx.coroutines.launch
+import timber.log.Timber
 
 /**
  * @author Weicools
@@ -78,6 +84,8 @@ class MainFragment : BaseFragment(), PageViewedTracker {
   private val items = ArrayList<Any>()
 
   private val binding: FragmentMainBinding by viewBinding(FragmentMainBinding::bind)
+
+  private val viewModel: MainViewModel by viewModels()
 
   override val trackId: String get() = "MainFragment"
 
@@ -117,6 +125,22 @@ class MainFragment : BaseFragment(), PageViewedTracker {
 
     adapter.items = items
     adapter.notifyDataSetChanged()
+
+    viewLifecycleOwner.lifecycleScope.launch {
+      repeatOnLifecycle(Lifecycle.State.STARTED) {
+        launch {
+          viewModel.userAssetsEvent.collect {
+            Timber.tag("MainFlowEmit").d("userAssetsEvent: $it")
+          }
+        }
+        launch {
+          viewModel.userAssetsState.collect {
+            Timber.tag("MainFlowEmit").d("userAssetsState: $it")
+          }
+        }
+      }
+    }
+
   }
 
   private fun refreshItems() {
